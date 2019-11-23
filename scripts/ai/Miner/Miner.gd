@@ -3,13 +3,14 @@ class_name Miner
 
 const IdleState = preload("res://scripts/ai/Miner/idle.gd")
 const AgitatedState = preload("res://scripts/ai/Miner/agitated.gd")
-var aiState
+const StateMachineFactory = preload("res://scripts/systems/state-machine/state_machine_factory.gd")
 
 export var DifferenceRecalculationTimeout = 0.5
 export var SeesPlayerTimeout = 0.5
 export var ExplosionDamage = 3
 
 onready var smf = StateMachineFactory.new()
+var aiState
 
 var Player
 var DifferenceRecalculationCooldown = 0
