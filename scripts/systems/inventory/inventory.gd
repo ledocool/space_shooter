@@ -16,6 +16,7 @@ var weapons = {
 		"max_ammo": -1,
 		"magazin_ammo": 0,
 		"shoot_timeout": 300,
+		"shoot_cooldown": 0,
 		"ammo_type": "",
 	},
 	"guided_rocket": {
