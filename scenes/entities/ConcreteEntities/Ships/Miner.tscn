@@ -30,12 +30,10 @@ collision_layer = 5
 collision_mask = 3
 mass = 1.0
 script = ExtResource( 2 )
-ShipDamageInvulnerability = 0
 ShipSpeed = 1200
 ShipMaxHealth = 1
 ShipCurrentHealth = 1
 VelocityDampThreshold = 250
-DifferenceRecalculationTimeout = 0.1
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
@@ -67,6 +65,16 @@ shape = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodeArea" index="0"]
 shape = SubResource( 5 )
+
+[node name="DifferenceRecalculationTimer" type="Timer" parent="Timers" index="4"]
+wait_time = 0.5
+autostart = true
+
+[node name="SeesPlayerTimer" type="Timer" parent="Timers" index="5"]
+wait_time = 0.5
+autostart = true
 [connection signal="body_entered" from="AreaEnter" to="." method="_on_AreaEnter_body_entered"]
 [connection signal="body_exited" from="AreaExit" to="." method="_on_AreaExit_body_exited"]
 [connection signal="body_entered" from="ExplodeArea" to="." method="_on_ExplodeArea_body_entered"]
+[connection signal="timeout" from="Timers/DifferenceRecalculationTimer" to="." method="_on_DifferenceRecalculationTimer_timeout"]
+[connection signal="timeout" from="Timers/SeesPlayerTimer" to="." method="_on_SeesPlayerTimer_timeout"]
