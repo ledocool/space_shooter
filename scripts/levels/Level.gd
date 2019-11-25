@@ -1,7 +1,7 @@
 extends Node
 
 const Explosion = preload("res://scenes/effects/ExplosionEffect.tscn")
-const Bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn")
+#const Bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn")
 
 func _init():
 	pass
@@ -23,8 +23,8 @@ func _ready():
 		camera._on_health_change(Player.GetHealth())
 		camera._on_ammo_change(0, 0)
 	
-func _on_Ship_shoot(_BulletType, direction, location, velocity):
-	var bullet = self.Bullet.instance()
+func _on_Ship_shoot(BulletType, direction, location, velocity):
+	var bullet = BulletType.instance()
 	bullet.SpawnAt(location, direction, velocity)
 	bullet.connect("exploded", self, "_on_Something_explode")
 	$BulletContainer.add_child(bullet)
@@ -41,5 +41,5 @@ func GetPlayer():
 	return $ShipContainer/Player
 
 
-func _on_LevelEndTrigger_body_shape_entered(body_id, body, body_shape, area_shape):
+func _on_LevelEndTrigger_body_shape_entered(_body_id, _body, _body_shape, _area_shape):
 	pass # Replace with function body.

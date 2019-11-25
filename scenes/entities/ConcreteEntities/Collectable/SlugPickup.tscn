@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/entities/AbstractEntities/Collectable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/entities/Collectable/SlugPickup.gd" type="Script" id=2]
+[ext_resource path="res://resources/Effects/Shaders/Outline.shader" type="Shader" id=3]
+[ext_resource path="res://resources/Objects/Entities/Pickups/slug_cannon.png" type="Texture" id=4]
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_name = "OutlineShader"
+shader = ExtResource( 3 )
+shader_param/width = 4
+shader_param/fade_intencity = 0.2
+shader_param/color = Color( 0.768627, 0.54902, 0.0901961, 1 )
+shader_param/color2 = Color( 0.945098, 0.705882, 0.203922, 1 )
+shader_param/speed = 5.0
+
+[node name="SlugPickup" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+material = SubResource( 2 )
+scale = Vector2( 0.29, 0.29 )
+texture = ExtResource( 4 )

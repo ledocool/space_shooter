@@ -1,10 +1,7 @@
 extends State
 
 func _physics_process(_delta):
-	var localPlayer = target.GetPlayer()
-	if(!localPlayer):
-		return;
-	if (target.IsNearPlayer(localPlayer) && target.IsSeesPlayer(localPlayer)):
+	if (target.IsNearPlayer() && target.IsSeesPlayer()):
 		state_machine.transition("agitated")
 
 # State machine callback called during transition when entering this state

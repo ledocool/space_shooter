@@ -1,13 +1,7 @@
 extends State
 
 func _physics_process(_event):
-	var localPlayer = target.GetPlayer()
-	if(!localPlayer):
-		return;
-	
-	if (target.IsNearPlayer(localPlayer)):
-		target.TrackPlayer(localPlayer)
-	else:
+	if (!target.IsNearPlayer()):
 		state_machine.transition("idle")
 	
 
