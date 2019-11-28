@@ -23,7 +23,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 636.21, 440.143 )
 
-[node name="Level" instance=ExtResource( 1 )]
+[node name="Level" index="0" instance=ExtResource( 1 )]
 
 [node name="PlayerCamera" parent="." index="0"]
 editor/display_folded = false

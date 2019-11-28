@@ -205,3 +205,5 @@ file_logging/enable_file_logging=true
 quality/intended_usage/framebuffer_allocation=0
 quality/intended_usage/framebuffer_allocation.mobile=0
 threads/thread_model=2
+quality/filters/msaa=2
+quality/depth/hdr=false

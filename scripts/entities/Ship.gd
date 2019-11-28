@@ -72,6 +72,9 @@ func GetHealth():
 func GetMaxHealth():
 	return ShipMaxHealth
 
+func GetMaxSpeed():
+	return ShipTopSpeed
+
 func SetMaxHealth(value: int):
 	ShipMaxHealth = value
 
