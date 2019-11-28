@@ -5,10 +5,11 @@ class_name UI
 # var a = 2
 # var b = "textvar"
 
-onready var hpProgressBar = get_node("UICanvas/TopGUI/Layout/Hp/Layout/Bar");
+onready var hpProgressBar = get_node("UICanvas/TopGUI/Layout/LeftStack/Hp/Layout/Bar");
 #onready var ammoIcon = get_node("TopGUI/Layout/AmmoPanel/GunIcon");
 onready var ammoLabel = get_node("UICanvas/TopGUI/Layout/AmmoPanel/AmmoCounter/AmmoLabel");
 onready var speedLabel = get_node("UICanvas/TopGUI/Layout/AmmoPanel/Speed");
+onready var speedProgress = get_node("UICanvas/TopGUI/Layout/LeftStack/Speed/Layout/Bar");
 export var MinZoom = 1
 export var MaxZoom = 1.7
 export var ZoomSter = 0.1
@@ -18,6 +19,20 @@ export var LeftCameraBorder = -100000000
 export var TopCameraBorder = -100000000
 export var BottomCameraBorder = 100000000
 export var RightCameraBorder = 100000000
+
+func GetZoom():
+	return CurrentZoom
+
+func SetZoom(zoom: float):
+	if(zoom > MaxZoom):
+		CurrentZoom = MaxZoom
+	elif(zoom < MinZoom):
+		CurrentZoom = MinZoom
+	else:
+		CurrentZoom = zoom
+	
+	var z = Vector2(CurrentZoom, CurrentZoom)
+	($Camera2D as Camera2D).set_zoom(z)
 
 func _input(event):
 	if(event.is_action("zoom_out")):
@@ -34,20 +49,6 @@ func _ready():
 		camera.set_limit(MARGIN_TOP, TopCameraBorder)
 		camera.set_limit(MARGIN_BOTTOM, BottomCameraBorder)
 
-func GetZoom():
-	return CurrentZoom
-
-func SetZoom(zoom: float):
-	if(zoom > MaxZoom):
-		CurrentZoom = MaxZoom
-	elif(zoom < MinZoom):
-		CurrentZoom = MinZoom
-	else:
-		CurrentZoom = zoom
-	
-	var z = Vector2(CurrentZoom, CurrentZoom)
-	($Camera2D as Camera2D).set_zoom(z)
-
 func _on_health_change(health):
 	hpProgressBar.value = health;
 	
@@ -58,4 +59,7 @@ func _on_ammo_change(newAmmo, maxAmmo):
 	ammoLabel.text = String(newAmmo) + "/" + String(maxAmmo);
 	
 func _on_speed_change(spd):
-	speedLabel.text = String(spd)
+	speedProgress.value = spd
+	
+func _on_max_speed_change(maxSpd):
+	speedProgress.max_value = maxSpd;
