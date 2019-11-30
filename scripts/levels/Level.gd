@@ -22,6 +22,7 @@ func _ready():
 		camera._on_max_health_change(Player.GetMaxHealth())
 		camera._on_health_change(Player.GetHealth())
 		camera._on_max_speed_change(Player.GetMaxSpeed())
+		camera._on_speed_change(0)
 		camera._on_ammo_change(0, 0)
 	
 func _on_Ship_shoot(BulletType, direction, location, velocity):
