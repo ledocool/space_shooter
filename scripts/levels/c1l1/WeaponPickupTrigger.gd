@@ -1,9 +1,9 @@
 extends Node
 
-onready var Level = self.get_parent().get_parent() as Node
+onready var Level = self.get_parent().get_parent()
+onready var ShipContainer = Level.get_node("ShipContainer/SleepingShips")
 
 func _on_SlugPickup_picked_up(_data):
 	if(Level):
-		var SleepersContainer = Level.get_node("ShipContainer/SleepingShips") as Node
-		for ship in SleepersContainer.get_children():
-			(ship as Miner).TurnOn()
+		for ship in ShipContainer.get_children():
+			ship.TurnOn()
