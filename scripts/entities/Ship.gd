@@ -27,6 +27,7 @@ var CurrentAmmo: int = 0
 var RemainningAmmo: int = 0
 var MaxAmmo: int = 0
 var BulletType = null
+var OldSpeed = 0
 
 onready var InventoryInstance = Inventory.new()
 #onready var StatusInstance = Array()
@@ -119,7 +120,10 @@ func _physics_process(_delta):
 		linear_damp = 5
 	else:
 		linear_damp = 0
-	emit_signal("speed_changed", spd)
+	
+	if(spd != OldSpeed):
+		OldSpeed = spd
+		emit_signal("speed_changed", spd)
 	if(spd > 1e-6):
 		emit_signal("coordinates_changed", position);
 		

@@ -3,9 +3,11 @@ class_name Miner
 
 const IdleState = preload("res://scripts/ai/Miner/idle.gd")
 const AgitatedState = preload("res://scripts/ai/Miner/agitated.gd")
+const OffState = preload("res://scripts/ai/Miner/off.gd")
 const StateMachineFactory = preload("res://scripts/systems/state-machine/state_machine_factory.gd")
 
 export var ExplosionDamage = 3
+export var TurnedOn = true
 
 onready var smf = StateMachineFactory.new()
 var aiState
@@ -14,22 +16,17 @@ var Player
 var NearPlayer = false
 var SeesPlayer = false
 
+func TurnOn(isOn = true):
+	TurnedOn = isOn
 
-func _onDestruction():
-	emit_signal("exploded", position, 0.25, rotation)
-
-
-func _physics_process(delta):
-	aiState._physics_process(delta);
-
+func IsOn():
+	return TurnedOn
 
 func IsNearPlayer():
 	return NearPlayer
-	
 
 func IsSeesPlayer():
 	return SeesPlayer
-
 
 func UnproductiveFlight():
 	var Player = GetPlayer()
@@ -72,6 +69,15 @@ func GetPlayer():
 	else: 
 		return Player.get_ref()
 
+func SetAiTimersTicking(isTicking):
+	($Timers/DifferenceRecalculationTimer as Timer).set_paused(!isTicking)
+	($Timers/SeesPlayerTimer as Timer).set_paused(!isTicking)
+
+func _onDestruction():
+	emit_signal("exploded", position, 0.25, rotation)
+
+func _physics_process(delta):
+	aiState._physics_process(delta);
 
 func _ready():	
 	aiState = smf.create({
@@ -79,11 +85,13 @@ func _ready():
 		'current_state': 'idle',
 		'states': [
 			{'id': 'idle', 'state': IdleState},
-			{'id': 'agitated', 'state': AgitatedState}
+			{'id': 'agitated', 'state': AgitatedState},
+			{'id': 'off', 'state': OffState}
 		],
 		'transitions': [
-			{'state_id': 'idle', 'to_states': ['agitated']},
-			{'state_id': 'agitated', 'to_states': ['idle']},
+			{'state_id': 'idle', 'to_states': ['agitated', 'off']},
+			{'state_id': 'agitated', 'to_states': ['idle', 'off']},
+			{'state_id': 'off', 'to_states': ['idle']},
 		]
 	})
 
