@@ -39,7 +39,7 @@ custom_constants/margin_bottom = 10
 [node name="Layout" type="HBoxContainer" parent="UICanvas/TopGUI"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 708.0
+margin_right = 704.0
 margin_bottom = 90.0
 
 [node name="LeftStack" type="VBoxContainer" parent="UICanvas/TopGUI/Layout"]
@@ -48,7 +48,7 @@ margin_bottom = 80.0
 
 [node name="Hp" type="Control" parent="UICanvas/TopGUI/Layout/LeftStack"]
 margin_right = 486.0
-margin_bottom = 60.0
+margin_bottom = 76.0
 rect_min_size = Vector2( 486, 76 )
 rect_pivot_offset = Vector2( 4401.09, 99.394 )
 
@@ -82,9 +82,9 @@ texture = ExtResource( 5 )
 stretch_mode = 5
 
 [node name="Speed" type="Control" parent="UICanvas/TopGUI/Layout/LeftStack"]
-margin_top = 60.0
-margin_right = 1096.0
-margin_bottom = 220.0
+margin_top = 80.0
+margin_right = 486.0
+margin_bottom = 80.0
 
 [node name="Layout" type="HBoxContainer" parent="UICanvas/TopGUI/Layout/LeftStack/Speed"]
 margin_right = 40.0
@@ -105,7 +105,7 @@ position = Vector2( 151.101, 155.514 )
 texture = ExtResource( 9 )
 
 [node name="Needle" type="Node2D" parent="UICanvas/TopGUI/Layout/LeftStack/Speed/Layout"]
-position = Vector2( 180, 20 )
+position = Vector2( 183, 20 )
 
 [node name="NeedleTop" type="Sprite" parent="UICanvas/TopGUI/Layout/LeftStack/Speed/Layout/Needle"]
 texture = ExtResource( 10 )
