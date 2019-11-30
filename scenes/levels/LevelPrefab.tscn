@@ -44,17 +44,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BulletContainer" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="BulletContainer" type="Node" parent="."]
 
-[node name="ShipContainer" type="Node2D" parent="."]
+[node name="ShipContainer" type="Node" parent="."]
 editor/display_folded = true
-z_index = 50
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Player" parent="ShipContainer" instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -68,22 +61,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AsteroidContainer" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="AsteroidContainer" type="Node" parent="."]
 
-[node name="ItemContainer" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="ItemContainer" type="Node" parent="."]
 
-[node name="Scenery" type="Node2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Scenery" type="Node" parent="."]
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="EscapeMenu" parent="MenuCanvas" instance=ExtResource( 4 )]
 visible = false
@@ -91,5 +76,7 @@ visible = false
 [node name="Background" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
-[node name="LevelEndTrigger" type="Area2D" parent="."]
-[connection signal="body_shape_entered" from="LevelEndTrigger" to="." method="_on_LevelEndTrigger_body_shape_entered"]
+[node name="TriggerContainer" type="Node" parent="."]
+
+[node name="LevelEndTrigger" type="Area2D" parent="TriggerContainer"]
+[connection signal="body_shape_entered" from="TriggerContainer/LevelEndTrigger" to="." method="_on_LevelEndTrigger_body_shape_entered"]

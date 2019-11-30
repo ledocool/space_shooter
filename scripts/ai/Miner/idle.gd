@@ -1,6 +1,9 @@
 extends State
 
 func _physics_process(_delta):
+	if(!target.IsOn()):
+		state_machine.transition("off")
+			
 	if (target.IsNearPlayer() && target.IsSeesPlayer()):
 		state_machine.transition("agitated")
 
