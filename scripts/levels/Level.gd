@@ -21,6 +21,8 @@ func _ready():
 #		print_debug(Player.connect("bullets_changed", camera, "_on_ammo_change"))
 		camera._on_max_health_change(Player.GetMaxHealth())
 		camera._on_health_change(Player.GetHealth())
+		camera._on_max_speed_change(Player.GetMaxSpeed())
+		camera._on_speed_change(0)
 		camera._on_ammo_change(0, 0)
 	
 func _on_Ship_shoot(BulletType, direction, location, velocity):
@@ -39,7 +41,6 @@ func _on_Something_explode(coordinates, explosionScale, rotation):
 	
 func GetPlayer():
 	return $ShipContainer/Player
-
 
 func _on_LevelEndTrigger_body_shape_entered(_body_id, _body, _body_shape, _area_shape):
 	pass # Replace with function body.
