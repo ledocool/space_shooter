@@ -31,6 +31,9 @@ TopCameraBorder = -7835
 BottomCameraBorder = 8916
 RightCameraBorder = 9204
 
+[node name="ShipContainer" parent="." index="2"]
+editor/display_folded = false
+
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -8566.87, 54.705 )
 
@@ -49,7 +52,7 @@ rotation = 1.57079
 position = Vector2( -4643.75, -791.358 )
 
 [node name="Miner5" parent="ShipContainer" index="5" instance=ExtResource( 2 )]
-position = Vector2( -3234.55, -1285.39 )
+position = Vector2( -2925.67, -1199.59 )
 rotation = 1.309
 
 [node name="Miner6" parent="ShipContainer" index="6" instance=ExtResource( 2 )]
@@ -434,11 +437,56 @@ position = Vector2( -2186.14, 3.21582 )
 [node name="Asteroid97" parent="AsteroidContainer" index="96" instance=ExtResource( 4 )]
 position = Vector2( 4045.05, -5237.71 )
 
+[node name="Asteroid98" parent="AsteroidContainer" index="97" instance=ExtResource( 8 )]
+position = Vector2( -3581.5, -567.589 )
+rotation = -3.14159
+
+[node name="Asteroid102" parent="AsteroidContainer" index="98" instance=ExtResource( 8 )]
+position = Vector2( -3725.81, -558.819 )
+rotation = -0.523598
+
+[node name="Asteroid99" parent="AsteroidContainer" index="99" instance=ExtResource( 7 )]
+position = Vector2( -3749.39, -589.245 )
+rotation = 0.261799
+
+[node name="Asteroid100" parent="AsteroidContainer" index="100" instance=ExtResource( 8 )]
+position = Vector2( -3805.74, -679.019 )
+rotation = -2.09439
+
+[node name="Asteroid101" parent="AsteroidContainer" index="101" instance=ExtResource( 6 )]
+position = Vector2( -3814.3, -857.844 )
+rotation = -1.309
+
+[node name="Asteroid103" parent="AsteroidContainer" index="102" instance=ExtResource( 7 )]
+position = Vector2( -3418.16, -650.76 )
+rotation = -2.61799
+
+[node name="Asteroid104" parent="AsteroidContainer" index="103" instance=ExtResource( 6 )]
+position = Vector2( -3438.2, -739.979 )
+rotation = -1.309
+
+[node name="Asteroid105" parent="AsteroidContainer" index="104" instance=ExtResource( 6 )]
+position = Vector2( -3776.56, -740.535 )
+rotation = -1.83259
+
+[node name="Asteroid106" parent="AsteroidContainer" index="105" instance=ExtResource( 6 )]
+position = Vector2( -3483.34, -632.295 )
+
+[node name="Asteroid107" parent="AsteroidContainer" index="106" instance=ExtResource( 5 )]
+position = Vector2( -3620.5, -632.135 )
+
+[node name="Asteroid108" parent="AsteroidContainer" index="107" instance=ExtResource( 4 )]
+position = Vector2( -3610.05, -691.427 )
+
+[node name="Asteroid109" parent="AsteroidContainer" index="108" instance=ExtResource( 3 )]
+position = Vector2( -3677.84, -647.961 )
+rotation = 2.09439
+
+[node name="ItemContainer" parent="." index="4"]
+editor/display_folded = true
+
 [node name="SlugPickup" parent="ItemContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -5919.03, 1339.17 )
-
-[node name="Scenery" parent="." index="5"]
-editor/display_folded = true
 
 [node name="StartingLocationHugeDebree" parent="Scenery" index="0" instance=ExtResource( 10 )]
 position = Vector2( -9835.74, 4.36401 )
