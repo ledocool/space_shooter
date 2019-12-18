@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
@@ -9,17 +9,18 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/SlugPickup.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/entities/level1/StartingLocationHugeDebree.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/StartingLocationHugeDebree.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid3.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree1.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree2.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree3.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/entities/level1/LevelExit.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Destructible/Crate.tscn" type="PackedScene" id=18]
-[ext_resource path="res://resources/Objects/Scenery/green_clouds/game_background.png" type="Texture" id=19]
-[ext_resource path="res://scripts/levels/c1l1/WeaponPickupTrigger.gd" type="Script" id=20]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Harvester.tscn" type="PackedScene" id=19]
+[ext_resource path="res://resources/Objects/Backgrounds/star.png" type="Texture" id=20]
+[ext_resource path="res://scripts/levels/c1l1/WeaponPickupTrigger.gd" type="Script" id=21]
 
 [node name="Level" index="0" instance=ExtResource( 1 )]
 
@@ -30,9 +31,6 @@ LeftCameraBorder = -10000
 TopCameraBorder = -7835
 BottomCameraBorder = 8916
 RightCameraBorder = 9204
-
-[node name="ShipContainer" parent="." index="2"]
-editor/display_folded = false
 
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -8566.87, 54.705 )
@@ -898,6 +896,9 @@ position = Vector2( -5518.03, -188.808 )
 rotation = -1.57079
 sleeping = false
 
+[node name="Harvester" parent="Scenery" index="90" instance=ExtResource( 19 )]
+position = Vector2( 1995.29, 203.034 )
+
 [node name="Background" parent="." index="7"]
 editor/display_folded = true
 layer = -30
@@ -913,12 +914,12 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxLayer" index="0"]
 position = Vector2( 0, -8.19141 )
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
 [node name="WpnPickupTrigger" type="Node" parent="TriggerContainer" index="1"]
-script = ExtResource( 20 )
+script = ExtResource( 21 )
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]

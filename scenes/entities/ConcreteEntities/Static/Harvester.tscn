@@ -1,48 +1,107 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://resources/Objects/Structures/harvester_base.png" type="Texture" id=1]
-[ext_resource path="res://resources/Objects/Structures/harvester_pipes.png" type="Texture" id=2]
-[ext_resource path="res://resources/Objects/Structures/harvester_roof_blur.png" type="Texture" id=3]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Details/Pipes/PipeBend.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Details/Pipes/PipeHang.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building4.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building5.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building6.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building7.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Barrel.tscn" type="PackedScene" id=8]
 
 [node name="Harvester" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Building4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2842.23, 335.992 )
 
-[node name="Base" type="Sprite" parent="StaticBody2D"]
-texture = ExtResource( 1 )
+[node name="Building1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1460.22, -3432.64 )
 
-[node name="Pipes" type="Sprite" parent="StaticBody2D"]
-visible = false
-texture = ExtResource( 2 )
+[node name="Building2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -387.933, 3573.94 )
 
-[node name="Roof" type="Sprite" parent="StaticBody2D"]
-visible = false
-texture = ExtResource( 3 )
+[node name="Building3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1177.28, -2200.66 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-visible = false
-polygon = PoolVector2Array( 395.075, -3922.2, 1028.7, -3946.93, 1909.6, -3956.2, 2268.14, -3943.84, 2453.59, -3919.11, 2459.77, -3903.66, 2478.32, -3226.76, 2493.77, -2886.76, 2507.58, -2373.84, 2510.23, -1968.38, 2526.13, -1414.53, 2528.78, -1242.27, 2518.18, -1123.02, 2481.08, -1072.67, 2425.42, -1056.77, 2118.02, -1064.72, 2115.37, -709.618, 2255.82, -706.968, 2552.63, -693.718, 2571.18, -672.518, 2579.13, -651.318, 2581.78, -555.916, 2846.78, -540.016, 2854.73, -214.062, 2852.08, -169.011, 2854.73, 313.294, 2862.68, 660.448, 2867.98, 697.549, 2867.98, 965.202, 2833.53, 1598.56, 2581.78, 1611.81, 2568.53, 1619.76, 2573.83, 1680.71, 2571.18, 1754.91, 2539.38, 1778.76, 2160.42, 1789.36, 1892.77, 1794.66, 1593.31, 1799.96, 1296.51, 1810.56, 1246.16, 1818.51, 1132.21, 1810.56, 1129.08, 1976.17, 1117.98, 2077.95, 1093.92, 2100.16, 877.396, 2103.86, 597.953, 2111.26, 288.9, 2122.36, 290.751, 2577.62, 298.153, 2836.7, 287.049, 2897.77, 257.44, 2916.28, 94.5855, 2919.98, 18.7103, 2938.49, -110.833, 2940.34, -110.833, 3136.5, 11.3078, 3140.2, 22.4116, 3240.14, 22.4116, 3378.93, 33.5154, 3582.5, 22.4117, 3841.59, 11.3079, 4122.88, 18.7104, 4367.16, -192.26, 4380.12, -266.284, 4389.37, -704.88, 4389.37, -875.137, 4391.22, -1015.78, 4396.77, -1128.67, 4406.02, -1435.87, 4413.43, -1731.97, 4402.32, -1917.03, 4400.47, -2016.97, 4396.77, -2122.45, 4393.07, -2150.21, 4391.22, -2157.61, 4009.99, -2159.46, 3726.85, -2161.31, 3489.97, -2165.02, 3249.39, -2185.37, 3162.41, -2335.27, 3153.16, -2346.38, 3136.5, -2335.27, 2770.08, -2324.17, 2411.06, -2320.47, 2114.96, -2314.92, 1794.81, -2314.92, 1711.53, -2321.54, 1596.33, -2415.9, 1594.89, -2544.39, 1556.08, -2612.87, 1519.06, -2686.89, 1446.89, -2753.51, 1334, -2792.38, 1202.61, -2805.33, 1119.33, -2805.33, 764.013, -2803.48, 379.085, -2803.48, 116.298, -2801.63, -78.017, -2816.43, -394.472, -2816.43, -609.143, -2812.73, -1001.47, -2807.18, -1325.33, -2796.08, -1493.74, -2773.87, -1571.46, -2727.6, -1656.59, -2642.48, -1723.21, -2555.5, -1767.63, -2363.03, -1797.24, -2009.57, -1819.45, -1754.18, -1836.1, -1361.85, -1865.71, -1049.1, -1876.81, -745.595, -1900.87, -630.857, -1900.87, -630.857, -2204.37, -632.708, -2594.85, -632.708, -2816.93, -530.924, -2831.73, -364.369, -2861.34, -212.618, -2870.6, -225.572, -2894.65, -251.481, -2931.67, -268.137, -3020.5, -282.942, -3220.36, -279.24, -3473.9, -281.091, -3708.92, -282.942, -4069.79, -275.539, -4210.44, -255.182, -4265.96, -220.021, -4306.67, -145.996, -4325.18, 194.517, -4317.78, 253.737, -4288.17, 288.899, -4225.25, 300.002, -4175.28, 303.703, -4101.25, 307.405, -3657.11, 307.404, -3190.75, 311.106, -2931.67, 309.255, -2898.35, 399.935, -2896.5, 403.636, -2996.44, 405.487, -3211.11, 409.188, -3464.64, 405.487, -3581.23, 401.786, -3797.75 )
+[node name="Building5" parent="." instance=ExtResource( 5 )]
 
-[node name="PipeBend" parent="StaticBody2D" instance=ExtResource( 4 )]
-position = Vector2( -2612.67, 1102.74 )
+[node name="Building6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3141.67, -3088.41 )
 
-[node name="PipeBend2" parent="StaticBody2D" instance=ExtResource( 4 )]
-position = Vector2( -2606.14, 544.523 )
-rotation = 1.57079
+[node name="Building7" parent="." instance=ExtResource( 7 )]
+position = Vector2( -448.671, 2353.17 )
 
-[node name="PipeHang" parent="StaticBody2D" instance=ExtResource( 5 )]
-position = Vector2( -2798.12, 829.445 )
+[node name="Barrel14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4169.55, -4070.67 )
 
-[node name="PipeHang2" parent="StaticBody2D" instance=ExtResource( 5 )]
-position = Vector2( -2814.39, 331.653 )
+[node name="Barrel5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2625.46, -4070.67 )
 
-[node name="PipeHang3" parent="StaticBody2D" instance=ExtResource( 5 )]
-position = Vector2( -2811.13, -162.885 )
+[node name="Barrel4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2113.37, -4070.67 )
 
-[node name="PipeHang4" parent="StaticBody2D" instance=ExtResource( 5 )]
-position = Vector2( -2811.13, -641.156 )
+[node name="Barrel6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3143.28, -4070.67 )
 
-[node name="PipeHang5" parent="StaticBody2D" instance=ExtResource( 5 )]
-position = Vector2( -2814.39, -1090.14 )
+[node name="Barrel7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3661.09, -4070.67 )
+
+[node name="Barrel" parent="." instance=ExtResource( 8 )]
+position = Vector2( 903.453, 1901.08 )
+
+[node name="Barrel2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 901.602, 2406.78 )
+
+[node name="Barrel8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 900.914, 3923.89 )
+
+[node name="Barrel9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2186.47, -1141.47 )
+
+[node name="Barrel10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2340.97, -1654.13 )
+
+[node name="Barrel11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2057.25, -2122.33 )
+
+[node name="Barrel12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 902.721, 3421.96 )
+
+[node name="Barrel3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 899.084, 2915.39 )
+
+[node name="Barrel13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2620.34, -2114.07 )
+
+[node name="Barrel15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2873.16, -1650.57 )
+
+[node name="Barrel16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2704.62, -1151.96 )
+
+[node name="Barrel17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3140.02, -2100.02 )
+
+[node name="Barrel18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3217.27, -1166 )
+
+[node name="Barrel19" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3406.88, -1657.59 )
+
+[node name="Barrel20" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3659.7, -2114.07 )
+
+[node name="Barrel21" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4172.36, -2100.02 )
+
+[node name="Barrel22" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3926.56, -1650.57 )
+
+[node name="Barrel23" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3751, -1144.94 )
+
+[node name="Barrel24" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4270.67, -1137.91 )
+
+[node name="Barrel25" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4439.22, -1650.57 )
