@@ -11,11 +11,9 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Harvester.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=10]
 
-
 [node name="Level" index="0" instance=ExtResource( 1 )]
 
 [node name="PlayerCamera" parent="." index="0"]
-editor/display_folded = false
 position = Vector2( -1684.84, 28.8008 )
 LeftCameraBorder = -1000000
 TopCameraBorder = -1000000
@@ -27,6 +25,9 @@ editor/display_folded = false
 
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -1684.84, 28.8008 )
+
+[node name="AsteroidContainer" parent="." index="3"]
+editor/display_folded = true
 
 [node name="StaticAsteroid2" parent="AsteroidContainer" index="0" instance=ExtResource( 2 )]
 position = Vector2( 4766.78, -6837.83 )
@@ -219,12 +220,12 @@ position = Vector2( 5745.13, -7096.57 )
 position = Vector2( -4107.1, -3982.6 )
 
 [node name="SlugPickup" parent="ItemContainer" index="0" instance=ExtResource( 8 )]
-position = Vector2( 692.67, 361.288 )
+position = Vector2( 175.522, 706.053 )
 collision_layer = 1
 collision_mask = 1
 
 [node name="Harvester" parent="Scenery" index="0" instance=ExtResource( 9 )]
-position = Vector2( 4052.43, 335.762 )
+position = Vector2( 2775.95, 160.246 )
 
 [node name="LevelExit" parent="Scenery" index="1" instance=ExtResource( 10 )]
 position = Vector2( 9063.01, -2105.9 )

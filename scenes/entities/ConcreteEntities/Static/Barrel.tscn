@@ -13,4 +13,5 @@ radius = 251.08
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 shape = SubResource( 1 )

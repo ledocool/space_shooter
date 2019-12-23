@@ -5,8 +5,6 @@
 [ext_resource path="res://resources/Objects/Crates/cargo_crate_1.png" type="Texture" id=3]
 [ext_resource path="res://resources/Objects/Crates/cargo_crate_2.png" type="Texture" id=4]
 
-
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
@@ -15,7 +13,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Crate" instance=ExtResource( 1 )]
+[node name="Crate" index="0" instance=ExtResource( 1 )]
 mass = 100.0
 
 [node name="AnimatedSprite" parent="." index="0"]
@@ -23,4 +21,5 @@ frames = SubResource( 1 )
 speed_scale = 0.1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+visible = false
 polygon = PoolVector2Array( 147.222, -62.9679, 118.955, 1.05782, 98.8618, 31.3678, 95.4562, 54.5261, 82.5148, 86.1984, 38.9228, 95.3935, -7.39362, 121.957, -69.0354, 101.524, -109.222, 57.2506, -148.386, 38.5197, -125.569, -23.4627, -115.011, -58.8811, -112.968, -79.3149, -93.5559, -114.733, -65.6298, -122.566, -23.7406, -119.501, 19.8513, -117.798, 37.9012, -101.111 )
