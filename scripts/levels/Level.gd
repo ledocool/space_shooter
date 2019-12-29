@@ -3,6 +3,16 @@ extends Node
 const Explosion = preload("res://scenes/effects/ExplosionEffect.tscn")
 #const Bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn")
 
+#stats
+var enemyHealthDamage = 0
+var playerHealthDamage = 0
+var enemiesKilled = 0
+var playerShootsBullet = 0
+# warning-ignore:unused_class_variable
+var playerSecretsFound = 0
+# warning-ignore:unused_class_variable
+var secretsMax = 0
+
 func _init():
 	pass
 
@@ -10,17 +20,21 @@ func _ready():
 	for shp in $ShipContainer.get_children():
 		if(shp is Ship):
 			print_debug("Connecting " + shp.get_name())
-			print_debug(shp.connect("shoot_bullet", self, "_on_Ship_shoot"))
-			print_debug(shp.connect("exploded", self, "_on_Something_explode"))
+			shp.connect("shoot_bullet", self, "_on_Ship_shoot")
+			shp.connect("exploded", self, "_on_Something_explode")
+			if(!shp is PlayerShip):
+				shp.connect("health_changed", self, "_on_enemyHealth_change")
 			
 	var Player = $ShipContainer/Player as Ship
 	if(Player):
 		var camera = $PlayerCamera as UI
 		print_debug(Player.connect("health_changed", camera, "_on_health_change"))
-		print_debug(Player.connect("speed_changed", camera, "_on_speed_change"))
+		Player.connect("health_changed", self, "_on_playerHealth_change")
+		Player.connect("speed_changed", camera, "_on_speed_change")
+		Player.connect("shoot_bullet", self, "_on_player_shootBullet")
 #		print_debug(Player.connect("bullets_changed", camera, "_on_ammo_change"))
 		camera._on_max_health_change(Player.GetMaxHealth())
-		camera._on_health_change(Player.GetHealth())
+		camera._on_health_change(0, Player.GetHealth())
 		camera._on_max_speed_change(Player.GetMaxSpeed())
 		camera._on_speed_change(0)
 		camera._on_ammo_change(0, 0)
@@ -39,8 +53,42 @@ func _on_Something_explode(coordinates, explosionScale, rotation):
 	$BulletContainer.add_child(explosion)
 	explosion.get_node("AnimatedSprite").play()
 	
+func _on_playerHealth_change(oldhealth, health):
+	if(oldhealth > health):
+		playerHealthDamage += oldhealth - health
+	if(health <= 0):
+		var dictionaryData: Dictionary = {
+			"shots_fired": playerShootsBullet,
+			"damage_dealt": enemyHealthDamage,
+			"enemies_killed": enemiesKilled,
+			"accuracy": String(0) + "%",
+			"secrets_found": String(self.playerSecretsFound) + "/" + String(self.secretsMax)
+		}
+		var gameLoseMenu = $MenuCanvas/MarginContainer/GameLoseMenu
+		gameLoseMenu.SetData(dictionaryData)
+		gameLoseMenu.visible = true
+
+func _on_enemyHealth_change(oldhealth, health):
+	if(oldhealth > health):
+		enemyHealthDamage += oldhealth - health
+	if(health <= 0):
+		enemiesKilled += 1
+
+func _on_player_shootBullet(_BulletType, _direction, _location, _velocity):
+	playerShootsBullet += 1
+
 func GetPlayer():
 	return $ShipContainer/Player
 
-func _on_LevelEndTrigger_body_shape_entered(_body_id, _body, _body_shape, _area_shape):
-	pass # Replace with function body.
+func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_shape):
+	if(body is PlayerShip):
+		var dictionaryData: Dictionary = {
+			"shots_fired": playerShootsBullet,
+			"damage_dealt": enemyHealthDamage,
+			"enemies_killed": enemiesKilled,
+			"accuracy": String(0) + "%",
+			"secrets_found": String(self.playerSecretsFound) + "/" + String(self.secretsMax)
+		}
+		var gameWinMenu = $MenuCanvas/MarginContainer/GameWinMenu
+		gameWinMenu.SetData(dictionaryData)
+		gameWinMenu.visible = true

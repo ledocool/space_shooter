@@ -26,4 +26,4 @@ func _on_Options_pressed():
 
 func _on_Exit_pressed():
 	var changed = get_tree().change_scene("res://scenes/interface/MainMenu.tscn")
-	print_debug("New game: " + String(changed))
+	print_debug("Exit: " + String(changed))

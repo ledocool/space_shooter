@@ -65,7 +65,7 @@ func _ready():
 		camera.set_limit(MARGIN_TOP, TopCameraBorder)
 		camera.set_limit(MARGIN_BOTTOM, BottomCameraBorder)
 
-func _on_health_change(health):
+func _on_health_change(_oldhealth, health):
 	hpProgressBar.value = health;
 	
 func _on_max_health_change(maxHealth):
