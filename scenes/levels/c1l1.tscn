@@ -971,6 +971,10 @@ sleeping = false
 [node name="Harvester" parent="Scenery" index="80" instance=ExtResource( 19 )]
 position = Vector2( 1995.29, 203.034 )
 
+[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="2"]
+anchor_right = 0.0
+anchor_bottom = 0.0
+
 [node name="Background" parent="." index="7"]
 editor/display_folded = true
 layer = -30
