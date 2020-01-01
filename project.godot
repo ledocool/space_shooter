@@ -90,6 +90,10 @@ config/name="SpaceShooter"
 run/main_scene="res://scenes/interface/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+LevelLoader="*res://scripts/levels/LevelLoader.gd"
+
 [debug]
 
 settings/stdout/verbose_stdout=true

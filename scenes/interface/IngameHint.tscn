@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/Ui/Icons/ship_engine.png" type="Texture" id=1]
 [ext_resource path="res://resources/Ui/Icons/ship_engine_fire.png" type="Texture" id=2]
+[ext_resource path="res://resources/Ui/Styles/theme.tres" type="Theme" id=3]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -11,21 +12,22 @@ animations = [ {
 "speed": 2.0
 } ]
 
-[node name="IngameHint" type="Control"]
-margin_right = 643.0
-margin_bottom = 374.0
+[node name="IngameHint" type="Node2D"]
+z_index = -50
+z_as_relative = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Container" type="Control" parent="HBoxContainer"]
-margin_bottom = 374.0
-
-[node name="Sprite" type="AnimatedSprite" parent="HBoxContainer/Container"]
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 60.8001, 59.8502 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 playing = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 126.0
+margin_right = 328.0
+margin_bottom = 119.0
+theme = ExtResource( 3 )
+custom_colors/default_color = Color( 0.698039, 0.792157, 0.929412, 1 )
 text = "I am a simple but adorable text hint"
