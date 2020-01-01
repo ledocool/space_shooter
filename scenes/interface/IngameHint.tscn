@@ -8,18 +8,24 @@ animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 2.0
 } ]
 
-[node name="IngameHint" type="Node2D"]
+[node name="IngameHint" type="Control"]
+margin_right = 643.0
+margin_bottom = 374.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="Sprite" type="AnimatedSprite" parent="HBoxContainer"]
+[node name="Container" type="Control" parent="HBoxContainer"]
+margin_bottom = 374.0
+
+[node name="Sprite" type="AnimatedSprite" parent="HBoxContainer/Container"]
+scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
+playing = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
-margin_bottom = 40.0
 text = "I am a simple but adorable text hint"
