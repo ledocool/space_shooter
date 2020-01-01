@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
@@ -19,11 +19,13 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree3.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Harvester.tscn" type="PackedScene" id=19]
-[ext_resource path="res://resources/Objects/Backgrounds/star.png" type="Texture" id=20]
-[ext_resource path="res://scripts/levels/c1l1/WeaponPickupTrigger.gd" type="Script" id=21]
-[ext_resource path="res://resources/Objects/Asteroids/asteroid2.png" type="Texture" id=22]
-[ext_resource path="res://resources/Objects/Asteroids/asteroid.png" type="Texture" id=23]
-[ext_resource path="res://resources/Objects/Asteroids/asteroid1.png" type="Texture" id=24]
+[ext_resource path="res://scenes/interface/hints/EngineHint.tscn" type="PackedScene" id=20]
+[ext_resource path="res://scenes/interface/hints/GunHint.tscn" type="PackedScene" id=21]
+[ext_resource path="res://resources/Objects/Backgrounds/star.png" type="Texture" id=22]
+[ext_resource path="res://scripts/levels/c1l1/WeaponPickupTrigger.gd" type="Script" id=23]
+[ext_resource path="res://resources/Objects/Asteroids/asteroid2.png" type="Texture" id=24]
+[ext_resource path="res://resources/Objects/Asteroids/asteroid.png" type="Texture" id=25]
+[ext_resource path="res://resources/Objects/Asteroids/asteroid1.png" type="Texture" id=26]
 
 [node name="Level" index="0" instance=ExtResource( 1 )]
 
@@ -598,9 +600,6 @@ editor/display_folded = true
 [node name="SlugPickup" parent="ItemContainer" index="0" instance=ExtResource( 10 )]
 position = Vector2( -5919.03, 1339.17 )
 
-[node name="Scenery" parent="." index="5"]
-editor/display_folded = true
-
 [node name="StartingLocationHugeDebree" parent="Scenery" index="0" instance=ExtResource( 11 )]
 position = Vector2( -9835.74, 4.36401 )
 
@@ -971,9 +970,11 @@ sleeping = false
 [node name="Harvester" parent="Scenery" index="80" instance=ExtResource( 19 )]
 position = Vector2( 1995.29, 203.034 )
 
-[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="2"]
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="EngineHint" parent="Scenery" index="81" instance=ExtResource( 20 )]
+position = Vector2( -8462.17, -13.9871 )
+
+[node name="IngameHint" parent="Scenery/EngineHint" index="2" instance=ExtResource( 21 )]
+position = Vector2( 2306.25, 1403.17 )
 
 [node name="Background" parent="." index="7"]
 editor/display_folded = true
@@ -990,14 +991,17 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Background/ParallaxLayer" index="0"]
 position = Vector2( 0, -8.19141 )
-texture = ExtResource( 20 )
+texture = ExtResource( 22 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
+[node name="TriggerContainer" parent="." index="8"]
+editor/display_folded = true
+
 [node name="WpnPickupTrigger" type="Node" parent="TriggerContainer" index="1"]
-script = ExtResource( 21 )
+script = ExtResource( 23 )
 
 [node name="BackgroundScenery" type="Node2D" parent="." index="9"]
 editor/display_folded = true
@@ -1005,89 +1009,89 @@ editor/display_folded = true
 [node name="asteroid2" type="Sprite" parent="BackgroundScenery" index="0"]
 position = Vector2( -2589.57, 1266.06 )
 scale = Vector2( 0.466452, 0.466452 )
-texture = ExtResource( 22 )
+texture = ExtResource( 24 )
 
 [node name="asteroid" type="Sprite" parent="BackgroundScenery" index="1"]
 position = Vector2( 678.722, 6542.28 )
 scale = Vector2( 0.169024, 0.169024 )
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 
 [node name="asteroid1" type="Sprite" parent="BackgroundScenery" index="2"]
 position = Vector2( -3023.06, 3150.64 )
 rotation = -1.57079
 scale = Vector2( 2.7739, 2.7739 )
-texture = ExtResource( 24 )
+texture = ExtResource( 26 )
 
 [node name="asteroid3" type="Sprite" parent="BackgroundScenery" index="3"]
 position = Vector2( -1099.04, 5574.93 )
 scale = Vector2( 0.681753, 0.681753 )
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 
 [node name="asteroid4" type="Sprite" parent="BackgroundScenery" index="4"]
 position = Vector2( 4237.88, 6310.73 )
-texture = ExtResource( 24 )
+texture = ExtResource( 26 )
 
 [node name="asteroid7" type="Sprite" parent="BackgroundScenery" index="5"]
 position = Vector2( 6936.53, 5301.08 )
 scale = Vector2( 0.328146, 0.328146 )
-texture = ExtResource( 24 )
+texture = ExtResource( 26 )
 
 [node name="asteroid8" type="Sprite" parent="BackgroundScenery" index="6"]
 position = Vector2( 5898.78, 5770.26 )
 scale = Vector2( 0.361739, 0.361739 )
-texture = ExtResource( 22 )
+texture = ExtResource( 24 )
 
 [node name="asteroid9" type="Sprite" parent="BackgroundScenery" index="7"]
 position = Vector2( 3226.66, 7278.33 )
 rotation = -1.0472
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 
 [node name="asteroid10" type="Sprite" parent="BackgroundScenery" index="8"]
 position = Vector2( 1060.15, -4047.97 )
 scale = Vector2( 0.261041, 0.261041 )
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 
 [node name="asteroid11" type="Sprite" parent="BackgroundScenery" index="9"]
 position = Vector2( 2563.65, -7551.98 )
 scale = Vector2( 0.730221, 0.730221 )
-texture = ExtResource( 24 )
+texture = ExtResource( 26 )
 
 [node name="asteroid12" type="Sprite" parent="BackgroundScenery" index="10"]
 position = Vector2( 4446.79, -8301.37 )
 rotation = 1.57079
 scale = Vector2( 1.3988, 1.3988 )
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 
 [node name="asteroid13" type="Sprite" parent="BackgroundScenery" index="11"]
 position = Vector2( 6177.12, -7580.27 )
 rotation = 1.83259
 scale = Vector2( 0.502518, 0.502518 )
-texture = ExtResource( 24 )
+texture = ExtResource( 26 )
 
 [node name="asteroid14" type="Sprite" parent="BackgroundScenery" index="12"]
 position = Vector2( 7397.71, -7840.44 )
 rotation = -0.785397
 scale = Vector2( 1.31517, 1.31517 )
-texture = ExtResource( 22 )
+texture = ExtResource( 24 )
 
 [node name="asteroid15" type="Sprite" parent="BackgroundScenery" index="13"]
 position = Vector2( -1366.12, -3421.49 )
 rotation = -1.57079
-texture = ExtResource( 24 )
+texture = ExtResource( 26 )
 
 [node name="asteroid16" type="Sprite" parent="BackgroundScenery" index="14"]
 position = Vector2( 9123.94, 3554.27 )
 rotation = 1.309
 scale = Vector2( 2.80266, 2.80266 )
-texture = ExtResource( 22 )
+texture = ExtResource( 24 )
 
 [node name="asteroid5" type="Sprite" parent="BackgroundScenery" index="15"]
 position = Vector2( 322.945, 7271.08 )
 rotation = 1.309
-texture = ExtResource( 22 )
+texture = ExtResource( 24 )
 
 [node name="asteroid6" type="Sprite" parent="BackgroundScenery" index="16"]
 position = Vector2( 5350.51, 7720.53 )
 rotation = 0.785397
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]
