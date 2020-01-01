@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="IngameHint" type="Node2D"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="AnimatedSprite" parent="HBoxContainer"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+margin_right = 500.0
+margin_bottom = 100.0
+text = "I am a simple but adorable text hint"
