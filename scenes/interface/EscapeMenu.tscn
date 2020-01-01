@@ -18,43 +18,43 @@ anchor_bottom = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="ItemList" type="GridContainer" parent="CenterContainer"]
+[node name="ItemList" type="VBoxContainer" parent="CenterContainer"]
 pause_mode = 2
 margin_left = 901.0
-margin_top = 455.0
+margin_top = 447.0
 margin_right = 1019.0
-margin_bottom = 624.0
-custom_constants/vseparation = 11
+margin_bottom = 632.0
+custom_constants/separation = 15
 
 [node name="Resume" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 margin_right = 118.0
 text = "Resume"
 
 [node name="Save game" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
-margin_top = 36.0
+margin_top = 40.0
 margin_right = 118.0
-margin_bottom = 61.0
+margin_bottom = 65.0
 disabled = true
 text = "Save game"
 
 [node name="Load game" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
-margin_top = 72.0
+margin_top = 80.0
 margin_right = 118.0
-margin_bottom = 97.0
+margin_bottom = 105.0
 disabled = true
 text = "Load game"
 
 [node name="Options" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
-margin_top = 108.0
+margin_top = 120.0
 margin_right = 118.0
-margin_bottom = 133.0
+margin_bottom = 145.0
 disabled = true
 text = "Options"
 
 [node name="Exit" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
-margin_top = 144.0
+margin_top = 160.0
 margin_right = 118.0
-margin_bottom = 169.0
+margin_bottom = 185.0
 text = "Exit"
 [connection signal="pressed" from="CenterContainer/ItemList/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="CenterContainer/ItemList/Save game" to="." method="_on_Save_game_pressed"]
