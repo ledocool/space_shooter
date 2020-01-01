@@ -1,13 +1,14 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/entities/AbstractEntities/StaticAsteroid.tscn" type="PackedScene" id=1]
-[ext_resource path="res://resources/Objects/Entities/debree2.png" type="Texture" id=2]
+[ext_resource path="res://resources/Objects/Debrees/debree2.png" type="Texture" id=2]
 
-[node name="StaticDebree" instance=ExtResource( 1 )]
+[node name="StaticDebree" index="0" instance=ExtResource( 1 )]
 
 [node name="Sprite" parent="StaticBody2D" index="0"]
 position = Vector2( -0.487671, 0 )
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="1"]
+visible = false
 polygon = PoolVector2Array( -372.896, 386.13, -406.058, 344.678, -446.048, 299.812, -458.727, 272.014, -516.76, 180.331, -538.218, 140.342, -568.942, 89.1356, -563.577, 57.4367, -549.434, 12.5705, -508.47, -86.9154, -486.524, -148.85, -499.204, -267.355, -497.741, -274.671, -488.963, -278.084, -457.264, -313.685, -384.113, -378.058, -347.049, -406.831, -327.054, -414.146, -236.347, -427.313, -160.269, -433.653, -14.942, -436.579, 124.533, -434.628, 160.134, -431.215, 178.178, -400.003, 193.783, -371.718, 195.734, -358.063, 193.783, -324.414, 182.079, -242.972, 184.03, -215.662, 201.586, -177.623, 243.039, -101.058, 262.413, -55.5848, 264.355, -54.1978, 268.238, -15.6406, 268.793, 4.88625, 259.362, 105.856, 252.15, 169.379, 231.9, 260.64, 224.133, 312.234, 152.012, 311.125, 145.909, 315.563, 71.8461, 336.367, -9.70654, 370.209, -43.5481, 385.188, -125.378, 407.934, -135.642, 413.759, -173.089, 407.102, -264.628, 394.065, -359.218, 387.13, -368.927, 387.685 )

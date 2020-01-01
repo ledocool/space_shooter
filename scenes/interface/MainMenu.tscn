@@ -32,44 +32,44 @@ margin_bottom = 541.226
 
 [node name="Margincontainer" type="MarginContainer" parent="Menu inner"]
 margin_left = 319.0
-margin_top = 437.0
+margin_top = 427.0
 margin_right = 438.0
-margin_bottom = 642.0
+margin_bottom = 652.0
 
-[node name="GridContainer" type="GridContainer" parent="Menu inner/Margincontainer"]
+[node name="GridContainer" type="VBoxContainer" parent="Menu inner/Margincontainer"]
 margin_right = 119.0
-margin_bottom = 205.0
-custom_constants/vseparation = 11
+margin_bottom = 225.0
+custom_constants/separation = 15
 
 [node name="New game" parent="Menu inner/Margincontainer/GridContainer" instance=ExtResource( 3 )]
 text = "New game"
 
 [node name="Load game" parent="Menu inner/Margincontainer/GridContainer" instance=ExtResource( 3 )]
-margin_top = 36.0
-margin_bottom = 61.0
+margin_top = 40.0
+margin_bottom = 65.0
 disabled = true
 text = "Load game"
 
 [node name="Options" parent="Menu inner/Margincontainer/GridContainer" instance=ExtResource( 3 )]
-margin_top = 72.0
-margin_bottom = 97.0
+margin_top = 80.0
+margin_bottom = 105.0
 disabled = true
 text = "Options"
 
 [node name="Playground" parent="Menu inner/Margincontainer/GridContainer" instance=ExtResource( 3 )]
-margin_top = 108.0
-margin_bottom = 133.0
+margin_top = 120.0
+margin_bottom = 145.0
 text = "Playground"
 
 [node name="Credits" parent="Menu inner/Margincontainer/GridContainer" instance=ExtResource( 3 )]
-margin_top = 144.0
-margin_bottom = 169.0
+margin_top = 160.0
+margin_bottom = 185.0
 disabled = true
 text = "Credits"
 
 [node name="Exit" parent="Menu inner/Margincontainer/GridContainer" instance=ExtResource( 3 )]
-margin_top = 180.0
-margin_bottom = 205.0
+margin_top = 200.0
+margin_bottom = 225.0
 text = "Exit"
 [connection signal="pressed" from="Menu inner/Margincontainer/GridContainer/New game" to="." method="_on_New_game_pressed"]
 [connection signal="pressed" from="Menu inner/Margincontainer/GridContainer/Playground" to="." method="_on_Playground_pressed"]

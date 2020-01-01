@@ -1,0 +1,170 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/interface/MenuBoard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/ui/GameLoseMenu.gd" type="Script" id=2]
+[ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=3]
+[ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://resources/Ui/Fonts/Xolonium/Xolonium-Bold.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+font_data = SubResource( 1 )
+
+[node name="MenuBoard" instance=ExtResource( 1 )]
+size_flags_horizontal = 5
+size_flags_vertical = 5
+script = ExtResource( 2 )
+
+[node name="MarginContainer" parent="Background" index="0"]
+rect_pivot_offset = Vector2( 2240, -410 )
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Background/MarginContainer" index="0"]
+margin_right = 1840.0
+margin_bottom = 1000.0
+split_offset = 130
+dragger_visibility = 1
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VSplitContainer" index="0"]
+margin_top = 65.0
+margin_right = 1840.0
+margin_bottom = 114.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 2 )
+text = "You are dead"
+align = 1
+valign = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Background/MarginContainer/VSplitContainer" index="1"]
+margin_top = 191.0
+margin_right = 1840.0
+margin_bottom = 1000.0
+split_offset = 400
+
+[node name="Container" type="Control" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="0"]
+editor/display_folded = true
+margin_right = 400.0
+margin_bottom = 809.0
+
+[node name="ItemList" type="VBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container" index="0"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -28.5
+margin_right = 28.5
+margin_bottom = 65.0
+custom_constants/separation = 15
+
+[node name="Retry" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="0" instance=ExtResource( 4 )]
+margin_right = 57.0
+text = "Retry"
+
+[node name="Exit" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="1" instance=ExtResource( 4 )]
+margin_top = 40.0
+margin_right = 57.0
+margin_bottom = 65.0
+text = "Exit"
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="1"]
+margin_left = 412.0
+margin_right = 1840.0
+margin_bottom = 809.0
+
+[node name="Panel" type="Panel" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer" index="0"]
+margin_right = 1428.0
+margin_bottom = 809.0
+theme = ExtResource( 3 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel" index="0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Statistics" type="VBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer" index="0"]
+margin_right = 251.0
+margin_bottom = 141.0
+
+[node name="shots_fired" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="0"]
+editor/display_folded = true
+margin_right = 251.0
+margin_bottom = 25.0
+
+[node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/shots_fired" index="0"]
+margin_right = 120.0
+margin_bottom = 25.0
+text = "Shots fired:"
+
+[node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/shots_fired" index="1"]
+margin_left = 124.0
+margin_right = 166.0
+margin_bottom = 25.0
+text = "999"
+
+[node name="damage_dealt" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="1"]
+editor/display_folded = true
+margin_top = 29.0
+margin_right = 251.0
+margin_bottom = 54.0
+
+[node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/damage_dealt" index="0"]
+margin_right = 151.0
+margin_bottom = 25.0
+text = "Damage dealt:"
+
+[node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/damage_dealt" index="1"]
+margin_left = 155.0
+margin_right = 197.0
+margin_bottom = 25.0
+text = "999"
+
+[node name="enemies_killed" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="2"]
+editor/display_folded = true
+margin_top = 58.0
+margin_right = 251.0
+margin_bottom = 83.0
+
+[node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/enemies_killed" index="0"]
+margin_right = 155.0
+margin_bottom = 25.0
+text = "Enemies killed:"
+
+[node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/enemies_killed" index="1"]
+margin_left = 159.0
+margin_right = 201.0
+margin_bottom = 25.0
+text = "999"
+
+[node name="accuracy" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="3"]
+margin_top = 87.0
+margin_right = 251.0
+margin_bottom = 112.0
+
+[node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/accuracy" index="0"]
+margin_right = 105.0
+margin_bottom = 25.0
+text = "Accuracy:"
+
+[node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/accuracy" index="1"]
+margin_left = 109.0
+margin_right = 172.0
+margin_bottom = 25.0
+text = "999%"
+
+[node name="secrets_found" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="4"]
+editor/display_folded = true
+margin_top = 116.0
+margin_right = 251.0
+margin_bottom = 141.0
+
+[node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/secrets_found" index="0"]
+margin_right = 153.0
+margin_bottom = 25.0
+text = "Secrets found:"
+
+[node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/secrets_found" index="1"]
+margin_left = 157.0
+margin_right = 251.0
+margin_bottom = 25.0
+text = "999/999"
+[connection signal="visibility_changed" from="." to="." method="_on_MenuBoard_visibility_changed"]
+[connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList/Retry" to="." method="_on_Retry_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList/Exit" to="." method="_on_Exit_pressed"]

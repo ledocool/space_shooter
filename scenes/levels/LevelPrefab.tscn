@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://scenes/interface/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/PlayerShip.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/interface/EscapeMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interface/GameLoseMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/interface/LevelEndMenu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/interface/GameWinMenu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ImageTexture" id=1]
 
@@ -33,6 +36,7 @@ script = ExtResource( 1 )
 
 [node name="PlayerCamera" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
+AutoZoomEnabled = true
 
 [node name="Particles2D" type="Particles2D" parent="PlayerCamera"]
 z_index = 10
@@ -44,9 +48,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="BulletContainer" type="Node" parent="."]
+[node name="BulletContainer" type="Node2D" parent="."]
 
-[node name="ShipContainer" type="Node" parent="."]
+[node name="ShipContainer" type="Node2D" parent="."]
 editor/display_folded = true
 
 [node name="Player" parent="ShipContainer" instance=ExtResource( 3 )]
@@ -61,22 +65,58 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AsteroidContainer" type="Node" parent="."]
+[node name="AsteroidContainer" type="Node2D" parent="."]
 
-[node name="ItemContainer" type="Node" parent="."]
+[node name="ItemContainer" type="Node2D" parent="."]
 
-[node name="Scenery" type="Node" parent="."]
+[node name="Scenery" type="Node2D" parent="."]
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
-editor/display_folded = true
 
 [node name="EscapeMenu" parent="MenuCanvas" instance=ExtResource( 4 )]
 visible = false
 
+[node name="MarginContainer" type="MarginContainer" parent="MenuCanvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameLoseMenu" parent="MenuCanvas/MarginContainer" instance=ExtResource( 5 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1720.0
+margin_bottom = 880.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="LevelEndMenu" parent="MenuCanvas/MarginContainer" instance=ExtResource( 6 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1720.0
+margin_bottom = 880.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" instance=ExtResource( 7 )]
+pause_mode = 2
+visible = false
+margin_right = 1720.0
+margin_bottom = 880.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Background" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
 
-[node name="TriggerContainer" type="Node" parent="."]
+[node name="TriggerContainer" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="LevelEndTrigger" type="Area2D" parent="TriggerContainer"]
 [connection signal="body_shape_entered" from="TriggerContainer/LevelEndTrigger" to="." method="_on_LevelEndTrigger_body_shape_entered"]

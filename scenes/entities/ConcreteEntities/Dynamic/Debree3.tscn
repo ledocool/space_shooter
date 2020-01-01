@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/entities/AbstractEntities/SmallDebree.tscn" type="PackedScene" id=1]
-[ext_resource path="res://resources/Objects/Entities/debree3.png" type="Texture" id=2]
+[ext_resource path="res://resources/Objects/Debrees/debree3.png" type="Texture" id=2]
 
 [node name="Asteroid" instance=ExtResource( 1 )]
 
@@ -9,4 +9,5 @@
 texture = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+visible = false
 polygon = PoolVector2Array( -38.3418, 17.7342, -34.1009, 10.0235, -34.1009, 8.60984, -27.9323, 4.75448, -25.362, 4.49745, -23.8199, 2.95531, -23.5629, 1.15614, -19.7075, 0.385063, -18.1654, -2.18518, -0.430687, -10.5385, 10.1073, -18.1207, 24.8862, -27.8876, 29.3841, -22.1046, 24.5007, -15.4219, 20.0027, -12.4662, 16.5329, -9.7674, -8.0129, 4.11192, -24.848, 16.1921, -34.7434, 23.1317 )

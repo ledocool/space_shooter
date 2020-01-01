@@ -2,7 +2,7 @@ extends RigidBody2D
 class_name Ship
 
 signal shoot_bullet(bullet_type, direction, location, velocity)
-signal health_changed(newHealth)
+signal health_changed(oldHealth, newHealth)
 signal speed_changed(spd)
 signal coordinates_changed(coords)
 signal exploded(position, size, rotation)
@@ -60,8 +60,9 @@ func Damage(points: int):
 	if(cooldown.is_stopped()):
 		cooldown.start()
 		blink.start()
+		var oldShipHealth = ShipCurrentHealth
 		ShipCurrentHealth = 0 if ShipCurrentHealth < points else ShipCurrentHealth - points
-		emit_signal("health_changed", ShipCurrentHealth)
+		emit_signal("health_changed", oldShipHealth, ShipCurrentHealth)
 
 func Destroy():
 	_onDestruction()
@@ -80,8 +81,9 @@ func SetMaxHealth(value: int):
 	ShipMaxHealth = value
 
 func Heal(points: int):
+	var shipOldHealth = ShipCurrentHealth
 	ShipCurrentHealth = ShipMaxHealth if ShipCurrentHealth + points > ShipMaxHealth else ShipCurrentHealth + points
-	emit_signal("health_changed", ShipCurrentHealth)
+	emit_signal("health_changed", shipOldHealth,  ShipCurrentHealth)
 
 func GetCoordinates():
 	return position

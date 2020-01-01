@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://resources/Objects/Structures/harvester_6.png" type="Texture" id=1]
+[ext_resource path="res://resources/Objects/Plates/hole.png" type="Texture" id=2]
+[ext_resource path="res://resources/Objects/Plates/hole_2.png" type="Texture" id=3]
+[ext_resource path="res://resources/Objects/Plates/plates_2.png" type="Texture" id=4]
+[ext_resource path="res://resources/Objects/Plates/plates_1.png" type="Texture" id=5]
+[ext_resource path="res://resources/Objects/Plates/plates_9.png" type="Texture" id=6]
+[ext_resource path="res://resources/Objects/Plates/plates_8.png" type="Texture" id=7]
+[ext_resource path="res://resources/Objects/Plates/plates_5.png" type="Texture" id=8]
+[ext_resource path="res://resources/Objects/Plates/plates_3.png" type="Texture" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1300, 710 )
+
+[node name="Building6" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+shape = SubResource( 1 )
+
+[node name="hole" type="Sprite" parent="."]
+position = Vector2( 318.952, 54.6355 )
+texture = ExtResource( 2 )
+
+[node name="hole_2" type="Sprite" parent="."]
+position = Vector2( -29.1793, 214.06 )
+texture = ExtResource( 3 )
+
+[node name="hole2" type="Sprite" parent="."]
+position = Vector2( -361.043, 64.3961 )
+texture = ExtResource( 2 )
+
+[node name="plates_4" type="Sprite" parent="."]
+position = Vector2( -701.783, -250.59 )
+texture = ExtResource( 4 )
+
+[node name="plates_2" type="Sprite" parent="."]
+position = Vector2( -1086.76, -373.455 )
+texture = ExtResource( 4 )
+
+[node name="plates_3" type="Sprite" parent="."]
+position = Vector2( -898.365, -94.9624 )
+texture = ExtResource( 4 )
+
+[node name="plates_1" type="Sprite" parent="."]
+position = Vector2( 952.789, 347.349 )
+texture = ExtResource( 5 )
+
+[node name="plates_9" type="Sprite" parent="."]
+position = Vector2( 683.351, -384.595 )
+texture = ExtResource( 6 )
+
+[node name="plates_8" type="Sprite" parent="."]
+position = Vector2( 158.344, 200.979 )
+texture = ExtResource( 7 )
+
+[node name="plates_6" type="Sprite" parent="."]
+position = Vector2( -204.165, 343.515 )
+texture = ExtResource( 8 )
+
+[node name="plates_5" type="Sprite" parent="."]
+position = Vector2( 698.869, 158.957 )
+texture = ExtResource( 9 )
