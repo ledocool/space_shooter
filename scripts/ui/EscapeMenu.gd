@@ -1,6 +1,8 @@
 extends Control
 
-func _input(event):
+signal save_game()
+
+func _input(event):		
 	if(event.is_action_pressed("ui_menu")):
 		self.visible = !self.visible
 		get_tree().paused = self.visible
@@ -13,8 +15,7 @@ func _on_Resume_pressed():
 	get_tree().paused = false
 
 func _on_Save_game_pressed():
-	pass # Replace with function body.
-
+	emit_signal("save_game")
 
 func _on_Load_game_pressed():
 	pass # Replace with function body.
@@ -25,5 +26,4 @@ func _on_Options_pressed():
 
 
 func _on_Exit_pressed():
-	var changed = get_tree().change_scene("res://scenes/interface/MainMenu.tscn")
-	print_debug("Exit: " + String(changed))
+	($"/root/LevelLoader" as LevelLoader).LoadLevelByName("res://scenes/interface/MainMenu.tscn")

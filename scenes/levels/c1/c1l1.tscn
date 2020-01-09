@@ -36,6 +36,9 @@ TopCameraBorder = -7835
 BottomCameraBorder = 8916
 RightCameraBorder = 9204
 
+[node name="ShipContainer" parent="." index="2"]
+editor/display_folded = false
+
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -8566.87, 54.705 )
 
@@ -54,47 +57,52 @@ rotation = -0.785397
 position = Vector2( -186.563, 5340.06 )
 rotation = -1.309
 
-[node name="SleepingShips" type="Node" parent="ShipContainer" index="5"]
-editor/display_folded = true
-
-[node name="Miner11_slp" parent="ShipContainer/SleepingShips" index="0" instance=ExtResource( 2 )]
+[node name="Miner11_slp" parent="ShipContainer" index="5" groups=[
+"SleepingShips",
+] instance=ExtResource( 2 )]
 position = Vector2( -5743.42, -129.562 )
 rotation = 3.14159
 TurnedOn = false
 
-[node name="Miner12_slp" parent="ShipContainer/SleepingShips" index="1" instance=ExtResource( 2 )]
+[node name="Miner12_slp" parent="ShipContainer" index="6" groups=[
+"SleepingShips",
+] instance=ExtResource( 2 )]
 position = Vector2( -5668.07, -345.324 )
 rotation = -2.09441
 TurnedOn = false
 
-[node name="Miner13_slp" parent="ShipContainer/SleepingShips" index="2" instance=ExtResource( 2 )]
+[node name="Miner13_slp" parent="ShipContainer" index="7" groups=[
+"SleepingShips",
+] instance=ExtResource( 2 )]
 position = Vector2( -5232.98, -138.431 )
 rotation = 2.35619
 TurnedOn = false
 
-[node name="Miner14_slp" parent="ShipContainer/SleepingShips" index="3" instance=ExtResource( 2 )]
+[node name="Miner14_slp" parent="ShipContainer" index="8" groups=[
+"SleepingShips",
+] instance=ExtResource( 2 )]
 position = Vector2( -5529.55, 108.22 )
 TurnedOn = false
 
-[node name="Miner" parent="ShipContainer" index="6" instance=ExtResource( 2 )]
+[node name="Miner" parent="ShipContainer" index="9" instance=ExtResource( 2 )]
 position = Vector2( 2430.39, -1620.53 )
 
-[node name="Miner3" parent="ShipContainer" index="7" instance=ExtResource( 2 )]
+[node name="Miner3" parent="ShipContainer" index="10" instance=ExtResource( 2 )]
 position = Vector2( 4149.56, -5930.09 )
 
-[node name="Miner5" parent="ShipContainer" index="8" instance=ExtResource( 2 )]
+[node name="Miner5" parent="ShipContainer" index="11" instance=ExtResource( 2 )]
 position = Vector2( 4978.86, -5254.54 )
 
-[node name="Miner6" parent="ShipContainer" index="9" instance=ExtResource( 2 )]
+[node name="Miner6" parent="ShipContainer" index="12" instance=ExtResource( 2 )]
 position = Vector2( 4922.95, -5054.2 )
 
-[node name="Miner7" parent="ShipContainer" index="10" instance=ExtResource( 2 )]
+[node name="Miner7" parent="ShipContainer" index="13" instance=ExtResource( 2 )]
 position = Vector2( 3589.32, 3555.57 )
 
-[node name="Miner10" parent="ShipContainer" index="11" instance=ExtResource( 2 )]
+[node name="Miner10" parent="ShipContainer" index="14" instance=ExtResource( 2 )]
 position = Vector2( 4219.12, 2414.7 )
 
-[node name="Miner11" parent="ShipContainer" index="12" instance=ExtResource( 2 )]
+[node name="Miner11" parent="ShipContainer" index="15" instance=ExtResource( 2 )]
 position = Vector2( 4750.84, 4242.16 )
 
 [node name="AsteroidContainer" parent="." index="3"]
@@ -975,6 +983,11 @@ position = Vector2( -8462.17, -13.9871 )
 
 [node name="IngameHint" parent="Scenery/EngineHint" index="2" instance=ExtResource( 21 )]
 position = Vector2( 2306.25, 1403.17 )
+
+[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="1"]
+pause_mode = 2
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Background" parent="." index="7"]
 editor/display_folded = true

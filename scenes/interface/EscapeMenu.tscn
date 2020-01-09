@@ -34,7 +34,6 @@ text = "Resume"
 margin_top = 40.0
 margin_right = 118.0
 margin_bottom = 65.0
-disabled = true
 text = "Save game"
 
 [node name="Load game" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]

@@ -13,7 +13,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Crate" index="0" instance=ExtResource( 1 )]
+[node name="Crate" instance=ExtResource( 1 )]
 mass = 100.0
 
 [node name="AnimatedSprite" parent="." index="0"]

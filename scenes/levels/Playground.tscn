@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid2.tscn" type="PackedScene" id=2]
@@ -13,7 +13,11 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/interface/hints/EngineHint.tscn" type="PackedScene" id=12]
 
-[node name="Level" instance=ExtResource( 1 )]
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 282.318
+height = 266.358
+
+[node name="Level" index="0" instance=ExtResource( 1 )]
 
 [node name="PlayerCamera" parent="." index="0"]
 position = Vector2( -1684.84, 28.8008 )
@@ -241,3 +245,6 @@ z_as_relative = true
 
 [node name="LevelEndTrigger" parent="TriggerContainer" index="0"]
 position = Vector2( 9060.28, -2129.68 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
+shape = SubResource( 1 )

@@ -64,6 +64,26 @@ func Damage(points: int):
 		ShipCurrentHealth = 0 if ShipCurrentHealth < points else ShipCurrentHealth - points
 		emit_signal("health_changed", oldShipHealth, ShipCurrentHealth)
 
+func Save():
+	var cwpn = CurrentWeapon
+	_removeWeapon()
+	return {
+		"position": position,
+		"velocity": linear_velocity,
+		"rotation": rotation,
+		"current_weapon": cwpn,
+		"weapons": InventoryInstance.weapons,
+		"items": InventoryInstance.items
+	}
+
+func Load(data: Dictionary):
+	InventoryInstance.weapons = data.weapons
+	InventoryInstance.items = data.items
+	SwitchWeapon(data.current_weapon)
+	position = data.position
+	linear_velocity = data.velocity
+	rotation = data.rotation
+
 func Destroy():
 	_onDestruction()
 	self.queue_free()

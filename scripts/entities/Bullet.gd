@@ -3,10 +3,22 @@ class_name Bullet
 
 signal exploded(position, size, rotation)
 
-	
 func GetSpawnAnchorPosition():
 	return ($SpawnAnchor as Node2D).position
 
+func Save():
+	return {
+		"position": GetCoordinates(),
+		"rotation": self.rotation,
+		"velocity": GetVelocity(),
+		"lifetime": $Timers/Lifespan.get_time_left()
+	}
+	
+func Load(data: Dictionary):
+	self.position = data.position
+	self.rotation = data.rotation
+	self.linear_velocity = data.velocity
+	$Timers/Lifespan.set_wait_time(data.lifetime)
 
 func Destroy():
 	emit_signal("exploded", self.position, 0.06, rotation)

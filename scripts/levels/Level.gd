@@ -1,4 +1,5 @@
-extends Node
+extends WorldEnvironment
+class_name Level
 
 const Explosion = preload("res://scenes/effects/ExplosionEffect.tscn")
 #const Bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn")
@@ -28,7 +29,7 @@ func _ready():
 	var Player = $ShipContainer/Player as Ship
 	if(Player):
 		var camera = $PlayerCamera as UI
-		print_debug(Player.connect("health_changed", camera, "_on_health_change"))
+		Player.connect("health_changed", camera, "_on_health_change")
 		Player.connect("health_changed", self, "_on_playerHealth_change")
 		Player.connect("speed_changed", camera, "_on_speed_change")
 		Player.connect("shoot_bullet", self, "_on_player_shootBullet")
@@ -50,7 +51,7 @@ func _on_Something_explode(coordinates, explosionScale, rotation):
 	explosion.rotation = rotation
 	explosion.scale = Vector2(explosionScale, explosionScale)
 	explosion.position = coordinates
-	$BulletContainer.add_child(explosion)
+	$Scenery.add_child(explosion)
 	explosion.get_node("AnimatedSprite").play()
 	
 func _on_playerHealth_change(oldhealth, health):
@@ -92,3 +93,65 @@ func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_s
 		var gameWinMenu = $MenuCanvas/MarginContainer/GameWinMenu
 		gameWinMenu.SetData(dictionaryData)
 		gameWinMenu.visible = true
+
+func _on_EscapeMenu_save_game():
+	var saveMenu = find_node("SaveMenu")
+	saveMenu.visible = true
+
+func _on_SaveMenu_save_requested(fileName: String):
+	var manager = SaveManager.new()
+	manager.CreateSaveGame(self, fileName)
+
+func _on_load_requested(ships: Array, asteroids: Array, bullets: Array, items: Array):
+	var shipContainer = find_node("ShipContainer")
+	var asteroidContainer = find_node("AsteroidContainer")
+	var itemContainer = find_node("ItemContainer")
+	var bulletContainer = find_node("BulletContainer")
+	var camera = find_node("PlayerCamera")
+	
+	_wipeLevelOfEntities()
+	
+	for ship in ships:
+		shipContainer.add_child(ship)
+		if(ship is PlayerShip):
+			var cameraAnchor = RemoteTransform2D.new()
+			cameraAnchor.name = "CameraAnchor"
+			cameraAnchor.use_global_coordinates = true
+			cameraAnchor.update_rotation = false
+			cameraAnchor.update_scale = false
+			cameraAnchor.remote_path = "../../../PlayerCamera"
+			ship.add_child(cameraAnchor)
+	
+	for asteroid in asteroids:
+		asteroidContainer.add_child(asteroid)
+	
+	for bullet in bullets:
+		bulletContainer.add_child(bullet)
+		
+	for item in items:
+		itemContainer.add_child(item)
+		
+		
+func _wipeLevelOfEntities():
+	var shipContainer = find_node("ShipContainer")
+	var asteroidContainer = find_node("AsteroidContainer")
+	var itemContainer = find_node("ItemContainer")
+	var bulletContainer = find_node("BulletContainer")
+	var camera = find_node("PlayerCamera")
+	
+	for ship in shipContainer.get_children():
+		shipContainer.remove_child(ship)
+		ship.queue_free()
+		
+	for asteroid in asteroidContainer.get_children():
+		asteroidContainer.remove_child(asteroid)
+		asteroid.queue_free()
+		
+	for bullet in bulletContainer.get_children():
+		bulletContainer.remove_child(bullet)
+		bullet.queue_free()
+		
+	for item in itemContainer.get_children():
+		itemContainer.remove_child(item)
+		item.queue_free()
+	

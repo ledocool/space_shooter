@@ -11,3 +11,11 @@ func _on_Collectable_body_entered(body):
 			visible = false
 			emit_signal("picked_up", data)
 			queue_free()
+
+func Save():
+	return {
+		"position": position
+	}
+	
+func Load(data: Dictionary):
+	position = data.position
