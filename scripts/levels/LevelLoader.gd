@@ -7,6 +7,7 @@ var campaignLevelOrder: Array = [
 
 var campaignCurrentLevel = -1
 
+
 func _init():
 	pass
 
@@ -21,9 +22,10 @@ func LoadLevel(number: int):
 		print_debug("Level index not found:" + String(number))
 		return
 		
-	var levelScene = campaignLevelOrder[number]
+	var levelSceneName = campaignLevelOrder[number]
+	var changedTo = LoadLevelByName(levelSceneName)
 	campaignCurrentLevel = number
-	LoadLevelByName(levelScene)
+	return changedTo
 	
 func LoadPrevLevel():
 	LoadLevel(campaignCurrentLevel - 1)
@@ -31,8 +33,16 @@ func LoadPrevLevel():
 func ReloadLevel():
 	print_debug(get_tree().reload_current_scene())
 	
-func LoadLevelByName(name: String):
+func LoadLevelByName(name: String) -> PackedScene:
 	campaignCurrentLevel = -1
-	var changed = get_tree().change_scene(name)
+	var level = load(name)
+	var changed = get_tree().change_scene_to(level)
 	print_debug("Change level to: " + name + ":" + String(changed))
+	return level
+
+func SaveGame():
+	pass
+	
+func LoadGame():
+	pass
 	

@@ -14,6 +14,9 @@ var playerSecretsFound = 0
 # warning-ignore:unused_class_variable
 var secretsMax = 0
 
+func GetPlayer():
+	return $ShipContainer/Player
+
 func _init():
 	pass
 
@@ -78,9 +81,6 @@ func _on_enemyHealth_change(oldhealth, health):
 func _on_player_shootBullet(_BulletType, _direction, _location, _velocity):
 	playerShootsBullet += 1
 
-func GetPlayer():
-	return $ShipContainer/Player
-
 func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_shape):
 	if(body is PlayerShip):
 		var dictionaryData: Dictionary = {
@@ -100,13 +100,27 @@ func _on_EscapeMenu_save_game():
 
 func _on_SaveMenu_save_requested(fileName: String):
 	var manager = SaveManager.new()
-	manager.CreateSaveGame(self, fileName)
+	var stats = {
+		"enemyHealthDamage": enemyHealthDamage,
+		"playerHealthDamage": playerHealthDamage,
+		"enemiesKilled": enemiesKilled,
+		"playerShootsBullet": playerShootsBullet,
+		"playerSecretsFound": playerSecretsFound,
+		"secretsMax": secretsMax
+	}
+	manager.CreateSaveGame(fileName, 
+				self.find_node("ShipContainer").get_children(),
+				self.find_node("BulletContainer").get_children(),
+				self.find_node("AsteroidContainer").get_children(),
+				self.find_node("ItemContainer").get_children(),
+				stats)
 
 func _on_load_requested(ships: Array, asteroids: Array, bullets: Array, items: Array):
 	var shipContainer = find_node("ShipContainer")
 	var asteroidContainer = find_node("AsteroidContainer")
 	var itemContainer = find_node("ItemContainer")
 	var bulletContainer = find_node("BulletContainer")
+# warning-ignore:unused_variable
 	var camera = find_node("PlayerCamera")
 	
 	_wipeLevelOfEntities()
@@ -130,13 +144,13 @@ func _on_load_requested(ships: Array, asteroids: Array, bullets: Array, items: A
 		
 	for item in items:
 		itemContainer.add_child(item)
-		
-		
+
 func _wipeLevelOfEntities():
 	var shipContainer = find_node("ShipContainer")
 	var asteroidContainer = find_node("AsteroidContainer")
 	var itemContainer = find_node("ItemContainer")
 	var bulletContainer = find_node("BulletContainer")
+# warning-ignore:unused_variable
 	var camera = find_node("PlayerCamera")
 	
 	for ship in shipContainer.get_children():
@@ -154,4 +168,3 @@ func _wipeLevelOfEntities():
 	for item in itemContainer.get_children():
 		itemContainer.remove_child(item)
 		item.queue_free()
-	

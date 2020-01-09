@@ -5,6 +5,7 @@ func _on_Retry_pressed():
 	get_tree().reload_current_scene()
 
 func _on_Exit_pressed():
+# warning-ignore:return_value_discarded
 	($"/root/LevelLoader" as LevelLoader).LoadLevelByName("res://scenes/interface/MainMenu.tscn")
 
 func SetData(data: Dictionary):

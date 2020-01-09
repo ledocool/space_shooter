@@ -18,7 +18,7 @@ func Load(data: Dictionary):
 	self.position = data.position
 	self.rotation = data.rotation
 	self.linear_velocity = data.velocity
-	$Timers/Lifespan.set_wait_time(data.lifetime)
+	($Timers/Lifespan as Timer).set_wait_time(data.lifetime)
 
 func Destroy():
 	emit_signal("exploded", self.position, 0.06, rotation)

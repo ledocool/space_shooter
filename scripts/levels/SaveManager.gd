@@ -25,8 +25,15 @@ func GetSaveList():
 				
 	return saves
 	
-func LoadSaveGame():
-	pass
+func LoadSaveGame(savename: String):
+	var save = File.new()
+	if(!savename.ends_with(".sav")):
+		savename += ".sav"
+	save.open("user://save/" + savename, File.READ)
+	var compressedSave = save.get_as_text()
+# warning-ignore:unused_variable
+	var uncompressedSave = UnserializeData(compressedSave)
+	
 	
 func CreateSaveGame(savename: String, ships: Array, bullets: Array, asteroids: Array, items: Array, statistics: Dictionary):
 	var savedata = SerializeData(ships, bullets, asteroids, items, statistics)
@@ -35,15 +42,9 @@ func CreateSaveGame(savename: String, ships: Array, bullets: Array, asteroids: A
 		savename += ".sav"
 	save.open("user://save/" + savename, File.WRITE)
 	save.store_line(savedata)
-	save.close()
+	save.close()	
 	
-	
-func SerializeData(ships: Array, bullets: Array, asteroids: Array, items: Array, statistics: Dictionary):
-#	var ships = Level.get_node("ShipContainer")
-#	var bullets = Level.get_node("BulletContainer")
-#	var asteroids = Level.get_node("AsteroidContainer")
-#	var items = Level.get_node("ItemContainer")
-	
+func SerializeData(ships: Array, bullets: Array, asteroids: Array, items: Array, statistics: Dictionary) -> String:
 	var savedata = {
 		"items": Array(),
 		"bullets": Array(),
@@ -92,3 +93,6 @@ func SerializeData(ships: Array, bullets: Array, asteroids: Array, items: Array,
 	
 	return to_json(savedata)
 	
+func UnserializeData(data: String) -> Dictionary:
+	var returnData = parse_json(data)
+	return returnData
