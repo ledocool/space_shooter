@@ -6,6 +6,3 @@
 
 [node name="Label" parent="Background/MarginContainer/VSplitContainer" index="0"]
 text = "Level cleared"
-
-[node name="Container" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="0"]
-editor/display_folded = false

@@ -1,12 +1,10 @@
 extends Control
 
-signal load_requested(fileName)
-
 func _ready():
 # warning-ignore:unsafe_method_access
 	var size = $Background/MarginContainer.get_size()
 	var splitContainer = $Background/MarginContainer/VSplitContainer/HSplitContainer
-	var svButton = find_node("SaveButton")
+	var svButton = find_node("LoadButton")
 	splitContainer.split_offset = size.x - svButton.get_size().x
 	_updateSaveFileList()
 
@@ -17,21 +15,31 @@ func _input(event):
 		self.visible = false
 
 func _updateSaveFileList():
-	var manager = SaveManager.new()
+# warning-ignore:unsafe_property_access
+	var manager = ($"/root/LevelLoader" as LevelLoader).saveManager
 	var list = manager.GetSaveList()
-	var buttonScene = load("res://scenes/interface/MenuButton.tscn")
-	var saveContainer = self.find_node("SaveButtonsContainer")
+	var loadContainer = self.find_node("SaveList")
 	
-	#clean list first
-	for item in saveContainer.get_children():
-		saveContainer.remove_child(item)
-		item.queue_free()
-
+	loadContainer.clear()
 	for item in list:
-		var newbtn = buttonScene.instance()
-		newbtn.text = item
-		saveContainer.add_child(newbtn)
-		newbtn.connect("pressed_named", self, "_populateTextbox")
+		loadContainer.add_item(item)
 
 func _on_LoadButton_pressed():
-	pass
+	var loadContainer = self.find_node("SaveList")
+	var selectedSave = loadContainer.get_selected_items()
+	if(selectedSave.size() > 0):
+		_loadLevelByindex(selectedSave[0])
+
+func _loadLevelByindex(index):
+	var loadContainer = self.find_node("SaveList")
+	var saveName = ""
+	saveName = loadContainer.get_item_text(index)
+# warning-ignore:unsafe_method_access
+	$"/root/LevelLoader".LoadGame(saveName)
+
+func _on_SaveList_item_activated(index):
+	_loadLevelByindex(index)
+
+func _on_SaveList_item_selected(index):
+	var btn =find_node("LoadButton")
+	btn.disabled = index < 0

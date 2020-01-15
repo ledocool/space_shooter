@@ -1,7 +1,5 @@
 extends Control
 
-signal save_requested(fileName)
-
 func _ready():
 # warning-ignore:unsafe_method_access
 	var size = $Background/MarginContainer.get_size()
@@ -45,7 +43,8 @@ func _populateTextbox(text):
 func _on_SaveButton_pressed():
 	var textEdit = self.find_node("NewSaveName")
 	var saveName = textEdit.text
-	emit_signal("save_requested", saveName)
+# warning-ignore:unsafe_method_access
+	$"/root/LevelLoader".SaveGame(saveName)
 	self.visible = false
 
 func _on_SaveMenu_visibility_changed():

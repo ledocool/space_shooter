@@ -1,15 +1,7 @@
 extends Node
 class_name SaveManager
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var SaveDirectory = Directory.new()
-
-func _init():
-	if(SaveDirectory.open("user://save/") > 0):
-		SaveDirectory.make_dir("user://save/")
-		SaveDirectory.open("user://save/")
+var SaveDirectory
 
 func GetSaveList():
 	SaveDirectory.list_dir_begin()
@@ -24,75 +16,133 @@ func GetSaveList():
 				saves.append(save)
 				
 	return saves
-	
+
 func LoadSaveGame(savename: String):
 	var save = File.new()
 	if(!savename.ends_with(".sav")):
 		savename += ".sav"
-	save.open("user://save/" + savename, File.READ)
+	if(save.open("user://save/" + savename, File.READ) > 0):
+		print_debug("Failed opening file: " + savename)
+		return
 	var compressedSave = save.get_as_text()
-# warning-ignore:unused_variable
-	var uncompressedSave = UnserializeData(compressedSave)
-	
-	
-func CreateSaveGame(savename: String, ships: Array, bullets: Array, asteroids: Array, items: Array, statistics: Dictionary):
-	var savedata = SerializeData(ships, bullets, asteroids, items, statistics)
+	return _unserializeData(compressedSave)
+
+func CreateSaveGame(savename: String, levelName: String, levelIndex: int, ships: Array, bullets: Array, asteroids: Array, scenery: Array, items: Array, statistics: Dictionary):
+	var savedata = _serializeData(levelName, levelIndex, ships, bullets, asteroids, items, scenery, statistics)
 	var save = File.new()
 	if(!savename.ends_with(".sav")):
 		savename += ".sav"
 	save.open("user://save/" + savename, File.WRITE)
 	save.store_line(savedata)
-	save.close()	
-	
-func SerializeData(ships: Array, bullets: Array, asteroids: Array, items: Array, statistics: Dictionary) -> String:
+	save.close()
+
+func _init():
+	SaveDirectory = Directory.new()
+	if(SaveDirectory.open("user://save/") > 0):
+		SaveDirectory.make_dir("user://save/")
+		SaveDirectory.open("user://save/")
+
+func _serializeData(levelName: String, levelIndex: int, ships: Array, bullets: Array, asteroids: Array, items: Array, scenery: Array, statistics: Dictionary) -> String:
 	var savedata = {
 		"items": Array(),
 		"bullets": Array(),
 		"asteroids": Array(),
 		"ships": Array(),
-		"player": {},
+		"scenery": Array(),
+#		"player": {},
+		"levelName": levelName,
+		"levelIndex": levelIndex,
 		"statistics": statistics
 	}
 	
 	for node in ships:
-		if(node.has_method("Save")):
-			var d = {
-				"name": node.get_filename(),
-				"value": node.Save(),
-				"groups": node.get_groups()
-			}
-			savedata.ships.append(d)
+		var packed = _packNode(node)
+		if(packed):
+			savedata.ships.append(packed)
 		
 	for node in bullets:
-		if(node.has_method("Save")):
-			var d = {
-				"name": node.get_filename(),
-				"value": node.Save(),
-				"groups": node.get_groups()
-			}
-			savedata.bullets.append(d)
-		
+		var packed = _packNode(node)
+		if(packed):
+			savedata.bullets.append(packed)
 	
 	for node in asteroids:
-		if(node.has_method("Save")):
-			var d = {
-				"name": node.get_filename(),
-				"value": node.Save(),
-				"groups": node.get_groups()
-			}
-			savedata.asteroids.append(d)
+		var packed = _packNode(node)
+		if(packed):
+			savedata.asteroids.append(packed)
 		
 	for node in items:
-		if(node.has_method("Save")):
-			var d = {
-				"name": node.get_filename(),
-				"value": node.Save(),
-				"groups": node.get_groups()
-			}
-			savedata.items.append(d)
+		var packed = _packNode(node)
+		if(packed):
+			savedata.items.append(packed)
+			
+	for node in scenery:
+		var packed = _packNode(node)
+		if(packed):
+			savedata.scenery.append(packed)
 	
 	return to_json(savedata)
+
+func _unserializeData(data: String) -> Dictionary:
+	var uncompressedData = parse_json(data)
+	var savedata = {
+		"items": Array(),
+		"bullets": Array(),
+		"asteroids": Array(),
+		"ships": Array(),
+		"scenery": Array(),
+#		"player": {},
+		"statistics": uncompressedData.statistics,
+		"levelName": uncompressedData.levelName,
+		"levelIndex": uncompressedData.levelIndex
+	}
+
+	for object in uncompressedData.ships:
+		var node = _unpackNode(object)
+		if(node):
+			savedata.ships.append(node)
+
+	for object in uncompressedData.bullets:
+		var node = _unpackNode(object)
+		if(node):
+			savedata.bullets.append(node)
+
+	for object in uncompressedData.asteroids:
+		var node = _unpackNode(object)
+		if(node):
+			savedata.asteroids.append(node)
+
+	for object in uncompressedData.items:
+		var node = _unpackNode(object)
+		if(node):
+			savedata.items.append(node)
+			
+	for object in uncompressedData.scenery:
+		var node = _unpackNode(object)
+		if(node):
+			savedata.scenery.append(node)
+			
+	return savedata
 	
-func UnserializeData(data: String) -> Dictionary:
-	var returnData = parse_json(data)
-	return returnData
+func _packNode(node: Node):
+	if(node.has_method("Save")):
+		var d = {
+			"name": node.get_filename(),
+			"value": node.Save(),
+			"groups": node.get_groups()
+		}
+		return d
+	
+	return null
+
+func _unpackNode(object: Dictionary):
+	var packedScene = load(object.name) as PackedScene
+	if(packedScene):
+		var node = packedScene.instance()
+		if(node.has_method("Load")):
+			node.Load(object.value)
+		for group in object.groups:
+				node.add_to_group(group)
+		
+		return node
+	
+	return null

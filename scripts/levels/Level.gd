@@ -17,9 +17,6 @@ var secretsMax = 0
 func GetPlayer():
 	return $ShipContainer/Player
 
-func _init():
-	pass
-
 func _ready():
 	for shp in $ShipContainer.get_children():
 		if(shp is Ship):
@@ -94,77 +91,13 @@ func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_s
 		gameWinMenu.SetData(dictionaryData)
 		gameWinMenu.visible = true
 
+func _hide_submenus():
+	pass
+
 func _on_EscapeMenu_save_game():
 	var saveMenu = find_node("SaveMenu")
 	saveMenu.visible = true
 
-func _on_SaveMenu_save_requested(fileName: String):
-	var manager = SaveManager.new()
-	var stats = {
-		"enemyHealthDamage": enemyHealthDamage,
-		"playerHealthDamage": playerHealthDamage,
-		"enemiesKilled": enemiesKilled,
-		"playerShootsBullet": playerShootsBullet,
-		"playerSecretsFound": playerSecretsFound,
-		"secretsMax": secretsMax
-	}
-	manager.CreateSaveGame(fileName, 
-				self.find_node("ShipContainer").get_children(),
-				self.find_node("BulletContainer").get_children(),
-				self.find_node("AsteroidContainer").get_children(),
-				self.find_node("ItemContainer").get_children(),
-				stats)
-
-func _on_load_requested(ships: Array, asteroids: Array, bullets: Array, items: Array):
-	var shipContainer = find_node("ShipContainer")
-	var asteroidContainer = find_node("AsteroidContainer")
-	var itemContainer = find_node("ItemContainer")
-	var bulletContainer = find_node("BulletContainer")
-# warning-ignore:unused_variable
-	var camera = find_node("PlayerCamera")
-	
-	_wipeLevelOfEntities()
-	
-	for ship in ships:
-		shipContainer.add_child(ship)
-		if(ship is PlayerShip):
-			var cameraAnchor = RemoteTransform2D.new()
-			cameraAnchor.name = "CameraAnchor"
-			cameraAnchor.use_global_coordinates = true
-			cameraAnchor.update_rotation = false
-			cameraAnchor.update_scale = false
-			cameraAnchor.remote_path = "../../../PlayerCamera"
-			ship.add_child(cameraAnchor)
-	
-	for asteroid in asteroids:
-		asteroidContainer.add_child(asteroid)
-	
-	for bullet in bullets:
-		bulletContainer.add_child(bullet)
-		
-	for item in items:
-		itemContainer.add_child(item)
-
-func _wipeLevelOfEntities():
-	var shipContainer = find_node("ShipContainer")
-	var asteroidContainer = find_node("AsteroidContainer")
-	var itemContainer = find_node("ItemContainer")
-	var bulletContainer = find_node("BulletContainer")
-# warning-ignore:unused_variable
-	var camera = find_node("PlayerCamera")
-	
-	for ship in shipContainer.get_children():
-		shipContainer.remove_child(ship)
-		ship.queue_free()
-		
-	for asteroid in asteroidContainer.get_children():
-		asteroidContainer.remove_child(asteroid)
-		asteroid.queue_free()
-		
-	for bullet in bulletContainer.get_children():
-		bulletContainer.remove_child(bullet)
-		bullet.queue_free()
-		
-	for item in itemContainer.get_children():
-		itemContainer.remove_child(item)
-		item.queue_free()
+func _on_EscapeMenu_load_game():
+	var loadMenu = find_node("LoadMenu")
+	loadMenu.visible = true

@@ -12,6 +12,8 @@ func Save():
 	}
 	
 func Load(data: Dictionary):
-	position = data.position
+	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
+	position = Vector2(pos[0], pos[1])
+	var vel = data.velocity.trim_prefix('(').trim_suffix(')').split(',')
+	linear_velocity = Vector2(vel[0], vel[1])
 	rotation = data.rotation
-	linear_velocity = data.velocity

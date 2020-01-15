@@ -10,19 +10,19 @@ script = ExtResource( 2 )
 [node name="VSplitContainer" type="VSplitContainer" parent="Background/MarginContainer" index="0"]
 margin_right = 1840.0
 margin_bottom = 1000.0
+dragger_visibility = 2
 
 [node name="Control" type="Control" parent="Background/MarginContainer/VSplitContainer" index="0"]
 margin_right = 1840.0
 
 [node name="HSplitContainer" type="HSplitContainer" parent="Background/MarginContainer/VSplitContainer" index="1"]
-margin_top = 12.0
 margin_right = 1840.0
 margin_bottom = 1000.0
 split_offset = 1500
 
 [node name="VSplitContainer" type="VSplitContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="0"]
 margin_right = 1558.0
-margin_bottom = 988.0
+margin_bottom = 1000.0
 
 [node name="NewSaveName" type="LineEdit" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer" index="0"]
 margin_right = 1558.0
@@ -34,7 +34,7 @@ placeholder_text = "Save name"
 [node name="ScrollContainer" type="ScrollContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer" index="1"]
 margin_top = 36.0
 margin_right = 1558.0
-margin_bottom = 988.0
+margin_bottom = 1000.0
 scroll_horizontal_enabled = false
 
 [node name="SaveButtonsContainer" type="VBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer/ScrollContainer" index="0"]
@@ -43,7 +43,7 @@ custom_constants/separation = 19
 [node name="Control" type="Control" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="1"]
 margin_left = 1570.0
 margin_right = 1840.0
-margin_bottom = 988.0
+margin_bottom = 1000.0
 
 [node name="SaveButton" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Control" index="0" instance=ExtResource( 3 )]
 anchor_top = 1.0

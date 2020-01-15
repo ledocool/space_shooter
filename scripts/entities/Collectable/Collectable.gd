@@ -18,4 +18,5 @@ func Save():
 	}
 	
 func Load(data: Dictionary):
-	position = data.position
+	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
+	position = Vector2(pos[0], pos[1])

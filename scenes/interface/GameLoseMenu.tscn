@@ -43,7 +43,6 @@ margin_bottom = 1000.0
 split_offset = 400
 
 [node name="Container" type="Control" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="0"]
-editor/display_folded = true
 margin_right = 400.0
 margin_bottom = 809.0
 
