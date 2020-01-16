@@ -29,4 +29,5 @@ func _on_Options_pressed():
 
 func _on_Exit_pressed():
 # warning-ignore:return_value_discarded
-	($"/root/LevelLoader" as LevelLoader).LoadLevelByName("res://scenes/interface/MainMenu.tscn")
+	($"/root/LevelLoader" as LevelLoader).LoadLevelByName("res://scenes/interface/MainMenu.tscn", false)
+	visible = false

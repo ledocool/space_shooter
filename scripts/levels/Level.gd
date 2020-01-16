@@ -17,6 +17,23 @@ var secretsMax = 0
 func GetPlayer():
 	return $ShipContainer/Player
 
+func SetStats(statistics: Dictionary):
+	enemyHealthDamage = statistics.enemyHealthDamage
+	playerHealthDamage = statistics.playerHealthDamage
+	enemiesKilled = statistics.enemiesKilled
+	playerShootsBullet = statistics.playerShootsBullet
+	playerSecretsFound = statistics.playerSecretsFound
+
+func GetStats():
+	var stats = {
+		"enemyHealthDamage": enemyHealthDamage,
+		"playerHealthDamage": playerHealthDamage,
+		"enemiesKilled": enemiesKilled,
+		"playerShootsBullet": playerShootsBullet,
+		"playerSecretsFound": playerSecretsFound
+	}
+	return stats
+
 func _ready():
 	for shp in $ShipContainer.get_children():
 		if(shp is Ship):

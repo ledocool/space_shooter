@@ -7,16 +7,13 @@ var campaignLevelOrder: Array = [
 
 var campaignCurrentLevel = -1
 var saveManager = SaveManager.new()
+var interactiveLoader = null
 var loadScreen = preload("res://scenes/interface/LoadingScreen.tscn")
 
+var loadData = null
+
+
 func SaveGame(fileName: String):
-	var stats = {
-		"enemyHealthDamage": $"/root/Level".enemyHealthDamage,
-		"playerHealthDamage": $"/root/Level".playerHealthDamage,
-		"enemiesKilled": $"/root/Level".enemiesKilled,
-		"playerShootsBullet": $"/root/Level".playerShootsBullet,
-		"playerSecretsFound": $"/root/Level".playerSecretsFound
-	}
 	saveManager.CreateSaveGame(fileName,
 				$"/root/Level".get_filename(),
 				campaignCurrentLevel,
@@ -25,42 +22,43 @@ func SaveGame(fileName: String):
 				$"/root/Level".find_node("AsteroidContainer").get_children(),
 				$"/root/Level".find_node("ItemContainer").get_children(),
 				$"/root/Level".find_node("DynamicScenery").get_children(),
-				stats)
-	pass
+# warning-ignore:unsafe_method_access
+				$"/root/Level".GetStats())
 
 
-func LoadGame(fileName: String):
+func LoadGame(fileName: String, interactive: bool = true):
 	var data = saveManager.LoadSaveGame(fileName)
 	if(!data):
 		print_debug("Could not parse savefile: " + fileName)
 		return
 	
-	var levelScene
-	if(data.levelIndex >= 0):
-		levelScene = _getLevelByIndex(data.levelIndex)
+	if(interactive):
+		loadData = data
+		if(data.levelIndex >= 0):
+			_getLevelByIndex(data.levelIndex, true)
+		else:
+			_getLevelByName(data.levelName, true)
 	else:
-		levelScene = _getLevelByName(data.levelName)
-	var level = _injectLoadedData(levelScene, data)
-	_swapCurrentScene(level)
+		_loadSaveGameNonInteractive(data)
 
 
-func LoadNextLevel():
-	LoadLevel(campaignCurrentLevel + 1)
+func LoadNextLevel(interactive: bool = true):
+	LoadLevel(campaignCurrentLevel + 1, interactive)
 
 
-func LoadPrevLevel():
-	LoadLevel(campaignCurrentLevel - 1)
+func LoadPrevLevel(interactive: bool = true):
+	LoadLevel(campaignCurrentLevel - 1, interactive)
 
 
-func LoadLevel(number: int):		
-	var levelNode = _getLevelByIndex(number)
+func LoadLevel(number: int, interactive: bool = true):		
+	var levelNode = _getLevelByIndex(number, interactive)
 	if(levelNode):
 		_swapCurrentScene(levelNode)
 	return levelNode
 
 
-func LoadLevelByName(name: String):
-	var levelNode = _getLevelByName(name)
+func LoadLevelByName(name: String, interactive: bool = true):
+	var levelNode = _getLevelByName(name, interactive)
 	if(levelNode):
 		_swapCurrentScene(levelNode)
 	return levelNode
@@ -71,11 +69,38 @@ func ReloadLevel():
 
 
 func _init():
-	pass
+	set_pause_mode(Node.PAUSE_MODE_PROCESS)
+	set_physics_process(false)
 
 
-func _ready():
-	pass # Replace with function body.
+func _physics_process(_delta):
+	if(interactiveLoader):
+		var screen = _putUpLoadingScreen(interactiveLoader.get_stage(), interactiveLoader.get_stage_count())
+		var pollResult = interactiveLoader.poll()
+		if(pollResult == ERR_FILE_EOF):
+			var scene = interactiveLoader.get_resource()
+			var sceneInstance = scene.instance()
+			
+			if(loadData):
+				_injectLoadedData(sceneInstance, loadData)
+				loadData = null
+			
+			_swapCurrentScene(sceneInstance)
+			interactiveLoader = null
+			set_physics_process(false)
+		elif (pollResult == OK):
+			screen.SetStageCount(interactiveLoader.get_stage(), interactiveLoader.get_stage_count())
+			pass
+
+
+func _loadSaveGameNonInteractive(data: Dictionary):
+	var levelScene
+	if(data.levelIndex >= 0):
+		levelScene = _getLevelByIndex(data.levelIndex, false)
+	else:
+		levelScene = _getLevelByName(data.levelName, false)
+	var level = _injectLoadedData(levelScene, data)
+	_swapCurrentScene(level)	
 
 
 func _injectLoadedData(level: Level, data: Dictionary):
@@ -84,17 +109,7 @@ func _injectLoadedData(level: Level, data: Dictionary):
 	var itemContainer = level.find_node("ItemContainer")
 	var bulletContainer = level.find_node("BulletContainer")
 	var sceneryContainer = level.find_node("DynamicScenery")
-# warning-ignore:unsafe_property_access
-	level.enemyHealthDamage = data.statistics.enemyHealthDamage
-# warning-ignore:unsafe_property_access
-	level.playerHealthDamage = data.statistics.playerHealthDamage
-# warning-ignore:unsafe_property_access
-	level.enemiesKilled = data.statistics.enemiesKilled
-# warning-ignore:unsafe_property_access
-	level.playerShootsBullet = data.statistics.playerShootsBullet
-# warning-ignore:unsafe_property_access
-	level.playerSecretsFound = data.statistics.playerSecretsFound
-#	var camera = $"/root/Level".find_node("PlayerCamera")
+	level.SetStats(data.statistics)
 	
 	_wipeNodeOfEntities(shipContainer)
 	_wipeNodeOfEntities(asteroidContainer)
@@ -125,43 +140,51 @@ func _injectLoadedData(level: Level, data: Dictionary):
 	
 	return level
 
-func _getLevelByName(name: String):
+
+func _getLevelByName(name: String, interactive: bool):
 	campaignCurrentLevel = -1
-	return _getLevelInstance(name)
-	
-func _getLevelByIndex(index: int):
+	if(interactive):
+		return _getLevelInstanceInteractive(name)
+	else:
+		return _getLevelInstance(name)
+
+
+func _getLevelByIndex(index: int, interactive: bool):
 	if(index < 0 || index >= campaignLevelOrder.size()):
 		print_debug("Level index not found:" + String(index))
 		return null
 	campaignCurrentLevel = index
 	var levelSceneName = campaignLevelOrder[index]
-	return _getLevelInstance(levelSceneName)
+	if(interactive):
+		return _getLevelInstanceInteractive(levelSceneName)
+	else:
+		return _getLevelInstance(levelSceneName)
 
 
 func _getLevelInstance(name: String):
-
 	var level = load(name)
 	var levelNode = level.instance()
 	return levelNode
 
-func _getLevelInstanceInteractive(name: String):
-	var loader = ResourceLoader.load_interactive(name)
-	var stageCount = loader.get_stage_count()
-# warning-ignore:unused_variable
-	var currentStage = loader.get_stage()
-# warning-ignore:unused_variable
-	var loadScren = _putUpLoadingScreen(stageCount)
 
-func _putUpLoadingScreen(stageCount: int):
+func _getLevelInstanceInteractive(name: String):
+	interactiveLoader = ResourceLoader.load_interactive(name)
+	set_physics_process(true)
+	return null
+
+
+func _putUpLoadingScreen(currentStage: int, stageCount: int):
 	var screen = loadScreen.instance()
-	#screen.SetStageCount()
+	screen.SetStageCount(currentStage, stageCount)
 	_swapCurrentScene(screen)
 	return screen
+
 
 func _wipeNodeOfEntities(node: Node):
 	for entity in node.get_children():
 		node.remove_child(entity)
 		entity.queue_free()
+
 
 func _swapCurrentScene(scene: Node):
 	var root = $"/root"
@@ -170,3 +193,4 @@ func _swapCurrentScene(scene: Node):
 	root.add_child(scene)
 	get_tree().set_current_scene(scene)
 	oldCurrentScene.queue_free()
+

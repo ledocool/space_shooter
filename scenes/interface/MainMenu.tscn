@@ -5,7 +5,6 @@
 [ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/interface/LoadMenu.tscn" type="PackedScene" id=4]
 
-
 [node name="Main menu" type="Control"]
 pause_mode = 2
 anchor_right = 1.0
