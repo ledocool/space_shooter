@@ -1,12 +1,10 @@
 extends Control
 
 func _on_Retry_pressed():
-# warning-ignore:return_value_discarded
-	get_tree().reload_current_scene()
+	($"/root/LevelLoader" as LevelLoader).ReloadLevel()
 
 func _on_Exit_pressed():
-	var changed = get_tree().change_scene("res://scenes/interface/MainMenu.tscn")
-	print_debug("Exit: " + String(changed))
+	($"/root/LevelLoader" as LevelLoader).LoadLevelByName("res://scenes/interface/MainMenu.tscn")
 
 func SetData(data: Dictionary):
 	var stats = self.find_node("Statistics")

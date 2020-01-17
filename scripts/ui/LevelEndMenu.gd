@@ -8,10 +8,7 @@ func _ready():
 #	pass
 
 func _on_Exit_pressed():
-	var changed = get_tree().change_scene("res://scenes/interface/MainMenu.tscn")
-	print_debug("Exit: " + String(changed))
-	
+	$"/root/LevelLoader".LoadLevelByName("res://scenes/interface/MainMenu.tscn")
 
 func _on_Retry_pressed():
-# warning-ignore:return_value_discarded
-	get_tree().reload_current_scene()
+	$"/root/LevelLoader".ReloadLevel()

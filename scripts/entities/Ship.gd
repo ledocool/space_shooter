@@ -29,7 +29,7 @@ var MaxAmmo: int = 0
 var BulletType = null
 var OldSpeed = 0
 
-onready var InventoryInstance = Inventory.new()
+var InventoryInstance = Inventory.new()
 #onready var StatusInstance = Array()
 
 #func AssumeStatus(status):
@@ -63,6 +63,28 @@ func Damage(points: int):
 		var oldShipHealth = ShipCurrentHealth
 		ShipCurrentHealth = 0 if ShipCurrentHealth < points else ShipCurrentHealth - points
 		emit_signal("health_changed", oldShipHealth, ShipCurrentHealth)
+
+func Save():
+	var cwpn = CurrentWeapon
+	_removeWeapon()
+	return {
+		"position": position,
+		"velocity": linear_velocity,
+		"rotation": rotation,
+		"current_weapon": cwpn,
+		"weapons": InventoryInstance.weapons,
+		"items": InventoryInstance.items
+	}
+
+func Load(data: Dictionary):
+	InventoryInstance.weapons = data.weapons
+	InventoryInstance.items = data.items
+	SwitchWeapon(data.current_weapon)
+	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
+	position = Vector2(pos[0], pos[1])
+	var vel = data.velocity.trim_prefix('(').trim_suffix(')').split(',')
+	linear_velocity = Vector2(vel[0], vel[1])
+	rotation = data.rotation
 
 func Destroy():
 	_onDestruction()
