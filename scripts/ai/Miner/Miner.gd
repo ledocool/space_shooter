@@ -16,6 +16,12 @@ var Player
 var NearPlayer = false
 var SeesPlayer = false
 
+#func Save():
+#	pass
+#
+#func Load(data: Dictionary):
+#	pass
+
 func TurnOn(isOn = true):
 	TurnedOn = isOn
 

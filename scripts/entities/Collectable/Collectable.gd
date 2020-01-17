@@ -11,3 +11,12 @@ func _on_Collectable_body_entered(body):
 			visible = false
 			emit_signal("picked_up", data)
 			queue_free()
+
+func Save():
+	return {
+		"position": position
+	}
+	
+func Load(data: Dictionary):
+	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
+	position = Vector2(pos[0], pos[1])

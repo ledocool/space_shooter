@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/systems/inventory/inventory.gd"
 }, {
+"base": "WorldEnvironment",
+"class": "Level",
+"language": "GDScript",
+"path": "res://scripts/levels/Level.gd"
+}, {
+"base": "Node",
+"class": "LevelLoader",
+"language": "GDScript",
+"path": "res://scripts/levels/LevelLoader.gd"
+}, {
 "base": "Ship",
 "class": "Miner",
 "language": "GDScript",
@@ -43,6 +53,11 @@ _global_script_classes=[ {
 "class": "PlayerShip",
 "language": "GDScript",
 "path": "res://scripts/entities/PlayerShip.gd"
+}, {
+"base": "Node",
+"class": "SaveManager",
+"language": "GDScript",
+"path": "res://scripts/levels/SaveManager.gd"
 }, {
 "base": "RigidBody2D",
 "class": "Ship",
@@ -74,9 +89,12 @@ _global_script_class_icons={
 "Collectable": "",
 "DefaultState": "",
 "Inventory": "",
+"Level": "",
+"LevelLoader": "",
 "Miner": "",
 "Pickup": "",
 "PlayerShip": "",
+"SaveManager": "",
 "Ship": "",
 "State": "",
 "StateMachine": "",
@@ -89,6 +107,10 @@ _global_script_class_icons={
 config/name="SpaceShooter"
 run/main_scene="res://scenes/interface/MainMenu.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+LevelLoader="*res://scripts/levels/LevelLoader.gd"
 
 [debug]
 

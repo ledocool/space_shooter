@@ -17,3 +17,4 @@ func _input(event):
 
 func _physics_process(_delta):
 	Cursor = get_global_mouse_position()	
+

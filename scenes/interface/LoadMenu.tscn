@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/interface/MenuBoard.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/ui/LoadMenu.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=3]
+
+[node name="LoadMenu" index="0" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Background/MarginContainer" index="0"]
+margin_right = 1840.0
+margin_bottom = 1000.0
+dragger_visibility = 2
+
+[node name="Control" type="Control" parent="Background/MarginContainer/VSplitContainer" index="0"]
+margin_right = 1840.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Background/MarginContainer/VSplitContainer" index="1"]
+margin_right = 1840.0
+margin_bottom = 1000.0
+split_offset = 1500
+dragger_visibility = 1
+
+[node name="SaveList" type="ItemList" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="0"]
+margin_right = 1500.0
+margin_bottom = 1000.0
+rect_clip_content = false
+allow_reselect = true
+
+[node name="Control" type="Control" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="1"]
+margin_left = 1512.0
+margin_right = 1840.0
+margin_bottom = 1000.0
+
+[node name="LoadButton" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Control" index="0" instance=ExtResource( 3 )]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -25.0
+margin_right = 0.0
+margin_bottom = 0.0
+text = "Load Game"
+[connection signal="item_activated" from="Background/MarginContainer/VSplitContainer/HSplitContainer/SaveList" to="." method="_on_SaveList_item_activated"]
+[connection signal="item_selected" from="Background/MarginContainer/VSplitContainer/HSplitContainer/SaveList" to="." method="_on_SaveList_item_selected"]
+[connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Control/LoadButton" to="." method="_on_LoadButton_pressed"]
