@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/ui/Progressbar.gd" type="Script" id=1]
+[ext_resource path="res://resources/Ui/ProgressBars/LoadingProgress/back_big.png" type="Texture" id=2]
+[ext_resource path="res://resources/Ui/ProgressBars/LoadingProgress/progress.png" type="Texture" id=3]
+[ext_resource path="res://resources/Ui/ProgressBars/LoadingProgress/top.png" type="Texture" id=4]
+
+
+[node name="Progressbar" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -787.0
+margin_bottom = -971.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 1133, 109 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ],
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+stretch_margin_left = 7
+stretch_margin_top = 7
+stretch_margin_right = 7
+stretch_margin_bottom = 7
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 13.0
+margin_top = -19.0
+margin_right = 1149.0
+margin_bottom = 202.0
+rect_pivot_offset = Vector2( 551.04, 81.6309 )
+size_flags_horizontal = 13
+size_flags_vertical = 13
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1

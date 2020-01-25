@@ -52,3 +52,7 @@ func _on_SaveMenu_visibility_changed():
 	saveNameEditor.text = ""
 	if(self.visible == true):
 		_updateSaveFileList()
+
+
+func _on_CloseButton_pressed():
+	self.visible = false

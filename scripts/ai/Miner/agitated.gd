@@ -10,11 +10,13 @@ func _physics_process(_event):
 
 # State machine callback called during transition when entering this state
 func _on_enter_state():
+	target.get_node("Timers/DifferenceRecalculationTimer").start()
 	target.EngineFiring = true
 	target.SetSpriteAngry()
 	pass
 
 # State machine callback called during transition when leaving this state
-func _on_leave_state(): 
+func _on_leave_state():
+	target.get_node("Timers/DifferenceRecalculationTimer").stop()
 	target.EngineFiring = false
 	pass

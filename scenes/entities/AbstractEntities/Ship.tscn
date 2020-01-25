@@ -52,6 +52,7 @@ wait_time = 0.07
 one_shot = true
 
 [node name="CannonAfterBurnTimer" type="Timer" parent="Timers"]
+process_mode = 0
 wait_time = 0.01
 one_shot = true
 
