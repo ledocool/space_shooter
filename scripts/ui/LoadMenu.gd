@@ -43,3 +43,7 @@ func _on_SaveList_item_activated(index):
 func _on_SaveList_item_selected(index):
 	var btn =find_node("LoadButton")
 	btn.disabled = index < 0
+
+
+func _on_CloseButton_pressed():
+	self.visible = false
