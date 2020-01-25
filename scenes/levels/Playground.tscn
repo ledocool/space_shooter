@@ -28,7 +28,7 @@ BottomCameraBorder = 1000000
 RightCameraBorder = 1000000
 
 [node name="ShipContainer" parent="." index="2"]
-editor/display_folded = true
+editor/display_folded = false
 
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -1684.84, 28.8008 )

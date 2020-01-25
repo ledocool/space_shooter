@@ -4,6 +4,7 @@ class_name Miner
 const IdleState = preload("res://scripts/ai/Miner/idle.gd")
 const AgitatedState = preload("res://scripts/ai/Miner/agitated.gd")
 const OffState = preload("res://scripts/ai/Miner/off.gd")
+const Angryfying = preload("res://scripts/ai/Miner/angryfying.gd")
 const StateMachineFactory = preload("res://scripts/systems/state-machine/state_machine_factory.gd")
 
 export var ExplosionDamage = 3
@@ -34,14 +35,14 @@ func IsNearPlayer():
 func IsSeesPlayer():
 	return SeesPlayer
 
-func UnproductiveFlight():
-	var Player = GetPlayer()
-	if(!Player):
-		return false
-	var vec1 = Player.GetCoordinates() - self.GetCoordinates()
-	var vec2 = self. GetVelocity()
-	var vecCos = vec1.x*vec2.x + vec1.y*vec2.y
-	return vecCos <= 0
+#func UnproductiveFlight():
+#	var Player = GetPlayer()
+#	if(!Player):
+#		return false
+#	var vec1 = Player.GetCoordinates() - self.GetCoordinates()
+#	var vec2 = self. GetVelocity()
+#	var vecCos = vec1.x*vec2.x + vec1.y*vec2.y
+#	return vecCos <= 0
 
 func TrackPlayer(Player):	
 	var pp = Player.get_global_position()
@@ -75,15 +76,19 @@ func GetPlayer():
 	else: 
 		return Player.get_ref()
 
+
 func SetAiTimersTicking(isTicking):
 	($Timers/DifferenceRecalculationTimer as Timer).set_paused(!isTicking)
 	($Timers/SeesPlayerTimer as Timer).set_paused(!isTicking)
 
+
 func _onDestruction():
 	emit_signal("exploded", position, 0.25, rotation)
 
+
 func _physics_process(delta):
 	aiState._physics_process(delta);
+
 
 func _ready():	
 	aiState = smf.create({
@@ -92,11 +97,13 @@ func _ready():
 		'states': [
 			{'id': 'idle', 'state': IdleState},
 			{'id': 'agitated', 'state': AgitatedState},
-			{'id': 'off', 'state': OffState}
+			{'id': 'off', 'state': OffState},
+			{'id': 'angryfying', 'state' : Angryfying}
 		],
 		'transitions': [
-			{'state_id': 'idle', 'to_states': ['agitated', 'off']},
+			{'state_id': 'idle', 'to_states': ['angryfying', 'off']},
 			{'state_id': 'agitated', 'to_states': ['idle', 'off']},
+			{'state_id': 'angryfying', 'to_states': ['agitated']},
 			{'state_id': 'off', 'to_states': ['idle']},
 		]
 	})
@@ -131,7 +138,7 @@ func _on_ExplodeArea_body_entered(body):
 	if(aiState.get_current_state() == "agitated" && body.has_method("Damage") && body != self):
 		body.Damage(ExplosionDamage);
 		self.Damage(self.GetHealth())
-		
+
 
 func _on_SeesPlayerTimer_timeout():
 	SeesPlayer = _isSeesPlayer()
@@ -141,3 +148,10 @@ func _on_DifferenceRecalculationTimer_timeout():
 	var player = GetPlayer()
 	if(player):
 		TrackPlayer(player)
+
+
+func _on_AngryfyingBlinkTimer_timeout():
+	if(($Sprite as AnimatedSprite).frame == 0):
+		SetSpriteChill()
+	else:
+		SetSpriteAngry()

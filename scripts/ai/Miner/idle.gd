@@ -5,7 +5,7 @@ func _physics_process(_delta):
 		state_machine.transition("off")
 			
 	if (target.IsNearPlayer() && target.IsSeesPlayer()):
-		state_machine.transition("agitated")
+		state_machine.transition("angryfying")
 
 # State machine callback called during transition when entering this state
 func _on_enter_state(): 

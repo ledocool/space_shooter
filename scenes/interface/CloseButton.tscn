@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/Ui/Buttons/backbtn_released.png" type="Texture" id=1]
+[ext_resource path="res://resources/Ui/Buttons/backbtn_pushed.png" type="Texture" id=2]
+[ext_resource path="res://resources/Ui/Buttons/backbtn_over.png" type="Texture" id=3]
+
+[node name="CloseButton" type="TextureButton"]
+margin_right = 78.0
+margin_bottom = 107.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+expand = true
+stretch_mode = 5

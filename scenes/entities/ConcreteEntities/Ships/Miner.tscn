@@ -13,7 +13,7 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
-"speed": 5.0
+"speed": 1.0
 } ]
 
 [sub_resource type="CircleShape2D" id=3]
@@ -25,7 +25,7 @@ radius = 1900.0
 [sub_resource type="CircleShape2D" id=5]
 radius = 36.0
 
-[node name="Miner" instance=ExtResource( 1 )]
+[node name="Miner" index="0" instance=ExtResource( 1 )]
 collision_layer = 5
 collision_mask = 3
 mass = 1.0
@@ -61,6 +61,8 @@ shape = SubResource( 3 )
 [node name="AreaExit" type="Area2D" parent="." index="5"]
 editor/display_folded = true
 visible = false
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaExit" index="0"]
 shape = SubResource( 4 )
@@ -73,14 +75,24 @@ visible = false
 shape = SubResource( 5 )
 
 [node name="DifferenceRecalculationTimer" type="Timer" parent="Timers" index="4"]
+process_mode = 0
+wait_time = 0.5
+
+[node name="SeesPlayerTimer" type="Timer" parent="Timers" index="5"]
+process_mode = 0
 wait_time = 0.5
 autostart = true
 
-[node name="SeesPlayerTimer" type="Timer" parent="Timers" index="5"]
-wait_time = 0.5
-autostart = true
+[node name="AngryfyingTimer" type="Timer" parent="Timers" index="6"]
+process_mode = 0
+wait_time = 0.9
+one_shot = true
+
+[node name="AngryfyingBlinkTimer" type="Timer" parent="Timers" index="7"]
+wait_time = 0.07
 [connection signal="body_entered" from="AreaEnter" to="." method="_on_AreaEnter_body_entered"]
 [connection signal="body_exited" from="AreaExit" to="." method="_on_AreaExit_body_exited"]
 [connection signal="body_entered" from="ExplodeArea" to="." method="_on_ExplodeArea_body_entered"]
 [connection signal="timeout" from="Timers/DifferenceRecalculationTimer" to="." method="_on_DifferenceRecalculationTimer_timeout"]
 [connection signal="timeout" from="Timers/SeesPlayerTimer" to="." method="_on_SeesPlayerTimer_timeout"]
+[connection signal="timeout" from="Timers/AngryfyingBlinkTimer" to="." method="_on_AngryfyingBlinkTimer_timeout"]
