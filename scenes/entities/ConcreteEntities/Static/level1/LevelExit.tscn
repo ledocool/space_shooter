@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/Objects/Structures/level_exit_mid_top.png" type="Texture" id=1]
 [ext_resource path="res://resources/Objects/Structures/level_exit_top.png" type="Texture" id=2]
 [ext_resource path="res://resources/Objects/Structures/level_exit_bot.png" type="Texture" id=3]
-[ext_resource path="res://resources/Objects/Structures/level_exit_mid.png" type="Texture" id=4]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight_Green.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resources/Objects/Structures/level_exit_mid.png" type="Texture" id=5]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -548.918, 408.143, -538.125, 380.083, -71.8955, 334.755, 178.487, 453.471, 668.46, 429.728, 672.777, -476.831, 204.389, -444.453, 31.7113, -414.235, -579.136, -461.721, -486.322, -485.464, 18.7606, -429.344, 202.231, -461.721, 679.253, -504.891, 933.953, -478.989, 938.27, 496.64, 668.461, 464.263, 176.329, 475.056, -108.589, 384.4 )
 
 [node name="LevelExit" type="Node2D"]
 
@@ -28,6 +32,42 @@ texture = ExtResource( 2 )
 z_index = -1
 texture = ExtResource( 3 )
 
+[node name="RoundBlinkingLight_Green" parent="bot" instance=ExtResource( 4 )]
+position = Vector2( -881.129, 503.964 )
+
+[node name="RoundBlinkingLight_Green2" parent="bot" instance=ExtResource( 4 )]
+position = Vector2( -917.622, 54.9353 )
+
+[node name="RoundBlinkingLight_Green3" parent="bot" instance=ExtResource( 4 )]
+position = Vector2( -855.742, -254.466 )
+
+[node name="RoundBlinkingLight_Green4" parent="bot" instance=ExtResource( 4 )]
+position = Vector2( -935.076, -494.054 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="bot"]
+occluder = SubResource( 1 )
+
+[node name="Arrow" type="Node2D" parent="bot"]
+position = Vector2( 226.578, 20.1403 )
+
+[node name="RoundBlinkingLight_Green5" parent="bot/Arrow" instance=ExtResource( 4 )]
+position = Vector2( -135.515, -25.7836 )
+
+[node name="RoundBlinkingLight_Green6" parent="bot/Arrow" instance=ExtResource( 4 )]
+position = Vector2( -201.338, -25.2773 )
+
+[node name="RoundBlinkingLight_Green7" parent="bot/Arrow" instance=ExtResource( 4 )]
+position = Vector2( -66.9082, -26.2219 )
+
+[node name="RoundBlinkingLight_Green" parent="bot/Arrow" instance=ExtResource( 4 )]
+position = Vector2( -3.96985, -28.7394 )
+
+[node name="RoundBlinkingLight_Green2" parent="bot/Arrow" instance=ExtResource( 4 )]
+position = Vector2( -29.1453, -74.0551 )
+
+[node name="RoundBlinkingLight_Green3" parent="bot/Arrow" instance=ExtResource( 4 )]
+position = Vector2( -31.6628, 29.1639 )
+
 [node name="mid" type="Sprite" parent="."]
 z_index = -1
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
