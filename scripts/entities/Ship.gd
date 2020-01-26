@@ -72,13 +72,13 @@ func Save():
 		"velocity": linear_velocity,
 		"rotation": rotation,
 		"current_weapon": cwpn,
-		"weapons": InventoryInstance.weapons,
-		"items": InventoryInstance.items
+		"weapons": InventoryInstance.GetAllWeapons(),
+		"items": InventoryInstance.GetAllItems()
 	}
 
 func Load(data: Dictionary):
-	InventoryInstance.weapons = data.weapons
-	InventoryInstance.items = data.items
+	InventoryInstance.SetAllWeapons(data.weapons)
+	InventoryInstance.SetAllItems(data.items)
 	SwitchWeapon(data.current_weapon)
 	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
 	position = Vector2(pos[0], pos[1])
