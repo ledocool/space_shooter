@@ -61,3 +61,16 @@ func SetItem(itmType, data):
 		items[itmType] = data
 		return true
 	return false
+
+func GetAllWeapons():
+	return weapons
+	
+func SetAllWeapons(wns: Dictionary):
+	weapons = wns
+	
+func GetAllItems():
+	return items
+	
+func SetAllItems(itms: Dictionary):
+	items = itms
+	
