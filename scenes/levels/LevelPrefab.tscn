@@ -74,6 +74,7 @@ __meta__ = {
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
+editor/display_folded = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuCanvas"]
 anchor_right = 1.0
@@ -126,6 +127,9 @@ margin_bottom = 580.0
 
 [node name="Background" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
+
+[node name="Foreground" type="ParallaxBackground" parent="."]
+layer = 127
 
 [node name="TriggerContainer" type="Node2D" parent="."]
 
