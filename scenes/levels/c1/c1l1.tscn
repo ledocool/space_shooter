@@ -41,6 +41,7 @@ height = 445.226
 radius = 1052.86
 
 [node name="Level" instance=ExtResource( 1 )]
+secretsMax = 1
 
 [node name="PlayerCamera" parent="." index="0"]
 position = Vector2( -8566.87, 54.705 )

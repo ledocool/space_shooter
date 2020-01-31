@@ -12,7 +12,7 @@ var playerShootsBullet = 0
 # warning-ignore:unused_class_variable
 var playerSecretsFound = 0
 # warning-ignore:unused_class_variable
-var secretsMax = 0
+export var secretsMax = 0
 
 func GetPlayer():
 	return $ShipContainer/Player
