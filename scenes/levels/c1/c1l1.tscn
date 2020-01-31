@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
@@ -29,15 +29,20 @@
 [ext_resource path="res://resources/Objects/Asteroids/asteroid2.png" type="Texture" id=27]
 [ext_resource path="res://resources/Objects/Asteroids/asteroid.png" type="Texture" id=28]
 [ext_resource path="res://scripts/levels/c1l1/WeaponPickupTrigger.gd" type="Script" id=29]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid2.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid1.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scripts/levels/c1l1/SecretRevealTrigger.gd" type="Script" id=32]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 273.705
 height = 445.226
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 1052.86
 
 [node name="Level" instance=ExtResource( 1 )]
 
 [node name="PlayerCamera" parent="." index="0"]
-editor/display_folded = false
 position = Vector2( -8566.87, 54.705 )
 z_index = 1001
 z_as_relative = false
@@ -131,9 +136,6 @@ rotation = -2.87979
 [node name="Miner16" parent="ShipContainer" index="20" instance=ExtResource( 2 )]
 position = Vector2( 7093.97, -3956.51 )
 rotation = -1.83259
-
-[node name="AsteroidContainer" parent="." index="3"]
-editor/display_folded = true
 
 [node name="Asteroid" parent="AsteroidContainer" index="0" instance=ExtResource( 3 )]
 position = Vector2( -8018.51, -5.83704 )
@@ -773,14 +775,8 @@ rotation = 2.87979
 position = Vector2( 2001.46, -1996.27 )
 rotation = -2.87979
 
-[node name="ItemContainer" parent="." index="4"]
-editor/display_folded = true
-
 [node name="SlugPickup" parent="ItemContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -5919.03, 1339.17 )
-
-[node name="DynamicScenery" parent="." index="5"]
-editor/display_folded = true
 
 [node name="Crate" parent="DynamicScenery" index="0" instance=ExtResource( 10 )]
 position = Vector2( -5045.21, 278.218 )
@@ -837,17 +833,11 @@ position = Vector2( -5518.03, -188.808 )
 rotation = -1.57079
 sleeping = false
 
-[node name="Crate12" parent="DynamicScenery" index="11" instance=ExtResource( 10 )]
-position = Vector2( 7469.85, -5096.38 )
-
-[node name="Crate13" parent="DynamicScenery" index="12" instance=ExtResource( 10 )]
+[node name="Crate13" parent="DynamicScenery" index="11" instance=ExtResource( 10 )]
 position = Vector2( 496.685, -3151.18 )
 
-[node name="Crate14" parent="DynamicScenery" index="13" instance=ExtResource( 10 )]
+[node name="Crate14" parent="DynamicScenery" index="12" instance=ExtResource( 10 )]
 position = Vector2( 219.172, -3172.21 )
-
-[node name="Scenery" parent="." index="6"]
-editor/display_folded = true
 
 [node name="StartingLocationHugeDebree" parent="Scenery" index="0" instance=ExtResource( 11 )]
 position = Vector2( -9835.74, 4.36401 )
@@ -1089,7 +1079,7 @@ position = Vector2( 6177.74, -5838.08 )
 z_index = 0
 
 [node name="StaticAsteroid40" parent="Scenery" index="52" instance=ExtResource( 14 )]
-position = Vector2( 7006.79, -6518.84 )
+position = Vector2( 7033.48, -6278.66 )
 z_index = 0
 
 [node name="StaticAsteroid41" parent="Scenery" index="53" instance=ExtResource( 13 )]
@@ -1164,17 +1154,31 @@ position = Vector2( 8764.39, -361.723 )
 [node name="Harvester" parent="Scenery" index="69" instance=ExtResource( 19 )]
 position = Vector2( 1995.29, 203.034 )
 
-[node name="EngineHint" parent="Scenery" index="70" instance=ExtResource( 20 )]
+[node name="GunHint" parent="Scenery" index="70" instance=ExtResource( 21 )]
+position = Vector2( -6155.92, 1389.18 )
+
+[node name="EngineHint" parent="Scenery" index="71" instance=ExtResource( 20 )]
 position = Vector2( -8462.17, -13.9871 )
 
-[node name="IngameHint" parent="Scenery/EngineHint" index="2" instance=ExtResource( 21 )]
-position = Vector2( 2306.25, 1403.17 )
+[node name="SecretHider" type="Node2D" parent="Scenery" index="72"]
+
+[node name="Secret1_asteroid" parent="Scenery/SecretHider" index="0" groups=[
+"SecretCrevice",
+] instance=ExtResource( 30 )]
+position = Vector2( 7728.15, -5146.05 )
+rotation = -2.61799
+scale = Vector2( 1.41834, 1.41834 )
+
+[node name="Secret1_asteroid2" parent="Scenery/SecretHider" index="1" groups=[
+"SecretCrevice",
+] instance=ExtResource( 31 )]
+position = Vector2( 8486.18, -5691.89 )
+rotation = -1.6189e-05
 
 [node name="Background" parent="." index="8"]
 layer = -30
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background" index="0"]
-editor/display_folded = true
 z_index = -100
 motion_scale = Vector2( 0.01, 0.01 )
 __meta__ = {
@@ -1261,61 +1265,47 @@ position = Vector2( 1960.52, -4810.15 )
 rotation = 0.261799
 texture = ExtResource( 25 )
 
-[node name="asteroid2_blur6" type="Sprite" parent="Foreground/Front" index="13"]
-position = Vector2( 9257.81, -6107.07 )
-texture = ExtResource( 24 )
-
-[node name="asteroid_blur4" type="Sprite" parent="Foreground/Front" index="14"]
-position = Vector2( 7878.58, -6435.3 )
-scale = Vector2( 1.70885, 1.70885 )
-texture = ExtResource( 25 )
-
-[node name="asteroid1_blur7" type="Sprite" parent="Foreground/Front" index="15"]
-position = Vector2( 6617.01, -5924.42 )
+[node name="asteroid1_blur7" type="Sprite" parent="Foreground/Front" index="13"]
+position = Vector2( 7215.87, -6577.24 )
 rotation = 1.0472
 texture = ExtResource( 23 )
 
-[node name="asteroid2_blur8" type="Sprite" parent="Foreground/Front" index="16"]
-position = Vector2( 8670.34, -5344.97 )
-rotation = 0.523598
-texture = ExtResource( 24 )
-
-[node name="asteroid_blur5" type="Sprite" parent="Foreground/Front" index="17"]
+[node name="asteroid_blur5" type="Sprite" parent="Foreground/Front" index="14"]
 position = Vector2( 3998.57, -8000.5 )
 rotation = -0.261799
 texture = ExtResource( 25 )
 
-[node name="asteroid_blur6" type="Sprite" parent="Foreground/Front" index="18"]
+[node name="asteroid_blur6" type="Sprite" parent="Foreground/Front" index="15"]
 position = Vector2( 8343.57, 1570.43 )
 rotation = -0.785397
 texture = ExtResource( 25 )
 
-[node name="asteroid_blur7" type="Sprite" parent="Foreground/Front" index="19"]
+[node name="asteroid_blur7" type="Sprite" parent="Foreground/Front" index="16"]
 position = Vector2( 3860.65, 6121.45 )
 rotation = 0.523598
 texture = ExtResource( 25 )
 
-[node name="asteroid2_blur10" type="Sprite" parent="Foreground/Front" index="20"]
+[node name="asteroid2_blur10" type="Sprite" parent="Foreground/Front" index="17"]
 position = Vector2( 5960.17, 4514.55 )
 rotation = -0.523598
 texture = ExtResource( 24 )
 
-[node name="asteroid1_blur9" type="Sprite" parent="Foreground/Front" index="21"]
+[node name="asteroid1_blur9" type="Sprite" parent="Foreground/Front" index="18"]
 position = Vector2( 1772.85, 6625.81 )
 rotation = 1.309
 texture = ExtResource( 23 )
 
-[node name="asteroid1_blur8" type="Sprite" parent="Foreground/Front" index="22"]
+[node name="asteroid1_blur8" type="Sprite" parent="Foreground/Front" index="19"]
 position = Vector2( 6985.37, -2216.94 )
 rotation = -0.523598
 texture = ExtResource( 23 )
 
-[node name="asteroid2_blur7" type="Sprite" parent="Foreground/Front" index="23"]
+[node name="asteroid2_blur7" type="Sprite" parent="Foreground/Front" index="20"]
 position = Vector2( -1808.48, 931.907 )
 rotation = -0.785397
 texture = ExtResource( 24 )
 
-[node name="asteroid_blur8" type="Sprite" parent="Foreground/Front" index="24"]
+[node name="asteroid_blur8" type="Sprite" parent="Foreground/Front" index="21"]
 position = Vector2( -2883.61, 751.113 )
 texture = ExtResource( 25 )
 
@@ -1395,13 +1385,19 @@ position = Vector2( 287.758, 6977.85 )
 rotation = 1.309
 texture = ExtResource( 27 )
 
-[node name="LevelEndTrigger" parent="TriggerContainer" index="0"]
-editor/display_folded = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
 position = Vector2( 8858.91, -349.76 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="WpnPickupTrigger" type="Node" parent="TriggerContainer" index="1"]
 script = ExtResource( 29 )
+
+[node name="SecretRevealTrigger" type="Area2D" parent="TriggerContainer" index="2"]
+script = ExtResource( 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/SecretRevealTrigger" index="0"]
+position = Vector2( 7794.07, -5353.59 )
+shape = SubResource( 2 )
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]
+[connection signal="body_entered" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_entered"]
+[connection signal="body_exited" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_exited"]

@@ -14,7 +14,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/interface/hints/EngineHint.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight_Green.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/entities/AbstractEntities/Hideable.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid1.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
@@ -251,8 +251,8 @@ z_as_relative = true
 [node name="RoundBlinkingLight_Green" parent="Scenery" index="4" instance=ExtResource( 14 )]
 position = Vector2( 964.505, 1745.89 )
 
-[node name="Hideable" parent="Scenery" index="5" instance=ExtResource( 15 )]
-position = Vector2( -2709.14, 244.404 )
+[node name="ForegroundAsteroid1" parent="Scenery" index="5" instance=ExtResource( 15 )]
+position = Vector2( -2653.83, 17.1057 )
 
 [node name="LevelEndTrigger" parent="TriggerContainer" index="0"]
 position = Vector2( 9060.28, -2129.68 )

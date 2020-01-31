@@ -7,7 +7,7 @@ func Save():
 	return {
 		"position": position,
 		"rotation": rotation,
-		"health": self.health 
+		"health": health 
 	}
 	
 func Load(data: Dictionary):
