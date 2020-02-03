@@ -127,6 +127,7 @@ func _packNode(node: Node):
 	if(node.has_method("Save")):
 		var d = {
 			"name": node.get_filename(),
+# warning-ignore:unsafe_method_access
 			"value": node.Save(),
 			"groups": node.get_groups()
 		}

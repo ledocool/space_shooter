@@ -13,6 +13,12 @@ func _input(event):
 		if(self.visible):
 			get_tree().set_input_as_handled()
 		self.visible = false
+	if(event.is_action_pressed("quick_save")):
+		_quicksave()
+
+func _quicksave():
+# warning-ignore:unsafe_method_access
+	$"/root/LevelLoader".SaveGame("quick.sav")
 
 func _updateSaveFileList():
 	var manager = SaveManager.new()

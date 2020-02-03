@@ -34,11 +34,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/levels/Level.gd"
 }, {
-"base": "Node",
-"class": "LevelLoader",
-"language": "GDScript",
-"path": "res://scripts/levels/LevelLoader.gd"
-}, {
 "base": "Ship",
 "class": "Miner",
 "language": "GDScript",
@@ -90,7 +85,6 @@ _global_script_class_icons={
 "DefaultState": "",
 "Inventory": "",
 "Level": "",
-"LevelLoader": "",
 "Miner": "",
 "Pickup": "",
 "PlayerShip": "",
@@ -200,6 +194,16 @@ zoom_in={
 ui_menu={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quick_save={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777248,"unicode":0,"echo":false,"script":null)
+ ]
+}
+quick_load={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777252,"unicode":0,"echo":false,"script":null)
  ]
 }
 

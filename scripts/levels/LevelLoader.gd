@@ -1,5 +1,4 @@
 extends Node
-class_name LevelLoader
 
 var campaignLevelOrder: Array = [
 	"res://scenes/levels/c1/c1l1.tscn"

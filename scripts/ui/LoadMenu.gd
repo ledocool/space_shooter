@@ -13,6 +13,8 @@ func _input(event):
 		if(self.visible):
 			get_tree().set_input_as_handled()
 		self.visible = false
+	if(event.is_action_pressed("quick_load")):
+		_quickload()
 
 func _updateSaveFileList():
 # warning-ignore:unsafe_property_access
@@ -23,6 +25,10 @@ func _updateSaveFileList():
 	loadContainer.clear()
 	for item in list:
 		loadContainer.add_item(item)
+
+func _quickload():
+# warning-ignore:unsafe_method_access
+	$"/root/LevelLoader".LoadGame("quick.sav")
 
 func _on_LoadButton_pressed():
 	var loadContainer = self.find_node("SaveList")

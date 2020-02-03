@@ -11,6 +11,7 @@ func Save():
 		"position": GetCoordinates(),
 		"rotation": self.rotation,
 		"velocity": GetVelocity(),
+# warning-ignore:unsafe_method_access
 		"lifetime": $Timers/Lifespan.get_time_left()
 	}
 	

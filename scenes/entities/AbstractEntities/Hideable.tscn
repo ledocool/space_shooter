@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/entities/Hideable.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float visibility = 1.0;
+
+void fragment()
+{
+	vec4 col = texture(TEXTURE, UV);
+	if(col.a > visibility) {
+		col.a = visibility;
+	}
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+render_priority = 10
+shader = SubResource( 1 )
+shader_param/visibility = 1.0
+
+[node name="Hideable" type="Sprite"]
+material = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
+process_parent = true
+physics_process_parent = true
