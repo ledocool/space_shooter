@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid2.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid1.tscn" type="PackedScene" id=31]
 [ext_resource path="res://scripts/levels/c1l1/SecretRevealTrigger.gd" type="Script" id=32]
+[ext_resource path="res://resources/Objects/Debrees/humanoid.png" type="Texture" id=33]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 273.705
@@ -49,7 +50,7 @@ z_index = 1001
 z_as_relative = false
 LeftCameraBorder = -10000
 TopCameraBorder = -7835
-BottomCameraBorder = 8916
+BottomCameraBorder = 12300
 RightCameraBorder = 9204
 
 [node name="Player" parent="ShipContainer" index="0"]
@@ -459,13 +460,13 @@ position = Vector2( -4584.17, -1037.59 )
 position = Vector2( -3136.29, -1225.42 )
 
 [node name="Asteroid92" parent="AsteroidContainer" index="91" instance=ExtResource( 6 )]
-position = Vector2( -2366.34, -1159.9 )
+position = Vector2( -2617.75, -707.365 )
 
 [node name="Asteroid93" parent="AsteroidContainer" index="92" instance=ExtResource( 5 )]
 position = Vector2( -2644.83, -1151.7 )
 
 [node name="Asteroid94" parent="AsteroidContainer" index="93" instance=ExtResource( 4 )]
-position = Vector2( -2235.29, -1053.41 )
+position = Vector2( -2416.3, -671.27 )
 
 [node name="Asteroid95" parent="AsteroidContainer" index="94" instance=ExtResource( 5 )]
 position = Vector2( -2073.87, -35.4847 )
@@ -874,7 +875,7 @@ rotation = -1.83259
 z_index = 0
 
 [node name="StaticAsteroid11" parent="Scenery" index="7" instance=ExtResource( 13 )]
-position = Vector2( -1826.38, -1470.59 )
+position = Vector2( -1970.96, -1198.54 )
 rotation = 1.309
 z_index = 0
 
@@ -884,12 +885,12 @@ rotation = 1.0472
 z_index = 0
 
 [node name="StaticDebree" parent="Scenery" index="9" instance=ExtResource( 15 )]
-position = Vector2( -895.675, 2168.11 )
+position = Vector2( -2837.9, 3511.33 )
 rotation = 2.61799
 z_index = 0
 
 [node name="StaticAsteroid12" parent="Scenery" index="10" instance=ExtResource( 14 )]
-position = Vector2( -1103.9, 1448.79 )
+position = Vector2( -2707.48, 2469.63 )
 rotation = 2.61799
 z_index = 0
 
@@ -904,12 +905,12 @@ rotation = 0.261799
 z_index = 0
 
 [node name="StaticAsteroid9" parent="Scenery" index="13" instance=ExtResource( 12 )]
-position = Vector2( -2745.29, 263.377 )
+position = Vector2( -2926.3, 253.32 )
 rotation = 0.523598
 z_index = 0
 
 [node name="StaticAsteroid8" parent="Scenery" index="14" instance=ExtResource( 13 )]
-position = Vector2( -868.808, -1566.5 )
+position = Vector2( -1031.44, -1433.44 )
 rotation = 2.35619
 z_index = 0
 
@@ -933,16 +934,17 @@ rotation = 0.523598
 z_index = 0
 
 [node name="StaticAsteroid18" parent="Scenery" index="19" instance=ExtResource( 14 )]
-position = Vector2( -1646.97, 530.907 )
+position = Vector2( -3190.24, 1567.44 )
 rotation = 0.523598
 z_index = 0
 
 [node name="StaticDebree2" parent="Scenery" index="20" instance=ExtResource( 16 )]
-position = Vector2( -608.703, -2388.04 )
+position = Vector2( -593.918, -2166.27 )
 z_index = 0
 
 [node name="StaticAsteroid" parent="Scenery" index="21" instance=ExtResource( 17 )]
-position = Vector2( -111.095, -3163.01 )
+position = Vector2( -44.5642, -3074.3 )
+rotation = -0.261799
 z_index = 0
 
 [node name="StaticAsteroid19" parent="Scenery" index="22" instance=ExtResource( 17 )]
@@ -951,11 +953,12 @@ rotation = 0.785397
 z_index = 0
 
 [node name="StaticAsteroid21" parent="Scenery" index="23" instance=ExtResource( 17 )]
-position = Vector2( -338.047, 2899.71 )
+position = Vector2( -1844.64, 4215.71 )
+rotation = -2.61799
 z_index = 0
 
 [node name="StaticDebree3" parent="Scenery" index="24" instance=ExtResource( 16 )]
-position = Vector2( -810.273, 3041.37 )
+position = Vector2( -2135.34, 4030.64 )
 z_index = 0
 
 [node name="StaticDebree5" parent="Scenery" index="25" instance=ExtResource( 16 )]
@@ -981,76 +984,76 @@ position = Vector2( 7244.68, -3286.31 )
 z_index = 0
 
 [node name="StaticAsteroid22" parent="Scenery" index="30" instance=ExtResource( 17 )]
-position = Vector2( 3660.8, 5845.19 )
+position = Vector2( 3805.11, 10198.5 )
 z_index = 0
 
 [node name="StaticDebree10" parent="Scenery" index="31" instance=ExtResource( 16 )]
-position = Vector2( -766.933, 3952.52 )
+position = Vector2( -1356.86, 3979.75 )
 rotation = 2.09439
 z_index = 0
 
 [node name="StaticAsteroid23" parent="Scenery" index="32" instance=ExtResource( 17 )]
-position = Vector2( -376.562, 5770.37 )
-rotation = 1.83259
+position = Vector2( 385.808, 4644.97 )
+rotation = 2.61799
 z_index = 0
 
 [node name="StaticAsteroid24" parent="Scenery" index="33" instance=ExtResource( 13 )]
-position = Vector2( -794.1, 4698.05 )
+position = Vector2( -2572.96, 4852.34 )
 z_index = 0
 
-[node name="StaticAsteroid25" parent="Scenery" index="34" instance=ExtResource( 12 )]
-position = Vector2( 331.287, 5636.48 )
+[node name="StaticAsteroid33" parent="Scenery" index="34" instance=ExtResource( 17 )]
+position = Vector2( -518.904, 5747.01 )
+rotation = 1.5708
+z_index = 0
+
+[node name="StaticAsteroid25" parent="Scenery" index="35" instance=ExtResource( 12 )]
+position = Vector2( 249.604, 5709.09 )
 rotation = -0.785397
 z_index = 0
 
-[node name="StaticAsteroid26" parent="Scenery" index="35" instance=ExtResource( 14 )]
+[node name="StaticAsteroid26" parent="Scenery" index="36" instance=ExtResource( 14 )]
 position = Vector2( 8644.35, -1315.37 )
 z_index = -1
 
-[node name="StaticDebree11" parent="Scenery" index="36" instance=ExtResource( 16 )]
+[node name="StaticDebree11" parent="Scenery" index="37" instance=ExtResource( 16 )]
 position = Vector2( 1996.18, -3644.08 )
 z_index = 0
 
-[node name="StaticDebree12" parent="Scenery" index="37" instance=ExtResource( 15 )]
+[node name="StaticDebree12" parent="Scenery" index="38" instance=ExtResource( 15 )]
 position = Vector2( 3944.18, 2942.44 )
 rotation = -1.309
 z_index = 0
 
-[node name="StaticAsteroid30" parent="Scenery" index="38" instance=ExtResource( 13 )]
+[node name="StaticAsteroid30" parent="Scenery" index="39" instance=ExtResource( 13 )]
 position = Vector2( 2474.71, -4320.59 )
 z_index = 0
 
-[node name="StaticAsteroid31" parent="Scenery" index="39" instance=ExtResource( 14 )]
+[node name="StaticAsteroid31" parent="Scenery" index="40" instance=ExtResource( 14 )]
 position = Vector2( 2737.03, -6403.28 )
 rotation = -0.523598
 z_index = 0
 
-[node name="StaticDebree13" parent="Scenery" index="40" instance=ExtResource( 16 )]
+[node name="StaticDebree13" parent="Scenery" index="41" instance=ExtResource( 16 )]
 position = Vector2( -6632.12, 826.909 )
 rotation = 1.83259
 z_index = 0
 
-[node name="StaticDebree14" parent="Scenery" index="41" instance=ExtResource( 15 )]
+[node name="StaticDebree14" parent="Scenery" index="42" instance=ExtResource( 15 )]
 position = Vector2( -3470.1, 845.489 )
 rotation = -2.618
 z_index = 0
 
-[node name="StaticAsteroid32" parent="Scenery" index="42" instance=ExtResource( 17 )]
+[node name="StaticAsteroid32" parent="Scenery" index="43" instance=ExtResource( 17 )]
 position = Vector2( -7866.77, -1116.42 )
 rotation = 0.785397
 z_index = 0
 
-[node name="StaticAsteroid33" parent="Scenery" index="43" instance=ExtResource( 17 )]
-position = Vector2( 1105.67, 6191.73 )
-rotation = 1.5708
-z_index = 0
-
 [node name="StaticAsteroid34" parent="Scenery" index="44" instance=ExtResource( 12 )]
-position = Vector2( 2774.44, 6094.35 )
+position = Vector2( -2516.83, 8451.37 )
 z_index = 0
 
 [node name="StaticAsteroid35" parent="Scenery" index="45" instance=ExtResource( 13 )]
-position = Vector2( 5304.05, 5131.24 )
+position = Vector2( 9921.89, 7368.01 )
 z_index = 0
 
 [node name="StaticAsteroid36" parent="Scenery" index="46" instance=ExtResource( 13 )]
@@ -1111,20 +1114,20 @@ rotation = 1.309
 z_index = 0
 
 [node name="StaticAsteroid47" parent="Scenery" index="59" instance=ExtResource( 12 )]
-position = Vector2( 4460.95, 4963.38 )
+position = Vector2( 6553.41, 9677.42 )
 z_index = 0
 
 [node name="StaticAsteroid48" parent="Scenery" index="60" instance=ExtResource( 13 )]
-position = Vector2( 6429.51, 3593.11 )
+position = Vector2( 8810.58, 1741.16 )
 z_index = 0
 
 [node name="StaticAsteroid49" parent="Scenery" index="61" instance=ExtResource( 14 )]
-position = Vector2( 7708.62, 1787.96 )
+position = Vector2( 7444.06, 1427.19 )
 rotation = -2.09439
 z_index = 0
 
 [node name="StaticAsteroid50" parent="Scenery" index="62" instance=ExtResource( 14 )]
-position = Vector2( 7065.63, 2625.04 )
+position = Vector2( 1004.72, 10153.1 )
 rotation = -1.0472
 z_index = 0
 
@@ -1133,20 +1136,20 @@ position = Vector2( 8166.21, 463.582 )
 z_index = 0
 
 [node name="StaticAsteroid52" parent="Scenery" index="64" instance=ExtResource( 17 )]
-position = Vector2( 5548.44, 4178.65 )
+position = Vector2( 8314.33, 9614.23 )
 rotation = 0.261799
 z_index = 0
 
 [node name="StaticDebree20" parent="Scenery" index="65" instance=ExtResource( 16 )]
-position = Vector2( 7678.34, 864.669 )
+position = Vector2( 7461.88, 527.952 )
 z_index = 0
 
 [node name="StaticDebree21" parent="Scenery" index="66" instance=ExtResource( 16 )]
-position = Vector2( 6986.56, 1413.5 )
+position = Vector2( 6697.94, 980.577 )
 z_index = 0
 
 [node name="StaticDebree22" parent="Scenery" index="67" instance=ExtResource( 15 )]
-position = Vector2( 5920.9, 4441.22 )
+position = Vector2( 10202, 5427.32 )
 z_index = 0
 
 [node name="LevelExit" parent="Scenery" index="68" instance=ExtResource( 18 )]
@@ -1161,7 +1164,12 @@ position = Vector2( -6155.92, 1389.18 )
 [node name="EngineHint" parent="Scenery" index="71" instance=ExtResource( 20 )]
 position = Vector2( -8462.17, -13.9871 )
 
-[node name="SecretHider" type="Node2D" parent="Scenery" index="72"]
+[node name="humanoid" type="Sprite" parent="Scenery" index="72"]
+position = Vector2( 7753.47, -5298.93 )
+rotation = 0.523598
+texture = ExtResource( 33 )
+
+[node name="SecretHider" type="Node2D" parent="Scenery" index="73"]
 
 [node name="Secret1_asteroid" parent="Scenery/SecretHider" index="0" groups=[
 "SecretCrevice",
@@ -1175,6 +1183,8 @@ scale = Vector2( 1.41834, 1.41834 )
 ] instance=ExtResource( 31 )]
 position = Vector2( 8486.18, -5691.89 )
 rotation = -1.6189e-05
+
+[node name="Node2D" type="Node2D" parent="Scenery" index="74"]
 
 [node name="Background" parent="." index="8"]
 layer = -30
@@ -1196,6 +1206,7 @@ __meta__ = {
 }
 
 [node name="Front" type="ParallaxLayer" parent="Foreground" index="0"]
+visible = false
 light_mask = 0
 z_index = 4096
 motion_scale = Vector2( 1.1, 1.1 )
@@ -1215,7 +1226,7 @@ rotation = 0.523598
 texture = ExtResource( 25 )
 
 [node name="asteroid1_blur2" type="Sprite" parent="Foreground/Front" index="3"]
-position = Vector2( -3705.14, 1604.93 )
+position = Vector2( -3814.05, 1686.61 )
 texture = ExtResource( 23 )
 
 [node name="asteroid2_blur2" type="Sprite" parent="Foreground/Front" index="4"]
@@ -1311,9 +1322,10 @@ position = Vector2( -2883.61, 751.113 )
 texture = ExtResource( 25 )
 
 [node name="Back" type="ParallaxLayer" parent="Foreground" index="1"]
+visible = false
 
 [node name="asteroid1" type="Sprite" parent="Foreground/Back" index="0"]
-position = Vector2( -3023.06, 3150.64 )
+position = Vector2( -4800.96, 4261.83 )
 rotation = -1.57079
 scale = Vector2( 2.7739, 2.7739 )
 texture = ExtResource( 26 )
@@ -1397,6 +1409,7 @@ script = ExtResource( 29 )
 script = ExtResource( 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/SecretRevealTrigger" index="0"]
+visible = false
 position = Vector2( 7794.07, -5353.59 )
 shape = SubResource( 2 )
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]
