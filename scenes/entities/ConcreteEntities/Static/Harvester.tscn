@@ -13,15 +13,16 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building2.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building3.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building5.tscn" type="PackedScene" id=13]
-[ext_resource path="res://resources/Objects/Pipes/pipes_port.png" type="Texture" id=14]
+[ext_resource path="res://resources/Objects/Structures/Pipes/pipes_port.png" type="Texture" id=14]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building6.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building7.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Barrel.tscn" type="PackedScene" id=17]
-[ext_resource path="res://resources/Objects/Pipes/pipes_straight.png" type="Texture" id=18]
-[ext_resource path="res://resources/Objects/Pipes/pipes_cross.png" type="Texture" id=19]
-[ext_resource path="res://resources/Objects/Pipes/pipes_bend.png" type="Texture" id=20]
-[ext_resource path="res://resources/Objects/Pipes/pipes_hang.png" type="Texture" id=21]
-[ext_resource path="res://resources/Objects/Pipes/pipes_t.png" type="Texture" id=22]
+[ext_resource path="res://resources/Objects/Structures/Pipes/pipes_straight.png" type="Texture" id=18]
+[ext_resource path="res://resources/Objects/Structures/Pipes/pipes_cross.png" type="Texture" id=19]
+[ext_resource path="res://resources/Objects/Structures/Pipes/pipes_bend.png" type="Texture" id=20]
+[ext_resource path="res://resources/Objects/Structures/Pipes/pipes_hang.png" type="Texture" id=21]
+[ext_resource path="res://resources/Objects/Structures/Pipes/pipes_t.png" type="Texture" id=22]
+
 
 [node name="Harvester" type="Node2D"]
 

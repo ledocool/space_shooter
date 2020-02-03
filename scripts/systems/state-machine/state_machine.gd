@@ -28,11 +28,11 @@ func get_target():
 	"""
 	return target
 
-func set_states(states):
+func set_states(stts):
 	"""
 	Expects an array of state definitions to generate the dictionary of states
 	"""
-	for s in states:
+	for s in stts:
 		if s.id && s.state: set_state(s.id, s.state.new())
 
 func get_states():
@@ -41,11 +41,11 @@ func get_states():
 	"""
 	return states
 
-func set_transitions(transitions):
+func set_transitions(trans):
 	"""
 	Expects an array of transition definitions to generate the dictionary of transitions
 	"""
-	for t in transitions:
+	for t in trans:
 		if t.state_id && t.to_states: set_transition(t.state_id, t.to_states)
 
 func get_transitions():
@@ -70,11 +70,11 @@ func get_current_state():
 	"""
 	return current_state
 
-func set_state_machine(states):
+func set_state_machine(st):
 	"""
 	Expects an array of states to iterate over and pass self to the state's set_machine_state() method
 	"""
-	for state in states: state.set_state_machine(self)
+	for state in st: state.set_state_machine(self)
 
 func set_state(state_id, state):
 	"""

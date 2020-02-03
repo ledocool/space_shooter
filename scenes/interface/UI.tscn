@@ -12,7 +12,6 @@
 [ext_resource path="res://resources/Ui/ProgressBars/GuiSpeed/ui_speed_needle_top.png" type="Texture" id=10]
 [ext_resource path="res://resources/Ui/ProgressBars/GuiSpeed/ui_speed_needle_bottom.png" type="Texture" id=11]
 
-
 [node name="UI" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -24,7 +23,7 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
-layer = 9
+layer = 128
 
 [node name="TopGUI" type="MarginContainer" parent="UICanvas"]
 margin_left = 10.0

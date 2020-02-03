@@ -44,9 +44,9 @@ func IsSeesPlayer():
 #	var vecCos = vec1.x*vec2.x + vec1.y*vec2.y
 #	return vecCos <= 0
 
-func TrackPlayer(Player):	
-	var pp = Player.get_global_position()
-	var speed = Player.GetVelocity() + self.GetVelocity()
+func TrackPlayer(player):	
+	var pp = player.get_global_position()
+	var speed = player.GetVelocity() + self.GetVelocity()
 	var fromThisToplayer = pp - self.get_global_position()
 	
 	var Difference = fromThisToplayer - speed
