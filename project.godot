@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Ship",
 "class": "PlayerShip",
 "language": "GDScript",
-"path": "res://scripts/entities/PlayerShip.gd"
+"path": "res://scripts/entities/Ships/PlayerShip.gd"
 }, {
 "base": "Node",
 "class": "SaveManager",
@@ -57,7 +57,7 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Ship",
 "language": "GDScript",
-"path": "res://scripts/entities/Ship.gd"
+"path": "res://scripts/entities/Ships/Ship.gd"
 }, {
 "base": "Reference",
 "class": "State",
@@ -78,6 +78,16 @@ _global_script_classes=[ {
 "class": "UI",
 "language": "GDScript",
 "path": "res://scripts/ui/UI.gd"
+}, {
+"base": "Node2D",
+"class": "WirePiece",
+"language": "GDScript",
+"path": "res://scripts/entities/Wires/PowerWirePiece.gd"
+}, {
+"base": "Node2D",
+"class": "Wirerer",
+"language": "GDScript",
+"path": "res://scripts/entities/Wires/Wirerer.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
@@ -93,7 +103,9 @@ _global_script_class_icons={
 "State": "",
 "StateMachine": "",
 "StateMachineFactory": "",
-"UI": ""
+"UI": "",
+"WirePiece": "",
+"Wirerer": ""
 }
 
 [application]
@@ -108,7 +120,6 @@ LevelLoader="*res://scripts/levels/LevelLoader.gd"
 
 [debug]
 
-settings/stdout/verbose_stdout=true
 gdscript/completion/autocomplete_setters_and_getters=true
 gdscript/warnings/unsafe_property_access=true
 gdscript/warnings/unsafe_method_access=true
@@ -215,6 +226,7 @@ quick_load={
 2d_physics/layer_4="Friend collision layer"
 2d_physics/layer_5="Misc collision layer"
 2d_physics/layer_6="Non-gameplay collision layer"
+2d_physics/layer_10="Tool Layer"
 2d_physics/layer_20="Vilibility"
 
 [logging]

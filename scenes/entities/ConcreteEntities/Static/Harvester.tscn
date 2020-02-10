@@ -24,6 +24,8 @@
 [ext_resource path="res://resources/Objects/Structures/Pipes/pipes_t.png" type="Texture" id=22]
 
 
+
+
 [node name="Harvester" type="Node2D"]
 
 [node name="Struts" type="Node2D" parent="."]
