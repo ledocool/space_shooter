@@ -1,0 +1,95 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_glas_top.png" type="Texture" id=1]
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_energy_1.png" type="Texture" id=2]
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_energy_2.png" type="Texture" id=3]
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_body.png" type="Texture" id=4]
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_glas_bottom.png" type="Texture" id=5]
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_energy_4.png" type="Texture" id=6]
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_energy_5.png" type="Texture" id=7]
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_glas_top_broken.png" type="Texture" id=8]
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_energy_3.png" type="Texture" id=9]
+[ext_resource path="res://resources/Objects/Structures/Wiring/generator_glas_bottom_broken.png" type="Texture" id=10]
+[ext_resource path="res://scripts/entities/Generator.gd" type="Script" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 16.4564
+height = 31.8533
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 2.25436
+height = 32.0158
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 13.3212
+height = 9.88211
+
+[node name="Generator" type="StaticBody2D"]
+script = ExtResource( 11 )
+
+[node name="Glas_bottom" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 1 )
+
+[node name="Glas_top" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+
+[node name="Energy" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="Body" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -26.1258 )
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.193718, 20.146 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="WireHitbox" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WireHitbox"]
+polygon = PoolVector2Array( -11.3258, 32.9162, -10.7458, 31.7564, -13.4134, 28.3929, -14.3413, 23.0577, -10.5139, 15.2869, -0.0754776, 13.3152, 9.55104, 15.1709, 13.7264, 22.0139, 13.6104, 28.3929, 10.7109, 32.3363, 11.5227, 33.0322, 16.7419, 27.2331, 17.5538, 17.2586, 13.4944, 11.3435, -14.3413, 11.5755, -18.0527, 17.8385, -17.0089, 27.581 )
+
+[node name="Joint" type="PinJoint2D" parent="WireHitbox"]
+position = Vector2( 0, 25.931 )
