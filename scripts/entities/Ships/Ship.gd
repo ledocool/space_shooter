@@ -14,6 +14,7 @@ export var ShipTopSpeed = 900
 export var ShipMaxHealth = 5
 export var ShipCurrentHealth = 5
 export var VelocityDampThreshold = 180
+export var ShipRippleScale = 3
 
 var Cursor = null
 var EngineFiring = false
@@ -147,6 +148,7 @@ func _physics_process(_delta):
 	
 	if(spd != OldSpeed):
 		OldSpeed = spd
+		($Turbulence/Area2D as Area2D).gravity = -ShipRippleScale * spd
 		emit_signal("speed_changed", spd)
 	if(spd > 1e-6):
 		emit_signal("coordinates_changed", position);

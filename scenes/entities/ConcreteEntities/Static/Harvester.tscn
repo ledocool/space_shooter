@@ -23,11 +23,9 @@
 [ext_resource path="res://resources/Objects/Structures/Pipes/pipes_hang.png" type="Texture" id=21]
 [ext_resource path="res://resources/Objects/Structures/Pipes/pipes_t.png" type="Texture" id=22]
 
-
 [node name="Harvester" type="Node2D"]
 
 [node name="Struts" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Strut3" parent="Struts" instance=ExtResource( 1 )]
 position = Vector2( -1390.68, 3007.22 )
@@ -104,7 +102,6 @@ position = Vector2( 1070.67, 2453.42 )
 position = Vector2( 1052.63, 3055.82 )
 
 [node name="Pipes" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="PipeBend90" parent="Pipes" instance=ExtResource( 4 )]
 position = Vector2( 4694.01, -2453.83 )
@@ -208,7 +205,6 @@ position = Vector2( 3092.34, -3088.41 )
 position = Vector2( -448.671, 2353.17 )
 
 [node name="Barrels" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Barrel14" parent="Barrels" instance=ExtResource( 17 )]
 position = Vector2( 4169.55, -4070.67 )

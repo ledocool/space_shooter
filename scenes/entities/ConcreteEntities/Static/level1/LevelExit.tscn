@@ -13,6 +13,8 @@ polygon = PoolVector2Array( -548.918, 408.143, -538.125, 380.083, -71.8955, 334.
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 z_index = 501
+collision_layer = 33
+collision_mask = 33
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 visible = false

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/Objects/Structures/Doors/emitter.png" type="Texture" id=1]
+[ext_resource path="res://resources/Objects/Structures/Doors/emitter_off.png" type="Texture" id=2]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Emitter" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, -35.21 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D"]
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+polygon = PoolVector2Array( -82.6867, 34.707, 83.3392, 34.9217, 74.0411, 15.357, 63.7745, 15.1633, 55.9216, -3.99365, 45.372, -24.3536, -43.9026, -24.2732, -54.9165, -3.46918, -60.7812, 15.357, -76.278, 16.3255 )

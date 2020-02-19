@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/entities/Wires/Wirerer.gd" type="Script" id=1]
+
+[node name="Wirerer" type="Node2D"]
+script = ExtResource( 1 )
+StartNodeType = 1
+
+[node name="Anchor" type="Node2D" parent="."]

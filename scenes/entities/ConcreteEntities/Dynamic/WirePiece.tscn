@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/Objects/Structures/Wiring/wire_on.png" type="Texture" id=1]
+[ext_resource path="res://resources/Objects/Structures/Wiring/wire_off.png" type="Texture" id=2]
+[ext_resource path="res://scripts/entities/Wires/PowerWirePiece.gd" type="Script" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 2.92934
+height = 41.3636
+
+[node name="WirePiece" type="RigidBody2D"]
+z_index = -10
+collision_layer = 32
+collision_mask = 0
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, 19.7458 )
+rotation = 1.5708
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 19.7458 )
+shape = SubResource( 2 )
+
+[node name="Joint" type="PinJoint2D" parent="CollisionShape2D"]
+position = Vector2( 0, 22.294 )
+bias = 0.9
+softness = 0.1
