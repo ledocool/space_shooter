@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "BeamDoor",
+"language": "GDScript",
+"path": "res://scripts/entities/BeamDoor.gd"
+}, {
 "base": "RigidBody2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -90,6 +95,7 @@ _global_script_classes=[ {
 "path": "res://scripts/entities/Wires/Wirerer.gd"
 } ]
 _global_script_class_icons={
+"BeamDoor": "",
 "Bullet": "",
 "Collectable": "",
 "DefaultState": "",

@@ -2,6 +2,8 @@ tool
 extends Node2D
 class_name Wirerer
 
+signal wire_switch(isOn)
+
 var PIECE = preload("res://scenes/entities/ConcreteEntities/Dynamic/WirePiece.tscn")
 var GENERATOR = preload("res://scenes/entities/ConcreteEntities/Dynamic/Destructible/Generator.tscn")
 var SOCKET = preload("res://scenes/entities/ConcreteEntities/Static/Socket.tscn")
@@ -18,11 +20,29 @@ var startNode
 var endNode
 var startNodeRotation = 0
 var endNodeRotation = 0
+var created = false
+
+func Enable():
+	if(created):
+		emit_signal("wire_switch", true)
+	for child in $Anchor.get_children():
+		if(child.has_method("Enable")):
+			child.Enable()
+
+
+func Disable():
+	if(created):
+		emit_signal("wire_switch", false)
+	for child in $Anchor.get_children():
+		if(child.has_method("Disable")):
+			child.Disable()
 
 
 func _ready():
 	if(!Engine.is_editor_hint()):
 		_buildChain()
+	Enable()
+	created = true;
 
 
 func _setStartNodeRotation(val):
@@ -81,7 +101,9 @@ func _buildChain():
 	var end = SOCKET.instance()
 	
 	match(startNode):
-		0:	start = GENERATOR.instance()
+		0:	
+			start = GENERATOR.instance()
+			start.connect("wire_switch", self, "_on_Generator_switch")
 		1:	start = SOCKET.instance()
 		_: 	start = SOCKET.instance()
 	
@@ -118,3 +140,7 @@ func _addPiece(parent, piece, rotation = 0):
 	joint.node_a = parent.get_path()
 	joint.node_b = piece.get_path()
 	return piece
+	
+	
+func _on_Generator_switch(enabled):
+	emit_signal("wire_switch", enabled)

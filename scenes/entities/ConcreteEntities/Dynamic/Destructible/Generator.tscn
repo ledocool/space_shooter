@@ -49,6 +49,7 @@ radius = 13.3212
 height = 9.88211
 
 [node name="Generator" type="StaticBody2D"]
+z_index = -20
 script = ExtResource( 11 )
 
 [node name="Glas_bottom" type="AnimatedSprite" parent="."]
@@ -62,6 +63,7 @@ frames = SubResource( 2 )
 [node name="Energy" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
+frame = 3
 playing = true
 
 [node name="Body" type="Sprite" parent="."]

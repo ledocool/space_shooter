@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Beam.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Emitter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/entities/BeamDoor.gd" type="Script" id=3]
+
+[node name="BeamDoor" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Beam" parent="." instance=ExtResource( 1 )]
+visible = false
+collision_layer = 0
+
+[node name="Emitter" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 451 )
+
+[node name="Emitter2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -451 )
+rotation = 3.14159

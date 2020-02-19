@@ -6,7 +6,12 @@
 extents = Vector2( 17.0793, 17.0119 )
 
 [node name="Socket" type="RigidBody2D"]
+z_index = -20
+collision_layer = 0
+collision_mask = 0
 mode = 1
+linear_damp = 1000.0
+angular_damp = 1000.0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )

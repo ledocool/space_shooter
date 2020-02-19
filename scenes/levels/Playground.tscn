@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
@@ -14,7 +14,9 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/interface/hints/EngineHint.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight_Green.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scripts/levels/Playground/GeneratorTrigger.gd" type="Script" id=15]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Wirerer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/BeamDoor.tscn" type="PackedScene" id=17]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
@@ -236,7 +238,13 @@ position = Vector2( -2566.28, -2998.53 )
 collision_layer = 1
 collision_mask = 1
 
+[node name="BeamDoor" parent="DynamicScenery" index="0" instance=ExtResource( 17 )]
+position = Vector2( -2517.03, -1769.57 )
+scale = Vector2( 1, 0.320002 )
+enabled = true
+
 [node name="IngameHint" parent="Scenery" index="0" instance=ExtResource( 10 )]
+position = Vector2( -2223.56, -2668.27 )
 
 [node name="Harvester" parent="Scenery" index="1" instance=ExtResource( 11 )]
 position = Vector2( 2775.95, 160.246 )
@@ -245,7 +253,7 @@ position = Vector2( 2775.95, 160.246 )
 position = Vector2( 9063.01, -2105.9 )
 
 [node name="EngineHint" parent="Scenery" index="3" instance=ExtResource( 13 )]
-position = Vector2( -1318.76, 132.703 )
+position = Vector2( -2863.74, -2742.88 )
 z_as_relative = true
 
 [node name="RoundBlinkingLight_Green" parent="Scenery" index="4" instance=ExtResource( 14 )]
@@ -262,3 +270,7 @@ position = Vector2( 9060.28, -2129.68 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
 shape = SubResource( 1 )
+
+[node name="GeneratorTrigger" type="Node2D" parent="TriggerContainer" index="1"]
+script = ExtResource( 15 )
+[connection signal="wire_switch" from="Scenery/Wirerer" to="TriggerContainer/GeneratorTrigger" method="_on_Wirerer_wire_switch"]
