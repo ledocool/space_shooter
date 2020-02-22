@@ -1251,7 +1251,7 @@ rotation = 1.309
 z_index = 0
 
 [node name="StaticDebree" parent="Scenery/HarvesterEntrance" index="1" instance=ExtResource( 15 )]
-position = Vector2( -4724.37, 3113.22 )
+position = Vector2( -4661.59, 3102.08 )
 rotation = 2.61799
 z_index = 0
 

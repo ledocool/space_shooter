@@ -6,7 +6,7 @@ signal health_changed(oldHealth, newHealth)
 signal speed_changed(spd)
 signal coordinates_changed(coords)
 signal exploded(position, size, rotation)
-signal bullets_changed(ammo, maxAmmo)
+signal bullets_changed(ammo)
 signal weapon_changed(weaponType)
 
 export var ShipSpeed = 300
@@ -24,9 +24,7 @@ var CannonFiring = false
 var CannonLockedAfterburn = false
 
 var CurrentWeapon: String = ""
-var CurrentAmmo: int = 0
 var RemainningAmmo: int = 0
-var MaxAmmo: int = 0
 var BulletType = null
 var OldSpeed = 0
 
@@ -118,11 +116,14 @@ func GetVelocity():
 	return linear_velocity
 
 func SwitchWeapon(wpnType):
+	var currentWeaponBackup = CurrentWeapon
 	if(!CurrentWeapon.empty()):
 		_removeWeapon()
-	_selectWeapon(wpnType)
-	emit_signal("bullets_changed", CurrentAmmo, RemainningAmmo - CurrentAmmo)
-	emit_signal("weapon_changed", wpnType)
+	if(_selectWeapon(wpnType)):
+		emit_signal("bullets_changed", RemainningAmmo)
+		emit_signal("weapon_changed", wpnType)
+	else:
+		_selectWeapon(currentWeaponBackup)
 
 
 
@@ -158,9 +159,15 @@ func _onDestruction():
 		
 func _tryShoot():
 	var cannonCooldown = $Timers/CannonCooldownTimer as Timer
-	if(CannonFiring && !CannonLockedAfterburn && cannonCooldown.is_stopped()):
-		_shoot()
-		cannonCooldown.start()
+	if(CannonFiring 
+		&& !CannonLockedAfterburn 
+		&& cannonCooldown.is_stopped() 
+		&& RemainningAmmo != 0):
+		if _shoot():
+			if(RemainningAmmo > 0):
+				RemainningAmmo -= 1
+			emit_signal("bullets_changed", RemainningAmmo)
+			cannonCooldown.start()
 	
 func _applySpeed (newRot, oldRot):
 	var somethingChanged = false
@@ -185,6 +192,8 @@ func _applySpeed (newRot, oldRot):
 func _shoot():
 	if(BulletType != null):
 		emit_signal("shoot_bullet", BulletType, rotation, ($BulletAnchor as Node2D).global_position, linear_velocity)
+		return true
+	return false
 	
 	
 func _removeWeapon():
@@ -192,15 +201,13 @@ func _removeWeapon():
 	if(storedData):
 		var cannonCooldown = $Timers/CannonCooldownTimer as Timer
 		storedData.total_ammo = RemainningAmmo
-		storedData.magazin_ammo = CurrentAmmo
-		cannonCooldown.stop()
 		storedData.shoot_cooldown = cannonCooldown.get_time_left()
+		cannonCooldown.stop()
 		InventoryInstance.SetWeapon(CurrentWeapon, storedData)
 	else:
 		print_debug("Could not remove weapon of type " + CurrentWeapon)
 		
 	CurrentWeapon = ""	
-	CurrentAmmo = 0
 	RemainningAmmo = 0
 	BulletType = null
 	
@@ -211,8 +218,6 @@ func _selectWeapon(weapon: String):
 		var cannonCooldown = $Timers/CannonCooldownTimer as Timer
 		var cannonAfterburn = $Timers/CannonAfterBurnTimer as Timer
 		CurrentWeapon = weapon
-		MaxAmmo = data.max_ammo
-		CurrentAmmo = data.magazin_ammo
 		RemainningAmmo = data.total_ammo
 		BulletType = load(data.ammo_type)
 		cannonCooldown.set_wait_time(data.shoot_timeout)
@@ -220,8 +225,10 @@ func _selectWeapon(weapon: String):
 			CannonLockedAfterburn = true
 			cannonAfterburn.set_wait_time(data.shoot_cooldown)
 			cannonAfterburn.start()
+		return true
 	else:
 		print_debug("Could not select weapon of type " + weapon)
+		return false
 
 func _on_BlinkTimer_timeout():
 	if(self.visible):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/ui/UI.gd" type="Script" id=1]
 [ext_resource path="res://resources/Ui/ProgressBars/GuiHealth/ui_health_under.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://resources/Ui/ProgressBars/GuiSpeed/ui_speed_needle_pipe.png" type="Texture" id=9]
 [ext_resource path="res://resources/Ui/ProgressBars/GuiSpeed/ui_speed_needle_top.png" type="Texture" id=10]
 [ext_resource path="res://resources/Ui/ProgressBars/GuiSpeed/ui_speed_needle_bottom.png" type="Texture" id=11]
+[ext_resource path="res://resources/Objects/Pickups/rocketeer.png" type="Texture" id=12]
+[ext_resource path="res://resources/Objects/Pickups/slug_cannon.png" type="Texture" id=13]
 
 [node name="UI" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,40 +21,29 @@ script = ExtResource( 1 )
 position = Vector2( -9.08826, 0 )
 current = true
 process_mode = 0
-drag_margin_h_enabled = false
-drag_margin_v_enabled = false
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
 layer = 128
 
-[node name="TopGUI" type="MarginContainer" parent="UICanvas"]
+[node name="TopGUI" type="Control" parent="UICanvas"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 10.0
-margin_bottom = 10.0
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
+margin_right = -10.0
+margin_bottom = -10.0
 
-[node name="Layout" type="HBoxContainer" parent="UICanvas/TopGUI"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 496.0
-margin_bottom = 90.0
-
-[node name="LeftStack" type="VBoxContainer" parent="UICanvas/TopGUI/Layout"]
+[node name="LeftStack" type="VBoxContainer" parent="UICanvas/TopGUI"]
 margin_right = 486.0
-margin_bottom = 80.0
+margin_bottom = 150.0
 
-[node name="Hp" type="Control" parent="UICanvas/TopGUI/Layout/LeftStack"]
-editor/display_folded = true
+[node name="Hp" type="Control" parent="UICanvas/TopGUI/LeftStack"]
 margin_right = 486.0
 margin_bottom = 76.0
 rect_min_size = Vector2( 486, 76 )
 rect_pivot_offset = Vector2( 4401.09, 99.394 )
 
-[node name="Layout" type="HBoxContainer" parent="UICanvas/TopGUI/Layout/LeftStack/Hp"]
+[node name="Layout" type="HBoxContainer" parent="UICanvas/TopGUI/LeftStack/Hp"]
 margin_right = 1096.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 100, 50 )
@@ -62,8 +53,11 @@ size_flags_horizontal = 10
 size_flags_vertical = 10
 size_flags_stretch_ratio = 74.73
 custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Bar" type="TextureProgress" parent="UICanvas/TopGUI/Layout/LeftStack/Hp/Layout"]
+[node name="Bar" type="TextureProgress" parent="UICanvas/TopGUI/LeftStack/Hp/Layout"]
 margin_right = 960.0
 margin_bottom = 160.0
 size_flags_horizontal = 2
@@ -74,25 +68,24 @@ texture_under = ExtResource( 2 )
 texture_over = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
 
-[node name="Image" type="TextureRect" parent="UICanvas/TopGUI/Layout/LeftStack/Hp/Layout"]
+[node name="Image" type="TextureRect" parent="UICanvas/TopGUI/LeftStack/Hp/Layout"]
 margin_left = 968.0
 margin_right = 1096.0
 margin_bottom = 160.0
 texture = ExtResource( 5 )
 stretch_mode = 5
 
-[node name="Speed" type="Control" parent="UICanvas/TopGUI/Layout/LeftStack"]
+[node name="Speed" type="Control" parent="UICanvas/TopGUI/LeftStack"]
 margin_top = 80.0
 margin_right = 486.0
 margin_bottom = 80.0
 
-[node name="Layout" type="HBoxContainer" parent="UICanvas/TopGUI/Layout/LeftStack/Speed"]
-editor/display_folded = true
+[node name="Layout" type="HBoxContainer" parent="UICanvas/TopGUI/LeftStack/Speed"]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_scale = Vector2( 0.3, 0.3 )
 
-[node name="Bar" type="TextureProgress" parent="UICanvas/TopGUI/Layout/LeftStack/Speed/Layout"]
+[node name="Bar" type="TextureProgress" parent="UICanvas/TopGUI/LeftStack/Speed/Layout"]
 margin_right = 961.0
 margin_bottom = 210.0
 max_value = 900.0
@@ -101,42 +94,80 @@ texture_under = ExtResource( 6 )
 texture_over = ExtResource( 7 )
 texture_progress = ExtResource( 8 )
 
-[node name="Pipe" type="Sprite" parent="UICanvas/TopGUI/Layout/LeftStack/Speed/Layout"]
+[node name="Pipe" type="Sprite" parent="UICanvas/TopGUI/LeftStack/Speed/Layout"]
 position = Vector2( 151.101, 155.514 )
 texture = ExtResource( 9 )
 
-[node name="Needle" type="Node2D" parent="UICanvas/TopGUI/Layout/LeftStack/Speed/Layout"]
-editor/display_folded = true
+[node name="Needle" type="Node2D" parent="UICanvas/TopGUI/LeftStack/Speed/Layout"]
 position = Vector2( 183, 20 )
 
-[node name="NeedleTop" type="Sprite" parent="UICanvas/TopGUI/Layout/LeftStack/Speed/Layout/Needle"]
+[node name="NeedleTop" type="Sprite" parent="UICanvas/TopGUI/LeftStack/Speed/Layout/Needle"]
 texture = ExtResource( 10 )
 
-[node name="Needle" type="Sprite" parent="UICanvas/TopGUI/Layout/LeftStack/Speed/Layout/Needle"]
+[node name="Needle" type="Sprite" parent="UICanvas/TopGUI/LeftStack/Speed/Layout/Needle"]
 z_index = -10
 texture = ExtResource( 11 )
 
-[node name="AmmoPanel" type="HBoxContainer" parent="UICanvas/TopGUI/Layout"]
-visible = false
-margin_left = 490.0
-margin_right = 694.0
-margin_bottom = 80.0
+[node name="AmmoPanel" type="Control" parent="UICanvas/TopGUI"]
+anchor_left = 0.795
+anchor_right = 1.0
+anchor_bottom = 0.131
+margin_left = -0.5
+margin_bottom = 0.139984
 
-[node name="GunIcon" type="TextureRect" parent="UICanvas/TopGUI/Layout/AmmoPanel"]
-margin_right = 50.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 50, 50 )
+[node name="AmmoLabel" type="Label" parent="UICanvas/TopGUI/AmmoPanel"]
+anchor_top = 0.137
+anchor_right = 0.604
+anchor_bottom = 1.0
+margin_top = -0.0430012
+margin_right = -163.56
+margin_bottom = -106.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="AmmoCounter" type="NinePatchRect" parent="UICanvas/TopGUI/Layout/AmmoPanel"]
-margin_left = 54.0
-margin_right = 204.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 150, 50 )
+[node name="GunIcon" type="Control" parent="UICanvas/TopGUI/AmmoPanel"]
+anchor_left = 0.628
+anchor_top = 0.036
+anchor_right = 0.992
+anchor_bottom = 0.784
+margin_left = 0.0799866
+margin_top = -0.00400019
+margin_right = 0.119995
+margin_bottom = 0.0239944
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="AmmoLabel" type="Label" parent="UICanvas/TopGUI/Layout/AmmoPanel/AmmoCounter"]
-anchor_left = 1.0
+[node name="Slug" type="TextureRect" parent="UICanvas/TopGUI/AmmoPanel/GunIcon"]
+anchor_right = 0.979
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = -0.0180054
+margin_bottom = 31.0
+texture = ExtResource( 13 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Rocketeer" type="TextureRect" parent="UICanvas/TopGUI/AmmoPanel/GunIcon"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -66.0
-margin_right = 6.0
-text = "123123123"
+margin_left = 4.0
+margin_top = -1.22772
+margin_right = -3.0
+margin_bottom = 29.7723
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource( 12 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="UICanvas/TopGUI/AmmoPanel"]
+margin_left = 80.0
+margin_right = 80.0
+margin_bottom = 52.0

@@ -2,7 +2,6 @@ extends WorldEnvironment
 class_name Level
 
 const Explosion = preload("res://scenes/effects/ExplosionEffect.tscn")
-#const Bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn")
 
 #stats
 var enemyHealthDamage = 0
@@ -54,12 +53,14 @@ func _ready():
 		Player.connect("health_changed", self, "_on_playerHealth_change")
 		Player.connect("speed_changed", camera, "_on_speed_change")
 		Player.connect("shoot_bullet", self, "_on_player_shootBullet")
-#		print_debug(Player.connect("bullets_changed", camera, "_on_ammo_change"))
+		Player.connect("bullets_changed", camera, "_on_ammo_change")
+		Player.connect("weapon_changed", camera, "_on_weapon_change")
 		camera._on_max_health_change(Player.GetMaxHealth())
 		camera._on_health_change(0, Player.GetHealth())
 		camera._on_max_speed_change(Player.GetMaxSpeed())
 		camera._on_speed_change(0)
-		camera._on_ammo_change(0, 0)
+		camera._on_ammo_change(0)
+		camera._on_weapon_change("")
 
 
 func _on_Ship_shoot(BulletType, direction, location, velocity):
