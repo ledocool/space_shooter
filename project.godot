@@ -54,6 +54,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/entities/Ships/PlayerShip.gd"
 }, {
+"base": "Bullet",
+"class": "Rocket",
+"language": "GDScript",
+"path": "res://scripts/entities/Rocket.gd"
+}, {
 "base": "Node",
 "class": "SaveManager",
 "language": "GDScript",
@@ -104,6 +109,7 @@ _global_script_class_icons={
 "Miner": "",
 "Pickup": "",
 "PlayerShip": "",
+"Rocket": "",
 "SaveManager": "",
 "Ship": "",
 "State": "",
