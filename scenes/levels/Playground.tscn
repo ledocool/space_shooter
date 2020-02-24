@@ -38,12 +38,15 @@ position = Vector2( -2518.12, -2542.48 )
 
 [node name="Miner" parent="ShipContainer" index="1" instance=ExtResource( 2 )]
 position = Vector2( 3789.31, 7384.71 )
+TurnedOn = false
 
 [node name="Miner2" parent="ShipContainer" index="2" instance=ExtResource( 2 )]
 position = Vector2( 4152.91, 7232.23 )
+TurnedOn = false
 
 [node name="Miner3" parent="ShipContainer" index="3" instance=ExtResource( 2 )]
 position = Vector2( 3132.48, 7114.94 )
+TurnedOn = false
 
 [node name="StaticAsteroid2" parent="AsteroidContainer" index="0" instance=ExtResource( 3 )]
 position = Vector2( 4766.78, -6837.83 )

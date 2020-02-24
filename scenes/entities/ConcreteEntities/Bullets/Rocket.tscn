@@ -9,14 +9,13 @@ radius = 8.42996
 height = 30.5173
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 180.0
+radius = 720.0
 
 [node name="Rocket" instance=ExtResource( 2 )]
 mass = 0.01
 linear_velocity = Vector2( 0, 0 )
 applied_force = Vector2( 50, 0 )
 script = ExtResource( 3 )
-MaxSpeed = 900.0
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )
@@ -34,7 +33,7 @@ wait_time = 2.3
 
 [node name="RealignTimer" type="Timer" parent="Timers" index="1"]
 process_mode = 0
-wait_time = 0.2
+wait_time = 0.01
 autostart = true
 
 [node name="LockOnArea" type="Area2D" parent="." index="4"]
