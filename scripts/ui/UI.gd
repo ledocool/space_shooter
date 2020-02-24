@@ -83,10 +83,10 @@ func _on_weapon_change(weapon):
 		child.hide()
 		
 	ammoLabel.show()
-	
 	match weapon:
 		"slug":
 			($UICanvas/TopGUI/AmmoPanel/GunIcon/Slug as Control).show()
+			ammoLabel.hide()
 		"rocketeer":
 			($UICanvas/TopGUI/AmmoPanel/GunIcon/Rocketeer as Control).show()
 		_: 

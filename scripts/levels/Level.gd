@@ -113,7 +113,6 @@ func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_s
 			"damage_dealt": enemyHealthDamage,
 			"enemies_killed": enemiesKilled,
 			"accuracy": String(0) + "%",
-
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
 		var gameWinMenu = $MenuCanvas/MarginContainer/GameWinMenu

@@ -2,8 +2,7 @@ extends Bullet
 class_name Rocket
 
 var LockedTarget = null
-export var MaxSpeed: float = 300
-
+export var MaxTurnSpeed: float = 40
 
 func Save():
 	var prevSave = .Save()
@@ -14,10 +13,10 @@ func Load(data: Dictionary):
 	.Load(data)
 
 
-func SpawnAt(pos: Vector2, angle: float, add_velocity: Vector2):
+func SpawnAt(pos: Vector2, angle: float, _add_velocity: Vector2):
 	var anchor = GetSpawnAnchorPosition().rotated(angle)
 	rotation = angle
-	linear_velocity = add_velocity
+	linear_velocity = linear_velocity.rotated(angle)
 	self.position = pos - anchor
 
 
@@ -25,21 +24,30 @@ func _init():
 	Damage = 10
 
 
-func _physics_process(_delta):
-	linear_velocity = linear_velocity.clamped(MaxSpeed)
+func _physics_process(delta):
+	_realign(delta)
 
 
 func _on_LockOnArea_body_exited(body):
-	if(LockedTarget == null && body is Ship && !body is PlayerShip):
-		LockedTarget = body
-
-
-func _on_LockOnArea_body_entered(body):
 	if(body == LockedTarget):
 		LockedTarget = null
 
 
-func _on_RealignTimer_timeout():
+func _on_LockOnArea_body_entered(body):
+	if(LockedTarget == null && body is Ship && !body is PlayerShip):
+		LockedTarget = body
+
+
+func _realign(delta):
 	if(LockedTarget != null):
-		look_at(LockedTarget.position)
-		applied_force = applied_force.rotated(rotation)
+		var vec = LockedTarget.position - position
+		var angle = vec.angle_to(linear_velocity)
+		var cap = deg2rad(MaxTurnSpeed) * delta
+		if(abs(angle) > 1e-3):
+			angle = clamp(angle, -cap, cap)
+			linear_velocity = linear_velocity.rotated(-angle)
+			rotation = linear_velocity.angle()
+
+
+func _on_RealignTimer_timeout():
+	_realign(($Timers/RealignTimer as Timer).wait_time)
