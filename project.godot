@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "AiAPathHelper",
+"language": "GDScript",
+"path": "res://scripts/ai/AiPathHelper.gd"
+}, {
 "base": "Node2D",
 "class": "BeamDoor",
 "language": "GDScript",
@@ -100,6 +105,7 @@ _global_script_classes=[ {
 "path": "res://scripts/entities/Wires/Wirerer.gd"
 } ]
 _global_script_class_icons={
+"AiAPathHelper": "",
 "BeamDoor": "",
 "Bullet": "",
 "Collectable": "",

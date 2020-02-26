@@ -200,7 +200,6 @@ z_index = 0
 [node name="StaticAsteroid12" parent="Scenery" index="16" instance=ExtResource( 4 )]
 position = Vector2( -4543.92, 2143.37 )
 rotation = -1.83259
-scale = Vector2( 1, 1 )
 z_index = 0
 
 [node name="StaticDebree5" parent="Scenery" index="17" instance=ExtResource( 5 )]

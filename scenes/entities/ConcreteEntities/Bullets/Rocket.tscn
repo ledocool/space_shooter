@@ -9,13 +9,14 @@ radius = 8.42996
 height = 30.5173
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 720.0
+radius = 1080.0
 
 [node name="Rocket" instance=ExtResource( 2 )]
 mass = 0.01
 contacts_reported = 1
-linear_velocity = Vector2( 900, 0 )
+linear_velocity = Vector2( 1200, 0 )
 script = ExtResource( 3 )
+MaxTurnSpeed = 70.0
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )
@@ -36,6 +37,7 @@ process_mode = 0
 wait_time = 0.02
 
 [node name="LockOnArea" type="Area2D" parent="." index="4"]
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LockOnArea" index="0"]
 shape = SubResource( 2 )

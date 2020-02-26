@@ -35,27 +35,9 @@ func IsNearPlayer():
 func IsSeesPlayer():
 	return SeesPlayer
 
-#func UnproductiveFlight():
-#	var Player = GetPlayer()
-#	if(!Player):
-#		return false
-#	var vec1 = Player.GetCoordinates() - self.GetCoordinates()
-#	var vec2 = self. GetVelocity()
-#	var vecCos = vec1.x*vec2.x + vec1.y*vec2.y
-#	return vecCos <= 0
 
 func TrackPlayer(player):	
-	var pp = player.get_global_position()
-	var speed = player.GetVelocity() + self.GetVelocity()
-	var fromThisToplayer = pp - self.get_global_position()
-	
-	var Difference = fromThisToplayer - speed
-	var angle = fromThisToplayer.angle_to(Difference)
-	
-	if(abs(angle) > 0.1745329 && abs(angle) < 1.396263): #0.1745329 = 10 degrees; 1.396263 = 80 degrees; 2.792527 = 160 deg
-		Cursor = self.get_global_position() + Difference
-	else:
-		Cursor = pp;
+	Cursor = AiAPathHelper.Track(player.get_global_position(), player.GetVelocity(), self.get_global_position(), self.GetVelocity())
 
 
 func SetSpriteChill():
@@ -128,10 +110,7 @@ func _isSeesPlayer():
 	
 	var pp = player.get_global_position()
 	var selfPos = self.get_global_position()
-	var space_rid = get_world_2d().space
-	var space_state = Physics2DServer.space_get_direct_state(space_rid)
-	var intersected = space_state.intersect_ray(pp, selfPos, [], 524288)
-	return intersected.empty()
+	return AiAPathHelper.TargetVisible(selfPos, pp, get_world_2d())
 
 
 func _on_ExplodeArea_body_entered(body):
