@@ -1827,43 +1827,39 @@ position = Vector2( 2713.27, 14975.7 )
 rotation = -3.03849
 scale = Vector2( 2.28109, 2.28109 )
 
-[node name="StaticAsteroid24" parent="Scenery/BelowHarvester" index="53" instance=ExtResource( 17 )]
-position = Vector2( 7724.5, 14394.5 )
-rotation = 0.523598
-
-[node name="Building2" parent="Scenery/BelowHarvester" index="54" instance=ExtResource( 41 )]
+[node name="Building2" parent="Scenery/BelowHarvester" index="53" instance=ExtResource( 41 )]
 position = Vector2( 6619.27, 4365.63 )
 rotation = 1.309
 
-[node name="PipeBend90" parent="Scenery/BelowHarvester" index="55" instance=ExtResource( 45 )]
+[node name="PipeBend90" parent="Scenery/BelowHarvester" index="54" instance=ExtResource( 45 )]
 position = Vector2( 3400.93, 4783.34 )
 
-[node name="Pipe2" parent="Scenery/BelowHarvester" index="56" instance=ExtResource( 39 )]
+[node name="Pipe2" parent="Scenery/BelowHarvester" index="55" instance=ExtResource( 39 )]
 position = Vector2( 3342.3, 4462.23 )
 rotation = 1.5708
 
-[node name="Pipe" parent="Scenery/BelowHarvester" index="57" instance=ExtResource( 38 )]
+[node name="Pipe" parent="Scenery/BelowHarvester" index="56" instance=ExtResource( 38 )]
 position = Vector2( 3822.95, 4842.33 )
 
-[node name="Building5" parent="Scenery/BelowHarvester" index="58" instance=ExtResource( 46 )]
+[node name="Building5" parent="Scenery/BelowHarvester" index="57" instance=ExtResource( 46 )]
 position = Vector2( 4663.32, 4969.85 )
 rotation = 1.309
 scale = Vector2( 0.56962, 0.428571 )
 
-[node name="Building7" parent="Scenery/BelowHarvester" index="59" instance=ExtResource( 46 )]
+[node name="Building7" parent="Scenery/BelowHarvester" index="58" instance=ExtResource( 46 )]
 position = Vector2( -3894.56, 8388.51 )
 rotation = 1.56891
 scale = Vector2( 0.879538, 0.560127 )
 
-[node name="StaticAsteroid47" parent="Scenery/BelowHarvester" index="60" instance=ExtResource( 12 )]
+[node name="StaticAsteroid47" parent="Scenery/BelowHarvester" index="59" instance=ExtResource( 12 )]
 position = Vector2( -3953.72, 9927.22 )
 z_index = 30
 
-[node name="Building8" parent="Scenery/BelowHarvester" index="61" instance=ExtResource( 36 )]
+[node name="Building8" parent="Scenery/BelowHarvester" index="60" instance=ExtResource( 36 )]
 position = Vector2( -9062.4, 10853.9 )
 z_index = -30
 
-[node name="Lastroom" type="Node2D" parent="Scenery/BelowHarvester" index="62"]
+[node name="Lastroom" type="Node2D" parent="Scenery/BelowHarvester" index="61"]
 position = Vector2( -9062.4, 10853.9 )
 
 [node name="Barrel" parent="Scenery/BelowHarvester/Lastroom" index="0" instance=ExtResource( 49 )]
@@ -1912,7 +1908,7 @@ position = Vector2( 11949.2, -863.585 )
 position = Vector2( 11860.7, -1129.34 )
 
 [node name="StaticAsteroid6" parent="Scenery/BelowHarvester/Lastroom" index="15" instance=ExtResource( 17 )]
-position = Vector2( 9112.95, -2258.17 )
+position = Vector2( 8308.66, -2925.14 )
 
 [node name="Strut" parent="Scenery/BelowHarvester/Lastroom" index="16" instance=ExtResource( 37 )]
 position = Vector2( 13986.7, -2089.02 )
@@ -1924,10 +1920,10 @@ position = Vector2( 14444.4, -2428.6 )
 position = Vector2( 13986.7, -1778.97 )
 
 [node name="StaticAsteroid7" parent="Scenery/BelowHarvester/Lastroom" index="19" instance=ExtResource( 14 )]
-position = Vector2( 10523.2, -4565.69 )
+position = Vector2( 9542.36, -1995.88 )
 
 [node name="Building7" parent="Scenery/BelowHarvester/Lastroom" index="20" instance=ExtResource( 36 )]
-position = Vector2( 9228.39, -3286.52 )
+position = Vector2( 9522.64, -4149.66 )
 
 [node name="Pipe2" parent="Scenery/BelowHarvester/Lastroom" index="21" instance=ExtResource( 38 )]
 position = Vector2( 13175.7, -3915.39 )

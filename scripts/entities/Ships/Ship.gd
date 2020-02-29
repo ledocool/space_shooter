@@ -29,11 +29,13 @@ var BulletType = null
 var OldSpeed = 0
 
 var InventoryInstance = Inventory.new()
-#onready var StatusInstance = Array()
+
+onready var Statuses = Array()
 
 #func AssumeStatus(status):
 #	pass
-	
+
+
 func Pickup(item: Pickup):
 	match(item.get_type()):
 		0:
@@ -46,12 +48,18 @@ func Pickup(item: Pickup):
 				SwitchWeapon(item.get_name())
 			return result
 		1:
-			pass	
+			var statusName = StatusMap.getStatusPath(item.get_name())
+			if (!statusName.empty()):
+				var status = load(statusName)
+				Statuses.append(status.new(self))
+				return true
+			return false
 		2:
 			pass
 			
-	print_debug("Item of unknown type: " + item.get_type())
+	print_debug("Item of unknown type: " + String(item.get_type()))
 	return false;
+
 
 func Damage(points: int):
 	var cooldown = ($Timers/InvulnerabilityTimer as Timer)
@@ -62,6 +70,7 @@ func Damage(points: int):
 		var oldShipHealth = ShipCurrentHealth
 		ShipCurrentHealth = 0 if ShipCurrentHealth < points else ShipCurrentHealth - points
 		emit_signal("health_changed", oldShipHealth, ShipCurrentHealth)
+
 
 func Save():
 	var cwpn = CurrentWeapon
@@ -75,6 +84,7 @@ func Save():
 		"items": InventoryInstance.GetAllItems()
 	}
 
+
 func Load(data: Dictionary):
 	InventoryInstance.SetAllWeapons(data.weapons)
 	InventoryInstance.SetAllItems(data.items)
@@ -85,35 +95,45 @@ func Load(data: Dictionary):
 	linear_velocity = Vector2(vel[0], vel[1])
 	rotation = data.rotation
 
+
 func Destroy():
 	_onDestruction()
 	self.queue_free()
 
+
 func GetHealth():
 	return ShipCurrentHealth
-	
+
+
 func GetMaxHealth():
 	return ShipMaxHealth
+
 
 func GetMaxSpeed():
 	return ShipTopSpeed
 
+
 func SetMaxHealth(value: int):
 	ShipMaxHealth = value
+
 
 func Heal(points: int):
 	var shipOldHealth = ShipCurrentHealth
 	ShipCurrentHealth = ShipMaxHealth if ShipCurrentHealth + points > ShipMaxHealth else ShipCurrentHealth + points
 	emit_signal("health_changed", shipOldHealth,  ShipCurrentHealth)
 
+
 func GetCoordinates():
 	return position
-	
+
+
 func GetRotation():
 	return rotation
-	
+
+
 func GetVelocity(): 
 	return linear_velocity
+
 
 func SwitchWeapon(wpnType):
 	var currentWeaponBackup = CurrentWeapon
@@ -126,15 +146,17 @@ func SwitchWeapon(wpnType):
 		_selectWeapon(currentWeaponBackup)
 
 
-
-
-func _physics_process(_delta):
+func _physics_process(delta):
+	for status in Statuses:
+		status._physics_process(delta)
+		if (status.IsStatusDead()):
+			Statuses.erase(status)
+	
 	if (ShipCurrentHealth <= 0):
 		self.Destroy()
 		return 0
 	
 	var oldRot = rotation
-	
 	if(Cursor != null) :
 		look_at(Cursor)
 		
@@ -153,10 +175,12 @@ func _physics_process(_delta):
 		emit_signal("speed_changed", spd)
 	if(spd > 1e-6):
 		emit_signal("coordinates_changed", position);
-		
+
+
 func _onDestruction():
 	emit_signal("exploded", position, 0.15, rotation)
-		
+
+
 func _tryShoot():
 	var cannonCooldown = $Timers/CannonCooldownTimer as Timer
 	if(CannonFiring 
@@ -168,7 +192,8 @@ func _tryShoot():
 				RemainningAmmo -= 1
 			emit_signal("bullets_changed", RemainningAmmo)
 			cannonCooldown.start()
-	
+
+
 func _applySpeed (newRot, oldRot):
 	var somethingChanged = false
 	var force = Vector2(0, 0)
