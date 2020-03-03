@@ -6,7 +6,7 @@ signal health_changed(oldHealth, newHealth)
 signal speed_changed(spd)
 signal coordinates_changed(coords)
 signal exploded(position, size, rotation)
-signal bullets_changed(ammo, maxAmmo)
+signal bullets_changed(ammo)
 signal weapon_changed(weaponType)
 
 export var ShipSpeed = 300
@@ -24,18 +24,18 @@ var CannonFiring = false
 var CannonLockedAfterburn = false
 
 var CurrentWeapon: String = ""
-var CurrentAmmo: int = 0
 var RemainningAmmo: int = 0
-var MaxAmmo: int = 0
 var BulletType = null
 var OldSpeed = 0
 
 var InventoryInstance = Inventory.new()
-#onready var StatusInstance = Array()
+
+onready var Statuses = Array()
 
 #func AssumeStatus(status):
 #	pass
-	
+
+
 func Pickup(item: Pickup):
 	match(item.get_type()):
 		0:
@@ -48,12 +48,18 @@ func Pickup(item: Pickup):
 				SwitchWeapon(item.get_name())
 			return result
 		1:
-			pass	
+			var statusName = StatusMap.getStatusPath(item.get_name())
+			if (!statusName.empty()):
+				var status = load(statusName)
+				Statuses.append(status.new(self))
+				return true
+			return false
 		2:
 			pass
 			
-	print_debug("Item of unknown type: " + item.get_type())
+	print_debug("Item of unknown type: " + String(item.get_type()))
 	return false;
+
 
 func Damage(points: int):
 	var cooldown = ($Timers/InvulnerabilityTimer as Timer)
@@ -64,6 +70,7 @@ func Damage(points: int):
 		var oldShipHealth = ShipCurrentHealth
 		ShipCurrentHealth = 0 if ShipCurrentHealth < points else ShipCurrentHealth - points
 		emit_signal("health_changed", oldShipHealth, ShipCurrentHealth)
+
 
 func Save():
 	var cwpn = CurrentWeapon
@@ -77,6 +84,7 @@ func Save():
 		"items": InventoryInstance.GetAllItems()
 	}
 
+
 func Load(data: Dictionary):
 	InventoryInstance.SetAllWeapons(data.weapons)
 	InventoryInstance.SetAllItems(data.items)
@@ -87,53 +95,68 @@ func Load(data: Dictionary):
 	linear_velocity = Vector2(vel[0], vel[1])
 	rotation = data.rotation
 
+
 func Destroy():
 	_onDestruction()
 	self.queue_free()
 
+
 func GetHealth():
 	return ShipCurrentHealth
-	
+
+
 func GetMaxHealth():
 	return ShipMaxHealth
+
 
 func GetMaxSpeed():
 	return ShipTopSpeed
 
+
 func SetMaxHealth(value: int):
 	ShipMaxHealth = value
+
 
 func Heal(points: int):
 	var shipOldHealth = ShipCurrentHealth
 	ShipCurrentHealth = ShipMaxHealth if ShipCurrentHealth + points > ShipMaxHealth else ShipCurrentHealth + points
 	emit_signal("health_changed", shipOldHealth,  ShipCurrentHealth)
 
+
 func GetCoordinates():
 	return position
-	
+
+
 func GetRotation():
 	return rotation
-	
+
+
 func GetVelocity(): 
 	return linear_velocity
 
+
 func SwitchWeapon(wpnType):
+	var currentWeaponBackup = CurrentWeapon
 	if(!CurrentWeapon.empty()):
 		_removeWeapon()
-	_selectWeapon(wpnType)
-	emit_signal("bullets_changed", CurrentAmmo, RemainningAmmo - CurrentAmmo)
-	emit_signal("weapon_changed", wpnType)
+	if(_selectWeapon(wpnType)):
+		emit_signal("bullets_changed", RemainningAmmo)
+		emit_signal("weapon_changed", wpnType)
+	else:
+		_selectWeapon(currentWeaponBackup)
 
 
-
-
-func _physics_process(_delta):
+func _physics_process(delta):
+	for status in Statuses:
+		status._physics_process(delta)
+		if (status.IsStatusDead()):
+			Statuses.erase(status)
+	
 	if (ShipCurrentHealth <= 0):
 		self.Destroy()
 		return 0
 	
 	var oldRot = rotation
-	
 	if(Cursor != null) :
 		look_at(Cursor)
 		
@@ -152,16 +175,25 @@ func _physics_process(_delta):
 		emit_signal("speed_changed", spd)
 	if(spd > 1e-6):
 		emit_signal("coordinates_changed", position);
-		
+
+
 func _onDestruction():
 	emit_signal("exploded", position, 0.15, rotation)
-		
+
+
 func _tryShoot():
 	var cannonCooldown = $Timers/CannonCooldownTimer as Timer
-	if(CannonFiring && !CannonLockedAfterburn && cannonCooldown.is_stopped()):
-		_shoot()
-		cannonCooldown.start()
-	
+	if(CannonFiring 
+		&& !CannonLockedAfterburn 
+		&& cannonCooldown.is_stopped() 
+		&& RemainningAmmo != 0):
+		if _shoot():
+			if(RemainningAmmo > 0):
+				RemainningAmmo -= 1
+			emit_signal("bullets_changed", RemainningAmmo)
+			cannonCooldown.start()
+
+
 func _applySpeed (newRot, oldRot):
 	var somethingChanged = false
 	var force = Vector2(0, 0)
@@ -185,6 +217,8 @@ func _applySpeed (newRot, oldRot):
 func _shoot():
 	if(BulletType != null):
 		emit_signal("shoot_bullet", BulletType, rotation, ($BulletAnchor as Node2D).global_position, linear_velocity)
+		return true
+	return false
 	
 	
 func _removeWeapon():
@@ -192,15 +226,13 @@ func _removeWeapon():
 	if(storedData):
 		var cannonCooldown = $Timers/CannonCooldownTimer as Timer
 		storedData.total_ammo = RemainningAmmo
-		storedData.magazin_ammo = CurrentAmmo
-		cannonCooldown.stop()
 		storedData.shoot_cooldown = cannonCooldown.get_time_left()
+		cannonCooldown.stop()
 		InventoryInstance.SetWeapon(CurrentWeapon, storedData)
 	else:
 		print_debug("Could not remove weapon of type " + CurrentWeapon)
 		
 	CurrentWeapon = ""	
-	CurrentAmmo = 0
 	RemainningAmmo = 0
 	BulletType = null
 	
@@ -211,8 +243,6 @@ func _selectWeapon(weapon: String):
 		var cannonCooldown = $Timers/CannonCooldownTimer as Timer
 		var cannonAfterburn = $Timers/CannonAfterBurnTimer as Timer
 		CurrentWeapon = weapon
-		MaxAmmo = data.max_ammo
-		CurrentAmmo = data.magazin_ammo
 		RemainningAmmo = data.total_ammo
 		BulletType = load(data.ammo_type)
 		cannonCooldown.set_wait_time(data.shoot_timeout)
@@ -220,8 +250,10 @@ func _selectWeapon(weapon: String):
 			CannonLockedAfterburn = true
 			cannonAfterburn.set_wait_time(data.shoot_cooldown)
 			cannonAfterburn.start()
+		return true
 	else:
 		print_debug("Could not select weapon of type " + weapon)
+		return false
 
 func _on_BlinkTimer_timeout():
 	if(self.visible):

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "AiAPathHelper",
+"language": "GDScript",
+"path": "res://scripts/ai/AiPathHelper.gd"
+}, {
 "base": "Node2D",
 "class": "BeamDoor",
 "language": "GDScript",
@@ -28,6 +33,16 @@ _global_script_classes=[ {
 "class": "DefaultState",
 "language": "GDScript",
 "path": "res://scripts/systems/state-machine/default_state.gd"
+}, {
+"base": "Collectable",
+"class": "Gearpak",
+"language": "GDScript",
+"path": "res://scripts/entities/Collectable/Gearpak.gd"
+}, {
+"base": "Node",
+"class": "HealingStatus",
+"language": "GDScript",
+"path": "res://scripts/systems/status/HealingStatus.gd"
 }, {
 "base": "Reference",
 "class": "Inventory",
@@ -54,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/entities/Ships/PlayerShip.gd"
 }, {
+"base": "Bullet",
+"class": "Rocket",
+"language": "GDScript",
+"path": "res://scripts/entities/Rocket.gd"
+}, {
 "base": "Node",
 "class": "SaveManager",
 "language": "GDScript",
@@ -79,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/systems/state-machine/state_machine_factory.gd"
 }, {
+"base": "Reference",
+"class": "StatusMap",
+"language": "GDScript",
+"path": "res://scripts/systems/status/StatusMap.gd"
+}, {
 "base": "Node2D",
 "class": "UI",
 "language": "GDScript",
@@ -95,20 +120,25 @@ _global_script_classes=[ {
 "path": "res://scripts/entities/Wires/Wirerer.gd"
 } ]
 _global_script_class_icons={
+"AiAPathHelper": "",
 "BeamDoor": "",
 "Bullet": "",
 "Collectable": "",
 "DefaultState": "",
+"Gearpak": "",
+"HealingStatus": "",
 "Inventory": "",
 "Level": "",
 "Miner": "",
 "Pickup": "",
 "PlayerShip": "",
+"Rocket": "",
 "SaveManager": "",
 "Ship": "",
 "State": "",
 "StateMachine": "",
 "StateMachineFactory": "",
+"StatusMap": "",
 "UI": "",
 "WirePiece": "",
 "Wirerer": ""

@@ -5,8 +5,11 @@
 [ext_resource path="res://resources/Objects/Pickups/rocketeer.png" type="Texture" id=3]
 [ext_resource path="res://scripts/entities/Collectable/RocketeerPickup.gd" type="Script" id=4]
 
-[node name="Collectable" instance=ExtResource( 2 )]
+[node name="RocketeerPickup" instance=ExtResource( 2 )]
 script = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="." index="0"]
+visible = false
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 material = ExtResource( 1 )

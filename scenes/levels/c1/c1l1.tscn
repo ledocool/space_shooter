@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
@@ -50,6 +50,10 @@
 [ext_resource path="res://scripts/levels/c1l1/BelowHarvesterBeamDoorOpen.gd" type="Script" id=48]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Barrel.tscn" type="PackedScene" id=49]
 [ext_resource path="res://resources/Objects/Structures/Pipes/pipes_straight.png" type="Texture" id=50]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/RocketeerPickup.tscn" type="PackedScene" id=51]
+[ext_resource path="res://scenes/interface/IngameHint.tscn" type="PackedScene" id=52]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building1.tscn" type="PackedScene" id=53]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Struts/Strut1.tscn" type="PackedScene" id=54]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 273.705
@@ -962,8 +966,46 @@ position = Vector2( 2001.46, -1996.27 )
 rotation = -2.87979
 linear_damp = -1.0
 
+[node name="Asteroid185" parent="AsteroidContainer" index="184" instance=ExtResource( 4 )]
+position = Vector2( 7955.78, -4860.35 )
+rotation = -0.785397
+
+[node name="Asteroid186" parent="AsteroidContainer" index="185" instance=ExtResource( 5 )]
+position = Vector2( 7991.19, -5028.55 )
+rotation = 0.523598
+
+[node name="Asteroid187" parent="AsteroidContainer" index="186" instance=ExtResource( 3 )]
+position = Vector2( 7579.57, -5533.12 )
+rotation = 1.0472
+
+[node name="Asteroid188" parent="AsteroidContainer" index="187" instance=ExtResource( 5 )]
+position = Vector2( 7400.31, -5163.54 )
+rotation = 2.35619
+
+[node name="Asteroid189" parent="AsteroidContainer" index="188" instance=ExtResource( 4 )]
+position = Vector2( 8024.39, -4497.42 )
+rotation = -2.09439
+
+[node name="Asteroid190" parent="AsteroidContainer" index="189" instance=ExtResource( 5 )]
+position = Vector2( 8090.78, -4541.68 )
+rotation = -0.785397
+
+[node name="Asteroid191" parent="AsteroidContainer" index="190" instance=ExtResource( 7 )]
+position = Vector2( 7493.26, -5650.41 )
+
+[node name="Asteroid192" parent="AsteroidContainer" index="191" instance=ExtResource( 6 )]
+position = Vector2( 7444.57, -5559.67 )
+rotation = 2.09439
+
+[node name="Asteroid193" parent="AsteroidContainer" index="192" instance=ExtResource( 6 )]
+position = Vector2( 7548.58, -5340.58 )
+rotation = -2.87979
+
 [node name="SlugPickup" parent="ItemContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -5919.03, 1339.17 )
+
+[node name="RocketeerPickup" parent="ItemContainer" index="1" instance=ExtResource( 51 )]
+position = Vector2( 8105.85, -5289.73 )
 
 [node name="DynamicScenery" parent="." index="5"]
 scale = Vector2( 1, 0.994442 )
@@ -1223,13 +1265,15 @@ rotation = 1.309
 z_index = 0
 
 [node name="humanoid" type="Sprite" parent="Scenery/SecretArea" index="25"]
-position = Vector2( 7753.47, -5298.93 )
+position = Vector2( 7333.09, -5700.3 )
 rotation = 0.523598
+scale = Vector2( 0.4733, 0.4733 )
 texture = ExtResource( 33 )
 
 [node name="Secret1_asteroid" parent="Scenery/SecretArea" index="26" groups=[
 "SecretCrevice",
 ] instance=ExtResource( 30 )]
+visible = false
 position = Vector2( 7728.15, -5146.05 )
 rotation = -2.61799
 scale = Vector2( 1.41834, 1.41834 )
@@ -1239,6 +1283,13 @@ scale = Vector2( 1.41834, 1.41834 )
 ] instance=ExtResource( 31 )]
 position = Vector2( 8486.18, -5691.89 )
 rotation = -1.6189e-05
+
+[node name="IngameHint" parent="Scenery/SecretArea" index="28" instance=ExtResource( 52 )]
+position = Vector2( 7632.88, -5197.94 )
+
+[node name="RichTextLabel" parent="Scenery/SecretArea/IngameHint" index="1"]
+margin_bottom = 117.0
+text = "Congratualtions! You've found a secret. You may have the spoils"
 
 [node name="Building7" parent="Scenery" index="2" instance=ExtResource( 36 )]
 position = Vector2( -1001.05, 4827.23 )
@@ -1251,7 +1302,7 @@ rotation = 1.309
 z_index = 0
 
 [node name="StaticDebree" parent="Scenery/HarvesterEntrance" index="1" instance=ExtResource( 15 )]
-position = Vector2( -4724.37, 3113.22 )
+position = Vector2( -4661.59, 3102.08 )
 rotation = 2.61799
 z_index = 0
 
@@ -1627,12 +1678,12 @@ position = Vector2( -9708.15, 9069.56 )
 rotation = -1.0472
 
 [node name="StaticAsteroid5" parent="Scenery/BelowHarvester" index="23" instance=ExtResource( 12 )]
-position = Vector2( -9123.86, 9990.72 )
+position = Vector2( -9598.28, 9843.48 )
 rotation = 1.0472
 
 [node name="StaticAsteroid6" parent="Scenery/BelowHarvester" index="24" instance=ExtResource( 13 )]
-position = Vector2( -7878.69, 11651.7 )
-scale = Vector2( 3.69096, 3.69096 )
+position = Vector2( -7077.08, 11111.8 )
+scale = Vector2( 2.14783, 2.14783 )
 
 [node name="StaticAsteroid7" parent="Scenery/BelowHarvester" index="25" instance=ExtResource( 14 )]
 position = Vector2( -989.166, 14665.1 )
@@ -1758,7 +1809,7 @@ position = Vector2( 7136.52, 5365.9 )
 rotation = 1.57079
 
 [node name="StaticDebree11" parent="Scenery/BelowHarvester" index="48" instance=ExtResource( 16 )]
-position = Vector2( 7136.17, 6109.56 )
+position = Vector2( 7212.12, 6071.58 )
 
 [node name="StaticAsteroid30" parent="Scenery/BelowHarvester" index="49" instance=ExtResource( 17 )]
 position = Vector2( 5754.25, 3291.74 )
@@ -1776,37 +1827,106 @@ position = Vector2( 2713.27, 14975.7 )
 rotation = -3.03849
 scale = Vector2( 2.28109, 2.28109 )
 
-[node name="StaticAsteroid24" parent="Scenery/BelowHarvester" index="53" instance=ExtResource( 17 )]
-position = Vector2( 7724.5, 14394.5 )
-rotation = 0.523598
-
-[node name="Building2" parent="Scenery/BelowHarvester" index="54" instance=ExtResource( 41 )]
+[node name="Building2" parent="Scenery/BelowHarvester" index="53" instance=ExtResource( 41 )]
 position = Vector2( 6619.27, 4365.63 )
 rotation = 1.309
 
-[node name="PipeBend90" parent="Scenery/BelowHarvester" index="55" instance=ExtResource( 45 )]
+[node name="PipeBend90" parent="Scenery/BelowHarvester" index="54" instance=ExtResource( 45 )]
 position = Vector2( 3400.93, 4783.34 )
 
-[node name="Pipe2" parent="Scenery/BelowHarvester" index="56" instance=ExtResource( 39 )]
+[node name="Pipe2" parent="Scenery/BelowHarvester" index="55" instance=ExtResource( 39 )]
 position = Vector2( 3342.3, 4462.23 )
 rotation = 1.5708
 
-[node name="Pipe" parent="Scenery/BelowHarvester" index="57" instance=ExtResource( 38 )]
+[node name="Pipe" parent="Scenery/BelowHarvester" index="56" instance=ExtResource( 38 )]
 position = Vector2( 3822.95, 4842.33 )
 
-[node name="Building5" parent="Scenery/BelowHarvester" index="58" instance=ExtResource( 46 )]
+[node name="Building5" parent="Scenery/BelowHarvester" index="57" instance=ExtResource( 46 )]
 position = Vector2( 4663.32, 4969.85 )
 rotation = 1.309
 scale = Vector2( 0.56962, 0.428571 )
 
-[node name="Building7" parent="Scenery/BelowHarvester" index="59" instance=ExtResource( 46 )]
+[node name="Building7" parent="Scenery/BelowHarvester" index="58" instance=ExtResource( 46 )]
 position = Vector2( -3894.56, 8388.51 )
 rotation = 1.56891
 scale = Vector2( 0.879538, 0.560127 )
 
-[node name="StaticAsteroid47" parent="Scenery/BelowHarvester" index="60" instance=ExtResource( 12 )]
+[node name="StaticAsteroid47" parent="Scenery/BelowHarvester" index="59" instance=ExtResource( 12 )]
 position = Vector2( -3953.72, 9927.22 )
 z_index = 30
+
+[node name="Building8" parent="Scenery/BelowHarvester" index="60" instance=ExtResource( 36 )]
+position = Vector2( -9062.4, 10853.9 )
+z_index = -30
+
+[node name="Lastroom" type="Node2D" parent="Scenery/BelowHarvester" index="61"]
+position = Vector2( -9062.4, 10853.9 )
+
+[node name="Barrel" parent="Scenery/BelowHarvester/Lastroom" index="0" instance=ExtResource( 49 )]
+position = Vector2( 11643, -4918.08 )
+
+[node name="Barrel2" parent="Scenery/BelowHarvester/Lastroom" index="1" instance=ExtResource( 49 )]
+position = Vector2( 12191.2, -4300.49 )
+
+[node name="Barrel3" parent="Scenery/BelowHarvester/Lastroom" index="2" instance=ExtResource( 49 )]
+position = Vector2( 12464.1, -4752.71 )
+
+[node name="Barrel4" parent="Scenery/BelowHarvester/Lastroom" index="3" instance=ExtResource( 49 )]
+position = Vector2( 11678.4, -4386.25 )
+
+[node name="PipeBend90" parent="Scenery/BelowHarvester/Lastroom" index="4" instance=ExtResource( 45 )]
+position = Vector2( 12146.7, -3956.82 )
+
+[node name="Barrel5" parent="Scenery/BelowHarvester/Lastroom" index="5" instance=ExtResource( 49 )]
+position = Vector2( 12092.7, -5175.82 )
+
+[node name="Pipe" parent="Scenery/BelowHarvester/Lastroom" index="6" instance=ExtResource( 38 )]
+position = Vector2( 12543.9, -3909.06 )
+
+[node name="Building1" parent="Scenery/BelowHarvester/Lastroom" index="7" instance=ExtResource( 53 )]
+position = Vector2( 13835.5, -3587.02 )
+
+[node name="StaticAsteroid1" parent="Scenery/BelowHarvester/Lastroom" index="8" instance=ExtResource( 12 )]
+position = Vector2( 14732.4, -3591.32 )
+
+[node name="StaticAsteroid" parent="Scenery/BelowHarvester/Lastroom" index="9" instance=ExtResource( 17 )]
+position = Vector2( 13865.2, -2407.76 )
+
+[node name="StaticDebree" parent="Scenery/BelowHarvester/Lastroom" index="10" instance=ExtResource( 16 )]
+position = Vector2( 13706.2, -1203.16 )
+
+[node name="StaticAsteroid2" parent="Scenery/BelowHarvester/Lastroom" index="11" instance=ExtResource( 13 )]
+position = Vector2( 12406.9, -1129.34 )
+
+[node name="StaticAsteroid3" parent="Scenery/BelowHarvester/Lastroom" index="12" instance=ExtResource( 14 )]
+position = Vector2( 11019.1, -789.764 )
+
+[node name="StaticAsteroid4" parent="Scenery/BelowHarvester/Lastroom" index="13" instance=ExtResource( 17 )]
+position = Vector2( 11949.2, -863.585 )
+
+[node name="StaticAsteroid5" parent="Scenery/BelowHarvester/Lastroom" index="14" instance=ExtResource( 17 )]
+position = Vector2( 11860.7, -1129.34 )
+
+[node name="StaticAsteroid6" parent="Scenery/BelowHarvester/Lastroom" index="15" instance=ExtResource( 17 )]
+position = Vector2( 8308.66, -2925.14 )
+
+[node name="Strut" parent="Scenery/BelowHarvester/Lastroom" index="16" instance=ExtResource( 37 )]
+position = Vector2( 13986.7, -2089.02 )
+
+[node name="Strut2" parent="Scenery/BelowHarvester/Lastroom" index="17" instance=ExtResource( 40 )]
+position = Vector2( 14444.4, -2428.6 )
+
+[node name="Strut3" parent="Scenery/BelowHarvester/Lastroom" index="18" instance=ExtResource( 54 )]
+position = Vector2( 13986.7, -1778.97 )
+
+[node name="StaticAsteroid7" parent="Scenery/BelowHarvester/Lastroom" index="19" instance=ExtResource( 14 )]
+position = Vector2( 9542.36, -1995.88 )
+
+[node name="Building7" parent="Scenery/BelowHarvester/Lastroom" index="20" instance=ExtResource( 36 )]
+position = Vector2( 9522.64, -4149.66 )
+
+[node name="Pipe2" parent="Scenery/BelowHarvester/Lastroom" index="21" instance=ExtResource( 38 )]
+position = Vector2( 13175.7, -3915.39 )
 
 [node name="Exit" type="Node2D" parent="Scenery" index="5"]
 
@@ -2087,7 +2207,11 @@ shape = SubResource( 2 )
 
 [node name="BelowHarvesterBeamDoorOpen" type="Node" parent="TriggerContainer" index="3"]
 script = ExtResource( 48 )
+
+[node name="Building7" parent="." index="11" instance=ExtResource( 36 )]
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]
 [connection signal="wire_switch" from="Scenery/BelowHarvester/BuildIntersection/Wirerer" to="TriggerContainer/BelowHarvesterBeamDoorOpen" method="_on_Wirerer_wire_switch"]
 [connection signal="body_entered" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_entered"]
 [connection signal="body_exited" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_exited"]
+
+[editable path="Scenery/SecretArea/IngameHint"]

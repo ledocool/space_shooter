@@ -1,8 +1,9 @@
 extends Collectable
+class_name Gearpak
 
 func _init():
-	data.type = 0
+	data.type = 1
 	data.quantity = 1
-	data.name = "slug"
+	data.name = "healing"
 	data.info = {
 	}
