@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 export var showSpeed = 0.5
@@ -6,6 +7,10 @@ var visibility = 1.0
 var hide = false
 
 func _ready():
+	if(Engine.is_editor_hint()):
+		set_process(false)
+		setVisibility(0.3)
+		
 # warning-ignore:unsafe_method_access
 	if(!$VisibilityEnabler2D.is_on_screen()):
 		set_process(false)
@@ -36,8 +41,5 @@ func setVisibility(vis):
 		vis = 1.0
 	elif(vis < 0.0):
 		vis = 0.0
-	print_debug(vis)
 	(material as ShaderMaterial).set_shader_param("visibility", vis)
-# warning-ignore:unused_variable
-	var data = (material as ShaderMaterial).get_shader_param("visibility")
 

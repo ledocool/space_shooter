@@ -3,6 +3,8 @@ class_name Rocket
 
 var LockedTarget = null
 export var MaxTurnSpeed: float = 40
+export var MaxSpeed: float = 200
+export var EngineSpeed: float = 40
 
 func Save():
 	var prevSave = .Save()
@@ -18,6 +20,10 @@ func SpawnAt(pos: Vector2, angle: float, _add_velocity: Vector2):
 	rotation = angle
 	linear_velocity = linear_velocity.rotated(angle)
 	self.position = pos - anchor
+	self.apply_impulse(
+		Vector2(0, 0), 
+		Vector2(EngineSpeed, 0).rotated(rotation)
+	)
 
 
 func _init():
@@ -25,7 +31,7 @@ func _init():
 
 
 func _physics_process(delta):
-	_realign(delta)
+	_ceilSpeed()
 
 
 func _on_LockOnArea_body_exited(body):
@@ -40,14 +46,18 @@ func _on_LockOnArea_body_entered(body):
 
 func _realign(delta):
 	if(LockedTarget != null):
-		var vec = LockedTarget.position - position
-		var angle = vec.angle_to(linear_velocity)
-		var cap = deg2rad(MaxTurnSpeed) * delta
-		if(abs(angle) > 1e-3):
-			angle = clamp(angle, -cap, cap)
-			linear_velocity = linear_velocity.rotated(-angle)
-			rotation = linear_velocity.angle()
+		var cursor = AiAPathHelper.Track(
+			LockedTarget.get_global_position(), 
+			LockedTarget.GetVelocity(), 
+			self.get_global_position(), 
+			self.GetVelocity()
+		)
+		look_at(cursor)
+	applied_force = Vector2(EngineSpeed, 0).rotated(rotation)
 
+
+func _ceilSpeed():
+	linear_velocity = linear_velocity.clamped(MaxSpeed)
 
 func _on_RealignTimer_timeout():
 	_realign(($Timers/RealignTimer as Timer).wait_time)
