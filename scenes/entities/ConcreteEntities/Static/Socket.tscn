@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://resources/Objects/Structures/Wiring/socket.png" type="Texture" id=1]
+[ext_resource path="res://scripts/entities/Wires/Socket.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 17.0793, 17.0119 )
@@ -12,6 +13,7 @@ collision_mask = 0
 mode = 1
 linear_damp = 1000.0
 angular_damp = 1000.0
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
