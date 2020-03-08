@@ -151,6 +151,42 @@ rotation = -2.87979
 position = Vector2( 7093.97, -3956.51 )
 rotation = -1.83259
 
+[node name="Miner4" parent="ShipContainer" index="16" instance=ExtResource( 2 )]
+position = Vector2( 1878.29, 6991.71 )
+
+[node name="Miner7" parent="ShipContainer" index="17" instance=ExtResource( 2 )]
+position = Vector2( 1641.99, 9300.15 )
+
+[node name="Miner9" parent="ShipContainer" index="18" instance=ExtResource( 2 )]
+position = Vector2( 3668.7, 7327.98 )
+
+[node name="Miner10" parent="ShipContainer" index="19" instance=ExtResource( 2 )]
+position = Vector2( 4150.38, 8309.52 )
+
+[node name="Miner11" parent="ShipContainer" index="20" instance=ExtResource( 2 )]
+position = Vector2( 987.634, 7836.92 )
+
+[node name="Miner17" parent="ShipContainer" index="21" instance=ExtResource( 2 )]
+position = Vector2( 1178.49, 11390.5 )
+
+[node name="Miner20" parent="ShipContainer" index="22" instance=ExtResource( 2 )]
+position = Vector2( 5504.54, 7991.42 )
+
+[node name="Miner21" parent="ShipContainer" index="23" instance=ExtResource( 2 )]
+position = Vector2( 5295.51, 8200.46 )
+
+[node name="Miner22" parent="ShipContainer" index="24" instance=ExtResource( 2 )]
+position = Vector2( -939.097, 10854.3 )
+
+[node name="Miner23" parent="ShipContainer" index="25" instance=ExtResource( 2 )]
+position = Vector2( -1266.28, 9890.89 )
+
+[node name="Miner18" parent="ShipContainer" index="26" instance=ExtResource( 2 )]
+position = Vector2( 233.301, 5746.6 )
+
+[node name="Miner19" parent="ShipContainer" index="27" instance=ExtResource( 2 )]
+position = Vector2( 3577.81, 5464.86 )
+
 [node name="Asteroid" parent="AsteroidContainer" index="0" instance=ExtResource( 3 )]
 position = Vector2( -8018.51, -5.83704 )
 linear_damp = -1.0
@@ -1008,6 +1044,213 @@ rotation = 2.09439
 position = Vector2( 7548.58, -5340.58 )
 rotation = -2.87979
 
+[node name="Asteroid194" parent="AsteroidContainer" index="193" instance=ExtResource( 5 )]
+position = Vector2( 5131.92, 9345.59 )
+
+[node name="Asteroid195" parent="AsteroidContainer" index="194" instance=ExtResource( 4 )]
+position = Vector2( 5313.69, 9491 )
+
+[node name="Asteroid196" parent="AsteroidContainer" index="195" instance=ExtResource( 5 )]
+position = Vector2( 5122.83, 9663.68 )
+
+[node name="Asteroid197" parent="AsteroidContainer" index="196" instance=ExtResource( 5 )]
+position = Vector2( 5731.75, 5964.72 )
+
+[node name="Asteroid198" parent="AsteroidContainer" index="197" instance=ExtResource( 5 )]
+position = Vector2( 5659.05, 6210.11 )
+
+[node name="Asteroid199" parent="AsteroidContainer" index="198" instance=ExtResource( 8 )]
+position = Vector2( 5940.79, 6555.46 )
+
+[node name="Asteroid200" parent="AsteroidContainer" index="199" instance=ExtResource( 7 )]
+position = Vector2( 5640.87, 6437.31 )
+
+[node name="Asteroid201" parent="AsteroidContainer" index="200" instance=ExtResource( 6 )]
+position = Vector2( 6586.06, 5619.36 )
+
+[node name="Asteroid202" parent="AsteroidContainer" index="201" instance=ExtResource( 4 )]
+position = Vector2( 6422.47, 6128.31 )
+
+[node name="Asteroid203" parent="AsteroidContainer" index="202" instance=ExtResource( 5 )]
+position = Vector2( 7104.09, 6709.96 )
+
+[node name="Asteroid204" parent="AsteroidContainer" index="203" instance=ExtResource( 4 )]
+position = Vector2( 6649.68, 7173.47 )
+
+[node name="Asteroid205" parent="AsteroidContainer" index="204" instance=ExtResource( 3 )]
+position = Vector2( 7058.65, 7555.18 )
+
+[node name="Asteroid206" parent="AsteroidContainer" index="205" instance=ExtResource( 7 )]
+position = Vector2( 6467.91, 7909.63 )
+
+[node name="Asteroid207" parent="AsteroidContainer" index="206" instance=ExtResource( 8 )]
+position = Vector2( 6722.38, 7727.86 )
+
+[node name="Asteroid208" parent="AsteroidContainer" index="207" instance=ExtResource( 6 )]
+position = Vector2( 5968.05, 8055.04 )
+
+[node name="Asteroid209" parent="AsteroidContainer" index="208" instance=ExtResource( 7 )]
+position = Vector2( 6722.38, 8427.66 )
+
+[node name="Asteroid210" parent="AsteroidContainer" index="209" instance=ExtResource( 8 )]
+position = Vector2( 5922.61, 8691.23 )
+
+[node name="Asteroid211" parent="AsteroidContainer" index="210" instance=ExtResource( 7 )]
+position = Vector2( 4068.58, 10345.3 )
+
+[node name="Asteroid212" parent="AsteroidContainer" index="211" instance=ExtResource( 6 )]
+position = Vector2( 833.132, 11017.8 )
+
+[node name="Asteroid213" parent="AsteroidContainer" index="212" instance=ExtResource( 4 )]
+position = Vector2( 2405.42, 10908.8 )
+
+[node name="Asteroid214" parent="AsteroidContainer" index="213" instance=ExtResource( 5 )]
+position = Vector2( 3332.43, 11036 )
+
+[node name="Asteroid215" parent="AsteroidContainer" index="214" instance=ExtResource( 3 )]
+position = Vector2( 5504.54, 10263.5 )
+
+[node name="Asteroid216" parent="AsteroidContainer" index="215" instance=ExtResource( 5 )]
+position = Vector2( 1669.26, 10599.8 )
+
+[node name="Asteroid217" parent="AsteroidContainer" index="216" instance=ExtResource( 5 )]
+position = Vector2( 3323.34, 8554.9 )
+
+[node name="Asteroid218" parent="AsteroidContainer" index="217" instance=ExtResource( 4 )]
+position = Vector2( 2605.36, 8536.72 )
+
+[node name="Asteroid219" parent="AsteroidContainer" index="218" instance=ExtResource( 8 )]
+position = Vector2( 1851.03, 7718.77 )
+
+[node name="Asteroid220" parent="AsteroidContainer" index="219" instance=ExtResource( 7 )]
+position = Vector2( 2805.3, 7591.54 )
+
+[node name="Asteroid221" parent="AsteroidContainer" index="220" instance=ExtResource( 5 )]
+position = Vector2( 1687.44, 7909.63 )
+
+[node name="Asteroid222" parent="AsteroidContainer" index="221" instance=ExtResource( 3 )]
+position = Vector2( 3459.67, 8582.17 )
+
+[node name="Asteroid223" parent="AsteroidContainer" index="222" instance=ExtResource( 4 )]
+position = Vector2( 3414.22, 8318.6 )
+
+[node name="Asteroid224" parent="AsteroidContainer" index="223" instance=ExtResource( 8 )]
+position = Vector2( 1342.08, 7591.54 )
+
+[node name="Asteroid225" parent="AsteroidContainer" index="224" instance=ExtResource( 7 )]
+position = Vector2( 1478.4, 8254.99 )
+
+[node name="Asteroid226" parent="AsteroidContainer" index="225" instance=ExtResource( 8 )]
+position = Vector2( 3677.79, 8264.07 )
+
+[node name="Asteroid227" parent="AsteroidContainer" index="226" instance=ExtResource( 7 )]
+position = Vector2( -911.832, 8364.05 )
+
+[node name="Asteroid228" parent="AsteroidContainer" index="227" instance=ExtResource( 4 )]
+position = Vector2( -775.506, 10381.7 )
+
+[node name="Asteroid229" parent="AsteroidContainer" index="228" instance=ExtResource( 3 )]
+position = Vector2( 60.6218, 9345.59 )
+
+[node name="Asteroid230" parent="AsteroidContainer" index="229" instance=ExtResource( 4 )]
+position = Vector2( 351.449, 9491 )
+
+[node name="Asteroid231" parent="AsteroidContainer" index="230" instance=ExtResource( 5 )]
+position = Vector2( 115.152, 9827.27 )
+
+[node name="Asteroid232" parent="AsteroidContainer" index="231" instance=ExtResource( 7 )]
+position = Vector2( 778.602, 10127.2 )
+
+[node name="Asteroid233" parent="AsteroidContainer" index="232" instance=ExtResource( 8 )]
+position = Vector2( -2193.29, 9491 )
+
+[node name="Asteroid234" parent="AsteroidContainer" index="233" instance=ExtResource( 7 )]
+position = Vector2( -2447.76, 8854.82 )
+
+[node name="Asteroid235" parent="AsteroidContainer" index="234" instance=ExtResource( 3 )]
+position = Vector2( -1320.81, 6864.47 )
+
+[node name="Asteroid236" parent="AsteroidContainer" index="235" instance=ExtResource( 4 )]
+position = Vector2( -939.097, 10027.2 )
+
+[node name="Asteroid237" parent="AsteroidContainer" index="236" instance=ExtResource( 5 )]
+position = Vector2( -1520.75, 9254.7 )
+
+[node name="Asteroid238" parent="AsteroidContainer" index="237" instance=ExtResource( 4 )]
+position = Vector2( -1175.39, 9491 )
+
+[node name="Asteroid239" parent="AsteroidContainer" index="238" instance=ExtResource( 3 )]
+position = Vector2( -293.824, 10972.4 )
+
+[node name="Asteroid240" parent="AsteroidContainer" index="239" instance=ExtResource( 4 )]
+position = Vector2( 1178.49, 9818.18 )
+
+[node name="Asteroid241" parent="AsteroidContainer" index="240" instance=ExtResource( 8 )]
+position = Vector2( 587.746, 9681.86 )
+
+[node name="Asteroid242" parent="AsteroidContainer" index="241" instance=ExtResource( 7 )]
+position = Vector2( 1087.61, 9463.74 )
+
+[node name="Asteroid243" parent="AsteroidContainer" index="242" instance=ExtResource( 5 )]
+position = Vector2( -2547.74, 6864.47 )
+
+[node name="Asteroid244" parent="AsteroidContainer" index="243" instance=ExtResource( 4 )]
+position = Vector2( -1820.67, 5728.42 )
+
+[node name="Asteroid245" parent="AsteroidContainer" index="244" instance=ExtResource( 3 )]
+position = Vector2( -1375.34, 6164.66 )
+
+[node name="Asteroid246" parent="AsteroidContainer" index="245" instance=ExtResource( 4 )]
+position = Vector2( 424.156, 5283.09 )
+
+[node name="Asteroid247" parent="AsteroidContainer" index="246" instance=ExtResource( 5 )]
+position = Vector2( 1005.81, 4992.27 )
+
+[node name="Asteroid248" parent="AsteroidContainer" index="247" instance=ExtResource( 4 )]
+position = Vector2( 1233.02, 5310.36 )
+
+[node name="Asteroid249" parent="AsteroidContainer" index="248" instance=ExtResource( 3 )]
+position = Vector2( 1551.11, 4965 )
+
+[node name="Asteroid250" parent="AsteroidContainer" index="249" instance=ExtResource( 5 )]
+position = Vector2( 887.661, 5919.28 )
+
+[node name="Asteroid251" parent="AsteroidContainer" index="250" instance=ExtResource( 4 )]
+position = Vector2( 1296.64, 6273.73 )
+
+[node name="Asteroid252" parent="AsteroidContainer" index="251" instance=ExtResource( 3 )]
+position = Vector2( 1378.43, 5628.45 )
+
+[node name="Asteroid253" parent="AsteroidContainer" index="252" instance=ExtResource( 5 )]
+position = Vector2( 2696.24, 5519.39 )
+
+[node name="Asteroid254" parent="AsteroidContainer" index="253" instance=ExtResource( 8 )]
+position = Vector2( 1923.73, 5619.36 )
+
+[node name="Asteroid255" parent="AsteroidContainer" index="254" instance=ExtResource( 7 )]
+position = Vector2( 2469.03, 4946.83 )
+
+[node name="Asteroid256" parent="AsteroidContainer" index="255" instance=ExtResource( 3 )]
+position = Vector2( 587.746, 4519.67 )
+
+[node name="Asteroid257" parent="AsteroidContainer" index="256" instance=ExtResource( 8 )]
+position = Vector2( 2450.86, 6019.25 )
+
+[node name="Asteroid258" parent="AsteroidContainer" index="257" instance=ExtResource( 7 )]
+position = Vector2( 3386.96, 5919.28 )
+
+[node name="Asteroid259" parent="AsteroidContainer" index="258" instance=ExtResource( 6 )]
+position = Vector2( 3368.78, 5164.95 )
+
+[node name="Asteroid260" parent="AsteroidContainer" index="259" instance=ExtResource( 4 )]
+position = Vector2( 3995.88, 6346.43 )
+
+[node name="Asteroid261" parent="AsteroidContainer" index="260" instance=ExtResource( 5 )]
+position = Vector2( 4832.01, 6255.55 )
+
+[node name="Asteroid262" parent="AsteroidContainer" index="261" instance=ExtResource( 4 )]
+position = Vector2( 4732.03, 6355.52 )
+
 [node name="SlugPickup" parent="ItemContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -5919.03, 1339.17 )
 
@@ -1292,6 +1535,9 @@ rotation = -1.6189e-05
 
 [node name="IngameHint" parent="Scenery/SecretArea" index="28" instance=ExtResource( 52 )]
 position = Vector2( 7632.88, -5197.94 )
+
+[node name="Sprite" parent="Scenery/SecretArea/IngameHint" index="0"]
+frame = 0
 
 [node name="RichTextLabel" parent="Scenery/SecretArea/IngameHint" index="1"]
 margin_bottom = 191.0
