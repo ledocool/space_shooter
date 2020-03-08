@@ -39,8 +39,9 @@ func Disable():
 
 
 func _ready():
-	if(!Engine.is_editor_hint()):
-		_buildChain()
+	for i in $Anchor.get_children():
+		i.queue_free()
+	_buildChain()
 	Enable()
 	created = true;
 
@@ -107,8 +108,12 @@ func _buildChain():
 		1:	start = SOCKET.instance()
 		_: 	start = SOCKET.instance()
 	
+	if (!parent):
+		return
+	
 	parent.add_child(start)
 	parent = start
+	
 	for angle in chainArray:
 		parent = _addPiece(parent, PIECE.instance(), angle)
 	

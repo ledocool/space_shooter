@@ -10,7 +10,8 @@
 [ext_resource path="res://resources/Objects/Structures/Wiring/generator_glas_top_broken.png" type="Texture" id=8]
 [ext_resource path="res://resources/Objects/Structures/Wiring/generator_energy_3.png" type="Texture" id=9]
 [ext_resource path="res://resources/Objects/Structures/Wiring/generator_glas_bottom_broken.png" type="Texture" id=10]
-[ext_resource path="res://scripts/entities/Generator.gd" type="Script" id=11]
+[ext_resource path="res://scripts/entities/Wires/Generator.gd" type="Script" id=11]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
