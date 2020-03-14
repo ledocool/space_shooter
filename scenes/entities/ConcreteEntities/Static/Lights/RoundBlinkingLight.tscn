@@ -7,6 +7,9 @@
 [node name="RoundBlinkingLight" type="Node2D"]
 z_index = 150
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="LightBulb" type="Sprite" parent="."]
 light_mask = 524288
@@ -28,4 +31,8 @@ range_height = 11.0
 [node name="BlinkTimer" type="Timer" parent="."]
 wait_time = 0.7
 autostart = true
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="timeout" from="BlinkTimer" to="." method="_on_BlinkTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

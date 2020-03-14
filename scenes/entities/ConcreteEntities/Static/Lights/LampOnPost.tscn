@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/Objects/Structures/lamppost.png" type="Texture" id=2]
+[ext_resource path="res://scripts/entities/LampOnPost.gd" type="Script" id=3]
+
+[node name="LampOnPost" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="lamppost" type="Sprite" parent="."]
+light_mask = 2
+position = Vector2( 0, 31.4247 )
+scale = Vector2( 0.2, 0.2 )
+z_index = -50
+z_as_relative = false
+texture = ExtResource( 2 )
+
+[node name="RoundBlinkingLight" parent="." instance=ExtResource( 1 )]
+position = Vector2( -0.143974, -0.266121 )
+
+[editable path="RoundBlinkingLight"]

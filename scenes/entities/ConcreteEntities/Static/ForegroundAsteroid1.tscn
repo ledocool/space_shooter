@@ -7,6 +7,5 @@
 texture = ExtResource( 2 )
 
 [node name="VisibilityEnabler2D" parent="." index="0"]
-visible = false
 position = Vector2( 3.99476, -3.9946 )
 scale = Vector2( 54.1263, 46.9378 )

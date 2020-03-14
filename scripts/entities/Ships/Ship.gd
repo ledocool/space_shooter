@@ -50,9 +50,11 @@ func Pickup(item: Pickup):
 		1:
 			var statusName = StatusMap.getStatusPath(item.get_name())
 			if (!statusName.empty()):
-				var status = load(statusName)
-				Statuses.append(status.new(self))
-				return true
+				if(ShipCurrentHealth < ShipMaxHealth):
+					var status = load(statusName)
+					#status.canApply
+					Statuses.append(status.new(self))
+					return true
 			return false
 		2:
 			pass
