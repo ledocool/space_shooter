@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/interface/Modal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/ui/Overlay.gd" type="Script" id=2]
+
+[node name="Overlay" type="CanvasLayer"]
+layer = 128
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Modal" parent="Control" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 384.0
+margin_top = 216.0
+margin_right = 1536.0
+margin_bottom = 756.0

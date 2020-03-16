@@ -1,14 +1,18 @@
 extends Control
 
+var regex = RegEx.new()
+var oldText = ""
+
 func _ready():
 # warning-ignore:unsafe_method_access
 	var size = $Background/MarginContainer.get_size()
 	var splitContainer = $Background/MarginContainer/VSplitContainer/HSplitContainer
 	var svButton = find_node("SaveButton")
 	splitContainer.split_offset = size.x - svButton.get_size().x
+	regex.compile("^[\\w\\-. ]+$")
 	_updateSaveFileList()
 
-func _input(event):
+func _unhandled_key_input(event):
 	if(event.is_action_pressed("ui_menu")):
 		if(self.visible):
 			get_tree().set_input_as_handled()
@@ -38,8 +42,16 @@ func _updateSaveFileList():
 		newbtn.connect("pressed_named", self, "_populateTextbox")
 
 func _on_NewSaveName_text_changed(new_text):
-	var btn = $Background/MarginContainer/VSplitContainer/HSplitContainer/Control/SaveButton
-	btn.disabled = new_text == ""
+	if(regex.search(new_text) == null):
+		var saveName = $Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer/NewSaveName
+		var oldCaret = saveName.caret_position
+		saveName.text = oldText
+		saveName.caret_position = oldCaret
+	else:
+		oldText = new_text
+		var btn = $Background/MarginContainer/VSplitContainer/HSplitContainer/Control/SaveButton
+		btn.disabled = new_text == ""
+	
 
 func _populateTextbox(text):
 	var saveNameEditor = find_node("NewSaveName")
@@ -56,9 +68,11 @@ func _on_SaveButton_pressed():
 func _on_SaveMenu_visibility_changed():
 	var saveNameEditor = find_node("NewSaveName")
 	saveNameEditor.text = ""
-	if(self.visible == true):
-		_updateSaveFileList()
 
 
 func _on_CloseButton_pressed():
 	self.visible = false
+
+
+func _on_NewSaveName_draw():
+	_updateSaveFileList()

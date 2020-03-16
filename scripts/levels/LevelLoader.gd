@@ -8,6 +8,7 @@ var campaignCurrentLevel = -1
 var saveManager = SaveManager.new()
 var interactiveLoader = null
 var loadScreen = preload("res://scenes/interface/LoadingScreen.tscn")
+onready var popupScreen = $"/root/OverlayLayer"
 
 var loadData = null
 
@@ -29,6 +30,8 @@ func LoadGame(fileName: String, interactive: bool = true):
 	var data = saveManager.LoadSaveGame(fileName)
 	if(!data):
 		print_debug("Could not parse savefile: " + fileName)
+		popupScreen.ShowModal("Could not parse savefile: " + fileName);
+		#popupScreen.popup()
 		return
 	
 	if(interactive):

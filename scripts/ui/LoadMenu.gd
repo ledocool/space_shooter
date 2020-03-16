@@ -8,7 +8,7 @@ func _ready():
 	splitContainer.split_offset = size.x - svButton.get_size().x
 	_updateSaveFileList()
 
-func _input(event):
+func _unhandled_key_input(event):
 	if(event.is_action_pressed("ui_menu")):
 		if(self.visible):
 			get_tree().set_input_as_handled()
@@ -53,3 +53,7 @@ func _on_SaveList_item_selected(index):
 
 func _on_CloseButton_pressed():
 	self.visible = false
+
+
+func _on_LoadMenu_draw():
+	_updateSaveFileList()

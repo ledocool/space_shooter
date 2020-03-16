@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interface/MenuBoard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/ui/Modal.gd" type="Script" id=3]
+[ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=4]
+
+[node name="Modal" type="Popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 743.577 ],
+"_edit_use_anchors_": false
+}
+
+[node name="MenuBoard" parent="." instance=ExtResource( 2 )]
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuBoard"]
+anchor_right = 1.0
+anchor_bottom = 0.661
+margin_left = 12.0
+margin_top = 10.0
+margin_right = -12.0
+margin_bottom = 0.119995
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="Label" parent="MenuBoard/MarginContainer"]
+margin_top = 339.0
+margin_right = 1896.0
+margin_bottom = 364.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 4 )
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Control" type="Control" parent="MenuBoard"]
+anchor_top = 0.733
+anchor_right = 1.0
+anchor_bottom = 1.003
+margin_left = -7.0
+margin_top = -0.640015
+margin_right = -1.0
+margin_bottom = -0.23999
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuBoard/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -50.0001
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="MenuBoard/Control/MarginContainer"]
+margin_right = 1926.0
+margin_bottom = 242.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ok" parent="MenuBoard/Control/MarginContainer/CenterContainer" instance=ExtResource( 1 )]
+margin_left = 949.0
+margin_top = 108.0
+margin_right = 977.0
+margin_bottom = 133.0
+text = "Ok"
+[connection signal="pressed" from="MenuBoard/Control/MarginContainer/CenterContainer/Ok" to="." method="_on_Ok_pressed"]

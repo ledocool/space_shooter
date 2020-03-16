@@ -2038,18 +2038,15 @@ z_index = 0
 [node name="LampOnPost" parent="Scenery/StartingLocation/StaticAsteroid17" index="1" instance=ExtResource( 60 )]
 position = Vector2( 332.254, 407.24 )
 rotation = 2.29292
-scale = Vector2( 1, 1 )
 
 [node name="LampOnPost2" parent="Scenery/StartingLocation/StaticAsteroid17" index="2" instance=ExtResource( 60 )]
 position = Vector2( 354.897, 355.45 )
 rotation = 2.40359
-scale = Vector2( 1, 1 )
 startupTime = 0.1
 
 [node name="LampOnPost3" parent="Scenery/StartingLocation/StaticAsteroid17" index="3" instance=ExtResource( 60 )]
 position = Vector2( 390.392, 321.13 )
 rotation = 2.60902
-scale = Vector2( 1, 1 )
 startupTime = 0.2
 
 [node name="StaticDebree13" parent="Scenery/StartingLocation" index="13" instance=ExtResource( 16 )]
@@ -2202,9 +2199,6 @@ rotation = -1.6189e-05
 
 [node name="IngameHint" parent="Scenery/SecretArea" index="28" instance=ExtResource( 52 )]
 position = Vector2( 7632.88, -5197.94 )
-
-[node name="Sprite" parent="Scenery/SecretArea/IngameHint" index="0"]
-frame = 0
 
 [node name="RichTextLabel" parent="Scenery/SecretArea/IngameHint" index="1"]
 margin_bottom = 191.0
@@ -2883,6 +2877,12 @@ position = Vector2( -3894.56, 8388.51 )
 rotation = 1.56891
 scale = Vector2( 0.879538, 0.560127 )
 
+[node name="LampOnPost" parent="Scenery/BelowHarvester/Building7" index="29" instance=ExtResource( 60 )]
+position = Vector2( 9.5957, -1724.2 )
+
+[node name="LampOnPost2" parent="Scenery/BelowHarvester/Building7" index="30" instance=ExtResource( 60 )]
+position = Vector2( 217.947, -1725.05 )
+
 [node name="StaticAsteroid47" parent="Scenery/BelowHarvester" index="59" instance=ExtResource( 12 )]
 position = Vector2( -3953.72, 9927.22 )
 z_index = 30
@@ -3257,6 +3257,10 @@ position = Vector2( 1995.29, 203.034 )
 
 [node name="RoundBlinkingLight_Green" parent="Scenery/Harvester" index="5" instance=ExtResource( 61 )]
 position = Vector2( -1868.19, 1585.25 )
+
+[node name="LampOnPost" parent="Scenery/Harvester" index="6" instance=ExtResource( 60 )]
+position = Vector2( 3484.93, 1493.6 )
+rotation = 1.57079
 
 [node name="Background" parent="." index="8"]
 layer = -30

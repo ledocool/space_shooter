@@ -23,7 +23,7 @@ func LoadSaveGame(savename: String):
 		savename += ".sav"
 	if(save.open("user://save/" + savename, File.READ) > 0):
 		print_debug("Failed opening file: " + savename)
-		return
+		return null
 	var compressedSave = save.get_as_text()
 	return _unserializeData(compressedSave)
 
@@ -82,8 +82,15 @@ func _serializeData(levelName: String, levelIndex: int, ships: Array, bullets: A
 	
 	return to_json(savedata)
 
-func _unserializeData(data: String) -> Dictionary:
+func _unserializeData(data: String):
+	var validated = validate_json(data)
+	if(validated != ""):
+		print(validated)
+		return null
 	var uncompressedData = parse_json(data)
+	if(typeof(uncompressedData) != TYPE_ARRAY && typeof(uncompressedData) != TYPE_DICTIONARY):
+		return null
+	
 	var savedata = {
 		"items": Array(),
 		"bullets": Array(),
@@ -95,31 +102,42 @@ func _unserializeData(data: String) -> Dictionary:
 		"levelName": uncompressedData.levelName,
 		"levelIndex": uncompressedData.levelIndex
 	}
+		
 
 	for object in uncompressedData.ships:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.ships.append(node)
+		else:
+			return null
 
 	for object in uncompressedData.bullets:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.bullets.append(node)
+		else:
+			return null
 
 	for object in uncompressedData.asteroids:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.asteroids.append(node)
+		else:
+			return null
 
 	for object in uncompressedData.items:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.items.append(node)
+		else:
+			return null
 			
 	for object in uncompressedData.scenery:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.scenery.append(node)
+		else:
+			return null
 			
 	return savedata
 	
