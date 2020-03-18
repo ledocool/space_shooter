@@ -23,6 +23,7 @@ func _unhandled_key_input(event):
 func _quicksave():
 # warning-ignore:unsafe_method_access
 	$"/root/LevelLoader".SaveGame("quick.sav")
+	$"/root/OverlayLayer".ShowTimedNotificatiopn("Quicksave created", 0.7)
 
 func _updateSaveFileList():
 	var manager = SaveManager.new()
