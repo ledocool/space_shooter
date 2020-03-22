@@ -8,6 +8,13 @@ onready var lastwireGroup = get_tree().get_nodes_in_group("LastDoorWire")
 var doorOpen = false
 
 func _ready():
+	if(doorOpen):
+		door.Disable()
+		generator.Disable()
+	else:
+		door.Enable()
+		generator.Enable()
+		
 	for i in lastwireGroup:
 		if(doorOpen):
 			i.Disable()
@@ -17,18 +24,12 @@ func _ready():
 
 func Save():
 	return {
-		"open": doorOpen
+		"lastRoomDoorOpen": doorOpen
 	}
 
 
 func Load(data: Dictionary):
-	doorOpen = data.open
-	if(doorOpen):
-		door.Disable()
-		generator.Disable()
-	else:
-		door.Enable()
-		generator.Enable()
+	doorOpen = data.lastRoomDoorOpen
 
 
 func _on_Wirerer7_wire_switch(isOn):

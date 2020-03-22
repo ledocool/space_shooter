@@ -10,7 +10,6 @@ const StateMachineFactory = preload("res://scripts/systems/state-machine/state_m
 export var ExplosionDamage = 3
 export var TurnedOn = true
 
-onready var smf = StateMachineFactory.new()
 var aiState
 
 var Player
@@ -23,8 +22,15 @@ var SeesPlayer = false
 #func Load(data: Dictionary):
 #	pass
 
+func Damage(_dmg):
+	return false
+
 func TurnOn(isOn = true):
 	TurnedOn = isOn
+	if(TurnedOn):
+		aiState.transition('idle')
+	else:
+		aiState.transition('off')
 
 func IsOn():
 	return TurnedOn
@@ -70,10 +76,18 @@ func _onDestruction():
 
 func _physics_process(delta):
 	aiState._physics_process(delta);
+	._physics_process(delta)
 
+
+func _input(event):
+	if(event.is_action_pressed("cheat1")):
+		stopApplySpeed = !stopApplySpeed
+		applied_force = Vector2(0, 0)
+		($EngineParticles as Particles2D).emitting = false
+	
 
 func _ready():	
-	aiState = smf.create({
+	aiState = StateMachineFactory.create({
 		'target': self,
 		'current_state': 'idle',
 		'states': [
@@ -85,7 +99,7 @@ func _ready():
 		'transitions': [
 			{'state_id': 'idle', 'to_states': ['angryfying', 'off']},
 			{'state_id': 'agitated', 'to_states': ['idle', 'off']},
-			{'state_id': 'angryfying', 'to_states': ['agitated']},
+			{'state_id': 'angryfying', 'to_states': ['agitated', 'off']},
 			{'state_id': 'off', 'to_states': ['idle']},
 		]
 	})
@@ -101,6 +115,8 @@ func _on_AreaExit_body_exited(body):
 	if body == GetPlayer():
 		Player = null
 		NearPlayer = false
+		if(aiState.get_current_state() == "agitated"):
+			aiState.transition('idle')
 
 
 func _isSeesPlayer():
@@ -115,8 +131,8 @@ func _isSeesPlayer():
 
 func _on_ExplodeArea_body_entered(body):
 	if(aiState.get_current_state() == "agitated" && body.has_method("Damage") && body != self):
-		body.Damage(ExplosionDamage);
-		self.Damage(self.GetHealth())
+		if(body.Damage(ExplosionDamage)):
+			self.Damage(self.GetHealth())
 
 
 func _on_SeesPlayerTimer_timeout():

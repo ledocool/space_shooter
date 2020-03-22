@@ -1,6 +1,6 @@
 class_name StateMachineFactory
 
-func create(config = {}):
+static func create(config = {}):
 	"""
 	Factory method accepting an optional configuration object
 	"""

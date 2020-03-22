@@ -5,20 +5,24 @@ onready var door = $"/root/Level/Scenery/BelowHarvester/BuildIntersection/BeamDo
 onready var generator = $"/root/Level/Scenery/BelowHarvester/BuildIntersection/Wirerer"
 var doorOpen = false
 
-func Save():
-	return {
-		"open": doorOpen
-	}
-
-
-func Load(data: Dictionary):
-	doorOpen = data.open
+func _ready():
 	if(doorOpen):
 		door.Disable()
 		generator.Disable()
 	else:
 		door.Enable()
 		generator.Enable()
+
+
+func Save():
+	return {
+		"belowHarvesterDoorOpen": doorOpen
+	}
+
+
+func Load(data: Dictionary):
+	doorOpen = data.belowHarvesterDoorOpen
+	
 
 
 func _on_Wirerer_wire_switch(isOn):

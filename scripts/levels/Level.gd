@@ -120,10 +120,6 @@ func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_s
 		gameWinMenu.visible = true
 
 
-func _hide_submenus():
-	pass
-
-
 func _on_EscapeMenu_save_game():
 	var saveMenu = find_node("SaveMenu")
 	saveMenu.visible = true

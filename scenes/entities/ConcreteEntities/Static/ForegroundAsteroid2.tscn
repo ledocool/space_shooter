@@ -6,6 +6,3 @@
 [node name="ForegroundAsteroid2" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
 
-[node name="VisibilityEnabler2D" parent="." index="0"]
-position = Vector2( 6.3064, 23.1259 )
-scale = Vector2( 72.2715, 57.1324 )

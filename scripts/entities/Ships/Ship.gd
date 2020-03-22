@@ -16,6 +16,8 @@ export var ShipCurrentHealth = 5
 export var VelocityDampThreshold = 180
 export var ShipRippleScale = 3
 
+var stopApplySpeed = false
+
 var Cursor = null
 var EngineFiring = false
 var EngineFiringLastTime = false
@@ -72,6 +74,7 @@ func Damage(points: int):
 		var oldShipHealth = ShipCurrentHealth
 		ShipCurrentHealth = 0 if ShipCurrentHealth < points else ShipCurrentHealth - points
 		emit_signal("health_changed", oldShipHealth, ShipCurrentHealth)
+		return true
 
 
 func Save():
@@ -149,6 +152,9 @@ func SwitchWeapon(wpnType):
 
 
 func _physics_process(delta):
+	if(stopApplySpeed):
+		return
+	
 	for status in Statuses:
 		status._physics_process(delta)
 		if (status.IsStatusDead()):
@@ -159,7 +165,7 @@ func _physics_process(delta):
 		return 0
 	
 	var oldRot = rotation
-	if(Cursor != null) :
+	if(Cursor != null):
 		look_at(Cursor)
 		
 	var newRot = rotation
@@ -177,6 +183,10 @@ func _physics_process(delta):
 		emit_signal("speed_changed", spd)
 	if(spd > 1e-6):
 		emit_signal("coordinates_changed", position);
+
+
+func _integrate_forces(state):
+	pass
 
 
 func _onDestruction():
@@ -211,7 +221,7 @@ func _applySpeed (newRot, oldRot):
 	if(somethingChanged):
 		EngineFiringLastTime = EngineFiring
 		($EngineParticles as Particles2D).emitting = EngineFiring
-		applied_force = force
+		set_applied_force(force)
 		if(linear_velocity.length_squared() > ShipTopSpeed * ShipTopSpeed):
 			set_linear_velocity(get_linear_velocity().clamped(ShipTopSpeed))
 

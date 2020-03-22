@@ -72,11 +72,11 @@ shape = SubResource( 5 )
 
 [node name="DifferenceRecalculationTimer" type="Timer" parent="Timers" index="4"]
 process_mode = 0
-wait_time = 0.5
+wait_time = 3.0
 
 [node name="SeesPlayerTimer" type="Timer" parent="Timers" index="5"]
 process_mode = 0
-wait_time = 0.5
+wait_time = 5.0
 autostart = true
 
 [node name="AngryfyingTimer" type="Timer" parent="Timers" index="6"]

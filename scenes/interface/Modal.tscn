@@ -5,15 +5,11 @@
 [ext_resource path="res://scripts/ui/Modal.gd" type="Script" id=3]
 [ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=4]
 
-[node name="Modal" type="Popup"]
+[node name="Modal" type="PopupDialog"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 1
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_horizontal_guides_": [ 743.577 ],
-"_edit_use_anchors_": false
-}
 
 [node name="MenuBoard" parent="." instance=ExtResource( 2 )]
 
@@ -61,7 +57,7 @@ __meta__ = {
 
 [node name="CenterContainer" type="CenterContainer" parent="MenuBoard/Control/MarginContainer"]
 margin_right = 1926.0
-margin_bottom = 242.0
+margin_bottom = 241.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

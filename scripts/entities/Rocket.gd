@@ -30,7 +30,7 @@ func _init():
 	Damage = 10
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	_ceilSpeed()
 
 
@@ -44,7 +44,7 @@ func _on_LockOnArea_body_entered(body):
 		LockedTarget = body
 
 
-func _realign(delta):
+func _realign(_delta):
 	if(LockedTarget != null):
 		var cursor = AiAPathHelper.Track(
 			LockedTarget.get_global_position(), 

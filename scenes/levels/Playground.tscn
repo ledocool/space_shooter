@@ -32,95 +32,95 @@ ShipMaxHealth = 15
 
 [node name="Miner" parent="ShipContainer" index="1" instance=ExtResource( 2 )]
 position = Vector2( -2445.9, -1579.04 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner2" parent="ShipContainer" index="2" instance=ExtResource( 2 )]
 position = Vector2( -2082.3, -1731.53 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner5" parent="ShipContainer" index="3" instance=ExtResource( 2 )]
 position = Vector2( -2074.12, -1384.3 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner4" parent="ShipContainer" index="4" instance=ExtResource( 2 )]
 position = Vector2( -1710.52, -1536.78 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner7" parent="ShipContainer" index="5" instance=ExtResource( 2 )]
 position = Vector2( -3189.47, -1477.25 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner6" parent="ShipContainer" index="6" instance=ExtResource( 2 )]
 position = Vector2( -2825.87, -1629.73 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner9" parent="ShipContainer" index="7" instance=ExtResource( 2 )]
 position = Vector2( -2897.36, -937.274 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner8" parent="ShipContainer" index="8" instance=ExtResource( 2 )]
 position = Vector2( -2533.76, -1089.75 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner11" parent="ShipContainer" index="9" instance=ExtResource( 2 )]
 position = Vector2( -2038.71, -1008.09 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner10" parent="ShipContainer" index="10" instance=ExtResource( 2 )]
 position = Vector2( -1675.11, -1160.57 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner13" parent="ShipContainer" index="11" instance=ExtResource( 2 )]
 position = Vector2( -3397.49, -994.812 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner12" parent="ShipContainer" index="12" instance=ExtResource( 2 )]
 position = Vector2( -3033.9, -1147.29 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner15" parent="ShipContainer" index="13" instance=ExtResource( 2 )]
-position = Vector2( -2698.19, -410.579 )
-TurnedOn = false
+position = Vector2( -2470.02, 647.855 )
+sleeping = false
 
 [node name="Miner14" parent="ShipContainer" index="14" instance=ExtResource( 2 )]
-position = Vector2( -2334.59, -563.06 )
-TurnedOn = false
+position = Vector2( -2106.42, 495.374 )
+sleeping = false
 
 [node name="Miner17" parent="ShipContainer" index="15" instance=ExtResource( 2 )]
-position = Vector2( -1843.97, -649.583 )
-TurnedOn = false
+position = Vector2( -1615.8, 408.851 )
+sleeping = false
 
 [node name="Miner16" parent="ShipContainer" index="16" instance=ExtResource( 2 )]
 position = Vector2( -1480.37, -802.064 )
-TurnedOn = false
+sleeping = false
 
 [node name="Miner19" parent="ShipContainer" index="17" instance=ExtResource( 2 )]
-position = Vector2( -3189.47, -507.951 )
-TurnedOn = false
+position = Vector2( -2961.3, 550.483 )
+sleeping = false
 
 [node name="Miner18" parent="ShipContainer" index="18" instance=ExtResource( 2 )]
-position = Vector2( -2825.87, -660.432 )
-TurnedOn = false
+position = Vector2( -2597.7, 398.002 )
+sleeping = false
 
 [node name="Miner21" parent="ShipContainer" index="19" instance=ExtResource( 2 )]
-position = Vector2( -2835.39, -114.037 )
-TurnedOn = false
+position = Vector2( -2607.22, 944.397 )
+sleeping = false
 
 [node name="Miner20" parent="ShipContainer" index="20" instance=ExtResource( 2 )]
-position = Vector2( -2471.79, -266.517 )
-TurnedOn = false
+position = Vector2( -2243.62, 791.917 )
+sleeping = false
 
 [node name="Miner23" parent="ShipContainer" index="21" instance=ExtResource( 2 )]
-position = Vector2( -1870.52, -7.81274 )
-TurnedOn = false
+position = Vector2( -1642.35, 1050.62 )
+sleeping = false
 
 [node name="Miner22" parent="ShipContainer" index="22" instance=ExtResource( 2 )]
-position = Vector2( -1506.92, -160.293 )
-TurnedOn = false
+position = Vector2( -1278.75, 898.141 )
+sleeping = false
 
 [node name="Miner3" parent="ShipContainer" index="23" instance=ExtResource( 2 )]
 position = Vector2( -3102.73, -1848.82 )
-TurnedOn = false
+sleeping = false
 
 [node name="SlugPickup" parent="ItemContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -2566.28, -2998.53 )
@@ -310,20 +310,24 @@ rotation = -1.309
 position = Vector2( -4616.97, -814.63 )
 rotation = -1.309
 
-[node name="StaticAsteroid28" parent="Scenery" index="43" instance=ExtResource( 4 )]
+[node name="StaticDebree12" parent="Scenery" index="43" instance=ExtResource( 5 )]
+position = Vector2( -2436.72, -288.582 )
+rotation = 0.261799
+
+[node name="StaticAsteroid28" parent="Scenery" index="44" instance=ExtResource( 4 )]
 position = Vector2( 3629.51, -6710.32 )
 
-[node name="StaticAsteroid33" parent="Scenery" index="44" instance=ExtResource( 4 )]
+[node name="StaticAsteroid33" parent="Scenery" index="45" instance=ExtResource( 4 )]
 position = Vector2( 6420.56, -6643.89 )
 
-[node name="StaticAsteroid34" parent="Scenery" index="45" instance=ExtResource( 7 )]
+[node name="StaticAsteroid34" parent="Scenery" index="46" instance=ExtResource( 7 )]
 position = Vector2( -4721.24, -3200.97 )
 rotation = -0.523598
 
-[node name="StaticDebree11" parent="Scenery" index="46" instance=ExtResource( 5 )]
+[node name="StaticDebree11" parent="Scenery" index="47" instance=ExtResource( 5 )]
 position = Vector2( 5745.13, -7096.57 )
 
-[node name="StaticAsteroid35" parent="Scenery" index="47" instance=ExtResource( 7 )]
+[node name="StaticAsteroid35" parent="Scenery" index="48" instance=ExtResource( 7 )]
 position = Vector2( -4107.1, -3982.6 )
 
 [node name="MenuCanvas" parent="." index="7"]

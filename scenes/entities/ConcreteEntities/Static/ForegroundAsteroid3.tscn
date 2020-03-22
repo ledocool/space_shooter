@@ -5,3 +5,4 @@
 
 [node name="ForegroundAsteroid3" instance=ExtResource( 1 )]
 texture = ExtResource( 2 )
+
