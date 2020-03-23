@@ -16,8 +16,6 @@ export var ShipCurrentHealth = 5
 export var VelocityDampThreshold = 180
 export var ShipRippleScale = 3
 
-var stopApplySpeed = false
-
 var Cursor = null
 var EngineFiring = false
 var EngineFiringLastTime = false
@@ -29,6 +27,7 @@ var CurrentWeapon: String = ""
 var RemainningAmmo: int = 0
 var BulletType = null
 var OldSpeed = 0
+var OldForce = Vector2(0,0)
 
 var InventoryInstance = Inventory.new()
 
@@ -151,10 +150,15 @@ func SwitchWeapon(wpnType):
 		_selectWeapon(currentWeaponBackup)
 
 
+func _integrate_forces(state):
+	var oldRot = rotation
+	if(Cursor != null):
+		look_at(Cursor)
+	var newRot = rotation
+	_applySpeed(state, newRot, oldRot)
+
+
 func _physics_process(delta):
-	if(stopApplySpeed):
-		return
-	
 	for status in Statuses:
 		status._physics_process(delta)
 		if (status.IsStatusDead()):
@@ -164,13 +168,7 @@ func _physics_process(delta):
 		self.Destroy()
 		return 0
 	
-	var oldRot = rotation
-	if(Cursor != null):
-		look_at(Cursor)
-		
-	var newRot = rotation
 	_tryShoot()
-	_applySpeed(newRot, oldRot)
 	var spd = linear_velocity.length()
 	if(spd < VelocityDampThreshold && EngineFiring == false):
 		linear_damp = 5
@@ -183,10 +181,6 @@ func _physics_process(delta):
 		emit_signal("speed_changed", spd)
 	if(spd > 1e-6):
 		emit_signal("coordinates_changed", position);
-
-
-func _integrate_forces(state):
-	pass
 
 
 func _onDestruction():
@@ -206,24 +200,21 @@ func _tryShoot():
 			cannonCooldown.start()
 
 
-func _applySpeed (newRot, oldRot):
-	var somethingChanged = false
-	var force = Vector2(0, 0)
+func _applySpeed (state, newRot, oldRot):
+	var force = Vector2(ShipSpeed, 0).rotated(newRot)
 	
-	if(EngineFiring && newRot != oldRot):
-		force = Vector2(1, 0) * ShipSpeed
-		force = force.rotated(rotation)
-		somethingChanged = true
-	
-	if(EngineFiringLastTime != EngineFiring):
-		somethingChanged = true
-	
-	if(somethingChanged):
-		EngineFiringLastTime = EngineFiring
+	if(newRot != oldRot || EngineFiringLastTime != EngineFiring):
+		state.add_central_force(-OldForce)
 		($EngineParticles as Particles2D).emitting = EngineFiring
-		set_applied_force(force)
-		if(linear_velocity.length_squared() > ShipTopSpeed * ShipTopSpeed):
-			set_linear_velocity(get_linear_velocity().clamped(ShipTopSpeed))
+		if(EngineFiring):
+			state.add_central_force(force)
+			OldForce = force
+			if(state.linear_velocity.length_squared() > ShipTopSpeed * ShipTopSpeed):
+				state.set_linear_velocity(state.get_linear_velocity().clamped(ShipTopSpeed))
+		else:
+			OldForce = Vector2(0,0)
+			
+		EngineFiringLastTime = EngineFiring
 
 
 func _shoot():
@@ -231,8 +222,8 @@ func _shoot():
 		emit_signal("shoot_bullet", BulletType, rotation, ($BulletAnchor as Node2D).global_position, linear_velocity)
 		return true
 	return false
-	
-	
+
+
 func _removeWeapon():
 	var storedData = InventoryInstance.GetWeapon(CurrentWeapon)
 	if(storedData):
@@ -247,8 +238,8 @@ func _removeWeapon():
 	CurrentWeapon = ""	
 	RemainningAmmo = 0
 	BulletType = null
-	
-	
+
+
 func _selectWeapon(weapon: String):
 	var data = InventoryInstance.GetWeapon(weapon)
 	if(data && data.enabled == true):
@@ -266,6 +257,7 @@ func _selectWeapon(weapon: String):
 	else:
 		print_debug("Could not select weapon of type " + weapon)
 		return false
+
 
 func _on_BlinkTimer_timeout():
 	if(self.visible):

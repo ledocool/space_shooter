@@ -79,13 +79,6 @@ func _physics_process(delta):
 	._physics_process(delta)
 
 
-func _input(event):
-	if(event.is_action_pressed("cheat1")):
-		stopApplySpeed = !stopApplySpeed
-		applied_force = Vector2(0, 0)
-		($EngineParticles as Particles2D).emitting = false
-	
-
 func _ready():	
 	aiState = StateMachineFactory.create({
 		'target': self,

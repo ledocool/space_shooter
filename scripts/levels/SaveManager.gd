@@ -98,6 +98,18 @@ func _unserializeData(data: String):
 	if(typeof(uncompressedData) != TYPE_ARRAY && typeof(uncompressedData) != TYPE_DICTIONARY):
 		return null
 	
+	if(!uncompressedData.has("statistics") 
+		|| !uncompressedData.has("levelName")
+		|| !uncompressedData.has("levelName")
+		|| !uncompressedData.has("levelIndex")
+		|| !uncompressedData.has("triggers")
+		|| !uncompressedData.has("ships")
+		|| !uncompressedData.has("bullets")
+		|| !uncompressedData.has("asteroids")
+		|| !uncompressedData.has("items")
+		|| !uncompressedData.has("scenery")):
+		return null
+	
 	var savedata = {
 		"items": Array(),
 		"bullets": Array(),
