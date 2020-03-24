@@ -92,7 +92,8 @@ func Save():
 func Load(data: Dictionary):
 	InventoryInstance.SetAllWeapons(data.weapons)
 	InventoryInstance.SetAllItems(data.items)
-	SwitchWeapon(data.current_weapon)
+	if(data.current_weapon):
+		SwitchWeapon(data.current_weapon)
 	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
 	position = Vector2(pos[0], pos[1])
 	var vel = data.velocity.trim_prefix('(').trim_suffix(')').split(',')

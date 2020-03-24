@@ -15,15 +15,30 @@ var aiState
 var Player
 var NearPlayer = false
 var SeesPlayer = false
+export var StartState = 'idle'
 
-#func Save():
-#	pass
-#
-#func Load(data: Dictionary):
-#	pass
+
+func Save():
+	var data = .Save()
+	data.state = aiState.get_current_state()
+	var p = GetPlayer()
+	if(p):
+		data.target = get_path_to(p)
+	return data
+
+
+func Load(data: Dictionary):
+	if(data.has("target")):
+		Player = data.target
+		if(data.has("state") && data.state != ""):
+			StartState = data.state
+			set_sleeping(false)
+	return .Load(data)
+
 
 func Damage(_dmg):
 	return false
+
 
 func TurnOn(isOn = true):
 	TurnedOn = isOn
@@ -32,11 +47,14 @@ func TurnOn(isOn = true):
 	else:
 		aiState.transition('off')
 
+
 func IsOn():
 	return TurnedOn
 
+
 func IsNearPlayer():
 	return NearPlayer
+
 
 func IsSeesPlayer():
 	return SeesPlayer
@@ -79,10 +97,15 @@ func _physics_process(delta):
 	._physics_process(delta)
 
 
-func _ready():	
+func _ready():
+	if(Player is String):
+		Player = weakref(get_node(Player))
+	else:
+		Player = null
+	
 	aiState = StateMachineFactory.create({
 		'target': self,
-		'current_state': 'idle',
+		'current_state': StartState,
 		'states': [
 			{'id': 'idle', 'state': IdleState},
 			{'id': 'agitated', 'state': AgitatedState},
