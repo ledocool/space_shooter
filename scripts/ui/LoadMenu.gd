@@ -47,7 +47,7 @@ func _on_SaveList_item_activated(index):
 	_loadLevelByindex(index)
 
 func _on_SaveList_item_selected(index):
-	var btn =find_node("LoadButton")
+	var btn = find_node("LoadButton")
 	btn.disabled = index < 0
 
 

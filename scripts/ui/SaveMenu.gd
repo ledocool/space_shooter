@@ -31,17 +31,12 @@ func _updateSaveFileList():
 	var list = manager.GetSaveList()
 	var buttonScene = load("res://scenes/interface/MenuButton.tscn")
 	var saveContainer = self.find_node("SaveButtonsContainer")
-	
-	#clean list first
-	for item in saveContainer.get_children():
-		saveContainer.remove_child(item)
-		item.queue_free()
 
+	var loadContainer = self.find_node("SaveList")
+	loadContainer.clear()
 	for item in list:
-		var newbtn = buttonScene.instance()
-		newbtn.text = item
-		saveContainer.add_child(newbtn)
-		newbtn.connect("pressed_named", self, "_populateTextbox")
+		loadContainer.add_item(item)
+
 
 func _on_NewSaveName_text_changed(new_text):
 	if(regex.search(new_text) == null):
@@ -60,12 +55,14 @@ func _populateTextbox(text):
 	saveNameEditor.text = text
 	_on_NewSaveName_text_changed(text)
 
+
 func _on_SaveButton_pressed():
 	var textEdit = self.find_node("NewSaveName")
 	var saveName = textEdit.text
 # warning-ignore:unsafe_method_access
 	$"/root/LevelLoader".SaveGame(saveName)
 	self.visible = false
+
 
 func _on_SaveMenu_visibility_changed():
 	var saveNameEditor = find_node("NewSaveName")
@@ -78,3 +75,11 @@ func _on_CloseButton_pressed():
 
 func _on_NewSaveName_draw():
 	_updateSaveFileList()
+
+
+func _on_SaveList_item_activated(index):
+	var loadContainer = self.find_node("SaveList")
+	var saveName = ""
+	saveName = loadContainer.get_item_text(index)
+	_populateTextbox(saveName)
+
