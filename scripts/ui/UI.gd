@@ -1,12 +1,7 @@
 extends Node2D
 class_name UI
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 onready var hpProgressBar = get_node("UICanvas/TopGUI/LeftStack/Hp/Layout/Bar");
-#onready var ammoIcon = get_node("TopGUI/Layout/AmmoPanel/GunIcon");
 onready var ammoLabel = get_node("UICanvas/TopGUI/AmmoPanel/AmmoLabel");
 onready var speedProgress = get_node("UICanvas/TopGUI/LeftStack/Speed/Layout/Bar");
 export var MinZoom = 1
@@ -48,10 +43,10 @@ func SetZoom(zoom: float):
 func _input(event):
 	if(event.is_action("zoom_out")):
 		SetZoom(GetZoom() - ZoomStep)
-		DoAutoZoom = false
+#		DoAutoZoom = false
 	if(event.is_action("zoom_in")):
 		SetZoom(GetZoom() + ZoomStep)
-		DoAutoZoom = false
+#		DoAutoZoom = false
 
 func _physics_process(delta):
 	doAutoZoom(delta)
