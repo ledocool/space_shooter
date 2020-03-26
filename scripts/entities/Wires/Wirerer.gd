@@ -23,6 +23,9 @@ var endNodeRotation = 0
 var created = false
 
 func Enable():
+	if(Engine.is_editor_hint()):
+		return
+	
 	if(created):
 		emit_signal("wire_switch", true)
 	for child in $Anchor.get_children():
@@ -31,6 +34,9 @@ func Enable():
 
 
 func Disable():
+	if(Engine.is_editor_hint()):
+		return
+	
 	if(created):
 		emit_signal("wire_switch", false)
 	for child in $Anchor.get_children():
@@ -39,7 +45,12 @@ func Disable():
 
 
 func _ready():
-	for i in $Anchor.get_children():
+	var anchor = find_node("Anchor")
+	
+	if(!anchor):
+		return
+	
+	for i in anchor.get_children():
 		i.queue_free()
 	_buildChain()
 	Enable()
@@ -50,7 +61,7 @@ func _setStartNodeRotation(val):
 	startNodeRotation = val
 	
 	if(Engine.is_editor_hint()):
-		_removePieces($Anchor)
+		_removePieces(find_node("Anchor"))
 		_buildChain()
 
 
@@ -62,7 +73,7 @@ func _setStartType(val):
 	startNode = val
 	
 	if(Engine.is_editor_hint()):
-		_removePieces($Anchor)
+		_removePieces(find_node("Anchor"))
 		_buildChain()
 
 
@@ -74,7 +85,7 @@ func _setEndNodeRotation(val):
 	endNodeRotation = val
 	
 	if(Engine.is_editor_hint()):
-		_removePieces($Anchor)
+		_removePieces(find_node("Anchor"))
 		_buildChain()
 
 
@@ -92,12 +103,12 @@ func _setChainFunc(val):
 	chainArray = temp
 	
 	if(Engine.is_editor_hint()):
-		_removePieces($Anchor)
+		_removePieces(find_node("Anchor"))
 		_buildChain()
 
 
 func _buildChain():
-	var parent = $Anchor
+	var parent = find_node("Anchor")
 	var start
 	var end = SOCKET.instance()
 	
@@ -142,8 +153,11 @@ func _addPiece(parent, piece, rotation = 0):
 	piece.set_name("WirePiece")
 	piece.set_rotation(deg2rad(rotation))
 	joint.add_child(piece)
-	joint.node_a = parent.get_path()
-	joint.node_b = piece.get_path()
+	
+	if(!Engine.is_editor_hint()):
+		joint.node_a = parent.get_path()
+		joint.node_b = piece.get_path()
+		
 	return piece
 	
 	
