@@ -3,6 +3,8 @@ class_name Bullet
 
 signal exploded(position, size, rotation)
 
+export var Damage = 1
+
 func GetSpawnAnchorPosition():
 	return ($SpawnAnchor as Node2D).position
 
@@ -39,7 +41,7 @@ func Rotate(angle):
 
 func _on_Bullet_body_entered(body):
 	if(body.has_method("Damage")):
-		body.Damage(1)
+		body.Damage(Damage)
 	Destroy()
 
 

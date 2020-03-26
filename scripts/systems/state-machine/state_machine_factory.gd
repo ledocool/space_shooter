@@ -1,6 +1,6 @@
 class_name StateMachineFactory
 
-func create(config = {}):
+static func create(config = {}):
 	"""
 	Factory method accepting an optional configuration object
 	"""
@@ -11,6 +11,8 @@ func create(config = {}):
 	if "transitions" in config: sm.set_transitions(config.transitions)
 	if "current_state" in config: sm.set_current_state(config.current_state)
 
-	sm.set_current_state(sm.current_state)
+	if(sm.set_current_state(sm.current_state)):
+		var currentState = sm._current_state
+		if currentState.has_method("_on_enter_state"): currentState._on_enter_state()
 
 	return sm

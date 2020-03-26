@@ -6,8 +6,8 @@
 [ext_resource path="res://scenes/interface/GameLoseMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/interface/GameWinMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/interface/EscapeMenu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/interface/SaveMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/interface/LoadMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/interface/SaveLoad/SaveMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/interface/SaveLoad/LoadMenu.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ImageTexture" id=1]
 
@@ -36,7 +36,6 @@ environment = SubResource( 3 )
 script = ExtResource( 1 )
 
 [node name="PlayerCamera" parent="." instance=ExtResource( 2 )]
-visible = false
 AutoZoomEnabled = true
 
 [node name="Particles2D" type="Particles2D" parent="PlayerCamera"]
@@ -72,6 +71,7 @@ __meta__ = {
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
+layer = 127
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuCanvas"]
 anchor_right = 1.0
@@ -126,7 +126,7 @@ margin_bottom = 580.0
 scroll_ignore_camera_zoom = true
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
-layer = 127
+layer = 100
 
 [node name="TriggerContainer" type="Node2D" parent="."]
 

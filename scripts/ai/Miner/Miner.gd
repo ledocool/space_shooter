@@ -10,52 +10,58 @@ const StateMachineFactory = preload("res://scripts/systems/state-machine/state_m
 export var ExplosionDamage = 3
 export var TurnedOn = true
 
-onready var smf = StateMachineFactory.new()
 var aiState
 
 var Player
 var NearPlayer = false
 var SeesPlayer = false
+export var StartState = 'idle'
 
-#func Save():
-#	pass
-#
-#func Load(data: Dictionary):
-#	pass
+
+func Save():
+	var data = .Save()
+	data.state = aiState.get_current_state()
+	var p = GetPlayer()
+	if(p):
+		data.target = get_path_to(p)
+	return data
+
+
+func Load(data: Dictionary):
+	if(data.has("target")):
+		Player = data.target
+		if(data.has("state") && data.state != ""):
+			StartState = data.state
+			set_sleeping(false)
+	return .Load(data)
+
+
+func Damage(_dmg):
+	return false
+
 
 func TurnOn(isOn = true):
 	TurnedOn = isOn
+	if(TurnedOn):
+		aiState.transition('idle')
+	else:
+		aiState.transition('off')
+
 
 func IsOn():
 	return TurnedOn
 
+
 func IsNearPlayer():
 	return NearPlayer
+
 
 func IsSeesPlayer():
 	return SeesPlayer
 
-#func UnproductiveFlight():
-#	var Player = GetPlayer()
-#	if(!Player):
-#		return false
-#	var vec1 = Player.GetCoordinates() - self.GetCoordinates()
-#	var vec2 = self. GetVelocity()
-#	var vecCos = vec1.x*vec2.x + vec1.y*vec2.y
-#	return vecCos <= 0
 
 func TrackPlayer(player):	
-	var pp = player.get_global_position()
-	var speed = player.GetVelocity() + self.GetVelocity()
-	var fromThisToplayer = pp - self.get_global_position()
-	
-	var Difference = fromThisToplayer - speed
-	var angle = fromThisToplayer.angle_to(Difference)
-	
-	if(abs(angle) > 0.1745329 && abs(angle) < 1.396263): #0.1745329 = 10 degrees; 1.396263 = 80 degrees; 2.792527 = 160 deg
-		Cursor = self.get_global_position() + Difference
-	else:
-		Cursor = pp;
+	Cursor = AiAPathHelper.Track(player.get_global_position(), player.GetVelocity(), self.get_global_position(), self.GetVelocity())
 
 
 func SetSpriteChill():
@@ -88,12 +94,18 @@ func _onDestruction():
 
 func _physics_process(delta):
 	aiState._physics_process(delta);
+	._physics_process(delta)
 
 
-func _ready():	
-	aiState = smf.create({
+func _ready():
+	if(Player is String):
+		Player = weakref(get_node(Player))
+	else:
+		Player = null
+	
+	aiState = StateMachineFactory.create({
 		'target': self,
-		'current_state': 'idle',
+		'current_state': StartState,
 		'states': [
 			{'id': 'idle', 'state': IdleState},
 			{'id': 'agitated', 'state': AgitatedState},
@@ -103,7 +115,7 @@ func _ready():
 		'transitions': [
 			{'state_id': 'idle', 'to_states': ['angryfying', 'off']},
 			{'state_id': 'agitated', 'to_states': ['idle', 'off']},
-			{'state_id': 'angryfying', 'to_states': ['agitated']},
+			{'state_id': 'angryfying', 'to_states': ['agitated', 'off']},
 			{'state_id': 'off', 'to_states': ['idle']},
 		]
 	})
@@ -119,6 +131,8 @@ func _on_AreaExit_body_exited(body):
 	if body == GetPlayer():
 		Player = null
 		NearPlayer = false
+		if(aiState.get_current_state() == "agitated"):
+			aiState.transition('idle')
 
 
 func _isSeesPlayer():
@@ -128,16 +142,13 @@ func _isSeesPlayer():
 	
 	var pp = player.get_global_position()
 	var selfPos = self.get_global_position()
-	var space_rid = get_world_2d().space
-	var space_state = Physics2DServer.space_get_direct_state(space_rid)
-	var intersected = space_state.intersect_ray(pp, selfPos, [], 524288)
-	return intersected.empty()
+	return AiAPathHelper.TargetVisible(selfPos, pp, get_world_2d())
 
 
 func _on_ExplodeArea_body_entered(body):
 	if(aiState.get_current_state() == "agitated" && body.has_method("Damage") && body != self):
-		body.Damage(ExplosionDamage);
-		self.Damage(self.GetHealth())
+		if(body.Damage(ExplosionDamage)):
+			self.Damage(self.GetHealth())
 
 
 func _on_SeesPlayerTimer_timeout():

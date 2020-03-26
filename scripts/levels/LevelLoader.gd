@@ -8,6 +8,7 @@ var campaignCurrentLevel = -1
 var saveManager = SaveManager.new()
 var interactiveLoader = null
 var loadScreen = preload("res://scenes/interface/LoadingScreen.tscn")
+onready var popupScreen = $"/root/OverlayLayer"
 
 var loadData = null
 
@@ -21,6 +22,7 @@ func SaveGame(fileName: String):
 				$"/root/Level".find_node("AsteroidContainer").get_children(),
 				$"/root/Level".find_node("ItemContainer").get_children(),
 				$"/root/Level".find_node("DynamicScenery").get_children(),
+				$"/root/Level".find_node("TriggerContainer").get_children(),
 # warning-ignore:unsafe_method_access
 				$"/root/Level".GetStats())
 
@@ -29,6 +31,8 @@ func LoadGame(fileName: String, interactive: bool = true):
 	var data = saveManager.LoadSaveGame(fileName)
 	if(!data):
 		print_debug("Could not parse savefile: " + fileName)
+		popupScreen.ShowModal("Could not parse savefile: " + fileName);
+		#popupScreen.popup()
 		return
 	
 	if(interactive):
@@ -109,6 +113,7 @@ func _injectLoadedData(level: Level, data: Dictionary):
 	var itemContainer = level.find_node("ItemContainer")
 	var bulletContainer = level.find_node("BulletContainer")
 	var sceneryContainer = level.find_node("DynamicScenery")
+	var triggersContainer = level.find_node("TriggerContainer")
 	level.SetStats(data.statistics)
 	
 	_wipeNodeOfEntities(shipContainer)
@@ -137,6 +142,9 @@ func _injectLoadedData(level: Level, data: Dictionary):
 		itemContainer.add_child(item)
 	for object in data.scenery:
 		sceneryContainer.add_child(object)
+	for trigger in triggersContainer.get_children():
+		if(trigger.has_method("Load")):
+			trigger.Load(data.triggers)
 	
 	return level
 

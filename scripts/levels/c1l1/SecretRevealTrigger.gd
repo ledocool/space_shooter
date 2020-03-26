@@ -8,11 +8,10 @@ func _on_SecretRevealTrigger_body_entered(body):
 	if(body is PlayerShip):
 		if(!found):
 # warning-ignore:unsafe_property_access
-			get_parent().playerSecretsFound += 1
+			$"/root/Level".playerSecretsFound += 1
 			found = true
 			
 		for top in secretAsteroids:
-			print_debug(top.get_node("VisibilityEnabler2D").is_on_screen())
 			top.Hide();
 
 

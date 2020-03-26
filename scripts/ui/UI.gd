@@ -1,14 +1,9 @@
 extends Node2D
 class_name UI
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
-onready var hpProgressBar = get_node("UICanvas/TopGUI/Layout/LeftStack/Hp/Layout/Bar");
-#onready var ammoIcon = get_node("TopGUI/Layout/AmmoPanel/GunIcon");
-onready var ammoLabel = get_node("UICanvas/TopGUI/Layout/AmmoPanel/AmmoCounter/AmmoLabel");
-onready var speedProgress = get_node("UICanvas/TopGUI/Layout/LeftStack/Speed/Layout/Bar");
+onready var hpProgressBar = get_node("UICanvas/TopGUI/LeftStack/Hp/Layout/Bar");
+onready var ammoLabel = get_node("UICanvas/TopGUI/AmmoPanel/AmmoLabel");
+onready var speedProgress = get_node("UICanvas/TopGUI/LeftStack/Speed/Layout/Bar");
 export var MinZoom = 1
 export var MaxZoom = 1.7
 export var ZoomStep = 0.1
@@ -48,10 +43,10 @@ func SetZoom(zoom: float):
 func _input(event):
 	if(event.is_action("zoom_out")):
 		SetZoom(GetZoom() - ZoomStep)
-		DoAutoZoom = false
+#		DoAutoZoom = false
 	if(event.is_action("zoom_in")):
 		SetZoom(GetZoom() + ZoomStep)
-		DoAutoZoom = false
+#		DoAutoZoom = false
 
 func _physics_process(delta):
 	doAutoZoom(delta)
@@ -71,8 +66,26 @@ func _on_health_change(_oldhealth, health):
 func _on_max_health_change(maxHealth):
 	hpProgressBar.max_value = maxHealth;
 	
-func _on_ammo_change(newAmmo, maxAmmo):
-	ammoLabel.text = String(newAmmo) + "/" + String(maxAmmo);
+func _on_ammo_change(newAmmo):
+	if(newAmmo >= 0):
+		ammoLabel.visible = true
+		ammoLabel.text = String(newAmmo)
+	else:
+		ammoLabel.visible = false
+	
+func _on_weapon_change(weapon):
+	for child in $UICanvas/TopGUI/AmmoPanel/GunIcon.get_children():
+		child.hide()
+		
+	ammoLabel.show()
+	match weapon:
+		"slug":
+			($UICanvas/TopGUI/AmmoPanel/GunIcon/Slug as Control).show()
+			ammoLabel.hide()
+		"rocketeer":
+			($UICanvas/TopGUI/AmmoPanel/GunIcon/Rocketeer as Control).show()
+		_: 
+			ammoLabel.hide()
 	
 func _on_speed_change(spd):
 	speedProgress.value = spd

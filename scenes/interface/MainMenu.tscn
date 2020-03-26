@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/ui/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://resources/Backgrounds/Menu background.png" type="Texture" id=2]
 [ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interface/LoadMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interface/SaveLoad/LoadMenu.tscn" type="PackedScene" id=4]
 
 [node name="Main menu" type="Control"]
 pause_mode = 2
@@ -26,12 +26,18 @@ size_flags_stretch_ratio = 128.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 split_offset = 600
 dragger_visibility = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Menu inner" type="CenterContainer" parent="HSplitContainer"]
 margin_right = 719.0

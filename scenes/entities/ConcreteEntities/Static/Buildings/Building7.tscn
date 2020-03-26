@@ -12,13 +12,14 @@
 [ext_resource path="res://resources/Objects/Structures/Plates/plates_5.png" type="Texture" id=10]
 [ext_resource path="res://resources/Objects/Structures/Plates/plates_9.png" type="Texture" id=11]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1100, 650 )
 
 [node name="Building7" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 524321
+collision_mask = 33
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 texture = ExtResource( 1 )

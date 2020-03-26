@@ -8,6 +8,8 @@ radius = 251.08
 [node name="Barrel" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 524321
+collision_mask = 33
 
 [node name="Sprite" type="Sprite" parent="StaticBody2D"]
 texture = ExtResource( 1 )

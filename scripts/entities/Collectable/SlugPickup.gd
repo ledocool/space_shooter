@@ -5,5 +5,4 @@ func _init():
 	data.quantity = 1
 	data.name = "slug"
 	data.info = {
-		
 	}

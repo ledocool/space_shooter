@@ -78,6 +78,7 @@ margin_top = -25.0
 margin_right = 0.0
 margin_bottom = 0.0
 text = "Load Game"
+[connection signal="draw" from="." to="." method="_on_LoadMenu_draw"]
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer/Control/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="item_activated" from="Background/MarginContainer/VSplitContainer/HSplitContainer/SaveList" to="." method="_on_SaveList_item_activated"]
 [connection signal="item_selected" from="Background/MarginContainer/VSplitContainer/HSplitContainer/SaveList" to="." method="_on_SaveList_item_selected"]

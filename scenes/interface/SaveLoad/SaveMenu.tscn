@@ -67,20 +67,14 @@ margin_bottom = 928.0
 margin_right = 1558.0
 margin_bottom = 24.0
 focus_mode = 1
-focus_mode = 1
 placeholder_text = "Save name"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer" index="1"]
+[node name="SaveList" type="ItemList" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer" index="1"]
 margin_top = 36.0
 margin_right = 1558.0
 margin_bottom = 928.0
-scroll_horizontal_enabled = false
-
-[node name="SaveButtonsContainer" type="VBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer/ScrollContainer" index="0"]
-custom_constants/separation = 19
 
 [node name="Control" type="Control" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="1"]
-editor/display_folded = true
 margin_left = 1570.0
 margin_right = 1840.0
 margin_bottom = 928.0
@@ -96,5 +90,7 @@ disabled = true
 text = "Save Game"
 [connection signal="visibility_changed" from="." to="." method="_on_SaveMenu_visibility_changed"]
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer2/Control/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="draw" from="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer/NewSaveName" to="." method="_on_NewSaveName_draw"]
 [connection signal="text_changed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer/NewSaveName" to="." method="_on_NewSaveName_text_changed"]
+[connection signal="item_activated" from="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer/SaveList" to="." method="_on_SaveList_item_activated"]
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Control/SaveButton" to="." method="_on_SaveButton_pressed"]
