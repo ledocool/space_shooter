@@ -29,7 +29,9 @@ func _quicksave():
 func _updateSaveFileList():
 	var manager = SaveManager.new()
 	var list = manager.GetSaveList()
+# warning-ignore:unused_variable
 	var buttonScene = load("res://scenes/interface/MenuButton.tscn")
+# warning-ignore:unused_variable
 	var saveContainer = self.find_node("SaveButtonsContainer")
 
 	var loadContainer = self.find_node("SaveList")
