@@ -27,7 +27,6 @@ RightCameraBorder = 1000000
 
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -2518.12, -2542.48 )
-ShipMaxHealth = 15
 
 [node name="SlugPickup" parent="ItemContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -2566.28, -2998.53 )
@@ -61,7 +60,7 @@ position = Vector2( 1388.91, 8577.03 )
 z_index = 0
 
 [node name="StaticDebree2" parent="Scenery" index="5" instance=ExtResource( 6 )]
-position = Vector2( 2494.8, 8570.01 )
+position = Vector2( 2424.57, 8562.99 )
 z_index = 0
 
 [node name="StaticAsteroid" parent="Scenery" index="6" instance=ExtResource( 7 )]
@@ -176,7 +175,7 @@ position = Vector2( 9066.99, 5672.76 )
 rotation = -0.523598
 
 [node name="StaticAsteroid24" parent="Scenery" index="32" instance=ExtResource( 3 )]
-position = Vector2( 9682.21, 3712.73 )
+position = Vector2( 9703.38, 3606.88 )
 
 [node name="StaticAsteroid25" parent="Scenery" index="33" instance=ExtResource( 7 )]
 position = Vector2( -4504.25, 4469 )
@@ -198,7 +197,7 @@ position = Vector2( -4870.12, -2102.96 )
 rotation = -1.309
 
 [node name="StaticAsteroid1" parent="Scenery" index="38" instance=ExtResource( 8 )]
-position = Vector2( 7766.29, -6346.11 )
+position = Vector2( 7660.44, -6367.28 )
 rotation = -1.309
 
 [node name="StaticAsteroid32" parent="Scenery" index="39" instance=ExtResource( 7 )]
@@ -221,7 +220,7 @@ rotation = -1.309
 position = Vector2( 3629.51, -6710.32 )
 
 [node name="StaticAsteroid33" parent="Scenery" index="44" instance=ExtResource( 4 )]
-position = Vector2( 6420.56, -6643.89 )
+position = Vector2( 6579.34, -6696.82 )
 
 [node name="StaticAsteroid34" parent="Scenery" index="45" instance=ExtResource( 7 )]
 position = Vector2( -4721.24, -3200.97 )

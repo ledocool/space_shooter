@@ -87,8 +87,6 @@ RightCameraBorder = 11644
 
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -8586.13, 22.1924 )
-ShipMaxHealth = 999
-ShipCurrentHealth = 999
 
 [node name="Miner2" parent="ShipContainer" index="1" instance=ExtResource( 2 )]
 position = Vector2( -4598.03, -1326.03 )
