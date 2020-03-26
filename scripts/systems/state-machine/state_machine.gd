@@ -61,8 +61,10 @@ func set_current_state(state_id):
 	if state_id in states:
 		current_state = state_id
 		_current_state = states[state_id]
+		return true
 	else:
 		print("Cannot set current state, invalid state: ", state_id)
+		return false
 
 func get_current_state():
 	"""

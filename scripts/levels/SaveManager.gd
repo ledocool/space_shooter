@@ -23,12 +23,12 @@ func LoadSaveGame(savename: String):
 		savename += ".sav"
 	if(save.open("user://save/" + savename, File.READ) > 0):
 		print_debug("Failed opening file: " + savename)
-		return
+		return null
 	var compressedSave = save.get_as_text()
 	return _unserializeData(compressedSave)
 
-func CreateSaveGame(savename: String, levelName: String, levelIndex: int, ships: Array, bullets: Array, asteroids: Array, scenery: Array, items: Array, statistics: Dictionary):
-	var savedata = _serializeData(levelName, levelIndex, ships, bullets, asteroids, items, scenery, statistics)
+func CreateSaveGame(savename: String, levelName: String, levelIndex: int, ships: Array, bullets: Array, asteroids: Array, scenery: Array, items: Array, triggers: Array, statistics: Dictionary):
+	var savedata = _serializeData(levelName, levelIndex, ships, bullets, asteroids, items, scenery, triggers, statistics)
 	var save = File.new()
 	if(!savename.ends_with(".sav")):
 		savename += ".sav"
@@ -42,7 +42,7 @@ func _init():
 		SaveDirectory.make_dir("user://save/")
 		SaveDirectory.open("user://save/")
 
-func _serializeData(levelName: String, levelIndex: int, ships: Array, bullets: Array, asteroids: Array, items: Array, scenery: Array, statistics: Dictionary) -> String:
+func _serializeData(levelName: String, levelIndex: int, ships: Array, bullets: Array, asteroids: Array, items: Array, scenery: Array, triggers: Array, statistics: Dictionary) -> String:
 	var savedata = {
 		"items": Array(),
 		"bullets": Array(),
@@ -52,7 +52,8 @@ func _serializeData(levelName: String, levelIndex: int, ships: Array, bullets: A
 #		"player": {},
 		"levelName": levelName,
 		"levelIndex": levelIndex,
-		"statistics": statistics
+		"statistics": statistics,
+		"triggers": Dictionary()
 	}
 	
 	for node in ships:
@@ -80,10 +81,35 @@ func _serializeData(levelName: String, levelIndex: int, ships: Array, bullets: A
 		if(packed):
 			savedata.scenery.append(packed)
 	
+	for trigger in triggers:
+		if(trigger.has_method("Save")):
+			var data = trigger.Save()
+			if(data):
+				savedata.triggers = _merge(savedata.triggers, data)
+	
 	return to_json(savedata)
 
-func _unserializeData(data: String) -> Dictionary:
+func _unserializeData(data: String):
+	var validated = validate_json(data)
+	if(validated != ""):
+		print(validated)
+		return null
 	var uncompressedData = parse_json(data)
+	if(typeof(uncompressedData) != TYPE_ARRAY && typeof(uncompressedData) != TYPE_DICTIONARY):
+		return null
+	
+	if(!uncompressedData.has("statistics") 
+		|| !uncompressedData.has("levelName")
+		|| !uncompressedData.has("levelName")
+		|| !uncompressedData.has("levelIndex")
+		|| !uncompressedData.has("triggers")
+		|| !uncompressedData.has("ships")
+		|| !uncompressedData.has("bullets")
+		|| !uncompressedData.has("asteroids")
+		|| !uncompressedData.has("items")
+		|| !uncompressedData.has("scenery")):
+		return null
+	
 	var savedata = {
 		"items": Array(),
 		"bullets": Array(),
@@ -93,33 +119,44 @@ func _unserializeData(data: String) -> Dictionary:
 #		"player": {},
 		"statistics": uncompressedData.statistics,
 		"levelName": uncompressedData.levelName,
-		"levelIndex": uncompressedData.levelIndex
+		"levelIndex": uncompressedData.levelIndex,
+		"triggers": uncompressedData.triggers
 	}
 
 	for object in uncompressedData.ships:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.ships.append(node)
+		else:
+			return null
 
 	for object in uncompressedData.bullets:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.bullets.append(node)
+		else:
+			return null
 
 	for object in uncompressedData.asteroids:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.asteroids.append(node)
+		else:
+			return null
 
 	for object in uncompressedData.items:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.items.append(node)
+		else:
+			return null
 			
 	for object in uncompressedData.scenery:
 		var node = _unpackNode(object)
 		if(node):
 			savedata.scenery.append(node)
+		else:
+			return null
 			
 	return savedata
 	
@@ -147,3 +184,9 @@ func _unpackNode(object: Dictionary):
 		return node
 	
 	return null
+
+
+func _merge(d1: Dictionary, d2: Dictionary):
+	for key in d2.keys():
+		d1[key] = d2[key]
+	return d1

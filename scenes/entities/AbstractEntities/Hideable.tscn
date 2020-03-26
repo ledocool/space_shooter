@@ -19,13 +19,8 @@ void fragment()
 [sub_resource type="ShaderMaterial" id=2]
 render_priority = 10
 shader = SubResource( 1 )
-shader_param/visibility = 1.0
+shader_param/visibility = 0.1
 
 [node name="Hideable" type="Sprite"]
 material = SubResource( 2 )
 script = ExtResource( 2 )
-
-[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
-visible = false
-process_parent = true
-physics_process_parent = true

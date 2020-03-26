@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree1.tscn" type="PackedScene" id=5]
@@ -29,98 +28,6 @@ RightCameraBorder = 1000000
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -2518.12, -2542.48 )
 ShipMaxHealth = 15
-
-[node name="Miner" parent="ShipContainer" index="1" instance=ExtResource( 2 )]
-position = Vector2( -2445.9, -1579.04 )
-TurnedOn = false
-
-[node name="Miner2" parent="ShipContainer" index="2" instance=ExtResource( 2 )]
-position = Vector2( -2082.3, -1731.53 )
-TurnedOn = false
-
-[node name="Miner5" parent="ShipContainer" index="3" instance=ExtResource( 2 )]
-position = Vector2( -2074.12, -1384.3 )
-TurnedOn = false
-
-[node name="Miner4" parent="ShipContainer" index="4" instance=ExtResource( 2 )]
-position = Vector2( -1710.52, -1536.78 )
-TurnedOn = false
-
-[node name="Miner7" parent="ShipContainer" index="5" instance=ExtResource( 2 )]
-position = Vector2( -3189.47, -1477.25 )
-TurnedOn = false
-
-[node name="Miner6" parent="ShipContainer" index="6" instance=ExtResource( 2 )]
-position = Vector2( -2825.87, -1629.73 )
-TurnedOn = false
-
-[node name="Miner9" parent="ShipContainer" index="7" instance=ExtResource( 2 )]
-position = Vector2( -2897.36, -937.274 )
-TurnedOn = false
-
-[node name="Miner8" parent="ShipContainer" index="8" instance=ExtResource( 2 )]
-position = Vector2( -2533.76, -1089.75 )
-TurnedOn = false
-
-[node name="Miner11" parent="ShipContainer" index="9" instance=ExtResource( 2 )]
-position = Vector2( -2038.71, -1008.09 )
-TurnedOn = false
-
-[node name="Miner10" parent="ShipContainer" index="10" instance=ExtResource( 2 )]
-position = Vector2( -1675.11, -1160.57 )
-TurnedOn = false
-
-[node name="Miner13" parent="ShipContainer" index="11" instance=ExtResource( 2 )]
-position = Vector2( -3397.49, -994.812 )
-TurnedOn = false
-
-[node name="Miner12" parent="ShipContainer" index="12" instance=ExtResource( 2 )]
-position = Vector2( -3033.9, -1147.29 )
-TurnedOn = false
-
-[node name="Miner15" parent="ShipContainer" index="13" instance=ExtResource( 2 )]
-position = Vector2( -2698.19, -410.579 )
-TurnedOn = false
-
-[node name="Miner14" parent="ShipContainer" index="14" instance=ExtResource( 2 )]
-position = Vector2( -2334.59, -563.06 )
-TurnedOn = false
-
-[node name="Miner17" parent="ShipContainer" index="15" instance=ExtResource( 2 )]
-position = Vector2( -1843.97, -649.583 )
-TurnedOn = false
-
-[node name="Miner16" parent="ShipContainer" index="16" instance=ExtResource( 2 )]
-position = Vector2( -1480.37, -802.064 )
-TurnedOn = false
-
-[node name="Miner19" parent="ShipContainer" index="17" instance=ExtResource( 2 )]
-position = Vector2( -3189.47, -507.951 )
-TurnedOn = false
-
-[node name="Miner18" parent="ShipContainer" index="18" instance=ExtResource( 2 )]
-position = Vector2( -2825.87, -660.432 )
-TurnedOn = false
-
-[node name="Miner21" parent="ShipContainer" index="19" instance=ExtResource( 2 )]
-position = Vector2( -2835.39, -114.037 )
-TurnedOn = false
-
-[node name="Miner20" parent="ShipContainer" index="20" instance=ExtResource( 2 )]
-position = Vector2( -2471.79, -266.517 )
-TurnedOn = false
-
-[node name="Miner23" parent="ShipContainer" index="21" instance=ExtResource( 2 )]
-position = Vector2( -1870.52, -7.81274 )
-TurnedOn = false
-
-[node name="Miner22" parent="ShipContainer" index="22" instance=ExtResource( 2 )]
-position = Vector2( -1506.92, -160.293 )
-TurnedOn = false
-
-[node name="Miner3" parent="ShipContainer" index="23" instance=ExtResource( 2 )]
-position = Vector2( -3102.73, -1848.82 )
-TurnedOn = false
 
 [node name="SlugPickup" parent="ItemContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -2566.28, -2998.53 )

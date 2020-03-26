@@ -1,12 +1,7 @@
 extends State
 
 func _physics_process(_event):
-	if(!target.IsOn()):
-		state_machine.transition("off")
-	
-	if (!target.IsNearPlayer()):
-		state_machine.transition("idle")
-	
+	pass
 
 # State machine callback called during transition when entering this state
 func _on_enter_state():

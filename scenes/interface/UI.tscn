@@ -24,7 +24,7 @@ current = true
 process_mode = 0
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
-layer = 128
+layer = 126
 
 [node name="TopGUI" type="Control" parent="UICanvas"]
 anchor_right = 1.0
@@ -33,6 +33,9 @@ margin_left = 8.83362
 margin_top = 10.0
 margin_right = -11.1664
 margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LeftStack" type="VBoxContainer" parent="UICanvas/TopGUI"]
 margin_right = 486.0

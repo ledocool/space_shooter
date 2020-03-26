@@ -6,7 +6,6 @@
 
 [node name="PlayerShip" instance=ExtResource( 1 )]
 collision_layer = 3
-mode = 2
 mass = 1.0
 script = ExtResource( 2 )
 ShipSpeed = 600
