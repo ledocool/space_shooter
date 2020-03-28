@@ -36,10 +36,6 @@ func Load(data: Dictionary):
 	return .Load(data)
 
 
-func Damage(_dmg):
-	return false
-
-
 func TurnOn(isOn = true):
 	TurnedOn = isOn
 	if(TurnedOn):
