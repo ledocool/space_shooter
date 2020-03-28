@@ -208,827 +208,643 @@ position = Vector2( -2309.61, 2950.36 )
 
 [node name="Asteroid" parent="AsteroidContainer" index="0" instance=ExtResource( 3 )]
 position = Vector2( -8018.51, -5.83704 )
-linear_damp = -1.0
 
 [node name="Asteroid2" parent="AsteroidContainer" index="1" instance=ExtResource( 4 )]
 position = Vector2( -8363.41, 271.091 )
-linear_damp = -1.0
 
 [node name="Asteroid4" parent="AsteroidContainer" index="2" instance=ExtResource( 3 )]
 position = Vector2( -8971.72, -67.3271 )
-linear_damp = -1.0
 
 [node name="Asteroid22" parent="AsteroidContainer" index="3" instance=ExtResource( 5 )]
 position = Vector2( -7909.7, -22.2921 )
-linear_damp = -1.0
 
 [node name="Asteroid23" parent="AsteroidContainer" index="4" instance=ExtResource( 4 )]
 position = Vector2( -8087.13, -945.11 )
-linear_damp = -1.0
 
 [node name="Asteroid24" parent="AsteroidContainer" index="5" instance=ExtResource( 3 )]
 position = Vector2( -7798.71, -589.164 )
-linear_damp = -1.0
 
 [node name="Asteroid25" parent="AsteroidContainer" index="6" instance=ExtResource( 4 )]
 position = Vector2( -7278.98, -242.335 )
 rotation = -1.309
-linear_damp = -1.0
 
 [node name="Asteroid26" parent="AsteroidContainer" index="7" instance=ExtResource( 5 )]
 position = Vector2( -8004.09, -661.082 )
-linear_damp = -1.0
 
 [node name="Asteroid27" parent="AsteroidContainer" index="8" instance=ExtResource( 3 )]
 position = Vector2( -7512.33, -814.457 )
-linear_damp = -1.0
 
 [node name="Asteroid28" parent="AsteroidContainer" index="9" instance=ExtResource( 4 )]
 position = Vector2( -8979.78, -713.581 )
-linear_damp = -1.0
 
 [node name="Asteroid29" parent="AsteroidContainer" index="10" instance=ExtResource( 5 )]
 position = Vector2( -9007.67, -593.632 )
-linear_damp = -1.0
 
 [node name="Asteroid31" parent="AsteroidContainer" index="11" instance=ExtResource( 4 )]
 position = Vector2( -7615.63, -416.244 )
 rotation = 0.785397
-linear_damp = -1.0
 
 [node name="Asteroid30" parent="AsteroidContainer" index="12" instance=ExtResource( 3 )]
 position = Vector2( -7989.32, -404.992 )
-linear_damp = -1.0
 
 [node name="Asteroid32" parent="AsteroidContainer" index="13" instance=ExtResource( 3 )]
 position = Vector2( -7744.11, -482.159 )
 rotation = 1.0472
-linear_damp = -1.0
 
 [node name="Asteroid33" parent="AsteroidContainer" index="14" instance=ExtResource( 4 )]
 position = Vector2( -7744.95, 116.173 )
 rotation = -0.261799
-linear_damp = -1.0
 
 [node name="Asteroid34" parent="AsteroidContainer" index="15" instance=ExtResource( 5 )]
 position = Vector2( -7857.58, -712.964 )
-linear_damp = -1.0
 
 [node name="Asteroid3" parent="AsteroidContainer" index="16" instance=ExtResource( 4 )]
 position = Vector2( -7936.51, 42.4135 )
 rotation = -2.35619
-linear_damp = -1.0
 
 [node name="Asteroid5" parent="AsteroidContainer" index="17" instance=ExtResource( 4 )]
 position = Vector2( -9289.86, 432.214 )
-linear_damp = -1.0
 
 [node name="Asteroid6" parent="AsteroidContainer" index="18" instance=ExtResource( 3 )]
 position = Vector2( -7448.82, 371.381 )
 rotation = -1.309
-linear_damp = -1.0
 
 [node name="Asteroid7" parent="AsteroidContainer" index="19" instance=ExtResource( 5 )]
 position = Vector2( -9038.11, 527.88 )
-linear_damp = -1.0
 
 [node name="Asteroid8" parent="AsteroidContainer" index="20" instance=ExtResource( 4 )]
 position = Vector2( -8227.65, 687.222 )
 rotation = 0.523598
-linear_damp = -1.0
 
 [node name="Asteroid9" parent="AsteroidContainer" index="21" instance=ExtResource( 5 )]
 position = Vector2( -6973.9, 141.588 )
 rotation = -2.35619
-linear_damp = -1.0
 
 [node name="Asteroid10" parent="AsteroidContainer" index="22" instance=ExtResource( 4 )]
 position = Vector2( -8034.16, 747.627 )
-linear_damp = -1.0
 
 [node name="Asteroid11" parent="AsteroidContainer" index="23" instance=ExtResource( 3 )]
 position = Vector2( -9304.97, 580.748 )
-linear_damp = -1.0
 
 [node name="Asteroid12" parent="AsteroidContainer" index="24" instance=ExtResource( 4 )]
 position = Vector2( -8747.11, -160.033 )
 rotation = 1.0472
-linear_damp = -1.0
 
 [node name="Asteroid13" parent="AsteroidContainer" index="25" instance=ExtResource( 5 )]
 position = Vector2( -8748.59, 306.337 )
 rotation = 1.0472
-linear_damp = -1.0
 
 [node name="Asteroid14" parent="AsteroidContainer" index="26" instance=ExtResource( 4 )]
 position = Vector2( -7920.85, 646.897 )
 rotation = 2.35619
-linear_damp = -1.0
 
 [node name="Asteroid15" parent="AsteroidContainer" index="27" instance=ExtResource( 3 )]
 position = Vector2( -7785.49, 318.356 )
 rotation = -0.785397
-linear_damp = -1.0
 
 [node name="Asteroid16" parent="AsteroidContainer" index="28" instance=ExtResource( 4 )]
 position = Vector2( -7209.54, -540.554 )
 rotation = -1.309
-linear_damp = -1.0
 
 [node name="Asteroid17" parent="AsteroidContainer" index="29" instance=ExtResource( 5 )]
 position = Vector2( -9141.33, 381.863 )
-linear_damp = -1.0
 
 [node name="Asteroid20" parent="AsteroidContainer" index="30" instance=ExtResource( 3 )]
 position = Vector2( -9355.32, 145.215 )
-linear_damp = -1.0
 
 [node name="Asteroid21" parent="AsteroidContainer" index="31" instance=ExtResource( 4 )]
 position = Vector2( -9179.09, -375.914 )
-linear_damp = -1.0
 
 [node name="Asteroid19" parent="AsteroidContainer" index="32" instance=ExtResource( 5 )]
 position = Vector2( -9221.89, 145.215 )
-linear_damp = -1.0
 
 [node name="Asteroid18" parent="AsteroidContainer" index="33" instance=ExtResource( 4 )]
 position = Vector2( -8513.74, 659.349 )
 rotation = 0.785397
-linear_damp = -1.0
 
 [node name="Asteroid35" parent="AsteroidContainer" index="34" instance=ExtResource( 4 )]
 position = Vector2( -8109.06, 485.474 )
-linear_damp = -1.0
 
 [node name="Asteroid36" parent="AsteroidContainer" index="35" instance=ExtResource( 5 )]
 position = Vector2( -7667.26, 552.523 )
 rotation = -2.87979
-linear_damp = -1.0
 
 [node name="Asteroid37" parent="AsteroidContainer" index="36" instance=ExtResource( 4 )]
 position = Vector2( -8815.2, -643.843 )
-linear_damp = -1.0
 
 [node name="Asteroid38" parent="AsteroidContainer" index="37" instance=ExtResource( 3 )]
 position = Vector2( -8943.51, -872.583 )
-linear_damp = -1.0
 
 [node name="Asteroid39" parent="AsteroidContainer" index="38" instance=ExtResource( 4 )]
 position = Vector2( -8647.83, -908.847 )
-linear_damp = -1.0
 
 [node name="Asteroid40" parent="AsteroidContainer" index="39" instance=ExtResource( 5 )]
 position = Vector2( -8896.09, -777.74 )
-linear_damp = -1.0
 
 [node name="Asteroid41" parent="AsteroidContainer" index="40" instance=ExtResource( 4 )]
 position = Vector2( -9141.57, -783.319 )
-linear_damp = -1.0
 
 [node name="Asteroid42" parent="AsteroidContainer" index="41" instance=ExtResource( 3 )]
 position = Vector2( -7457.64, -166.523 )
 rotation = 0.523598
-linear_damp = -1.0
 
 [node name="Asteroid43" parent="AsteroidContainer" index="42" instance=ExtResource( 4 )]
 position = Vector2( -7135.99, 435.126 )
 rotation = 1.0472
-linear_damp = -1.0
 
 [node name="Asteroid44" parent="AsteroidContainer" index="43" instance=ExtResource( 3 )]
 position = Vector2( -8260.08, -593.632 )
-linear_damp = -1.0
 
 [node name="Asteroid45" parent="AsteroidContainer" index="44" instance=ExtResource( 4 )]
 position = Vector2( -8084.39, -767.574 )
-linear_damp = -1.0
 
 [node name="Asteroid46" parent="AsteroidContainer" index="45" instance=ExtResource( 6 )]
 position = Vector2( -8285.3, -200.505 )
 rotation = 2.61799
-linear_damp = -1.0
 
 [node name="Asteroid47" parent="AsteroidContainer" index="46" instance=ExtResource( 7 )]
 position = Vector2( -8155.23, -147.89 )
 rotation = 2.61799
-linear_damp = -1.0
 
 [node name="Asteroid48" parent="AsteroidContainer" index="47" instance=ExtResource( 8 )]
 position = Vector2( -8206.39, -201.407 )
 rotation = 1.0472
-linear_damp = -1.0
 
 [node name="Asteroid49" parent="AsteroidContainer" index="48" instance=ExtResource( 8 )]
 position = Vector2( -8305.3, -281.564 )
 rotation = 2.09439
-linear_damp = -1.0
 
 [node name="Asteroid50" parent="AsteroidContainer" index="49" instance=ExtResource( 6 )]
 position = Vector2( -7712.64, 944.646 )
 rotation = 2.61799
-linear_damp = -1.0
 
 [node name="Asteroid51" parent="AsteroidContainer" index="50" instance=ExtResource( 6 )]
 position = Vector2( -7694.45, 800.957 )
 rotation = -1.309
-linear_damp = -1.0
 
 [node name="Asteroid52" parent="AsteroidContainer" index="51" instance=ExtResource( 6 )]
 position = Vector2( -7592.15, 835.901 )
-linear_damp = -1.0
 
 [node name="Asteroid53" parent="AsteroidContainer" index="52" instance=ExtResource( 7 )]
 position = Vector2( -7659.93, 877.255 )
-linear_damp = -1.0
 
 [node name="Asteroid54" parent="AsteroidContainer" index="53" instance=ExtResource( 8 )]
 position = Vector2( -8378.37, -321.729 )
 rotation = 0.523598
-linear_damp = -1.0
 
 [node name="Asteroid55" parent="AsteroidContainer" index="54" instance=ExtResource( 7 )]
 position = Vector2( -8283.72, -364.958 )
-linear_damp = -1.0
 
 [node name="Asteroid56" parent="AsteroidContainer" index="55" instance=ExtResource( 8 )]
 position = Vector2( -8338.79, -234.349 )
 rotation = 0.785397
-linear_damp = -1.0
 
 [node name="Asteroid57" parent="AsteroidContainer" index="56" instance=ExtResource( 7 )]
 position = Vector2( -8419.93, -257.767 )
 rotation = -2.61799
-linear_damp = -1.0
 
 [node name="Asteroid58" parent="AsteroidContainer" index="57" instance=ExtResource( 6 )]
 position = Vector2( -9110.89, -265.836 )
 rotation = 2.61799
-linear_damp = -1.0
 
 [node name="Asteroid59" parent="AsteroidContainer" index="58" instance=ExtResource( 6 )]
 position = Vector2( -9218.26, -174.737 )
 rotation = -0.785397
-linear_damp = -1.0
 
 [node name="Asteroid60" parent="AsteroidContainer" index="59" instance=ExtResource( 6 )]
 position = Vector2( -9156.44, -25.0742 )
 rotation = -2.87979
-linear_damp = -1.0
 
 [node name="Asteroid61" parent="AsteroidContainer" index="60" instance=ExtResource( 6 )]
 position = Vector2( -9078.36, 131.096 )
-linear_damp = -1.0
 
 [node name="Asteroid62" parent="AsteroidContainer" index="61" instance=ExtResource( 6 )]
 position = Vector2( -8993.76, 244.97 )
-linear_damp = -1.0
 
 [node name="Asteroid63" parent="AsteroidContainer" index="62" instance=ExtResource( 8 )]
 position = Vector2( -9013.29, -408.992 )
 rotation = -0.785397
-linear_damp = -1.0
 
 [node name="Asteroid64" parent="AsteroidContainer" index="63" instance=ExtResource( 8 )]
 position = Vector2( -8879.89, -513.105 )
 rotation = -0.785397
-linear_damp = -1.0
 
 [node name="Asteroid65" parent="AsteroidContainer" index="64" instance=ExtResource( 8 )]
 position = Vector2( -9140.17, -99.9056 )
 rotation = 2.8798
-linear_damp = -1.0
 
 [node name="Asteroid66" parent="AsteroidContainer" index="65" instance=ExtResource( 8 )]
 position = Vector2( -9068.6, -480.57 )
-linear_damp = -1.0
 
 [node name="Asteroid67" parent="AsteroidContainer" index="66" instance=ExtResource( 8 )]
 position = Vector2( -9107.64, -623.726 )
-linear_damp = -1.0
 
 [node name="Asteroid68" parent="AsteroidContainer" index="67" instance=ExtResource( 8 )]
 position = Vector2( -8710.71, -438.274 )
 rotation = 0.261799
-linear_damp = -1.0
 
 [node name="Asteroid69" parent="AsteroidContainer" index="68" instance=ExtResource( 7 )]
 position = Vector2( -8961.23, 118.082 )
 rotation = -1.309
-linear_damp = -1.0
 
 [node name="Asteroid70" parent="AsteroidContainer" index="69" instance=ExtResource( 7 )]
 position = Vector2( -9166.2, 531.281 )
 rotation = 1.0472
-linear_damp = -1.0
 
 [node name="Asteroid71" parent="AsteroidContainer" index="70" instance=ExtResource( 7 )]
 position = Vector2( -8834.34, 798.072 )
 rotation = -0.785397
-linear_damp = -1.0
 
 [node name="Asteroid72" parent="AsteroidContainer" index="71" instance=ExtResource( 6 )]
 position = Vector2( -8964.48, 726.494 )
 rotation = -1.0472
-linear_damp = -1.0
 
 [node name="Asteroid73" parent="AsteroidContainer" index="72" instance=ExtResource( 6 )]
 position = Vector2( -8609.85, 866.396 )
 rotation = 0.523598
-linear_damp = -1.0
 
 [node name="Asteroid74" parent="AsteroidContainer" index="73" instance=ExtResource( 3 )]
 position = Vector2( -4863.02, 943.237 )
 rotation = 1.309
-linear_damp = -1.0
 
 [node name="Asteroid75" parent="AsteroidContainer" index="74" instance=ExtResource( 4 )]
 position = Vector2( -4773.84, 951.133 )
 rotation = -1.57079
-linear_damp = -1.0
 
 [node name="Asteroid76" parent="AsteroidContainer" index="75" instance=ExtResource( 7 )]
 position = Vector2( -6175.89, 1365.54 )
-linear_damp = -1.0
 
 [node name="Asteroid77" parent="AsteroidContainer" index="76" instance=ExtResource( 8 )]
 position = Vector2( -5999.93, 1252.54 )
-linear_damp = -1.0
 
 [node name="Asteroid78" parent="AsteroidContainer" index="77" instance=ExtResource( 6 )]
 position = Vector2( -6126.03, 1256.7 )
 rotation = 0.523598
-linear_damp = -1.0
 
 [node name="Asteroid79" parent="AsteroidContainer" index="78" instance=ExtResource( 6 )]
 position = Vector2( -6031.73, 1325.74 )
 rotation = -1.57079
-linear_damp = -1.0
 
 [node name="Asteroid80" parent="AsteroidContainer" index="79" instance=ExtResource( 8 )]
 position = Vector2( -6021.02, 1223.77 )
-linear_damp = -1.0
 
 [node name="Asteroid81" parent="AsteroidContainer" index="80" instance=ExtResource( 4 )]
 position = Vector2( -6994.36, 1504.65 )
-linear_damp = -1.0
 
 [node name="Asteroid82" parent="AsteroidContainer" index="81" instance=ExtResource( 3 )]
 position = Vector2( -7065, 990.299 )
-linear_damp = -1.0
 
 [node name="Asteroid83" parent="AsteroidContainer" index="82" instance=ExtResource( 5 )]
 position = Vector2( -6101.41, -717.585 )
 rotation = -1.0472
-linear_damp = -1.0
 
 [node name="Asteroid84" parent="AsteroidContainer" index="83" instance=ExtResource( 4 )]
 position = Vector2( -6420.85, -725.776 )
 rotation = 0.785397
-linear_damp = -1.0
 
 [node name="Asteroid85" parent="AsteroidContainer" index="84" instance=ExtResource( 3 )]
 position = Vector2( -3613.52, 367.991 )
-linear_damp = -1.0
 
 [node name="Asteroid86" parent="AsteroidContainer" index="85" instance=ExtResource( 5 )]
 position = Vector2( -4000.6, 200.073 )
-linear_damp = -1.0
 
 [node name="Asteroid87" parent="AsteroidContainer" index="86" instance=ExtResource( 8 )]
 position = Vector2( -4725.57, -1201.85 )
 rotation = 0.523598
-linear_damp = -1.0
 
 [node name="Asteroid88" parent="AsteroidContainer" index="87" instance=ExtResource( 7 )]
 position = Vector2( -4807.24, -1200.85 )
 rotation = -1.57079
-linear_damp = -1.0
 
 [node name="Asteroid89" parent="AsteroidContainer" index="88" instance=ExtResource( 6 )]
 position = Vector2( -4713.79, -1110.24 )
 rotation = -1.309
-linear_damp = -1.0
 
 [node name="Asteroid90" parent="AsteroidContainer" index="89" instance=ExtResource( 3 )]
 position = Vector2( -4584.17, -1037.59 )
-linear_damp = -1.0
 
 [node name="Asteroid91" parent="AsteroidContainer" index="90" instance=ExtResource( 7 )]
 position = Vector2( -3136.29, -1225.42 )
-linear_damp = -1.0
 
 [node name="Asteroid92" parent="AsteroidContainer" index="91" instance=ExtResource( 6 )]
 position = Vector2( -2617.75, -707.365 )
-linear_damp = -1.0
 
 [node name="Asteroid93" parent="AsteroidContainer" index="92" instance=ExtResource( 5 )]
 position = Vector2( -2644.83, -1151.7 )
-linear_damp = -1.0
 
 [node name="Asteroid94" parent="AsteroidContainer" index="93" instance=ExtResource( 4 )]
 position = Vector2( -2416.3, -671.27 )
-linear_damp = -1.0
 
 [node name="Asteroid95" parent="AsteroidContainer" index="94" instance=ExtResource( 5 )]
 position = Vector2( -2012.12, 370.288 )
 rotation = -1.309
-linear_damp = -1.0
 
 [node name="Asteroid96" parent="AsteroidContainer" index="95" instance=ExtResource( 4 )]
 position = Vector2( -2265.53, 194.341 )
 rotation = 1.83259
-linear_damp = -1.0
 
 [node name="Asteroid116" parent="AsteroidContainer" index="96" instance=ExtResource( 4 )]
 position = Vector2( 4398.03, -5300.08 )
-linear_damp = -1.0
 
 [node name="Asteroid117" parent="AsteroidContainer" index="97" instance=ExtResource( 5 )]
 position = Vector2( 4222.28, -5459.86 )
-linear_damp = -1.0
 
 [node name="Asteroid118" parent="AsteroidContainer" index="98" instance=ExtResource( 3 )]
 position = Vector2( 4110.43, -5192.23 )
-linear_damp = -1.0
 
 [node name="Asteroid119" parent="AsteroidContainer" index="99" instance=ExtResource( 4 )]
 position = Vector2( 5310.82, -4915.42 )
-linear_damp = -1.0
 
 [node name="Asteroid120" parent="AsteroidContainer" index="100" instance=ExtResource( 5 )]
 position = Vector2( 5426.66, -4887.46 )
-linear_damp = -1.0
 
 [node name="Asteroid121" parent="AsteroidContainer" index="101" instance=ExtResource( 4 )]
 position = Vector2( 5242.91, -4763.63 )
-linear_damp = -1.0
 
 [node name="Asteroid122" parent="AsteroidContainer" index="102" instance=ExtResource( 6 )]
 position = Vector2( 5374.73, -4687.74 )
-linear_damp = -1.0
 
 [node name="Asteroid123" parent="AsteroidContainer" index="103" instance=ExtResource( 7 )]
 position = Vector2( 5354.76, -4839.53 )
-linear_damp = -1.0
 
 [node name="Asteroid124" parent="AsteroidContainer" index="104" instance=ExtResource( 8 )]
 position = Vector2( 5368.74, -6786.06 )
-linear_damp = -1.0
 
 [node name="Asteroid125" parent="AsteroidContainer" index="105" instance=ExtResource( 7 )]
 position = Vector2( 5292.85, -6670.22 )
-linear_damp = -1.0
 
 [node name="Asteroid126" parent="AsteroidContainer" index="106" instance=ExtResource( 3 )]
 position = Vector2( 5408.69, -6718.15 )
-linear_damp = -1.0
 
 [node name="Asteroid127" parent="AsteroidContainer" index="107" instance=ExtResource( 4 )]
 position = Vector2( 5204.97, -6778.07 )
-linear_damp = -1.0
 
 [node name="Asteroid128" parent="AsteroidContainer" index="108" instance=ExtResource( 7 )]
 position = Vector2( 5888.03, -4125.72 )
-linear_damp = -1.0
 
 [node name="Asteroid129" parent="AsteroidContainer" index="109" instance=ExtResource( 8 )]
 position = Vector2( 5959.93, -4165.66 )
-linear_damp = -1.0
 
 [node name="Asteroid130" parent="AsteroidContainer" index="110" instance=ExtResource( 7 )]
 position = Vector2( 5212.96, -4161.67 )
-linear_damp = -1.0
 
 [node name="Asteroid131" parent="AsteroidContainer" index="111" instance=ExtResource( 8 )]
 position = Vector2( 6539.13, -3602.44 )
-linear_damp = -1.0
 
 [node name="Asteroid132" parent="AsteroidContainer" index="112" instance=ExtResource( 3 )]
 position = Vector2( 6998.5, -3830.12 )
-linear_damp = -1.0
 
 [node name="Asteroid133" parent="AsteroidContainer" index="113" instance=ExtResource( 4 )]
 position = Vector2( 7078.39, -4189.63 )
-linear_damp = -1.0
 
 [node name="Asteroid134" parent="AsteroidContainer" index="114" instance=ExtResource( 5 )]
 position = Vector2( 7138.31, -3718.28 )
-linear_damp = -1.0
 
 [node name="Asteroid135" parent="AsteroidContainer" index="115" instance=ExtResource( 7 )]
 position = Vector2( 6003.87, -5435.92 )
-linear_damp = -1.0
 
 [node name="Asteroid136" parent="AsteroidContainer" index="116" instance=ExtResource( 8 )]
 position = Vector2( 6099.74, -5451.89 )
-linear_damp = -1.0
 
 [node name="Asteroid137" parent="AsteroidContainer" index="117" instance=ExtResource( 6 )]
 position = Vector2( 6027.83, -5312.09 )
-linear_damp = -1.0
 
 [node name="Asteroid138" parent="AsteroidContainer" index="118" instance=ExtResource( 6 )]
 position = Vector2( 5959.93, -5320.07 )
-linear_damp = -1.0
 
 [node name="Asteroid97" parent="AsteroidContainer" index="119" instance=ExtResource( 4 )]
 position = Vector2( 4256.71, -5285.62 )
-linear_damp = -1.0
 
 [node name="Asteroid98" parent="AsteroidContainer" index="120" instance=ExtResource( 8 )]
 position = Vector2( -3581.5, -567.589 )
 rotation = -3.14159
-linear_damp = -1.0
 
 [node name="Asteroid102" parent="AsteroidContainer" index="121" instance=ExtResource( 8 )]
 position = Vector2( -3725.81, -558.819 )
 rotation = -0.523598
-linear_damp = -1.0
 
 [node name="Asteroid99" parent="AsteroidContainer" index="122" instance=ExtResource( 7 )]
 position = Vector2( -3749.39, -589.245 )
 rotation = 0.261799
-linear_damp = -1.0
 
 [node name="Asteroid100" parent="AsteroidContainer" index="123" instance=ExtResource( 8 )]
 position = Vector2( -3805.74, -679.019 )
 rotation = -2.09439
-linear_damp = -1.0
 
 [node name="Asteroid101" parent="AsteroidContainer" index="124" instance=ExtResource( 6 )]
 position = Vector2( -3814.3, -857.844 )
 rotation = -1.309
-linear_damp = -1.0
 
 [node name="Asteroid103" parent="AsteroidContainer" index="125" instance=ExtResource( 7 )]
 position = Vector2( -3418.16, -650.76 )
 rotation = -2.61799
-linear_damp = -1.0
 
 [node name="Asteroid104" parent="AsteroidContainer" index="126" instance=ExtResource( 6 )]
 position = Vector2( -3438.2, -739.979 )
 rotation = -1.309
-linear_damp = -1.0
 
 [node name="Asteroid105" parent="AsteroidContainer" index="127" instance=ExtResource( 6 )]
 position = Vector2( -3776.56, -740.535 )
 rotation = -1.83259
-linear_damp = -1.0
 
 [node name="Asteroid106" parent="AsteroidContainer" index="128" instance=ExtResource( 6 )]
 position = Vector2( -3483.34, -632.295 )
-linear_damp = -1.0
 
 [node name="Asteroid107" parent="AsteroidContainer" index="129" instance=ExtResource( 5 )]
 position = Vector2( -3620.5, -632.135 )
-linear_damp = -1.0
 
 [node name="Asteroid108" parent="AsteroidContainer" index="130" instance=ExtResource( 4 )]
 position = Vector2( -3610.05, -691.427 )
-linear_damp = -1.0
 
 [node name="Asteroid109" parent="AsteroidContainer" index="131" instance=ExtResource( 3 )]
 position = Vector2( -3677.84, -647.961 )
 rotation = 2.09439
-linear_damp = -1.0
 
 [node name="Asteroid110" parent="AsteroidContainer" index="132" instance=ExtResource( 8 )]
 position = Vector2( 2896.83, -4782.8 )
-linear_damp = -1.0
 
 [node name="Asteroid111" parent="AsteroidContainer" index="133" instance=ExtResource( 7 )]
 position = Vector2( 3172.45, -5006.49 )
-linear_damp = -1.0
 
 [node name="Asteroid112" parent="AsteroidContainer" index="134" instance=ExtResource( 6 )]
 position = Vector2( 3040.63, -4642.99 )
-linear_damp = -1.0
 
 [node name="Asteroid113" parent="AsteroidContainer" index="135" instance=ExtResource( 5 )]
 position = Vector2( 3268.32, -4846.72 )
-linear_damp = -1.0
 
 [node name="Asteroid114" parent="AsteroidContainer" index="136" instance=ExtResource( 3 )]
 position = Vector2( 3660.36, -5805.27 )
-linear_damp = -1.0
 
 [node name="Asteroid115" parent="AsteroidContainer" index="137" instance=ExtResource( 8 )]
 position = Vector2( 3208.4, -4631.01 )
-linear_damp = -1.0
 
 [node name="Asteroid169" parent="AsteroidContainer" index="138" instance=ExtResource( 6 )]
 position = Vector2( 4051.2, -4347.43 )
-linear_damp = -1.0
 
 [node name="Asteroid170" parent="AsteroidContainer" index="139" instance=ExtResource( 7 )]
 position = Vector2( 4159.05, -4323.46 )
-linear_damp = -1.0
 
 [node name="Asteroid171" parent="AsteroidContainer" index="140" instance=ExtResource( 8 )]
 position = Vector2( 4147.07, -4475.25 )
-linear_damp = -1.0
 
 [node name="Asteroid172" parent="AsteroidContainer" index="141" instance=ExtResource( 8 )]
 position = Vector2( 4262.91, -4403.35 )
-linear_damp = -1.0
 
 [node name="Asteroid173" parent="AsteroidContainer" index="142" instance=ExtResource( 8 )]
 position = Vector2( 4011.25, -4167.68 )
-linear_damp = -1.0
 
 [node name="Asteroid174" parent="AsteroidContainer" index="143" instance=ExtResource( 4 )]
 position = Vector2( 4307.47, -6288.63 )
-linear_damp = -1.0
 
 [node name="Asteroid175" parent="AsteroidContainer" index="144" instance=ExtResource( 4 )]
 position = Vector2( 4411.32, -6304.61 )
-linear_damp = -1.0
 
 [node name="Asteroid139" parent="AsteroidContainer" index="145" instance=ExtResource( 3 )]
 position = Vector2( 133.028, -1915.81 )
 rotation = -1.57079
-linear_damp = -1.0
 
 [node name="Asteroid140" parent="AsteroidContainer" index="146" instance=ExtResource( 4 )]
 position = Vector2( 768.352, -2234.27 )
 rotation = -1.83259
-linear_damp = -1.0
 
 [node name="Asteroid141" parent="AsteroidContainer" index="147" instance=ExtResource( 5 )]
 position = Vector2( -260.001, -2088.54 )
 rotation = 2.35619
-linear_damp = -1.0
 
 [node name="Asteroid142" parent="AsteroidContainer" index="148" instance=ExtResource( 5 )]
 position = Vector2( -5.47275, -1684.89 )
-linear_damp = -1.0
 
 [node name="Asteroid143" parent="AsteroidContainer" index="149" instance=ExtResource( 4 )]
 position = Vector2( 280.367, -1732.82 )
 rotation = 1.57079
-linear_damp = -1.0
 
 [node name="Asteroid144" parent="AsteroidContainer" index="150" instance=ExtResource( 4 )]
 position = Vector2( 235.18, -1825.59 )
 rotation = 3.14159
-linear_damp = -1.0
 
 [node name="Asteroid145" parent="AsteroidContainer" index="151" instance=ExtResource( 3 )]
 position = Vector2( 551.636, -2409.21 )
 rotation = -2.87979
-linear_damp = -1.0
 
 [node name="Asteroid146" parent="AsteroidContainer" index="152" instance=ExtResource( 3 )]
 position = Vector2( 844.557, -2165.8 )
-linear_damp = -1.0
 
 [node name="Asteroid147" parent="AsteroidContainer" index="153" instance=ExtResource( 3 )]
 position = Vector2( 795.267, -1689.96 )
 rotation = -2.61799
-linear_damp = -1.0
 
 [node name="Asteroid148" parent="AsteroidContainer" index="154" instance=ExtResource( 8 )]
 position = Vector2( 164.39, -1828.15 )
 rotation = 0.166606
-linear_damp = -1.0
 
 [node name="Asteroid149" parent="AsteroidContainer" index="155" instance=ExtResource( 8 )]
 position = Vector2( 201, -1914.73 )
 rotation = -1.0472
-linear_damp = -1.0
 
 [node name="Asteroid150" parent="AsteroidContainer" index="156" instance=ExtResource( 8 )]
 position = Vector2( 239.426, -1994.49 )
 rotation = -0.261799
-linear_damp = -1.0
 
 [node name="Asteroid151" parent="AsteroidContainer" index="157" instance=ExtResource( 7 )]
 position = Vector2( 286.784, -1913.6 )
 rotation = -3.14159
-linear_damp = -1.0
 
 [node name="Asteroid152" parent="AsteroidContainer" index="158" instance=ExtResource( 7 )]
 position = Vector2( 419.812, -2410.08 )
 rotation = -1.57079
-linear_damp = -1.0
 
 [node name="Asteroid153" parent="AsteroidContainer" index="159" instance=ExtResource( 6 )]
 position = Vector2( 494.697, -2388.23 )
 rotation = 1.72197
-linear_damp = -1.0
 
 [node name="Asteroid154" parent="AsteroidContainer" index="160" instance=ExtResource( 6 )]
 position = Vector2( 1548.2, -2247.9 )
 rotation = -2.09439
-linear_damp = -1.0
 
 [node name="Asteroid155" parent="AsteroidContainer" index="161" instance=ExtResource( 5 )]
 position = Vector2( 1493.15, -2309.28 )
 rotation = 2.61799
-linear_damp = -1.0
 
 [node name="Asteroid156" parent="AsteroidContainer" index="162" instance=ExtResource( 6 )]
 position = Vector2( 1407.52, -2272.98 )
 rotation = -2.61799
-linear_damp = -1.0
 
 [node name="Asteroid157" parent="AsteroidContainer" index="163" instance=ExtResource( 7 )]
 position = Vector2( 1423.51, -2341.12 )
 rotation = 2.87979
-linear_damp = -1.0
 
 [node name="Asteroid158" parent="AsteroidContainer" index="164" instance=ExtResource( 3 )]
 position = Vector2( 2686.51, -2935.59 )
 rotation = -1.57079
-linear_damp = -1.0
 
 [node name="Asteroid159" parent="AsteroidContainer" index="165" instance=ExtResource( 4 )]
 position = Vector2( 2481.6, -3576.91 )
 rotation = 2.09439
-linear_damp = -1.0
 
 [node name="Asteroid160" parent="AsteroidContainer" index="166" instance=ExtResource( 5 )]
 position = Vector2( 2595.44, -3633.83 )
 rotation = 2.35619
-linear_damp = -1.0
 
 [node name="Asteroid161" parent="AsteroidContainer" index="167" instance=ExtResource( 6 )]
 position = Vector2( 2587.85, -3519.99 )
 rotation = -2.61799
-linear_damp = -1.0
 
 [node name="Asteroid162" parent="AsteroidContainer" index="168" instance=ExtResource( 7 )]
 position = Vector2( 2698.44, -3372.84 )
-linear_damp = -1.0
 
 [node name="Asteroid163" parent="AsteroidContainer" index="169" instance=ExtResource( 4 )]
 position = Vector2( 2785.18, -2905.23 )
 rotation = -1.57079
-linear_damp = -1.0
 
 [node name="Asteroid164" parent="AsteroidContainer" index="170" instance=ExtResource( 6 )]
 position = Vector2( 2690.31, -2836.93 )
 rotation = -1.57079
-linear_damp = -1.0
 
 [node name="Asteroid165" parent="AsteroidContainer" index="171" instance=ExtResource( 8 )]
 position = Vector2( 1047.17, -2954.56 )
-linear_damp = -1.0
 
 [node name="Asteroid166" parent="AsteroidContainer" index="172" instance=ExtResource( 7 )]
 position = Vector2( 1134.45, -2962.15 )
-linear_damp = -1.0
 
 [node name="Asteroid167" parent="AsteroidContainer" index="173" instance=ExtResource( 6 )]
 position = Vector2( 1100.29, -2855.9 )
-linear_damp = -1.0
 
 [node name="Asteroid168" parent="AsteroidContainer" index="174" instance=ExtResource( 4 )]
 position = Vector2( 1271.06, -2965.95 )
-linear_damp = -1.0
 
 [node name="Asteroid176" parent="AsteroidContainer" index="175" instance=ExtResource( 6 )]
 position = Vector2( 1781.85, -2805.77 )
 rotation = 2.87979
-linear_damp = -1.0
 
 [node name="Asteroid177" parent="AsteroidContainer" index="176" instance=ExtResource( 7 )]
 position = Vector2( 1834.13, -2779.55 )
 rotation = 4.45058
-linear_damp = -1.0
 
 [node name="Asteroid178" parent="AsteroidContainer" index="177" instance=ExtResource( 8 )]
 position = Vector2( 1824.83, -2024.54 )
 rotation = 4.18878
-linear_damp = -1.0
 
 [node name="Asteroid179" parent="AsteroidContainer" index="178" instance=ExtResource( 8 )]
 position = Vector2( 1671.95, -2139.74 )
 rotation = 1.309
-linear_damp = -1.0
 
 [node name="Asteroid180" parent="AsteroidContainer" index="179" instance=ExtResource( 7 )]
 position = Vector2( 1480, -2208.4 )
 rotation = 0.523598
-linear_damp = -1.0
 
 [node name="Asteroid181" parent="AsteroidContainer" index="180" instance=ExtResource( 3 )]
 position = Vector2( 1312.41, -1751 )
-linear_damp = -1.0
 
 [node name="Asteroid182" parent="AsteroidContainer" index="181" instance=ExtResource( 4 )]
 position = Vector2( 1421.73, -1784.64 )
-linear_damp = -1.0
 
 [node name="Asteroid183" parent="AsteroidContainer" index="182" instance=ExtResource( 5 )]
 position = Vector2( 1964.23, -1899.59 )
 rotation = 2.87979
-linear_damp = -1.0
 
 [node name="Asteroid184" parent="AsteroidContainer" index="183" instance=ExtResource( 7 )]
 position = Vector2( 2001.46, -1996.27 )
 rotation = -2.87979
-linear_damp = -1.0
 
 [node name="Asteroid185" parent="AsteroidContainer" index="184" instance=ExtResource( 4 )]
 position = Vector2( 7955.78, -4860.35 )
@@ -1301,7 +1117,7 @@ position = Vector2( -1390.58, -783.519 )
 rotation = 2.61799
 
 [node name="Asteroid270" parent="AsteroidContainer" index="269" instance=ExtResource( 5 )]
-position = Vector2( -1487.67, -375.991 )
+position = Vector2( -1494.02, -375.991 )
 rotation = 1.309
 
 [node name="Asteroid271" parent="AsteroidContainer" index="270" instance=ExtResource( 8 )]
@@ -1329,7 +1145,7 @@ position = Vector2( -492.987, 962.098 )
 rotation = 1.309
 
 [node name="Asteroid277" parent="AsteroidContainer" index="276" instance=ExtResource( 3 )]
-position = Vector2( -292.51, 1118.68 )
+position = Vector2( -292.51, 1114.88 )
 rotation = 2.09439
 
 [node name="Asteroid278" parent="AsteroidContainer" index="277" instance=ExtResource( 4 )]
@@ -2655,6 +2471,7 @@ z_index = 50
 chainAmount = [ -24.0, -24.0, -24.0, 11.0, 5.0, -7.0, -7.0, -14.0, -15.0, -10.0, -5.0, -3.0, -2.0, -1.0, 0.0, 20.0, 8.0, 9.0, 14.0, -6.0, -12.0, -4.0, -5.0, 7.0, 14.0, -4.0, -7.0, -18.0, -13.0, 0.0 ]
 StartNodeType = 0
 StartNodeRotation = 50.0
+EndNodeRotation = 0
 
 [node name="StaticAsteroid52" parent="Scenery/BelowHarvester" index="12" instance=ExtResource( 17 )]
 position = Vector2( -5136.96, 12829.6 )
@@ -3004,6 +2821,7 @@ position = Vector2( 13175.7, -3915.39 )
 position = Vector2( 14782.1, -9221.15 )
 chainAmount = [ 50.0, 11.0, 1.0, 2.0, 12.0, -15.0, -5.0, -6.0, -3.0, 15.0, 15.0, 5.0, -5.0, -3.0, -6.0, -7.0, -2.0, -15.0, -24.0, -19.0, -18.0, -16.0, -30.0, -5.0, -6.0, -4.0, -3.0, -2.0, -1.0, 13.0, 15.0, 18.0, 25.0, 30.0, 40.0, 37.0, 19.0, 20.0, -7.0, -13.0, -15.0, -23.0, -26.0, -28.0, -38.0, -39.0, -15.0, 15.0, 15.0, 21.0, 17.0, 15.0, -3.0, 15.0, 25.0, -23.0, -17.0, -24.0, -22.0, -31.0 ]
 StartNodeRotation = 50.0
+EndNodeRotation = 0
 
 [node name="Wirerer2" parent="Scenery/BelowHarvester/Lastroom/Wire" index="1" groups=[
 "LastDoorWire",
@@ -3011,6 +2829,8 @@ StartNodeRotation = 50.0
 position = Vector2( 14357, -7939.5 )
 rotation = -0.785397
 chainAmount = [ 25.0, 15.0, 15.0, 12.0, -7.0, -16.0, -26.0, -26.0, -16.0, -14.0, 12.0, 21.0, 11.0, 6.0, -17.0, -3.0, -7.0, 4.0, 12.0, 13.0, 14.0, 26.0, 26.0, 27.0, 37.0, -23.0, -4.0, -15.0, -17.0, 9.0, 19.0, 29.0, 15.0, -7.0, -6.0, -5.0, -10.0, -11.0, 9.0 ]
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="Wirerer3" parent="Scenery/BelowHarvester/Lastroom/Wire" index="2" groups=[
 "LastDoorWire",
@@ -3018,6 +2838,8 @@ chainAmount = [ 25.0, 15.0, 15.0, 12.0, -7.0, -16.0, -26.0, -26.0, -16.0, -14.0,
 position = Vector2( 14706.3, -5052.17 )
 rotation = -0.261799
 chainAmount = [ -5.0, -5.0, -5.0, 6.0, 6.0, 6.0, 6.0, -7.0, -7.0, -7.0, 9.0, 9.0, 9.0, 9.0, 9.0, -7.0, -7.0, -7.0, -7.0, -7.0, -5.0, -5.0, -5.0 ]
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="Wirerer4" parent="Scenery/BelowHarvester/Lastroom/Wire" index="3" groups=[
 "LastDoorWire",
@@ -3025,6 +2847,7 @@ chainAmount = [ -5.0, -5.0, -5.0, 6.0, 6.0, 6.0, 6.0, -7.0, -7.0, -7.0, 9.0, 9.0
 position = Vector2( 15150, -3908.82 )
 rotation = -0.261799
 chainAmount = [ 11.0, -5.0, -7.0, -10.0, -20.0, 4.0, 7.0, 4.0, 5.0, 6.0, 15.0, 12.0, 5.0, 10.0, 5.0, -5.0, -6.0, 5.0, 9.0, 11.0, 12.0, 15.0, 15.0, 6.0, -7.0, -4.0, -9.0, -15.0, -12.0, -16.0, -15.0, 6.0, 12.0, 16.0, 7.0, -3.0, -8.0, -9.0, -12.0, 15.0, 12.0, 14.0, -5.0, -7.0, -9.0, -12.0, 30.0, 25.0, 15.0, 30.0, 12.0, -6.0, 0.0 ]
+StartNodeRotation = 0
 EndNodeRotation = 47.0
 
 [node name="Wirerer5" parent="Scenery/BelowHarvester/Lastroom/Wire" index="4" groups=[
@@ -3032,6 +2855,7 @@ EndNodeRotation = 47.0
 ] instance=ExtResource( 47 )]
 position = Vector2( 14031.9, -2606.71 )
 chainAmount = [ 19.0, 5.0, 12.0, 9.0, 16.0, 17.0, 19.0, 22.0, 17.0, -6.0, 12.0, 5.0 ]
+StartNodeRotation = 0
 EndNodeRotation = 33.0
 
 [node name="Wirerer6" parent="Scenery/BelowHarvester/Lastroom/Wire" index="5" groups=[
@@ -3040,12 +2864,15 @@ EndNodeRotation = 33.0
 position = Vector2( 13522.2, -2550.99 )
 rotation = 1.5708
 chainAmount = [ -42.0, -5.0, -4.0, -2.0, -1.0, -4.0, -5.0, -7.0, -4.0, -7.0, 6.0, 16.0, 17.0, 20.0, 4.0, 2.0, 1.0, -14.0, -12.0, -11.0, -10.0, -12.0, 6.0, 10.0, 17.0, 20.0, -6.0, -3.0, 2.0, -12.0, 16.0, 3.0, -8.0 ]
+StartNodeRotation = 0
 EndNodeRotation = -28.0
 
 [node name="Wirerer7" parent="Scenery/BelowHarvester/Lastroom/Wire" index="6" instance=ExtResource( 47 )]
 position = Vector2( 6129.31, -2383.36 )
 chainAmount = [ -30.0, -12.0, -18.0, -15.0, -16.0, -11.0, -5.0, -9.0, 4.0, 8.0, 12.0, 15.0, -27.0, -30.0, -12.0, 6.0, 15.0, 20.0, 6.0, 6.0, -5.0, -3.0, 8.0, 7.0, 5.0, 9.0, 12.0, 5.0, 3.0, 1.0, 2.0, 5.0, 9.0, -6.0, -3.0, -6.0, -3.0, -2.0, -4.0, -3.0, -3.0, -2.0, -1.0, -1.0, -1.0, -2.0, -1.0, -3.0, -2.0, -4.0, -3.0, -2.0, -4.0, -5.0, -3.0, -2.0, -2.0, -1.0, -4.0, -5.0, -3.0, -2.0, -5.0, -6.0, 1.0, 0.0, 0.0, 0.0, 2.0, 3.0, 1.0, -2.0, -1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0, 0.0, 0.0, 0.0, 1.0, 2.0, 3.0, 1.0, 2.0, 1.0, 5.0, 3.0, 4.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 3.0, 4.0, 5.0, 7.0, 8.0, 9.0, 10.0, 21.0, 20.0, 2.0, -16.0, -30.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="Wirerer8" parent="Scenery/BelowHarvester/Lastroom/Wire" index="7" groups=[
 "LastDoorWire",
@@ -3053,6 +2880,8 @@ StartNodeType = 0
 position = Vector2( 10279.2, -2222.09 )
 rotation = -0.785397
 chainAmount = [ -15.0, -4.0, -4.0, -4.0, -5.0, -27.0, -27.0, -29.0, -26.0, 15.0, 27.0, 27.0, 24.0, 30.0, 34.0, 23.0, 22.0, 19.0, -5.0, -5.0, -18.0, -16.0, -12.0, -5.0, -1.0, -1.0, -1.0, -2.0, -1.0, -3.0, -1.0, -1.0, -2.0, -3.0, -5.0, -2.0, -2.0, -3.0, -5.0, -1.0, -1.0, -2.0, -3.0, -1.0, -6.0, 0.0 ]
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="LastroomCoverup" type="Node2D" parent="Scenery/BelowHarvester/Lastroom" index="23"]
 z_index = 127
