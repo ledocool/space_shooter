@@ -29,3 +29,5 @@ func Damage(dmg):
 	else:
 		self.visible = false
 		self.queue_free()
+		
+	return true

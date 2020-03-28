@@ -15,7 +15,9 @@ var aiState
 var Player
 var NearPlayer = false
 var SeesPlayer = false
-export var StartState = 'idle'
+
+#todo: export
+var StartState = 'idle'
 
 
 func Save():
@@ -34,10 +36,6 @@ func Load(data: Dictionary):
 			StartState = data.state
 			set_sleeping(false)
 	return .Load(data)
-
-
-func Damage(_dmg):
-	return false
 
 
 func TurnOn(isOn = true):

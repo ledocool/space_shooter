@@ -9,6 +9,8 @@ func _ready():
 	if(Engine.is_editor_hint()):
 		set_process(false)
 		setVisibility(0.3)
+	else:
+		setVisibility(opacity)
 
 ##warning-ignore:unsafe_method_access
 #	if(!$VisibilityEnabler2D.is_on_screen()):

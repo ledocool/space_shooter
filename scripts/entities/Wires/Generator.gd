@@ -52,3 +52,5 @@ func Damage(dmg):
 		Disable()
 	else:
 		Enable()
+		
+	return true
