@@ -15,7 +15,9 @@ var aiState
 var Player
 var NearPlayer = false
 var SeesPlayer = false
-export var StartState = 'idle'
+
+#todo: export
+var StartState = 'idle'
 
 
 func Save():

@@ -9,9 +9,9 @@ func _on_enter_state():
 	target.SetSpriteChill()
 	target.SetAiTimersTicking(false)
 	target.EngineFiring = false
-	pass
+	target.set_sleeping(true)
 
 # State machine callback called during transition when leaving this state
 func _on_leave_state(): 
 	target.SetAiTimersTicking(true)
-	pass
+	target.set_sleeping(false)
