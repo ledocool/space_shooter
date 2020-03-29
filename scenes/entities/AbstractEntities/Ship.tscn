@@ -40,7 +40,7 @@ amount = 13
 local_coords = false
 process_material = SubResource( 2 )
 
-[node name="BulletAnchor" type="Node2D" parent="."]
+[node name="BulletAnchor" type="Position2D" parent="."]
 position = Vector2( 22, 0 )
 
 [node name="Timers" type="Node" parent="."]
