@@ -8,9 +8,7 @@ var enemyHealthDamage = 0
 var playerHealthDamage = 0
 var enemiesKilled = 0
 var playerShootsBullet = 0
-# warning-ignore:unused_class_variable
 var playerSecretsFound = 0
-# warning-ignore:unused_class_variable
 export var secretsMax = 0
 
 
