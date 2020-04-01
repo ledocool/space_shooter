@@ -14,6 +14,15 @@ var playerSecretsFound = 0
 export var secretsMax = 0
 
 
+var playerStartStatus: Dictionary
+
+
+func InjectPlayerStartStatus(data: Dictionary):
+	var Player = $ShipContainer/Player as Ship
+	if (Player):
+		pass
+
+
 func GetPlayer():
 	return $ShipContainer/Player
 
