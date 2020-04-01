@@ -1,10 +1,15 @@
 extends Bullet
 class_name Rocket
 
+#export var MaxTurnSpeed: float = 40
+export var MaxSpeed: float = 1200
+export var EngineSpeed: float = 10
+export var StartImpulse: float = 1300
+
 var LockedTarget = null
-export var MaxTurnSpeed: float = 40
-export var MaxSpeed: float = 200
-export var EngineSpeed: float = 40
+var OldForce = Vector2(0,0)
+var LastRotation = 0
+
 
 func Save():
 	var prevSave = .Save()
@@ -15,23 +20,50 @@ func Load(data: Dictionary):
 	.Load(data)
 
 
-func SpawnAt(pos: Vector2, angle: float, _add_velocity: Vector2):
+func SpawnAt(pos: Vector2, angle: float, add_velocity: Vector2):
 	var anchor = GetSpawnAnchorPosition().rotated(angle)
-	rotation = angle
-	linear_velocity = linear_velocity.rotated(angle)
+	LastRotation = angle
+	linear_velocity = add_velocity
 	self.position = pos - anchor
-	self.apply_impulse(
-		Vector2(0, 0), 
-		Vector2(EngineSpeed, 0).rotated(rotation)
-	)
+	apply_impulse(Vector2(), Vector2(StartImpulse, 0).rotated(angle))
+
+
+func GetTarget():
+	if(LockedTarget == null): 
+		return null 
+	else: 
+		return LockedTarget.get_ref()
 
 
 func _init():
 	Damage = 10
 
 
-func _physics_process(_delta):
+func _integrate_forces(state):
+	var target = GetTarget()
+	var rotation = LastRotation
+	
+	if(target):
+		var cursor = AiAPathHelper.Track(
+				target.get_global_position(), 
+				target.GetVelocity(), 
+				self.get_global_position(), 
+				self.GetVelocity()
+		)
+		var toTargetVector = cursor - self.position
+		rotation = toTargetVector.angle()
+		LastRotation = rotation
+		
+	var force = Vector2(EngineSpeed, 0).rotated(rotation)
+	
+	state.add_central_force(-OldForce)
+	state.add_central_force(force)
+	OldForce = force
 	_ceilSpeed()
+
+
+func _process(_delta):
+	($Sprite as Sprite).rotation = linear_velocity.angle()
 
 
 func _on_LockOnArea_body_exited(body):
@@ -40,24 +72,10 @@ func _on_LockOnArea_body_exited(body):
 
 
 func _on_LockOnArea_body_entered(body):
-	if(LockedTarget == null && body is Ship && !body is PlayerShip):
-		LockedTarget = body
-
-
-func _realign(_delta):
-	if(LockedTarget != null):
-		var cursor = AiAPathHelper.Track(
-			LockedTarget.get_global_position(), 
-			LockedTarget.GetVelocity(), 
-			self.get_global_position(), 
-			self.GetVelocity()
-		)
-		look_at(cursor)
-	applied_force = Vector2(EngineSpeed, 0).rotated(rotation)
+	if(!GetTarget() && body is Ship && !body is PlayerShip):
+		LockedTarget = weakref(body)
 
 
 func _ceilSpeed():
 	linear_velocity = linear_velocity.clamped(MaxSpeed)
 
-func _on_RealignTimer_timeout():
-	_realign(($Timers/RealignTimer as Timer).wait_time)

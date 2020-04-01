@@ -16,7 +16,6 @@ mass = 0.01
 contacts_reported = 1
 linear_velocity = Vector2( 0, 0 )
 script = ExtResource( 3 )
-MaxTurnSpeed = 70.0
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )
@@ -32,16 +31,11 @@ position = Vector2( -24.016, 0 )
 [node name="Lifespan" parent="Timers" index="0"]
 wait_time = 10.0
 
-[node name="RealignTimer" type="Timer" parent="Timers" index="1"]
-process_mode = 0
-wait_time = 0.02
-autostart = true
-
 [node name="LockOnArea" type="Area2D" parent="." index="4"]
+visible = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LockOnArea" index="0"]
 shape = SubResource( 2 )
-[connection signal="timeout" from="Timers/RealignTimer" to="." method="_on_RealignTimer_timeout"]
 [connection signal="body_entered" from="LockOnArea" to="." method="_on_LockOnArea_body_entered"]
 [connection signal="body_exited" from="LockOnArea" to="." method="_on_LockOnArea_body_exited"]

@@ -15,9 +15,9 @@ static func Track(targetPos: Vector2, targetVel: Vector2, selfPos: Vector2, self
 	var angle = fromThisToplayer.angle_to(Difference)
 	
 	if(abs(angle) > 0.1745329 && abs(angle) < 1.396263): #0.1745329 = 10 degrees; 1.396263 = 80 degrees; 2.792527 = 160 deg
-		return selfPos + Difference
+		return Difference
 	else:
-		return pp;
+		return Vector2(0,0);
 
 static func TargetVisible(observerPos: Vector2, targetPos: Vector2, world: World2D):
 	var space_state = Physics2DServer.space_get_direct_state(world.space)
