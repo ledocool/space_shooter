@@ -25,6 +25,7 @@ func SpawnAt(pos: Vector2, angle: float, add_velocity: Vector2):
 	LastRotation = angle
 	linear_velocity = add_velocity
 	self.position = pos - anchor
+	$ShootLockOnArea.rotate(angle)
 	apply_impulse(Vector2(), Vector2(StartImpulse, 0).rotated(angle))
 
 
@@ -41,7 +42,7 @@ func _init():
 
 func _integrate_forces(state):
 	var target = GetTarget()
-	var rotation = LastRotation
+	var rot = LastRotation
 	
 	if(target):
 		var cursor = AiAPathHelper.Track(
@@ -50,11 +51,11 @@ func _integrate_forces(state):
 				self.get_global_position(), 
 				self.GetVelocity()
 		)
-		var toTargetVector = cursor - self.position
-		rotation = toTargetVector.angle()
-		LastRotation = rotation
+		rot = cursor.angle() 
+		#$Sprite.rotation = rot
+		LastRotation = rot
 		
-	var force = Vector2(EngineSpeed, 0).rotated(rotation)
+	var force = Vector2(EngineSpeed, 0).rotated(rot)
 	
 	state.add_central_force(-OldForce)
 	state.add_central_force(force)
@@ -62,9 +63,20 @@ func _integrate_forces(state):
 	_ceilSpeed()
 
 
+func _draw():
+	var target = GetTarget()
+	if(target):
+		var targetPos = target.position
+		draw_line(Vector2(0,0), targetPos - position, Color.red, 3)
+
+
 func _process(_delta):
 	($Sprite as Sprite).rotation = linear_velocity.angle()
 
+
+func _switchToRadial():
+	$ShootLockOnArea/CollisionShape2D.set_disabled(true)
+	$LockOnArea/CollisionShape2D.set_disabled(false)
 
 func _on_LockOnArea_body_exited(body):
 	if(body == LockedTarget):
@@ -74,8 +86,18 @@ func _on_LockOnArea_body_exited(body):
 func _on_LockOnArea_body_entered(body):
 	if(!GetTarget() && body is Ship && !body is PlayerShip):
 		LockedTarget = weakref(body)
+		call_deferred("_switchToRadial")
 
 
 func _ceilSpeed():
 	linear_velocity = linear_velocity.clamped(MaxSpeed)
 
+
+func _on_ShootLockOnArea_body_entered(body):
+	if(body is Ship && !body is PlayerShip):
+		LockedTarget = weakref(body)
+		call_deferred("_switchToRadial")
+
+
+func _on_PriorityTargetDisableTimer_timeout():
+	call_deferred("_switchToRadial")
