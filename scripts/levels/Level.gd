@@ -45,6 +45,7 @@ func SetStats(statistics: Dictionary):
 	enemiesKilled = statistics.enemiesKilled
 	playerShootsBullet = statistics.playerShootsBullet
 	playerSecretsFound = statistics.playerSecretsFound
+	StartPlayerStatus = statistics.get("playerStartStatus", null)
 
 
 func GetStats():
@@ -53,7 +54,8 @@ func GetStats():
 		"playerHealthDamage": playerHealthDamage,
 		"enemiesKilled": enemiesKilled,
 		"playerShootsBullet": playerShootsBullet,
-		"playerSecretsFound": playerSecretsFound
+		"playerSecretsFound": playerSecretsFound,
+		"playerStartStatus": StartPlayerStatus
 	}
 	return stats
 
