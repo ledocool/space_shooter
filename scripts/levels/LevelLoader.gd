@@ -1,7 +1,8 @@
 extends Node
 
 var campaignLevelOrder: Array = [
-	"res://scenes/levels/c1/c1l1.tscn"
+	"res://scenes/levels/c1/c1l1.tscn",
+	"res://scenes/levels/c1/c1l2.tscn"
 ]
 
 var campaignCurrentLevel = -1
@@ -11,7 +12,7 @@ var loadScreen = preload("res://scenes/interface/LoadingScreen.tscn")
 onready var popupScreen = $"/root/OverlayLayer"
 
 var loadData = null
-
+var lastLevelData = null
 
 func SaveGame(fileName: String):
 	saveManager.CreateSaveGame(fileName,
@@ -45,7 +46,8 @@ func LoadGame(fileName: String, interactive: bool = true):
 		_loadSaveGameNonInteractive(data)
 
 
-func LoadNextLevel(interactive: bool = true):
+func LoadNextLevel(llData: Dictionary, interactive: bool = true):
+	lastLevelData = llData
 	LoadLevel(campaignCurrentLevel + 1, interactive)
 
 
@@ -53,7 +55,7 @@ func LoadPrevLevel(interactive: bool = true):
 	LoadLevel(campaignCurrentLevel - 1, interactive)
 
 
-func LoadLevel(number: int, interactive: bool = true):		
+func LoadLevel(number: int, interactive: bool = true):
 	var levelNode = _getLevelByIndex(number, interactive)
 	if(levelNode):
 		_swapCurrentScene(levelNode)
@@ -68,7 +70,15 @@ func LoadLevelByName(name: String, interactive: bool = true):
 
 
 func ReloadLevel():
+	var currentScene = get_tree().get_current_scene()
+	
+	var lastPlayerStatus = null
+	if(currentScene.has_method("GetPlayerStatus")):
+		lastPlayerStatus = currentScene.GetPlayerStatus(true)
 	print_debug(get_tree().reload_current_scene())
+	currentScene = get_tree().get_current_scene()
+	if(lastPlayerStatus && currentScene.has_method("InjectPlayerStartStatus")):
+		currentScene.InjectPlayerStartStatus(lastPlayerStatus)
 
 
 func _init():
@@ -197,6 +207,12 @@ func _wipeNodeOfEntities(node: Node):
 func _swapCurrentScene(scene: Node):
 	var root = $"/root"
 	var oldCurrentScene = get_tree().get_current_scene()
+	
+	if(scene.has_method("InjectPlayerStartStatus") && lastLevelData != null):
+# warning-ignore:unsafe_method_access
+		scene.InjectPlayerStartStatus(lastLevelData)
+	lastLevelData = null
+		
 	root.remove_child(oldCurrentScene)
 	root.add_child(scene)
 	get_tree().set_current_scene(scene)

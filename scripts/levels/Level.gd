@@ -13,6 +13,27 @@ var playerSecretsFound = 0
 # warning-ignore:unused_class_variable
 export var secretsMax = 0
 
+var StartPlayerStatus = null
+
+func InjectPlayerStartStatus(data: Dictionary):
+	var Player = $ShipContainer/Player as Ship
+	StartPlayerStatus = data
+	if (Player):
+		Player.SetInventory(data)
+
+
+func GetPlayerStatus(reload: bool = false) -> Dictionary:
+	if(reload):
+		if(StartPlayerStatus != null):
+			return StartPlayerStatus
+		else:
+			return {}
+	
+	var Player = $ShipContainer/Player as Ship
+	if(!Player):
+		return {}
+	return Player.GetInventory()
+
 
 func GetPlayer():
 	return $ShipContainer/Player
@@ -24,6 +45,7 @@ func SetStats(statistics: Dictionary):
 	enemiesKilled = statistics.enemiesKilled
 	playerShootsBullet = statistics.playerShootsBullet
 	playerSecretsFound = statistics.playerSecretsFound
+	StartPlayerStatus = statistics.get("playerStartStatus", null)
 
 
 func GetStats():
@@ -32,7 +54,8 @@ func GetStats():
 		"playerHealthDamage": playerHealthDamage,
 		"enemiesKilled": enemiesKilled,
 		"playerShootsBullet": playerShootsBullet,
-		"playerSecretsFound": playerSecretsFound
+		"playerSecretsFound": playerSecretsFound,
+		"playerStartStatus": StartPlayerStatus
 	}
 	return stats
 
@@ -61,6 +84,8 @@ func _ready():
 		camera._on_speed_change(0)
 		camera._on_ammo_change(0)
 		camera._on_weapon_change("")
+		
+		
 
 
 func _on_Ship_shoot(BulletType, direction, location, velocity):
@@ -91,7 +116,7 @@ func _on_playerHealth_change(oldhealth, health):
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
 		var gameLoseMenu = $MenuCanvas/MarginContainer/GameLoseMenu
-		gameLoseMenu.SetData(dictionaryData)
+		gameLoseMenu.SetData(dictionaryData, {})
 		gameLoseMenu.visible = true
 
 
@@ -116,7 +141,7 @@ func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_s
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
 		var gameWinMenu = $MenuCanvas/MarginContainer/GameWinMenu
-		gameWinMenu.SetData(dictionaryData)
+		gameWinMenu.SetData(dictionaryData, GetPlayerStatus())
 		gameWinMenu.visible = true
 
 
