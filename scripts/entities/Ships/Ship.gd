@@ -33,9 +33,9 @@ var InventoryInstance = Inventory.new()
 
 onready var Statuses = Array()
 
+
 #func AssumeStatus(status):
 #	pass
-
 
 func Pickup(item: Pickup):
 	match(item.get_type()):
@@ -75,11 +75,22 @@ func Damage(points: int):
 		emit_signal("health_changed", oldShipHealth, ShipCurrentHealth)
 	return true
 
+func GetInventory():
+	return {
+		"weapons": InventoryInstance.GetAllWeapons(),
+		"items": InventoryInstance.GetAllItems()
+	}
+
+
+func SetInventory(data: Dictionary):
+	InventoryInstance.SetAllWeapons(data.weapons)
+	InventoryInstance.SetAllItems(data.items)
+
 
 func Save():
 	var cwpn = CurrentWeapon
 	_removeWeapon()
-	return {
+	var data = {
 		"position": position,
 		"velocity": linear_velocity,
 		"rotation": rotation,
@@ -87,6 +98,8 @@ func Save():
 		"weapons": InventoryInstance.GetAllWeapons(),
 		"items": InventoryInstance.GetAllItems()
 	}
+	_selectWeapon(cwpn)
+	return data
 
 
 func Load(data: Dictionary):

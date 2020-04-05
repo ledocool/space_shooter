@@ -1,7 +1,8 @@
 extends Node
 
 var campaignLevelOrder: Array = [
-	"res://scenes/levels/c1/c1l1.tscn"
+	"res://scenes/levels/c1/c1l1.tscn",
+	"res://scenes/levels/c1/c1l2.tscn"
 ]
 
 var campaignCurrentLevel = -1
@@ -69,7 +70,15 @@ func LoadLevelByName(name: String, interactive: bool = true):
 
 
 func ReloadLevel():
+	var currentScene = get_tree().get_current_scene()
+	
+	var lastPlayerStatus = null
+	if(currentScene.has_method("GetPlayerStatus")):
+		lastPlayerStatus = currentScene.GetPlayerStatus(true)
 	print_debug(get_tree().reload_current_scene())
+	currentScene = get_tree().get_current_scene()
+	if(lastPlayerStatus && currentScene.has_method("InjectPlayerStartStatus")):
+		currentScene.InjectPlayerStartStatus(lastPlayerStatus)
 
 
 func _init():
@@ -199,7 +208,8 @@ func _swapCurrentScene(scene: Node):
 	var root = $"/root"
 	var oldCurrentScene = get_tree().get_current_scene()
 	
-	if(scene.has_method("InjectPlayerStartStatus")):
+	if(scene.has_method("InjectPlayerStartStatus") && lastLevelData != null):
+# warning-ignore:unsafe_method_access
 		scene.InjectPlayerStartStatus(lastLevelData)
 	lastLevelData = null
 		
