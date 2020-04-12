@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/ai/Turret/Turret.gd" type="Script" id=1]
+[ext_resource path="res://resources/Objects/Ships/turretes_bash.png" type="Texture" id=2]
+[ext_resource path="res://resources/Objects/Ships/turretes.png" type="Texture" id=3]
+[ext_resource path="res://scripts/entities/Ships/TurretTop.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 69, 69 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 13.9487
+height = 81.6875
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 1800.0
+
+[node name="Turret" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Base" type="StaticBody2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Base"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Base"]
+shape = SubResource( 1 )
+
+[node name="Top" type="KinematicBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Top"]
+position = Vector2( 59.029, 0 )
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+position = Vector2( 98.284, 0 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Position2D" type="Position2D" parent="Top"]
+position = Vector2( 160.362, 0 )
+
+[node name="Node2D" type="Node2D" parent="Top"]
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="ShootCooldown" type="Timer" parent="Timers"]
+process_mode = 0
+wait_time = 1.5
+one_shot = true
+
+[node name="ShootBlowupCooldown" type="Timer" parent="Timers"]
+process_mode = 0
+wait_time = 3.0
+[connection signal="damaged" from="Base" to="." method="_on_Base_damaged"]
+[connection signal="damaged" from="Top" to="." method="_on_Top_damaged"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="Timers/ShootCooldown" to="." method="_on_ShootCooldown_timeout"]
+[connection signal="timeout" from="Timers/ShootBlowupCooldown" to="." method="_on_ShootBlowupCooldown_timeout"]

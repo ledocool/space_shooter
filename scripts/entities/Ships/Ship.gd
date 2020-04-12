@@ -198,7 +198,7 @@ func _physics_process(delta):
 
 
 func _onDestruction():
-	emit_signal("exploded", position, 0.15, rotation)
+	emit_signal("exploded", position, 0.15, 0)
 
 
 func _tryShoot():

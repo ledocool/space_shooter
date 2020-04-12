@@ -136,6 +136,9 @@ func get_transition(state_id):
 		print("Cannot get transition, invalid state: ", state_id)
 
 func transition(state_id):
+	if(!current_state):
+		print("Invalid current state")
+		return
 	"""
 	Transition to new state by state id.
 	Callbacks will be called on the from and to states if the states have implemented them.
