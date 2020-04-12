@@ -1939,7 +1939,7 @@ position = Vector2( 7815.4, -1586.41 )
 z_index = 0
 
 [node name="StaticDebree18" parent="Scenery/SecretArea" index="13" instance=ExtResource( 16 )]
-position = Vector2( 6930.31, -2566.56 )
+position = Vector2( 6873.45, -2618.25 )
 z_index = 0
 
 [node name="StaticAsteroid37" parent="Scenery/SecretArea" index="14" instance=ExtResource( 17 )]
@@ -2012,9 +2012,6 @@ rotation = -1.6189e-05
 
 [node name="IngameHint" parent="Scenery/SecretArea" index="28" instance=ExtResource( 52 )]
 position = Vector2( 7632.88, -5197.94 )
-
-[node name="Sprite" parent="Scenery/SecretArea/IngameHint" index="0"]
-frame = 0
 
 [node name="RichTextLabel" parent="Scenery/SecretArea/IngameHint" index="1"]
 margin_bottom = 239.0
@@ -2353,7 +2350,7 @@ position = Vector2( -3961.54, 13961 )
 z_index = -50
 
 [node name="StaticDebree5" parent="Scenery/BelowHarvester" index="1" instance=ExtResource( 16 )]
-position = Vector2( -5668.32, 6040.89 )
+position = Vector2( -5515.96, 6166.05 )
 z_index = 0
 
 [node name="StaticAsteroid22" parent="Scenery/BelowHarvester" index="2" instance=ExtResource( 17 )]

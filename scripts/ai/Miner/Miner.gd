@@ -59,7 +59,7 @@ func IsSeesPlayer():
 
 
 func TrackPlayer(player):	
-	Cursor = AiAPathHelper.Track(player.get_global_position(), player.GetVelocity(), self.get_global_position(), self.GetVelocity())
+	Cursor = player.get_global_position() + AiAPathHelper.Track(player.get_global_position(), player.GetVelocity(), self.get_global_position(), self.GetVelocity())
 
 
 func SetSpriteChill():
