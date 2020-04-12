@@ -56,7 +56,7 @@ func Track():
 		return
 
 	var targetPosition = target.get_global_position()
-	$Top.look_at(targetPosition)
+	($Top as Node2D).look_at(targetPosition)
 
 
 func StartAftershootCooldown():
