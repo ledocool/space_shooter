@@ -2,16 +2,16 @@
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/interface/Static/StaticAsteroid2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/interface/Static/StaticAsteroid3.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/interface/Static/StaticDebree1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/interface/Static/StaticDebree2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/interface/Static/StaticDebree3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/interface/Static/StaticAsteroid1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/SlugPickup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/Gearpak.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Asteroid3.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/interface/Static/level1/LevelExit.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Asteroid1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Asteroid2.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree2.tscn" type="PackedScene" id=15]
@@ -85,16 +85,13 @@ position = Vector2( 9063.01, -2105.9 )
 
 [node name="StaticAsteroid2" parent="Scenery" index="1" instance=ExtResource( 3 )]
 position = Vector2( 4766.78, -6837.83 )
-z_index = 0
 
 [node name="StaticAsteroid3" parent="Scenery" index="2" instance=ExtResource( 4 )]
 position = Vector2( 8392.5, 6444.81 )
 rotation = -0.785397
-z_index = 0
 
 [node name="StaticAsteroid4" parent="Scenery" index="3" instance=ExtResource( 4 )]
 position = Vector2( 433.64, 8395.84 )
-z_index = 0
 
 [node name="StaticDebree" parent="Scenery" index="4" instance=ExtResource( 5 )]
 position = Vector2( 1388.91, 8577.03 )
@@ -115,7 +112,6 @@ z_index = 0
 
 [node name="StaticAsteroid6" parent="Scenery" index="8" instance=ExtResource( 3 )]
 position = Vector2( 7395.24, 7122.05 )
-z_index = 0
 
 [node name="StaticAsteroid7" parent="Scenery" index="9" instance=ExtResource( 8 )]
 position = Vector2( 3962.27, -6914.06 )
@@ -147,12 +143,10 @@ z_index = 0
 [node name="StaticAsteroid11" parent="Scenery" index="15" instance=ExtResource( 3 )]
 position = Vector2( -4051.17, 5155.65 )
 rotation = -0.785397
-z_index = 0
 
 [node name="StaticAsteroid12" parent="Scenery" index="16" instance=ExtResource( 4 )]
 position = Vector2( -4543.92, 2143.37 )
 rotation = -1.83259
-z_index = 0
 
 [node name="StaticDebree5" parent="Scenery" index="17" instance=ExtResource( 5 )]
 position = Vector2( -3288.08, -4581.93 )
