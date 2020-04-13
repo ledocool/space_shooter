@@ -4,10 +4,9 @@ var shockPlate = preload("res://scenes/entities/ConcreteEntities/Bullets/ShockPl
 var enitityCounter = 0
 
 
-func _onTreeExiting():
-	enitityCounter -= 1
-	if(enitityCounter < 1):
-		self.queue_free()
+func SpawnAt(pos: Vector2, angle: float, _add_velocity: Vector2):
+	rotation = angle
+	self.position = pos
 
 
 func spawnChild(position: Vector2):
@@ -16,6 +15,12 @@ func spawnChild(position: Vector2):
 	instance.position = position
 	add_child(instance)
 	enitityCounter += 1
+
+
+func _onTreeExiting():
+	enitityCounter -= 1
+	if(enitityCounter < 1):
+		self.queue_free()
 
 
 func _on_Timer1_timeout():

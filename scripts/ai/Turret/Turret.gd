@@ -1,12 +1,16 @@
 extends Node2D
+class_name Turret
 
 signal health_changed(oldHealth, newHealth)
 signal exploded(position, size, rotation)
+signal shoot_bullet()
 
 const idle = preload("res://scripts/ai/Turret/idle.gd")
 const track = preload("res://scripts/ai/Turret/track.gd")
 const shoot = preload("res://scripts/ai/Turret/shoot.gd")
 const StateMachineFactory = preload("res://scripts/systems/state-machine/state_machine_factory.gd")
+
+const bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/ShockChain.tscn")
 
 export var Health = 3
 export var MaxHelath = 3
@@ -48,6 +52,9 @@ func GetTarget():
 
 func Shoot():
 	($Timers/ShootBlowupCooldown as Timer).start()
+	var rot = $Top.global_rotation
+	var pos = $Top/BulletAnchor.global_position
+	emit_signal("shoot_bullet", bullet, rot, pos, Vector2(0,0))
 
 
 func Track():

@@ -42,7 +42,7 @@ position = Vector2( 98.284, 0 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[node name="Position2D" type="Position2D" parent="Top"]
+[node name="BulletAnchor" type="Position2D" parent="Top"]
 position = Vector2( 160.362, 0 )
 
 [node name="Node2D" type="Node2D" parent="Top"]

@@ -68,6 +68,9 @@ func _ready():
 			shp.connect("exploded", self, "_on_Something_explode")
 			if(!shp is PlayerShip):
 				shp.connect("health_changed", self, "_on_enemyHealth_change")
+		if(shp is Turret):
+			print_debug("Connecting " + shp.get_name())
+			shp.connect("shoot_bullet", self, "_on_Ship_shoot")
 			
 	var Player = $ShipContainer/Player as Ship
 	if(Player):
