@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Bullet",
 "language": "GDScript",
-"path": "res://scripts/entities/Bullet.gd"
+"path": "res://scripts/entities/Projectiles/Bullet.gd"
 }, {
 "base": "Area2D",
 "class": "Collectable",
@@ -72,7 +72,7 @@ _global_script_classes=[ {
 "base": "Bullet",
 "class": "Rocket",
 "language": "GDScript",
-"path": "res://scripts/entities/Rocket.gd"
+"path": "res://scripts/entities/Projectiles/Rocket.gd"
 }, {
 "base": "Node",
 "class": "SaveManager",

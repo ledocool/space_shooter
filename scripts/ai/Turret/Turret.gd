@@ -47,7 +47,7 @@ func GetTarget():
 
 
 func Shoot():
-	pass
+	($Timers/ShootBlowupCooldown as Timer).start()
 
 
 func Track():
@@ -105,7 +105,6 @@ func _on_Area2D_body_exited(body):
 
 
 func _on_ShootCooldown_timeout():
-	pass
 	if(aiState.get_current_state() == "track"):
 		aiState.transition("shoot")
 

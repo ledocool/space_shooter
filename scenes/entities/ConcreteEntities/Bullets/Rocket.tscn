@@ -2,7 +2,8 @@
 
 [ext_resource path="res://resources/Objects/Projectiles/rocket.png" type="Texture" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/entities/Rocket.gd" type="Script" id=3]
+[ext_resource path="res://scripts/entities/Projectiles/Rocket.gd" type="Script" id=3]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.42996
