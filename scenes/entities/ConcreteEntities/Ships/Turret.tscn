@@ -94,12 +94,12 @@ shape = SubResource( 3 )
 
 [node name="ShootCooldown" type="Timer" parent="Timers"]
 process_mode = 0
-wait_time = 1.5
+wait_time = 0.8
 one_shot = true
 
 [node name="ShootBlowupCooldown" type="Timer" parent="Timers"]
 process_mode = 0
-wait_time = 3.0
+wait_time = 1.2
 [connection signal="damaged" from="Base" to="." method="_on_Base_damaged"]
 [connection signal="damaged" from="Top" to="." method="_on_Top_damaged"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

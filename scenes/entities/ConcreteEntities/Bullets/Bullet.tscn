@@ -26,7 +26,6 @@ position = Vector2( -6.99248, 0 )
 [node name="Timers" type="Node" parent="."]
 
 [node name="Lifespan" type="Timer" parent="Timers"]
-process_mode = 0
 wait_time = 0.7
 one_shot = true
 autostart = true

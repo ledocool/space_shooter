@@ -17,7 +17,6 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree2.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree3.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Turret.tscn" type="PackedScene" id=17]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/RocketeerPickup.tscn" type="PackedScene" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -36,12 +35,8 @@ RightCameraBorder = 1000000
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -2518.12, -2542.48 )
 
-[node name="Miner" parent="ShipContainer" index="1" instance=ExtResource( 17 )]
-position = Vector2( -2055.36, -2425.96 )
-TurnedOn = false
-
-[node name="Turret" parent="ShipContainer" index="1" instance=ExtResource( 17 )]
-position = Vector2( -2187.17, -907.468 )
+[node name="Turret2" parent="ShipContainer" index="1" instance=ExtResource( 17 )]
+position = Vector2( -2916.65, -1502.5 )
 
 [node name="Asteroid" parent="AsteroidContainer" index="0" instance=ExtResource( 13 )]
 position = Vector2( -2061.11, -2629.31 )
