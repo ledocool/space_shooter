@@ -11,7 +11,7 @@ var hue = 0
 var hurtful = false
 
 func _ready():
-	var waitTime = $Timers/BecomeHurtfulTimer.wait_time
+	var waitTime = ($Timers/BecomeHurtfulTimer as Timer).wait_time
 	hue = modulateColor.h
 	sStep = (modulateColor.s - 0) / waitTime
 	vStep = (modulateColor.v - 1) / waitTime
@@ -27,10 +27,12 @@ func _physics_process(delta):
 		modulateColor.h = hue
 		modulateColor.s += sStep * delta
 		modulateColor.v += vStep * delta 
+# warning-ignore:unsafe_property_access
 		$Sprite.modulate = modulateColor
 
 
 func _on_BecomeHurtfulTimer_timeout():
+# warning-ignore:unsafe_property_access
 	$AnimatedSprite.visible = true
 	($Timers/StayHurtfulTimer as Timer) .start()
 	hurtful = true

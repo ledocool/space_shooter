@@ -8,34 +8,57 @@ signal shoot_bullet()
 const idle = preload("res://scripts/ai/Turret/idle.gd")
 const track = preload("res://scripts/ai/Turret/track.gd")
 const shoot = preload("res://scripts/ai/Turret/shoot.gd")
+const dead = preload("res://scripts/ai/Turret/dead.gd")
 const StateMachineFactory = preload("res://scripts/systems/state-machine/state_machine_factory.gd")
 
 const bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/ShockChain.tscn")
 
-export var Health = 3
-export var MaxHelath = 3
+export var Health = 8
 
 var shotTimeout = 3
 var LockedTarget = null
 var aiState
+var startState = "idle"
 
 
 func Damage(dmg):
 	var oldHealth = Health
+	if(aiState.get_current_state() == 'dead'):
+		return
+		
 	Health -= dmg
 	if Health <= 0:
 		Health = 0
-		emit_signal("exploded", self.position, 0.15, 0)
+		for pos in $Top/Explosions.get_children():
+			emit_signal("exploded", self.position, 0.015, 0)
+	else:
+		$Top/Sprite.frame += 1
 	
 	emit_signal("health_changed", oldHealth, Health)
 
 
 func Save():
-	pass
+	return {
+		"position": position,
+		"rotation": rotation,
+		"top_rotation": ($Top as Node2D).rotation,
+		"state": aiState.get_current_state(),
+	}
 
 
 func Load(data: Dictionary):
 	pass
+
+
+func GetCoordinates():
+	return position
+
+func GetRotation():
+	return rotation
+
+
+func GetVelocity(): 
+	return Vector2.ZERO
 
 
 func GetTarget():
@@ -48,6 +71,11 @@ func GetTarget():
 	else:
 		LockedTarget = null
 		return null
+
+
+func StopCooldowns():
+	($Timers/ShootBlowupCooldown as Timer).stop()
+	($Timers/ShootCooldown as Timer).stop()
 
 
 func Shoot():

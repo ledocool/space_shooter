@@ -37,7 +37,7 @@ func _onTreeExiting():
 
 func _on_Timer1_timeout():
 	if(enitityCounter >= entityMax):
-		$Timers/Timer1.stop()
+		($Timers/Timer1 as Timer).stop()
 		return
 	
 	var posName = "Position2D" + String(enitityCounter)
