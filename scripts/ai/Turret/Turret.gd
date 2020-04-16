@@ -29,9 +29,11 @@ func Damage(dmg):
 	Health -= dmg
 	if Health <= 0:
 		Health = 0
+		aiState.transition("dead")
 		for pos in $Top/Explosions.get_children():
-			emit_signal("exploded", self.position, 0.015, 0)
+			emit_signal("exploded", pos.get_global_position(), 0.05, 0)
 	else:
+# warning-ignore:unsafe_property_access
 		$Top/Sprite.frame += 1
 	
 	emit_signal("health_changed", oldHealth, Health)
@@ -111,12 +113,13 @@ func _ready():
 		'states': [
 			{'id': 'idle', 'state': idle},
 			{'id': 'shoot', 'state': shoot},
-			{'id': 'track', 'state': track}
+			{'id': 'track', 'state': track},
+			{'id': 'dead', 'state': dead}
 		],
 		'transitions': [
-			{'state_id': 'idle', 'to_states': ['track']},
-			{'state_id': 'track', 'to_states': ['idle', 'shoot']},
-			{'state_id': 'shoot', 'to_states': ['track', 'idle']}
+			{'state_id': 'idle', 'to_states': ['track','dead']},
+			{'state_id': 'track', 'to_states': ['idle', 'shoot', 'dead']},
+			{'state_id': 'shoot', 'to_states': ['track', 'idle', 'dead']}
 		]
 	})
 

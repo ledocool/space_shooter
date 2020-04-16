@@ -1,5 +1,7 @@
 extends Node2D
 
+signal exploded(position, size, rotation)
+
 var shockPlate = preload("res://scenes/entities/ConcreteEntities/Bullets/ShockPlate.tscn")
 var enitityCounter = 0
 
