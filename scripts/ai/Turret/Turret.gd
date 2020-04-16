@@ -49,7 +49,11 @@ func Save():
 
 
 func Load(data: Dictionary):
-	pass
+	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
+	position = Vector2(pos[0], pos[1])
+	rotation = data.rotation
+	($Top as Node2D).rotation = data.top_rotation
+	startState = data.state
 
 
 func GetCoordinates():
@@ -109,7 +113,7 @@ func StartShootCooldown():
 func _ready():
 	aiState = StateMachineFactory.create({
 		'target': self,
-		'current_state': "idle",
+		'current_state': startState,
 		'states': [
 			{'id': 'idle', 'state': idle},
 			{'id': 'shoot', 'state': shoot},
