@@ -6,18 +6,15 @@ class_name AiAPathHelper
 # var b = "text"
 
 
-static func Track(targetPos: Vector2, targetVel: Vector2, selfPos: Vector2, selfVel: Vector2) -> Vector2:
-	var pp = targetPos
+static func Track(targetPos: Vector2, targetVel: Vector2, selfPos: Vector2, selfVel: Vector2, soft: bool = false) -> Vector2:
 	var relativeSpeed = targetVel + selfVel
-	var fromThisToplayer = pp - selfPos
+	var fromThisToTarget = targetPos - selfPos
 	
-	var Difference = fromThisToplayer - relativeSpeed
-	var angle = fromThisToplayer.angle_to(Difference)
+	if(!soft && fromThisToTarget.length_squared() < relativeSpeed.length_squared()):
+		fromThisToTarget = Vector2(relativeSpeed.length() * 2, 0).rotated(fromThisToTarget.angle())
 	
-	if(abs(angle) > 0.1745329 && abs(angle) < 1.396263): #0.1745329 = 10 degrees; 1.396263 = 80 degrees; 2.792527 = 160 deg
-		return selfPos + Difference
-	else:
-		return pp;
+	var Difference = fromThisToTarget - relativeSpeed	
+	return Difference
 
 static func TargetVisible(observerPos: Vector2, targetPos: Vector2, world: World2D):
 	var space_state = Physics2DServer.space_get_direct_state(world.space)

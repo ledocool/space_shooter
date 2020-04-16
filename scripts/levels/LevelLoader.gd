@@ -75,9 +75,11 @@ func ReloadLevel():
 	var lastPlayerStatus = null
 	if(currentScene.has_method("GetPlayerStatus")):
 		lastPlayerStatus = currentScene.GetPlayerStatus(true)
+		
 	print_debug(get_tree().reload_current_scene())
 	currentScene = get_tree().get_current_scene()
-	if(lastPlayerStatus && currentScene.has_method("InjectPlayerStartStatus")):
+	
+	if(lastPlayerStatus && lastPlayerStatus is Dictionary && currentScene.has_method("InjectPlayerStartStatus")):
 		currentScene.InjectPlayerStartStatus(lastPlayerStatus)
 
 
@@ -208,7 +210,7 @@ func _swapCurrentScene(scene: Node):
 	var root = $"/root"
 	var oldCurrentScene = get_tree().get_current_scene()
 	
-	if(scene.has_method("InjectPlayerStartStatus") && lastLevelData != null):
+	if(scene.has_method("InjectPlayerStartStatus") && lastLevelData is Dictionary):
 # warning-ignore:unsafe_method_access
 		scene.InjectPlayerStartStatus(lastLevelData)
 	lastLevelData = null
