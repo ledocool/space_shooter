@@ -24,7 +24,7 @@ func Load(data: Dictionary):
 	($Timers/Lifespan as Timer).set_wait_time(data.lifetime)
 
 func Destroy():
-	emit_signal("exploded", self.position, 0.06, rotation)
+	emit_signal("exploded", self.position, 0.06, 0)
 	queue_free()
 
 

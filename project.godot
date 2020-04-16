@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Bullet",
 "language": "GDScript",
-"path": "res://scripts/entities/Bullet.gd"
+"path": "res://scripts/entities/Projectiles/Bullet.gd"
 }, {
 "base": "Area2D",
 "class": "Collectable",
@@ -72,7 +72,7 @@ _global_script_classes=[ {
 "base": "Bullet",
 "class": "Rocket",
 "language": "GDScript",
-"path": "res://scripts/entities/Rocket.gd"
+"path": "res://scripts/entities/Projectiles/Rocket.gd"
 }, {
 "base": "Node",
 "class": "SaveManager",
@@ -103,6 +103,11 @@ _global_script_classes=[ {
 "class": "StatusMap",
 "language": "GDScript",
 "path": "res://scripts/systems/status/StatusMap.gd"
+}, {
+"base": "Node2D",
+"class": "Turret",
+"language": "GDScript",
+"path": "res://scripts/ai/Turret/Turret.gd"
 }, {
 "base": "Node2D",
 "class": "UI",
@@ -139,6 +144,7 @@ _global_script_class_icons={
 "StateMachine": "",
 "StateMachineFactory": "",
 "StatusMap": "",
+"Turret": "",
 "UI": "",
 "WirePiece": "",
 "Wirerer": ""
