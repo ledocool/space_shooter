@@ -19,6 +19,7 @@ animations = [ {
 extents = Vector2( 150, 100 )
 
 [node name="ShockPlate" type="Node2D"]
+scale = Vector2( 0.3, 0.3 )
 script = ExtResource( 6 )
 modulateColor = Color( 0.631373, 0.2, 0.6, 1 )
 
@@ -32,7 +33,7 @@ texture = ExtResource( 5 )
 visible = false
 rotation = 1.5708
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="HurtZone" type="Area2D" parent="."]
