@@ -84,6 +84,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/entities/Ships/Ship.gd"
 }, {
+"base": "Node2D",
+"class": "ShockPlate",
+"language": "GDScript",
+"path": "res://scripts/entities/Projectiles/ShockPlate.gd"
+}, {
 "base": "Reference",
 "class": "State",
 "language": "GDScript",
@@ -140,6 +145,7 @@ _global_script_class_icons={
 "Rocket": "",
 "SaveManager": "",
 "Ship": "",
+"ShockPlate": "",
 "State": "",
 "StateMachine": "",
 "StateMachineFactory": "",

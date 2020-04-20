@@ -1,4 +1,5 @@
 extends Node2D
+class_name ShockPlate
 
 export var Dps = 1
 
@@ -10,13 +11,53 @@ var vStep = 0
 var hue = 0
 var hurtful = false
 
-func _ready():
+
+func Save():
+	return {
+		"hurtful": hurtful,
+		"h": hue,
+		"v": modulateColor.v,
+		"s": modulateColor.s,
+		"a": modulateColor.a,
+		"s_step": sStep,
+		"v_step": vStep,
+		"timeleft_become_hurtful": ($Timers/BecomeHurtfulTimer as Timer).time_left,
+		"timeleft_hurtful": ($Timers/StayHurtfulTimer as Timer).time_left
+	}
+
+
+func Load(data: Dictionary):
+	hurtful = data.hurtful
+	sStep = data.s_step
+	vStep = data.v_step
+	modulateColor = Color.from_hsv(data.h, data.s, data.v, data.a)
+	if(hurtful):
+		($Timers/StayHurtfulTimer as Timer).set_wait_time(data.timeleft_hurtful)
+	else:
+		($Timers/BecomeHurtfulTimer as Timer).set_wait_time(data.timeleft_become_hurtful)
+
+
+func _ready():	
+	if(hurtful):
+# warning-ignore:unsafe_property_access
+		$Sprite.modulate = modulateColor
+		($Timers/StayHurtfulTimer as Timer).start()
+		($Timers/BecomeHurtfulTimer as Timer).stop()
+# warning-ignore:unsafe_property_access
+# warning-ignore:standalone_expression
+# warning-ignore:unsafe_property_access
+		$AnimatedSprite.visible = true
+	else:
+		($Timers/BecomeHurtfulTimer as Timer).start()
+		
 	var waitTime = ($Timers/BecomeHurtfulTimer as Timer).wait_time
 	hue = modulateColor.h
-	sStep = (modulateColor.s - 0) / waitTime
-	vStep = (modulateColor.v - 1) / waitTime
-	modulateColor.s = 0
-	modulateColor.v = 1
+	if(abs(sStep) > 1e-5):
+		sStep = (modulateColor.s - 0) / waitTime
+		modulateColor.s = 0
+	if(abs(vStep) > 1e-5):
+		vStep = (modulateColor.v - 1) / waitTime
+		modulateColor.v = 1
 
 
 func _physics_process(delta):
@@ -34,7 +75,7 @@ func _physics_process(delta):
 func _on_BecomeHurtfulTimer_timeout():
 # warning-ignore:unsafe_property_access
 	$AnimatedSprite.visible = true
-	($Timers/StayHurtfulTimer as Timer) .start()
+	($Timers/StayHurtfulTimer as Timer).start()
 	hurtful = true
 
 

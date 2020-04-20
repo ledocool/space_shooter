@@ -22,7 +22,6 @@ radius = 41.2605
 
 [node name="Ship" type="RigidBody2D"]
 mode = 2
-mass = 10.0
 contacts_reported = 10
 contact_monitor = true
 linear_damp = 0.0
