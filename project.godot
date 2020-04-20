@@ -115,6 +115,11 @@ _global_script_classes=[ {
 "path": "res://scripts/ai/Turret/Turret.gd"
 }, {
 "base": "Node2D",
+"class": "TurretPart",
+"language": "GDScript",
+"path": "res://scripts/entities/Ships/TurretTop.gd"
+}, {
+"base": "Node2D",
 "class": "UI",
 "language": "GDScript",
 "path": "res://scripts/ui/UI.gd"
@@ -151,6 +156,7 @@ _global_script_class_icons={
 "StateMachineFactory": "",
 "StatusMap": "",
 "Turret": "",
+"TurretPart": "",
 "UI": "",
 "WirePiece": "",
 "Wirerer": ""

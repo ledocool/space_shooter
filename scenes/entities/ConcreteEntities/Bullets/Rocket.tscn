@@ -2,7 +2,7 @@
 
 [ext_resource path="res://resources/Objects/Projectiles/rocket.png" type="Texture" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scripts/entities/Rocket.gd" type="Script" id=3]
+[ext_resource path="res://scripts/entities/Projectiles/Rocket.gd" type="Script" id=3]
 [ext_resource path="res://resources/Effects/EngineParticles.tres" type="Material" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -51,6 +51,8 @@ autostart = true
 [node name="LockOnArea" type="Area2D" parent="." index="4"]
 visible = false
 monitorable = false
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LockOnArea" index="0"]
 shape = SubResource( 2 )

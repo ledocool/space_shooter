@@ -85,7 +85,7 @@ func _on_LockOnArea_body_exited(body):
 
 
 func _on_LockOnArea_body_entered(body):
-	if(!GetTarget() && body is Ship && !body is PlayerShip):
+	if(GetTarget() == null && (body is Ship && !body is PlayerShip || body is TurretPart)):
 		LockedTarget = weakref(body)
 		call_deferred("_switchToRadial")
 
@@ -95,7 +95,7 @@ func _ceilSpeed():
 
 
 func _on_ShootLockOnArea_body_entered(body):
-	if(body is Ship && !body is PlayerShip):
+	if(body is Ship && !body is PlayerShip || body is TurretPart):
 		LockedTarget = weakref(body)
 		call_deferred("_switchToRadial")
 
