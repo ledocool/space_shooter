@@ -6,7 +6,6 @@
 
 [node name="PlayerShip" instance=ExtResource( 1 )]
 collision_layer = 3
-mass = 1.0
 script = ExtResource( 2 )
 ShipSpeed = 600
 
@@ -17,3 +16,6 @@ visible = false
 rotation = 1.5708
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 3 )
+
+[node name="Turbulence" parent="." index="5"]
+visible = false
