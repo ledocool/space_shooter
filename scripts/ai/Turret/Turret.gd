@@ -86,7 +86,9 @@ func StopCooldowns():
 
 func Shoot():
 	($Timers/ShootBlowupCooldown as Timer).start()
+# warning-ignore:unsafe_property_access
 	var rot = $Top.global_rotation
+# warning-ignore:unsafe_property_access
 	var pos = $Top/BulletAnchor.global_position
 	emit_signal("shoot_bullet", bullet, rot, pos, Vector2(0,0))
 

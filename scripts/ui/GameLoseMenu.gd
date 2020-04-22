@@ -8,9 +8,9 @@ func _on_Retry_pressed():
 func _on_Exit_pressed():
 	($"/root/LevelLoader" as LevelLoader).LoadLevelByName("res://scenes/interface/MainMenu.tscn")
 
-func SetData(data: Dictionary, playerData: Dictionary):
+func SetData(data: Dictionary, plData: Dictionary):
 	var stats = self.find_node("Statistics")
-	self.playerData = playerData
+	playerData = plData
 	for stat in stats.get_children():
 		var name = stat.get_name()
 		var value = data.get(name, "")

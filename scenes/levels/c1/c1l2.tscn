@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -8,6 +8,41 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid2.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Struts/Strut2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building7.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building6.tscn" type="PackedScene" id=11]
+[ext_resource path="res://resources/Effects/fog_whirls.png" type="Texture" id=12]
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+
+uniform vec2 center = vec2(19, 10);
+uniform float fadeAwayStrength = 10;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	
+	float sqrt2 = 1.4142135;
+	float 	screenX = SCREEN_UV.x - 0.5, 
+			screenY = SCREEN_UV.y - 0.5;
+		
+	float alpha = screenX * screenX / sqrt2 + screenY * screenY / sqrt2;
+	float alpha2 = 1.0 - length(UV - center) / fadeAwayStrength;
+	alpha2 = max(0.0, alpha2);
+	
+	alpha = min(alpha, color.a);
+	alpha = min(alpha, alpha2);
+	
+	color.a = alpha;
+	
+	COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 7 )
+shader_param/center = Vector2( 17, 15 )
+shader_param/fadeAwayStrength = 15.0
 
 [node name="Level" instance=ExtResource( 1 )]
 
@@ -19,178 +54,272 @@ position = Vector2( -3666.57, -22.1768 )
 
 [node name="StartingRoom" type="Node2D" parent="Scenery" index="0"]
 
-[node name="LevelExit" parent="Scenery/StartingRoom" index="0" instance=ExtResource( 2 )]
+[node name="Centerstroids" type="Node2D" parent="Scenery/StartingRoom" index="0"]
+
+[node name="LevelExit" parent="Scenery/StartingRoom" index="1" instance=ExtResource( 2 )]
 position = Vector2( -7499.19, 21.7056 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 
-[node name="StaticAsteroid3" parent="Scenery/StartingRoom" index="1" instance=ExtResource( 3 )]
+[node name="StaticAsteroid3" parent="Scenery/StartingRoom" index="2" instance=ExtResource( 3 )]
 position = Vector2( -2029.87, 835.678 )
 rotation = 0.261799
 scale = Vector2( 0.437413, 0.437413 )
 
-[node name="StaticAsteroid4" parent="Scenery/StartingRoom" index="2" instance=ExtResource( 3 )]
+[node name="StaticAsteroid4" parent="Scenery/StartingRoom" index="3" instance=ExtResource( 3 )]
 position = Vector2( -3593.73, 1617.75 )
 rotation = 0.523598
 
-[node name="StaticDebree" parent="Scenery/StartingRoom" index="3" instance=ExtResource( 4 )]
+[node name="StaticDebree" parent="Scenery/StartingRoom" index="4" instance=ExtResource( 4 )]
 position = Vector2( -4207.14, 2489.8 )
 
-[node name="StaticDebree2" parent="Scenery/StartingRoom" index="4" instance=ExtResource( 5 )]
+[node name="StaticDebree2" parent="Scenery/StartingRoom" index="5" instance=ExtResource( 5 )]
 position = Vector2( -3773.92, 684.18 )
 rotation = -2.09439
 
-[node name="StaticDebree16" parent="Scenery/StartingRoom" index="5" instance=ExtResource( 5 )]
+[node name="StaticDebree16" parent="Scenery/StartingRoom" index="6" instance=ExtResource( 5 )]
 position = Vector2( -3941.41, -897.686 )
 rotation = -1.0472
 scale = Vector2( -1.8489, 1.8489 )
 
-[node name="StaticAsteroid1" parent="Scenery/StartingRoom" index="6" instance=ExtResource( 6 )]
+[node name="StaticAsteroid1" parent="Scenery/StartingRoom" index="7" instance=ExtResource( 6 )]
 position = Vector2( -3332.24, 2800.95 )
 rotation = 2.87979
 
-[node name="StaticAsteroid5" parent="Scenery/StartingRoom" index="7" instance=ExtResource( 3 )]
+[node name="StaticAsteroid5" parent="Scenery/StartingRoom" index="8" instance=ExtResource( 3 )]
 position = Vector2( -2739.82, 3555.15 )
 
-[node name="StaticAsteroid2" parent="Scenery/StartingRoom" index="8" instance=ExtResource( 7 )]
+[node name="StaticAsteroid2" parent="Scenery/StartingRoom" index="9" instance=ExtResource( 7 )]
 position = Vector2( -3132.72, 4204.67 )
 rotation = 1.309
 scale = Vector2( 0.500391, 0.52614 )
 
-[node name="StaticAsteroid6" parent="Scenery/StartingRoom" index="9" instance=ExtResource( 6 )]
+[node name="StaticAsteroid6" parent="Scenery/StartingRoom" index="10" instance=ExtResource( 6 )]
 position = Vector2( -4169.48, 4744.36 )
 rotation = -2.65789
 scale = Vector2( 1.47063, 1.47063 )
 
-[node name="StaticAsteroid7" parent="Scenery/StartingRoom" index="10" instance=ExtResource( 7 )]
+[node name="StaticAsteroid7" parent="Scenery/StartingRoom" index="11" instance=ExtResource( 7 )]
 position = Vector2( -3170.39, -1911.55 )
 
-[node name="StaticDebree3" parent="Scenery/StartingRoom" index="11" instance=ExtResource( 4 )]
+[node name="StaticDebree3" parent="Scenery/StartingRoom" index="12" instance=ExtResource( 4 )]
 position = Vector2( -3523.61, -2507.75 )
 
-[node name="StaticAsteroid" parent="Scenery/StartingRoom" index="12" instance=ExtResource( 8 )]
-position = Vector2( -2989.04, -3383.05 )
+[node name="StaticAsteroid" parent="Scenery/StartingRoom" index="13" instance=ExtResource( 8 )]
+position = Vector2( -2890.75, -3432.2 )
+scale = Vector2( 0.911983, 1.37449 )
 
-[node name="StaticAsteroid29" parent="Scenery/StartingRoom" index="13" instance=ExtResource( 6 )]
+[node name="StaticAsteroid29" parent="Scenery/StartingRoom" index="14" instance=ExtResource( 6 )]
 position = Vector2( -344.402, 8378.66 )
 
-[node name="StaticAsteroid30" parent="Scenery/StartingRoom" index="14" instance=ExtResource( 3 )]
+[node name="StaticAsteroid30" parent="Scenery/StartingRoom" index="15" instance=ExtResource( 3 )]
 position = Vector2( -1174.87, 7979.66 )
 rotation = 0.523598
 scale = Vector2( 0.554701, 0.554701 )
 
-[node name="StaticDebree15" parent="Scenery/StartingRoom" index="15" instance=ExtResource( 4 )]
+[node name="StaticDebree15" parent="Scenery/StartingRoom" index="16" instance=ExtResource( 4 )]
 position = Vector2( 273.708, 7514.03 )
 
-[node name="StaticDebree4" parent="Scenery/StartingRoom" index="16" instance=ExtResource( 5 )]
+[node name="StaticDebree4" parent="Scenery/StartingRoom" index="17" instance=ExtResource( 5 )]
 position = Vector2( -2031.81, -4187.8 )
 
-[node name="StaticAsteroid8" parent="Scenery/StartingRoom" index="17" instance=ExtResource( 8 )]
+[node name="StaticAsteroid8" parent="Scenery/StartingRoom" index="18" instance=ExtResource( 8 )]
 position = Vector2( -1200.74, -4329.94 )
 
-[node name="StaticDebree5" parent="Scenery/StartingRoom" index="18" instance=ExtResource( 5 )]
+[node name="StaticDebree5" parent="Scenery/StartingRoom" index="19" instance=ExtResource( 5 )]
 position = Vector2( -4433.99, 7547.23 )
 rotation = -0.785397
 scale = Vector2( -1, 1 )
 
-[node name="StaticAsteroid9" parent="Scenery/StartingRoom" index="19" instance=ExtResource( 8 )]
+[node name="StaticAsteroid9" parent="Scenery/StartingRoom" index="20" instance=ExtResource( 8 )]
 position = Vector2( -4414.03, 5988.29 )
 rotation = -0.785397
 
-[node name="StaticDebree6" parent="Scenery/StartingRoom" index="20" instance=ExtResource( 5 )]
+[node name="StaticDebree6" parent="Scenery/StartingRoom" index="21" instance=ExtResource( 5 )]
 position = Vector2( -4912.25, 6715.86 )
 rotation = 2.87979
 
-[node name="StaticAsteroid10" parent="Scenery/StartingRoom" index="21" instance=ExtResource( 3 )]
+[node name="StaticAsteroid10" parent="Scenery/StartingRoom" index="22" instance=ExtResource( 3 )]
 position = Vector2( -3016.72, 8301.2 )
 rotation = 0.785397
 
-[node name="StaticAsteroid11" parent="Scenery/StartingRoom" index="22" instance=ExtResource( 3 )]
+[node name="StaticAsteroid11" parent="Scenery/StartingRoom" index="23" instance=ExtResource( 3 )]
 position = Vector2( -261.363, -4995.08 )
 
-[node name="StaticDebree7" parent="Scenery/StartingRoom" index="23" instance=ExtResource( 4 )]
+[node name="StaticDebree7" parent="Scenery/StartingRoom" index="24" instance=ExtResource( 4 )]
 position = Vector2( 697.374, -4557.32 )
 
-[node name="StaticDebree8" parent="Scenery/StartingRoom" index="24" instance=ExtResource( 5 )]
+[node name="StaticDebree8" parent="Scenery/StartingRoom" index="25" instance=ExtResource( 5 )]
 position = Vector2( 1607.07, -4580.65 )
 
-[node name="StaticDebree9" parent="Scenery/StartingRoom" index="25" instance=ExtResource( 4 )]
+[node name="StaticDebree9" parent="Scenery/StartingRoom" index="26" instance=ExtResource( 4 )]
 position = Vector2( 10734.6, -4464.72 )
 rotation = 1.83259
 
-[node name="StaticDebree10" parent="Scenery/StartingRoom" index="26" instance=ExtResource( 5 )]
+[node name="StaticDebree10" parent="Scenery/StartingRoom" index="27" instance=ExtResource( 5 )]
 position = Vector2( 10050, -4289.99 )
 rotation = 1.57079
 
-[node name="StaticAsteroid12" parent="Scenery/StartingRoom" index="27" instance=ExtResource( 8 )]
+[node name="StaticAsteroid12" parent="Scenery/StartingRoom" index="28" instance=ExtResource( 8 )]
 position = Vector2( -1019.32, 7734.65 )
 rotation = 0.977008
 
-[node name="StaticAsteroid13" parent="Scenery/StartingRoom" index="28" instance=ExtResource( 3 )]
+[node name="StaticAsteroid13" parent="Scenery/StartingRoom" index="29" instance=ExtResource( 3 )]
 position = Vector2( 12285.6, -2651.38 )
 
-[node name="StaticAsteroid28" parent="Scenery/StartingRoom" index="29" instance=ExtResource( 7 )]
+[node name="StaticAsteroid28" parent="Scenery/StartingRoom" index="30" instance=ExtResource( 7 )]
 position = Vector2( 11529, -3926.77 )
 rotation = -2.35619
 
-[node name="StaticAsteroid14" parent="Scenery/StartingRoom" index="30" instance=ExtResource( 7 )]
+[node name="StaticAsteroid14" parent="Scenery/StartingRoom" index="31" instance=ExtResource( 7 )]
 position = Vector2( 9242.57, -4439.7 )
 rotation = 1.83259
 
-[node name="StaticAsteroid15" parent="Scenery/StartingRoom" index="31" instance=ExtResource( 6 )]
+[node name="StaticAsteroid15" parent="Scenery/StartingRoom" index="32" instance=ExtResource( 6 )]
 position = Vector2( -1861.07, 8375.07 )
 rotation = -0.649072
 
-[node name="StaticAsteroid16" parent="Scenery/StartingRoom" index="32" instance=ExtResource( 3 )]
+[node name="StaticAsteroid16" parent="Scenery/StartingRoom" index="33" instance=ExtResource( 3 )]
 position = Vector2( 10718, 4896.49 )
 rotation = 0.537705
 scale = Vector2( 0.530805, 0.530805 )
 
-[node name="StaticAsteroid17" parent="Scenery/StartingRoom" index="33" instance=ExtResource( 8 )]
+[node name="StaticAsteroid17" parent="Scenery/StartingRoom" index="34" instance=ExtResource( 8 )]
 position = Vector2( -3889.04, 8299.46 )
 rotation = 1.309
 
-[node name="StaticAsteroid18" parent="Scenery/StartingRoom" index="34" instance=ExtResource( 8 )]
+[node name="StaticAsteroid18" parent="Scenery/StartingRoom" index="35" instance=ExtResource( 8 )]
 position = Vector2( 9789.78, 6204.19 )
 
-[node name="StaticAsteroid19" parent="Scenery/StartingRoom" index="35" instance=ExtResource( 8 )]
+[node name="StaticAsteroid19" parent="Scenery/StartingRoom" index="36" instance=ExtResource( 8 )]
 position = Vector2( 10295.4, 6266.59 )
 
-[node name="StaticDebree13" parent="Scenery/StartingRoom" index="36" instance=ExtResource( 5 )]
+[node name="StaticDebree13" parent="Scenery/StartingRoom" index="37" instance=ExtResource( 5 )]
 position = Vector2( 10651, 5547.92 )
 
-[node name="StaticAsteroid20" parent="Scenery/StartingRoom" index="37" instance=ExtResource( 6 )]
+[node name="StaticAsteroid20" parent="Scenery/StartingRoom" index="38" instance=ExtResource( 6 )]
 position = Vector2( 11716.4, 2554.23 )
 rotation = 0.785397
 
-[node name="StaticAsteroid21" parent="Scenery/StartingRoom" index="38" instance=ExtResource( 7 )]
+[node name="StaticAsteroid21" parent="Scenery/StartingRoom" index="39" instance=ExtResource( 7 )]
 position = Vector2( 11202.6, 3879.51 )
 rotation = -0.642046
 scale = Vector2( 1.96229, 1.96229 )
 
-[node name="StaticAsteroid22" parent="Scenery/StartingRoom" index="39" instance=ExtResource( 3 )]
+[node name="StaticAsteroid22" parent="Scenery/StartingRoom" index="40" instance=ExtResource( 3 )]
 position = Vector2( 12558.5, 2167.78 )
 rotation = -1.83259
 
-[node name="StaticAsteroid23" parent="Scenery/StartingRoom" index="40" instance=ExtResource( 7 )]
+[node name="StaticAsteroid23" parent="Scenery/StartingRoom" index="41" instance=ExtResource( 7 )]
 position = Vector2( 12528.1, 123.232 )
 
-[node name="StaticAsteroid24" parent="Scenery/StartingRoom" index="41" instance=ExtResource( 6 )]
+[node name="StaticAsteroid24" parent="Scenery/StartingRoom" index="42" instance=ExtResource( 6 )]
 position = Vector2( 11649.9, 1402.67 )
 
-[node name="StaticAsteroid25" parent="Scenery/StartingRoom" index="42" instance=ExtResource( 7 )]
+[node name="StaticAsteroid25" parent="Scenery/StartingRoom" index="43" instance=ExtResource( 7 )]
 position = Vector2( 11799.3, 529.012 )
 rotation = -2.35619
 
-[node name="StaticAsteroid26" parent="Scenery/StartingRoom" index="43" instance=ExtResource( 3 )]
+[node name="StaticAsteroid26" parent="Scenery/StartingRoom" index="44" instance=ExtResource( 3 )]
 position = Vector2( 12247.5, -896.375 )
 rotation = 0.523598
 
-[node name="StaticDebree14" parent="Scenery/StartingRoom" index="44" instance=ExtResource( 4 )]
+[node name="StaticDebree14" parent="Scenery/StartingRoom" index="45" instance=ExtResource( 4 )]
 position = Vector2( 12364.5, -1740.79 )
 rotation = 1.309
 
-[node name="StaticAsteroid27" parent="Scenery/StartingRoom" index="45" instance=ExtResource( 3 )]
+[node name="StaticAsteroid27" parent="Scenery/StartingRoom" index="46" instance=ExtResource( 3 )]
 position = Vector2( 11734.9, -3211.14 )
 rotation = 2.66375
 scale = Vector2( 0.607452, 0.607452 )
+
+[node name="Building7" parent="Scenery/StartingRoom" index="47" instance=ExtResource( 10 )]
+position = Vector2( 6232, 6933.17 )
+scale = Vector2( 0.695561, 0.695561 )
+
+[node name="Building6" parent="Scenery/StartingRoom" index="48" instance=ExtResource( 11 )]
+position = Vector2( 9021.09, 6887.7 )
+scale = Vector2( 0.626371, 0.626371 )
+
+[node name="StaticAsteroid31" parent="Scenery/StartingRoom" index="49" instance=ExtResource( 6 )]
+position = Vector2( 5036.73, 6847.02 )
+rotation = 1.83259
+
+[node name="StaticAsteroid32" parent="Scenery/StartingRoom" index="50" instance=ExtResource( 7 )]
+position = Vector2( 1175.4, 6974.67 )
+rotation = -1.83259
+
+[node name="Strut" parent="Scenery/StartingRoom" index="51" instance=ExtResource( 9 )]
+position = Vector2( 3536.87, 6974.67 )
+rotation = -0.785397
+z_index = -21
+
+[node name="StaticDebree11" parent="Scenery/StartingRoom" index="52" instance=ExtResource( 4 )]
+position = Vector2( 3137.97, 7549.08 )
+rotation = -0.785397
+
+[node name="StaticDebree12" parent="Scenery/StartingRoom" index="53" instance=ExtResource( 5 )]
+position = Vector2( 4111.28, 6527.9 )
+rotation = 3.92699
+
+[node name="StaticDebree17" parent="Scenery/StartingRoom" index="54" instance=ExtResource( 4 )]
+position = Vector2( 1861.5, 7198.05 )
+rotation = 2.35619
+
+[node name="StaticAsteroid36" parent="Scenery/StartingRoom" index="55" instance=ExtResource( 6 )]
+position = Vector2( -4737.06, 1565.66 )
+rotation = -4.45058
+
+[node name="StaticAsteroid37" parent="Scenery/StartingRoom" index="56" instance=ExtResource( 7 )]
+position = Vector2( -4738.99, -302.855 )
+rotation = -3.14159
+scale = Vector2( 0.459627, 0.459627 )
+
+[node name="StaticDebree20" parent="Scenery/StartingRoom" index="57" instance=ExtResource( 4 )]
+position = Vector2( -5593.35, 1268 )
+rotation = -1.57079
+scale = Vector2( 0.407255, 0.407255 )
+
+[node name="StaticAsteroid38" parent="Scenery/StartingRoom" index="58" instance=ExtResource( 8 )]
+position = Vector2( -6301.53, -1308.51 )
+rotation = -2.87979
+scale = Vector2( 2.70275, 2.74671 )
+
+[node name="StaticAsteroid39" parent="Scenery/StartingRoom" index="59" instance=ExtResource( 8 )]
+position = Vector2( -5833.31, -384.524 )
+rotation = -3.14159
+
+[node name="StaticAsteroid33" parent="Scenery/StartingRoom" index="60" instance=ExtResource( 7 )]
+position = Vector2( 2301.9, 8052.48 )
+rotation = -3.14159
+
+[node name="StaticDebree19" parent="Scenery/StartingRoom" index="61" instance=ExtResource( 4 )]
+position = Vector2( -5316.23, 1328.56 )
+rotation = -0.785397
+scale = Vector2( 0.301983, -0.461692 )
+
+[node name="StaticAsteroid35" parent="Scenery/StartingRoom" index="62" instance=ExtResource( 7 )]
+position = Vector2( -6216.78, 1268.9 )
+rotation = -0.785397
+
+[node name="StaticDebree18" parent="Scenery/StartingRoom" index="63" instance=ExtResource( 5 )]
+position = Vector2( -6885.34, 812.053 )
+rotation = -0.785397
+
+[node name="StaticAsteroid34" parent="Scenery/StartingRoom" index="64" instance=ExtResource( 3 )]
+position = Vector2( -5312.75, 379.119 )
+rotation = 0.100746
+scale = Vector2( 0.58921, 0.58921 )
+
+[node name="TextureRect" type="TextureRect" parent="Scenery/StartingRoom" index="65"]
+modulate = Color( 0.87, 0.59102, 0.4176, 1 )
+material = SubResource( 6 )
+margin_left = -4825.0
+margin_top = -6547.0
+margin_right = 11994.0
+margin_bottom = 8456.0
+texture = ExtResource( 12 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
