@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/entities/Collectable/Collectable.gd"
 }, {
+"base": "Node2D",
+"class": "CustomShapeBilding",
+"language": "GDScript",
+"path": "res://scripts/entities/CustomShapeBuilding.gd"
+}, {
 "base": "State",
 "class": "DefaultState",
 "language": "GDScript",
@@ -139,6 +144,7 @@ _global_script_class_icons={
 "BeamDoor": "",
 "Bullet": "",
 "Collectable": "",
+"CustomShapeBilding": "",
 "DefaultState": "",
 "Gearpak": "",
 "HealingStatus": "",

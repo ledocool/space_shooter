@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/Objects/Structures/CustomBuildingTexture.tres" type="Texture" id=1]
+[ext_resource path="res://scripts/entities/CustomShapeBuilding.gd" type="Script" id=2]
+
+[node name="CustomShapeBuilding" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Background" type="Polygon2D" parent="."]
+
+[node name="ColliderBody" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColliderBody"]
+build_mode = 1
+polygon = PoolVector2Array( 348.315, 1658.97, 853.945, 2031.17, 3115.23, 2115.45, 3972, 1785.38, 4280.99, -426.748, 4063.29, -1648.69, 3719.18, -2582.7, 2216.34, -2596.74, 1099.74, -2484.38, -529.514, -1866.39, -894.691, -876.197, -669.967, 191.244, -339.903, 78.8818, -550.582, -812.993, -234.564, -1613.57, 1212.1, -2196.45, 2223.36, -2280.72, 3487.43, -2252.63, 3691.09, -1578.46, 3887.72, -384.612, 3620.86, 1497.45, 3045.01, 1757.29, 1036.53, 1722.18, 488.768, 1335.93 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Walls" type="Polygon2D" parent="Walls"]
+texture = ExtResource( 1 )
