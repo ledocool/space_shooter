@@ -3,6 +3,7 @@
 [ext_resource path="res://scripts/entities/SmallDebree.gd" type="Script" id=1]
 
 [node name="Asteroid" type="RigidBody2D"]
+z_index = -1
 collision_layer = 3
 collision_mask = 3
 mass = 5.0

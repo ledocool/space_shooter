@@ -215,7 +215,7 @@ position = Vector2( 5745.13, -7096.57 )
 position = Vector2( -4107.1, -3982.6 )
 
 [node name="CustomShapeBuilding" parent="Scenery" index="48" instance=ExtResource( 2 )]
-position = Vector2( -2340.43, -2374.62 )
+position = Vector2( -2342.02, -2374.62 )
 z_index = -40
 
 [node name="MenuCanvas" parent="." index="7"]
