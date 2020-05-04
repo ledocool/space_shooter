@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://resources/Objects/Structures/CustomBuildingTexture.tres" type="Texture" id=1]
+[ext_resource path="res://resources/Objects/Structures/building_tileable_base.png" type="Texture" id=1]
 [ext_resource path="res://scripts/entities/CustomShapeBuilding.gd" type="Script" id=2]
 
 [sub_resource type="StreamTexture" id=1]
@@ -13,7 +13,6 @@ script = ExtResource( 2 )
 [node name="ColliderBody" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColliderBody"]
-polygon = PoolVector2Array( 611.984, 637.811, 595.756, -541.268, 2492.59, -549.89, 2727.26, 39.8391, 2483.96, 588.207, 2074.46, 882.783, 1535.73, 1003.2, 653.543, 715.409 )
 
 [node name="Walls" type="Node2D" parent="."]
 

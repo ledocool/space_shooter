@@ -4,35 +4,15 @@ class_name CustomShapeBilding
 
 var dot = preload("res://resources/Effects/outline.png")
 var dotImage = dot.get_data()
-
-var poly:PoolVector2Array
 var img = Image.new()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var polygon = $ColliderBody/CollisionPolygon2D.polygon
-	$Walls/Walls.polygon = polygon
-	poly = polygon
-	_createOutline(polygon)
 
-#func _draw():
-#	var first = true
-#	var lastNode = null
-#	var firstNode = null
-#
-#	for node in poly:
-#		draw_circle(node, 20, Color.red)
-#
-#		if (lastNode == null):
-#			firstNode = node
-#		else:
-#			draw_line(lastNode, node, Color.red, 20)
-#
-#		lastNode = node
-#
-#	if(firstNode != null):
-#		draw_line(firstNode, lastNode, Color.red, 20)
-		
+func _ready():
+	var polygon = $Walls/Walls.polygon
+	$ColliderBody/CollisionPolygon2D.polygon = polygon
+	_createOutline(polygon)
+	$Walls/Walls.texture_scale = scale
+
 
 func _createOutline(shape: PoolVector2Array):
 	var margin = dotImage.get_size()
@@ -47,14 +27,11 @@ func _createOutline(shape: PoolVector2Array):
 
 	for node in shape:
 		_addDot(rect.end - node)
-
 		if (lastNode == null):
 			firstNode = node
 		else:
 			_addDots(rect.end - lastNode, rect.end - node, dotSize)
-
 		lastNode = node
-		
 
 	if(firstNode != null):
 		_addDots(rect.end - firstNode, rect.end - lastNode, dotSize)
@@ -80,6 +57,7 @@ func _findTextureDimensions(shape: PoolVector2Array, margin: Vector2) -> Rect2:
 		first = false
 	
 	return Rect2(floor(xSt - margin.x), floor(ySt - margin.y), ceil(xEd - xSt + margin.x), ceil(yEd - ySt + margin.y))
+
 
 func _addDot(to: Vector2):
 	img.blend_rect(dotImage, Rect2(Vector2.ZERO, dotImage.get_size()), to)
