@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/entities/AbstractEntities/StaticScenery.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/Objects/Structures/Ruins/alien_rebar_wall2_bottom.png" type="Texture" id=2]
+[ext_resource path="res://resources/Objects/Structures/Ruins/alien_rebar_wall2_top.png" type="Texture" id=3]
+[ext_resource path="res://resources/Objects/Structures/Ruins/alien_rebar_wall2_rebar.png" type="Texture" id=4]
+
+[node name="ShipWall2" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="StaticBody2D" index="0"]
+z_index = -10
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="StaticBody2D" index="1"]
+z_index = 9
+texture = ExtResource( 4 )
+
+[node name="Sprite3" type="Sprite" parent="StaticBody2D" index="2"]
+z_index = 10
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="3"]
+visible = false
+polygon = PoolVector2Array( -558.999, -85.9985, -545.999, -95.9985, -511.999, -137.999, -431.999, -144.999, -388.999, -145.999, -354.998, -138.999, -280.998, -146.999, -261.998, -137.999, -231.998, -137.999, -185.998, -117.999, -140.998, -116.999, -87.9976, -112.999, -37.8695, -124.042, -18.8502, -125.993, -3.73219, -123.554, 6.9967, -113.313, 22.6024, -109.412, 48.4492, -110.875, 98.1922, -126.968, 129.891, -135.746, 167.93, -137.209, 182.073, -134.283, 194.264, -121.604, 208.895, -107.461, 221.574, -99.1706, 244.983, -97.7076, 262.052, -93.3185, 281.071, -80.6389, 291.312, -78.6882, 302.529, -87.4663, 312.77, -95.7568, 330.814, -105.51, 347.395, -126.48, 358.612, -132.82, 365.927, -136.234, 413.667, -136.754, 516.051, -140.735, 554.161, -103.763, 554.73, -88.4057, 360.768, -128.222, 355.649, -127.084, 337.447, -106.039, 312.989, -88.9745, 294.218, -73.6168, 280.92, -74.6688, 259.359, -88.0157, 228.046, -95.2025, 212.645, -98.2826, 195.192, -114.71, 176.198, -129.597, 127.943, -130.11, 92.0094, -120.356, 41.1884, -105.469, 16.5479, -104.956, -6.03918, -117.79, -22.9795, -121.896, -84.5808, -109.063, -139.509, -113.683, -162.096, -110.603, -184.683, -113.683, -233.964, -133.703, -264.764, -133.703, -552.237, -59.7817 )

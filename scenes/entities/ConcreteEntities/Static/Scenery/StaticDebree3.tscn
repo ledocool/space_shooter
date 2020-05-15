@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/entities/AbstractEntities/StaticAsteroid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/AbstractEntities/StaticScenery.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/Objects/Debrees/debree3.png" type="Texture" id=2]
+
 
 [node name="StaticAsteroid" index="0" instance=ExtResource( 1 )]
 

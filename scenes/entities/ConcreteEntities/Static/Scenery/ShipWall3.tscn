@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/entities/AbstractEntities/StaticScenery.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/Objects/Structures/Ruins/alien_rebar_wall3_bottom.png" type="Texture" id=2]
+[ext_resource path="res://resources/Objects/Structures/Ruins/alien_rebar_wall3_rebar.png" type="Texture" id=3]
+[ext_resource path="res://resources/Objects/Structures/Ruins/alien_rebar_wall3_top.png" type="Texture" id=4]
+
+[node name="StaticScenery" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="StaticBody2D" index="0"]
+z_index = -10
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="StaticBody2D" index="1"]
+z_index = 9
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="StaticBody2D" index="2"]
+z_index = 10
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="3"]
+visible = false
+polygon = PoolVector2Array( -538.999, -78.9989, -549.999, -54.9988, -553.999, -6.99869, -542.999, 32.0014, -487.999, -35.9988, -496.999, -43.9988, -493.999, -69.9989, -438.998, -87.999, -380.998, -81.9989, -366.998, -78.9989, -313.998, -90.999, -278.998, -72.9989, -258.998, -63.9989, -219.998, -62.9989, -193.998, -49.9988, -154.998, -47.9988, -47.9972, -63.9989, -25.9971, -66.9989, 22.0031, -46.9988, 55.0031, -55.9988, 91.0033, -68.9989, 148.003, -67.9989, 177.004, -72.9989, 194.004, -91.999, 213.004, -95.999, 253.004, -81.9989, 317.004, -80.9989, 334.004, -86.9989, 554.005, 24.0014, 561.005, 31.0014, 563.005, 24.0014, 541.005, -14.9987, 516.005, -49.9988, 497.005, -92.999, 388.004, -83.9989, 350.004, -98.999, 311.004, -91.999, 257.004, -93.999, 213.004, -103.999, 194.004, -102.999, 171.342, -84.7093, 147.575, -78.1074, 91.6792, -80.308, 24.7797, -60.0621, -29.356, -77.2271, -47.4013, -73.7061, -107.259, -69.7449, -175.038, -61.3825, -193.524, -61.3825, -217.731, -71.9456, -264.825, -75.4666, -310.158, -100.554, -337.886, -99.6736, -368.695, -86.9099, -420.19, -98.3532, -447.918, -96.1526, -506.015, -82.5086 )

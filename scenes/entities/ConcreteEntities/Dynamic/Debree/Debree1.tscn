@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/entities/AbstractEntities/SmallDebree.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/AbstractEntities/DynamicScenery.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/Objects/Debrees/debree_smol.png" type="Texture" id=2]
+
 
 [node name="Asteroid" instance=ExtResource( 1 )]
 

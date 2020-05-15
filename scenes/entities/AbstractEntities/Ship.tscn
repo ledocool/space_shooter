@@ -21,6 +21,7 @@ scale_random = 1.0
 radius = 41.2605
 
 [node name="Ship" type="RigidBody2D"]
+z_as_relative = false
 mode = 2
 contacts_reported = 10
 contact_monitor = true
