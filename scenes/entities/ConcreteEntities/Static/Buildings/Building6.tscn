@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://resources/Objects/Structures/harvester_6.png" type="Texture" id=1]
+[ext_resource path="res://resources/Objects/Structures/Harvester/harvester_6.png" type="Texture" id=1]
 [ext_resource path="res://resources/Objects/Structures/Plates/hole.png" type="Texture" id=2]
 [ext_resource path="res://resources/Objects/Structures/Plates/hole_2.png" type="Texture" id=3]
 [ext_resource path="res://resources/Objects/Structures/Plates/plates_2.png" type="Texture" id=4]
@@ -9,6 +9,7 @@
 [ext_resource path="res://resources/Objects/Structures/Plates/plates_8.png" type="Texture" id=7]
 [ext_resource path="res://resources/Objects/Structures/Plates/plates_5.png" type="Texture" id=8]
 [ext_resource path="res://resources/Objects/Structures/Plates/plates_3.png" type="Texture" id=9]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1300, 710 )

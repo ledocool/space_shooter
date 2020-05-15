@@ -2,15 +2,20 @@
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/AbstractEntities/CustomShapeBuilding.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid3.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree1.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree3.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Foreground/ForegroundAsteroid2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Foreground/ForegroundAsteroid3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticDebree1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticDebree2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticDebree3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticAsteroid1.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level2/Spiral.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/RocketeerPickup.tscn" type="PackedScene" id=18]
+
+
+
+
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
@@ -220,7 +225,7 @@ position = Vector2( -2342.02, -2374.62 )
 z_index = -40
 
 [node name="Spiral" parent="Scenery" index="49" instance=ExtResource( 9 )]
-position = Vector2( 314.226, -2272.87 )
+position = Vector2( 549.267, 375.022 )
 
 [node name="MenuCanvas" parent="." index="7"]
 layer = 128

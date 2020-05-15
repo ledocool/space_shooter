@@ -2,23 +2,23 @@
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Asteroid1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Asteroid2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Asteroid3.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree1.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree2.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree3.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Asteroid1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Asteroid2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Asteroid3.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Debree1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Debree2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Debree3.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/SlugPickup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Destructible/Crate.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/StartingLocationHugeDebree.tscn" type="PackedScene" id=11]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid1.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid2.tscn" type="PackedScene" id=13]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticAsteroid3.tscn" type="PackedScene" id=14]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree1.tscn" type="PackedScene" id=15]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree2.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/StaticDebree3.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticAsteroid1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticAsteroid2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticAsteroid3.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticDebree1.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticDebree2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticDebree3.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=18]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Harvester.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Harvester.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/interface/hints/EngineHint.tscn" type="PackedScene" id=20]
 [ext_resource path="res://scenes/interface/hints/GunHint.tscn" type="PackedScene" id=21]
 [ext_resource path="res://resources/Backgrounds/star.png" type="Texture" id=22]
@@ -29,8 +29,8 @@
 [ext_resource path="res://resources/Objects/Asteroids/asteroid2.png" type="Texture" id=27]
 [ext_resource path="res://resources/Objects/Asteroids/asteroid.png" type="Texture" id=28]
 [ext_resource path="res://scripts/levels/c1l1/WeaponPickupTrigger.gd" type="Script" id=29]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid2.tscn" type="PackedScene" id=30]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid1.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Foreground/ForegroundAsteroid2.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Foreground/ForegroundAsteroid1.tscn" type="PackedScene" id=31]
 [ext_resource path="res://scripts/levels/c1l1/SecretRevealTrigger.gd" type="Script" id=32]
 [ext_resource path="res://resources/Objects/Debrees/humanoid.png" type="Texture" id=33]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building4.tscn" type="PackedScene" id=34]
@@ -42,20 +42,20 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Struts/Strut3.tscn" type="PackedScene" id=40]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building2.tscn" type="PackedScene" id=41]
 [ext_resource path="res://resources/Objects/Structures/Pipes/fatpipes/pipo_long.png" type="Texture" id=42]
-[ext_resource path="res://resources/Objects/Structures/harvester_6.png" type="Texture" id=43]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/BeamDoor.tscn" type="PackedScene" id=44]
+[ext_resource path="res://resources/Objects/Structures/Harvester/harvester_6.png" type="Texture" id=43]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Doors/BeamDoor.tscn" type="PackedScene" id=44]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Pipes/PipeBend90.tscn" type="PackedScene" id=45]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building5.tscn" type="PackedScene" id=46]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Wirerer.tscn" type="PackedScene" id=47]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Wire/Wirerer.tscn" type="PackedScene" id=47]
 [ext_resource path="res://scripts/levels/c1l1/BelowHarvesterBeamDoorOpen.gd" type="Script" id=48]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Barrel.tscn" type="PackedScene" id=49]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Barrel.tscn" type="PackedScene" id=49]
 [ext_resource path="res://resources/Objects/Structures/Pipes/pipes_straight.png" type="Texture" id=50]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/RocketeerPickup.tscn" type="PackedScene" id=51]
 [ext_resource path="res://scenes/interface/hints/IngameHint.tscn" type="PackedScene" id=52]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building1.tscn" type="PackedScene" id=53]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Struts/Strut1.tscn" type="PackedScene" id=54]
 [ext_resource path="res://scenes/interface/hints/GeneratorHint.tscn" type="PackedScene" id=55]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Static/ForegroundAsteroid3.tscn" type="PackedScene" id=56]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Foreground/ForegroundAsteroid3.tscn" type="PackedScene" id=56]
 [ext_resource path="res://scripts/levels/c1l1/LastroomRevealTrigger.gd" type="Script" id=57]
 [ext_resource path="res://scripts/levels/c1l1/LastroomBeamDoorOpen.gd" type="Script" id=58]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/Gearpak.tscn" type="PackedScene" id=59]
@@ -2468,8 +2468,8 @@ enabled = true
 position = Vector2( -806.915, -1253 )
 rotation = 1.5708
 z_index = 50
-chainAmount = [ -24.0, -24.0, -24.0, 11.0, 5.0, -7.0, -7.0, -14.0, -15.0, -10.0, -5.0, -3.0, -2.0, -1.0, 0.0, 20.0, 8.0, 9.0, 14.0, -6.0, -12.0, -4.0, -5.0, 7.0, 14.0, -4.0, -7.0, -18.0, -13.0, 0.0 ]
 StartNodeType = 0
+chainAmount = [ -24.0, -24.0, -24.0, 11.0, 5.0, -7.0, -7.0, -14.0, -15.0, -10.0, -5.0, -3.0, -2.0, -1.0, 0.0, 20.0, 8.0, 9.0, 14.0, -6.0, -12.0, -4.0, -5.0, 7.0, 14.0, -4.0, -7.0, -18.0, -13.0, 0.0 ]
 StartNodeRotation = 50.0
 EndNodeRotation = 0
 
@@ -2869,8 +2869,8 @@ EndNodeRotation = -28.0
 
 [node name="Wirerer7" parent="Scenery/BelowHarvester/Lastroom/Wire" index="6" instance=ExtResource( 47 )]
 position = Vector2( 6129.31, -2383.36 )
-chainAmount = [ -30.0, -12.0, -18.0, -15.0, -16.0, -11.0, -5.0, -9.0, 4.0, 8.0, 12.0, 15.0, -27.0, -30.0, -12.0, 6.0, 15.0, 20.0, 6.0, 6.0, -5.0, -3.0, 8.0, 7.0, 5.0, 9.0, 12.0, 5.0, 3.0, 1.0, 2.0, 5.0, 9.0, -6.0, -3.0, -6.0, -3.0, -2.0, -4.0, -3.0, -3.0, -2.0, -1.0, -1.0, -1.0, -2.0, -1.0, -3.0, -2.0, -4.0, -3.0, -2.0, -4.0, -5.0, -3.0, -2.0, -2.0, -1.0, -4.0, -5.0, -3.0, -2.0, -5.0, -6.0, 1.0, 0.0, 0.0, 0.0, 2.0, 3.0, 1.0, -2.0, -1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0, 0.0, 0.0, 0.0, 1.0, 2.0, 3.0, 1.0, 2.0, 1.0, 5.0, 3.0, 4.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 3.0, 4.0, 5.0, 7.0, 8.0, 9.0, 10.0, 21.0, 20.0, 2.0, -16.0, -30.0 ]
 StartNodeType = 0
+chainAmount = [ -30.0, -12.0, -18.0, -15.0, -16.0, -11.0, -5.0, -9.0, 4.0, 8.0, 12.0, 15.0, -27.0, -30.0, -12.0, 6.0, 15.0, 20.0, 6.0, 6.0, -5.0, -3.0, 8.0, 7.0, 5.0, 9.0, 12.0, 5.0, 3.0, 1.0, 2.0, 5.0, 9.0, -6.0, -3.0, -6.0, -3.0, -2.0, -4.0, -3.0, -3.0, -2.0, -1.0, -1.0, -1.0, -2.0, -1.0, -3.0, -2.0, -4.0, -3.0, -2.0, -4.0, -5.0, -3.0, -2.0, -2.0, -1.0, -4.0, -5.0, -3.0, -2.0, -5.0, -6.0, 1.0, 0.0, 0.0, 0.0, 2.0, 3.0, 1.0, -2.0, -1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0, 0.0, 0.0, 0.0, 1.0, 2.0, 3.0, 1.0, 2.0, 1.0, 5.0, 3.0, 4.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 3.0, 4.0, 5.0, 7.0, 8.0, 9.0, 10.0, 21.0, 20.0, 2.0, -16.0, -30.0 ]
 StartNodeRotation = 0
 EndNodeRotation = 0
 
@@ -3097,6 +3097,8 @@ __meta__ = {
 [node name="Sprite" type="Sprite" parent="Background/ParallaxLayer" index="0"]
 position = Vector2( 0, -8.19141 )
 texture = ExtResource( 22 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 30000, 30000 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -3324,8 +3326,6 @@ shape = SubResource( 3 )
 [node name="LastroomBeamDoorOpen" type="Node" parent="TriggerContainer" index="5"]
 script = ExtResource( 58 )
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]
-[connection signal="wire_switch" from="Scenery/BelowHarvester/BuildIntersection/Wirerer" to="TriggerContainer/BelowHarvesterBeamDoorOpen" method="_on_Wirerer_wire_switch"]
-[connection signal="wire_switch" from="Scenery/BelowHarvester/Lastroom/Wire/Wirerer7" to="TriggerContainer/LastroomBeamDoorOpen" method="_on_Wirerer7_wire_switch"]
 [connection signal="body_entered" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_entered"]
 [connection signal="body_exited" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_exited"]
 [connection signal="body_entered" from="TriggerContainer/LastroomRevealTrigger" to="TriggerContainer/LastroomRevealTrigger" method="_on_LastroomRevealTrigger_body_entered"]
