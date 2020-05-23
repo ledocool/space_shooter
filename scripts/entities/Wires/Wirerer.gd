@@ -4,9 +4,9 @@ class_name Wirerer
 
 signal wire_switch(isOn)
 
-var PIECE = preload("res://scenes/entities/ConcreteEntities/Dynamic/WirePiece.tscn")
+var PIECE = preload("res://scenes/entities/ConcreteEntities/Dynamic/Wire/WirePiece.tscn")
 var GENERATOR = preload("res://scenes/entities/ConcreteEntities/Dynamic/Destructible/Generator.tscn")
-var SOCKET = preload("res://scenes/entities/ConcreteEntities/Static/Socket.tscn")
+var SOCKET = preload("res://scenes/entities/ConcreteEntities/Static/Wire/Socket.tscn")
 
 export (Array) var chainAmount = chainArray setget _setChainFunc,_getChainFunc
 enum NodeTypes {generator, socket}

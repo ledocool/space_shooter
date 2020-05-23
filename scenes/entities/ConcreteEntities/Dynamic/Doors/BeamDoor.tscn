@@ -4,8 +4,6 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Doors/Emitter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/entities/BeamDoor.gd" type="Script" id=3]
 
-
-
 [node name="BeamDoor" type="Node2D"]
 script = ExtResource( 3 )
 
