@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://scripts/ai/AiPathHelper.gd"
 }, {
 "base": "Node2D",
+"class": "AlienShipDoor",
+"language": "GDScript",
+"path": "res://scripts/entities/AlienShipDoor.gd"
+}, {
+"base": "Node2D",
 "class": "BeamDoor",
 "language": "GDScript",
 "path": "res://scripts/entities/BeamDoor.gd"
@@ -141,6 +146,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AiAPathHelper": "",
+"AlienShipDoor": "",
 "BeamDoor": "",
 "Bullet": "",
 "Collectable": "",

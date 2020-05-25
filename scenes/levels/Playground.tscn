@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level2/AlienShipDoor.tscn" type="PackedScene" id=2]
@@ -8,12 +8,15 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticDebree2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticDebree3.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/StaticAsteroid1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/levels/Area2D.gd" type="Script" id=9]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/RocketeerPickup.tscn" type="PackedScene" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
 height = 266.358
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 569.261
 
 [node name="Level" instance=ExtResource( 1 )]
 
@@ -214,7 +217,7 @@ position = Vector2( 5745.13, -7096.57 )
 [node name="StaticAsteroid35" parent="Scenery" index="47" instance=ExtResource( 7 )]
 position = Vector2( -4107.1, -3982.6 )
 
-[node name="Node2D" parent="Scenery" index="48" instance=ExtResource( 2 )]
+[node name="AlienDoor" parent="Scenery" index="48" instance=ExtResource( 2 )]
 position = Vector2( 259.926, -2845.51 )
 
 [node name="MenuCanvas" parent="." index="7"]
@@ -229,4 +232,10 @@ position = Vector2( 9060.28, -2129.68 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
 shape = SubResource( 1 )
 
-[node name="Collectable" parent="." index="11" instance=ExtResource( 18 )]
+[node name="Area2D" type="Area2D" parent="TriggerContainer" index="1"]
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/Area2D" index="0"]
+position = Vector2( 224.812, -1885.61 )
+shape = SubResource( 2 )
+[connection signal="body_entered" from="TriggerContainer/Area2D" to="TriggerContainer/Area2D" method="_on_Area2D_body_entered"]

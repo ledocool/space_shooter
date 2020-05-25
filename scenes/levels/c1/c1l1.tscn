@@ -2013,6 +2013,9 @@ rotation = -1.6189e-05
 [node name="IngameHint" parent="Scenery/SecretArea" index="28" instance=ExtResource( 52 )]
 position = Vector2( 7632.88, -5197.94 )
 
+[node name="Sprite" parent="Scenery/SecretArea/IngameHint" index="0"]
+frame = 0
+
 [node name="RichTextLabel" parent="Scenery/SecretArea/IngameHint" index="1"]
 margin_bottom = 239.0
 text = "Congratualtions! You've found a secret. You may have the spoils.
@@ -3311,6 +3314,7 @@ shape = SubResource( 3 )
 script = ExtResource( 58 )
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]
 [connection signal="wire_switch" from="Scenery/BelowHarvester/BuildIntersection/Wirerer" to="TriggerContainer/BelowHarvesterBeamDoorOpen" method="_on_Wirerer_wire_switch"]
+[connection signal="wire_switch" from="Scenery/BelowHarvester/Lastroom/Wire/Wirerer7" to="TriggerContainer/LastroomBeamDoorOpen" method="_on_Wirerer7_wire_switch"]
 [connection signal="body_entered" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_entered"]
 [connection signal="body_exited" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_exited"]
 [connection signal="body_entered" from="TriggerContainer/LastroomRevealTrigger" to="TriggerContainer/LastroomRevealTrigger" method="_on_LastroomRevealTrigger_body_entered"]
