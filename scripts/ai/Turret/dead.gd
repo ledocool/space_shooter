@@ -5,7 +5,7 @@ func _physics_process(_delta):
 
 
 func _on_enter_state():
-	pass#target.StopCooldowns()
+	target._on_dead()
 
 
 func _on_leave_state(): 

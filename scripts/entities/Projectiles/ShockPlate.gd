@@ -52,10 +52,10 @@ func _ready():
 		
 	var waitTime = ($Timers/BecomeHurtfulTimer as Timer).wait_time
 	hue = modulateColor.h
-	if(abs(sStep) > 1e-5):
+	if(abs(sStep) < 1e-5):
 		sStep = (modulateColor.s - 0) / waitTime
 		modulateColor.s = 0
-	if(abs(vStep) > 1e-5):
+	if(abs(vStep) < 1e-5):
 		vStep = (modulateColor.v - 1) / waitTime
 		modulateColor.v = 1
 
