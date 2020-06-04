@@ -14,11 +14,16 @@ func Load(data: Dictionary):
 func _ready():
 	set_closed(false)
 
+func playDoorAnimation(closing: bool):
+	($Door/AnimatedSprite as AnimatedSprite).play("", closing)
+	if closing:
+		($Door/AnimatedSprite as Node2D).z_index = 8
+	else:
+		($Door/AnimatedSprite as Node2D).z_index = -1
+
 func set_closed(closed):
 	isClosed = closed
-	var mustDisable = !closed
-	$alien_ship_door_top.visible = closed
+	($alien_ship_door_top as Node2D).visible = closed
 	($Door/CollisionShape2D as CollisionShape2D).set_disabled(!closed)
-	$Door/alien_ship_door_open.visible = !closed
-	$Door/alien_ship_door_closed.visible = closed
+	playDoorAnimation(closed)
 	

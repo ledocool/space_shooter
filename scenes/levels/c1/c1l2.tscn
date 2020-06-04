@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -23,6 +23,12 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/ShipWall1.tscn" type="PackedScene" id=21]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/ShipWall2.tscn" type="PackedScene" id=22]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/ShipWall3.tscn" type="PackedScene" id=23]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/level2/AlienShipDoor.tscn" type="PackedScene" id=24]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/ShipWall4.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building1.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building3.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Doors/BeamDoor.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building2.tscn" type="PackedScene" id=29]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -1019,6 +1025,10 @@ scale = Vector2( 0.68021, 0.68021 )
 [node name="StaticAsteroid76" parent="Scenery/StartingRoom" index="115" instance=ExtResource( 6 )]
 position = Vector2( 2187.95, 4174.54 )
 
+[node name="AlienShipDoor" parent="Scenery/StartingRoom" index="116" instance=ExtResource( 24 )]
+position = Vector2( 7018.83, -3656.34 )
+rotation = 3.14159
+
 [node name="Spiral" type="Node2D" parent="Scenery" index="1"]
 
 [node name="ShipWall2" parent="Scenery/Spiral" index="0" instance=ExtResource( 22 )]
@@ -1068,8 +1078,8 @@ position = Vector2( 1095.52, 11233.7 )
 rotation = 2.09439
 
 [node name="ShipWall8" parent="Scenery/Spiral" index="11" instance=ExtResource( 21 )]
-position = Vector2( 10925.1, 17148.1 )
-rotation = 1.57079
+position = Vector2( 9967.25, 17780 )
+rotation = 2.49495
 
 [node name="ShipWall9" parent="Scenery/Spiral" index="12" instance=ExtResource( 21 )]
 position = Vector2( 409.447, 12107.2 )
@@ -1124,72 +1134,319 @@ position = Vector2( 6794.69, 20900 )
 rotation = -3.40339
 
 [node name="ShipWall19" parent="Scenery/Spiral" index="25" instance=ExtResource( 22 )]
-position = Vector2( 7721.61, 21171.7 )
-rotation = 3.92699
+position = Vector2( 7808.03, 20739.6 )
+rotation = 3.14159
 
 [node name="ShipWall20" parent="Scenery/Spiral" index="26" instance=ExtResource( 22 )]
-position = Vector2( 8483.88, 21708.1 )
-rotation = -2.87979
+position = Vector2( 8656.73, 20362.3 )
+rotation = -3.92699
 
 [node name="StaticScenery5" parent="Scenery/Spiral" index="27" instance=ExtResource( 23 )]
-position = Vector2( 12853.4, 15035.4 )
+position = Vector2( 12582.6, 13981.7 )
+rotation = 1.309
 
-[node name="ShipWall21" parent="Scenery/Spiral" index="28" instance=ExtResource( 22 )]
-position = Vector2( 10993.6, 13244.5 )
-
-[node name="ShipWall14" parent="Scenery/Spiral" index="29" instance=ExtResource( 21 )]
+[node name="ShipWall14" parent="Scenery/Spiral" index="28" instance=ExtResource( 21 )]
 position = Vector2( 2040.49, 20384.7 )
 rotation = -2.87979
 
-[node name="ShipWall11" parent="Scenery/Spiral" index="30" instance=ExtResource( 22 )]
+[node name="ShipWall11" parent="Scenery/Spiral" index="29" instance=ExtResource( 22 )]
 position = Vector2( -973.037, 15001.2 )
 rotation = -2.09439
 
-[node name="ShipWall12" parent="Scenery/Spiral" index="31" instance=ExtResource( 21 )]
+[node name="ShipWall12" parent="Scenery/Spiral" index="30" instance=ExtResource( 21 )]
 position = Vector2( -591.182, 16018.2 )
 rotation = -1.83259
 
-[node name="ShipWall22" parent="Scenery/Spiral" index="32" instance=ExtResource( 22 )]
-position = Vector2( 8413.55, 11343.5 )
+[node name="ShipWall22" parent="Scenery/Spiral" index="31" instance=ExtResource( 22 )]
+position = Vector2( 5154.68, 10410.6 )
+rotation = -3.40339
 
-[node name="ShipWall23" parent="Scenery/Spiral" index="33" instance=ExtResource( 21 )]
-position = Vector2( 9578.12, 12280.2 )
+[node name="ShipWall23" parent="Scenery/Spiral" index="32" instance=ExtResource( 21 )]
+position = Vector2( 10224.2, 12533 )
+rotation = 0.785397
 
-[node name="ShipWall24" parent="Scenery/Spiral" index="34" instance=ExtResource( 21 )]
-position = Vector2( 6395.55, 10540.4 )
+[node name="ShipWall24" parent="Scenery/Spiral" index="33" instance=ExtResource( 21 )]
+position = Vector2( 7102.5, 10406.7 )
+rotation = 3.14159
 
-[node name="ShipWall25" parent="Scenery/Spiral" index="35" instance=ExtResource( 21 )]
-position = Vector2( 4768.22, 11429.8 )
+[node name="ShipWall25" parent="Scenery/Spiral" index="34" instance=ExtResource( 21 )]
+position = Vector2( 6067.48, 10273.8 )
+rotation = 3.40339
 
-[node name="ShipWall26" parent="Scenery/Spiral" index="36" instance=ExtResource( 21 )]
-position = Vector2( 3295.56, 12466.7 )
+[node name="ShipWall26" parent="Scenery/Spiral" index="35" instance=ExtResource( 21 )]
+position = Vector2( 4219.04, 10875.9 )
+rotation = 2.61799
 
-[node name="ShipWall27" parent="Scenery/Spiral" index="37" instance=ExtResource( 21 )]
-position = Vector2( 2564.03, 13259.6 )
+[node name="ShipWall27" parent="Scenery/Spiral" index="36" instance=ExtResource( 21 )]
+position = Vector2( 3387.96, 11491.3 )
+rotation = 2.35619
 
-[node name="ShipWall28" parent="Scenery/Spiral" index="38" instance=ExtResource( 22 )]
-position = Vector2( 2125.65, 14461.4 )
+[node name="ShipWall28" parent="Scenery/Spiral" index="37" instance=ExtResource( 22 )]
+position = Vector2( 2718.57, 12376.6 )
+rotation = 2.09439
 
-[node name="StaticScenery6" parent="Scenery/Spiral" index="39" instance=ExtResource( 23 )]
-position = Vector2( 1955.1, 15567.4 )
+[node name="StaticScenery6" parent="Scenery/Spiral" index="38" instance=ExtResource( 23 )]
+position = Vector2( 2589.25, 14336.9 )
+rotation = 1.57079
 
-[node name="ShipWall29" parent="Scenery/Spiral" index="40" instance=ExtResource( 21 )]
-position = Vector2( 1917.79, 16484.1 )
+[node name="ShipWall29" parent="Scenery/Spiral" index="39" instance=ExtResource( 21 )]
+position = Vector2( 2314.64, 16180.6 )
+rotation = 1.0472
 
-[node name="ShipWall30" parent="Scenery/Spiral" index="41" instance=ExtResource( 21 )]
-position = Vector2( 2901.14, 17511.4 )
+[node name="ShipWall30" parent="Scenery/Spiral" index="40" instance=ExtResource( 21 )]
+position = Vector2( 3036.95, 16943.5 )
+rotation = 0.523598
 
-[node name="ShipWall31" parent="Scenery/Spiral" index="42" instance=ExtResource( 22 )]
+[node name="ShipWall31" parent="Scenery/Spiral" index="41" instance=ExtResource( 22 )]
 position = Vector2( 3606.02, 18544.1 )
+rotation = 0.785397
 
-[node name="ShipWall34" parent="Scenery/Spiral" index="43" instance=ExtResource( 21 )]
-position = Vector2( 8558.79, 19489.2 )
+[node name="ShipWall34" parent="Scenery/Spiral" index="42" instance=ExtResource( 21 )]
+position = Vector2( 6471.02, 19207.7 )
+rotation = -0.261799
 
-[node name="ShipWall32" parent="Scenery/Spiral" index="44" instance=ExtResource( 21 )]
-position = Vector2( 4739.94, 19376.9 )
+[node name="ShipWall32" parent="Scenery/Spiral" index="43" instance=ExtResource( 21 )]
+position = Vector2( 4458.44, 19177.5 )
+rotation = 0.523598
 
-[node name="ShipWall33" parent="Scenery/Spiral" index="45" instance=ExtResource( 22 )]
-position = Vector2( 6594.73, 19723.3 )
+[node name="ShipWall33" parent="Scenery/Spiral" index="44" instance=ExtResource( 22 )]
+position = Vector2( 5457.01, 19336.2 )
+
+[node name="StaticAsteroid5" parent="Scenery/Spiral" index="45" instance=ExtResource( 7 )]
+position = Vector2( 2241.6, 15304 )
+rotation = -1.0472
+
+[node name="StaticAsteroid7" parent="Scenery/Spiral" index="46" instance=ExtResource( 7 )]
+position = Vector2( 914.177, 14610.1 )
+rotation = 2.8798
+scale = Vector2( 0.584992, 0.584992 )
+
+[node name="StaticAsteroid6" parent="Scenery/Spiral" index="47" instance=ExtResource( 3 )]
+position = Vector2( 2452.78, 13373.2 )
+rotation = -3.40339
+
+[node name="Asteroid" parent="Scenery/Spiral" index="48" instance=ExtResource( 15 )]
+position = Vector2( -181.949, 14157.6 )
+
+[node name="Asteroid2" parent="Scenery/Spiral" index="49" instance=ExtResource( 18 )]
+position = Vector2( 1698.56, 14077.1 )
+
+[node name="Asteroid3" parent="Scenery/Spiral" index="50" instance=ExtResource( 18 )]
+position = Vector2( 320.861, 14730.8 )
+
+[node name="Asteroid4" parent="Scenery/Spiral" index="51" instance=ExtResource( 18 )]
+position = Vector2( 592.378, 15273.8 )
+
+[node name="Asteroid5" parent="Scenery/Spiral" index="52" instance=ExtResource( 15 )]
+position = Vector2( 1406.93, 15052.6 )
+
+[node name="Asteroid6" parent="Scenery/Spiral" index="53" instance=ExtResource( 18 )]
+position = Vector2( -373.017, 15404.6 )
+
+[node name="Asteroid7" parent="Scenery/Spiral" index="54" instance=ExtResource( 17 )]
+position = Vector2( 692.94, 15847 )
+
+[node name="StaticAsteroid8" parent="Scenery/Spiral" index="55" instance=ExtResource( 3 )]
+position = Vector2( 3285.43, 17640.9 )
+
+[node name="StaticDebree2" parent="Scenery/Spiral" index="56" instance=ExtResource( 5 )]
+position = Vector2( 7263.77, 19271.7 )
+rotation = 2.09439
+
+[node name="ShipWall35" parent="Scenery/Spiral" index="57" instance=ExtResource( 22 )]
+position = Vector2( 8096.76, 18821.8 )
+rotation = -0.495804
+
+[node name="StaticScenery7" parent="Scenery/Spiral" index="58" instance=ExtResource( 23 )]
+position = Vector2( 10716.3, 17154.4 )
+rotation = -0.785397
+
+[node name="ShipWall37" parent="Scenery/Spiral" index="59" instance=ExtResource( 21 )]
+position = Vector2( 7592.74, 17095.2 )
+rotation = -0.261799
+
+[node name="StaticScenery8" parent="Scenery/Spiral" index="60" instance=ExtResource( 25 )]
+position = Vector2( 9613.16, 19793.5 )
+rotation = 2.87979
+
+[node name="StaticScenery9" parent="Scenery/Spiral" index="61" instance=ExtResource( 25 )]
+position = Vector2( 9080.44, 18369.4 )
+rotation = -0.289236
+
+[node name="StaticScenery10" parent="Scenery/Spiral" index="62" instance=ExtResource( 25 )]
+position = Vector2( 6393.31, 13669 )
+rotation = -0.785397
+
+[node name="StaticScenery11" parent="Scenery/Spiral" index="63" instance=ExtResource( 25 )]
+position = Vector2( 7383.96, 11612.3 )
+rotation = 0.261799
+
+[node name="ShipWall39" parent="Scenery/Spiral" index="64" instance=ExtResource( 21 )]
+position = Vector2( 8442, 11797 )
+
+[node name="ShipWall40" parent="Scenery/Spiral" index="65" instance=ExtResource( 22 )]
+position = Vector2( 9413.9, 11958.3 )
+rotation = 0.523598
+
+[node name="ShipWall41" parent="Scenery/Spiral" index="66" instance=ExtResource( 22 )]
+position = Vector2( 10547.5, 19386.8 )
+rotation = 2.61799
+
+[node name="StaticScenery14" parent="Scenery/Spiral" index="67" instance=ExtResource( 23 )]
+position = Vector2( 11502, 18871 )
+rotation = -0.785397
+
+[node name="ShipWall42" parent="Scenery/Spiral" index="68" instance=ExtResource( 22 )]
+position = Vector2( 11855, 17940.5 )
+rotation = 1.57081
+
+[node name="StaticScenery15" parent="Scenery/Spiral" index="69" instance=ExtResource( 25 )]
+position = Vector2( 12197, 16948.8 )
+rotation = 2.35619
+
+[node name="StaticDebree4" parent="Scenery/Spiral" index="70" instance=ExtResource( 4 )]
+position = Vector2( 2481.24, 14382.8 )
+
+[node name="StaticScenery17" parent="Scenery/Spiral" index="71" instance=ExtResource( 25 )]
+position = Vector2( 12197.8, 12985.3 )
+rotation = 1.309
+
+[node name="StaticScenery18" parent="Scenery/Spiral" index="72" instance=ExtResource( 23 )]
+position = Vector2( 4690.36, 12890.1 )
+rotation = -0.523605
+
+[node name="StaticScenery19" parent="Scenery/Spiral" index="73" instance=ExtResource( 23 )]
+position = Vector2( 11403.2, 11383.6 )
+rotation = 0.523598
+
+[node name="StaticScenery20" parent="Scenery/Spiral" index="74" instance=ExtResource( 25 )]
+position = Vector2( 10454.5, 10835.4 )
+rotation = 0.785397
+
+[node name="StaticScenery21" parent="Scenery/Spiral" index="75" instance=ExtResource( 23 )]
+position = Vector2( 9593.58, 10485 )
+
+[node name="StaticScenery22" parent="Scenery/Spiral" index="76" instance=ExtResource( 25 )]
+position = Vector2( 8503.68, 10498.1 )
+rotation = 0.261799
+
+[node name="ShipWall43" parent="Scenery/Spiral" index="77" instance=ExtResource( 21 )]
+position = Vector2( 6422.27, 11697.1 )
+rotation = -0.523598
+
+[node name="ShipWall44" parent="Scenery/Spiral" index="78" instance=ExtResource( 22 )]
+position = Vector2( 5573.84, 12275.7 )
+rotation = -0.785397
+
+[node name="StaticScenery23" parent="Scenery/Spiral" index="79" instance=ExtResource( 25 )]
+position = Vector2( 4405.88, 13639.9 )
+rotation = -1.83261
+
+[node name="StaticScenery24" parent="Scenery/Spiral" index="80" instance=ExtResource( 23 )]
+position = Vector2( 5022.92, 16600.4 )
+rotation = 1.57079
+
+[node name="ShipWall45" parent="Scenery/Spiral" index="81" instance=ExtResource( 22 )]
+position = Vector2( 4494.12, 14728.4 )
+rotation = 1.57079
+
+[node name="ShipWall46" parent="Scenery/Spiral" index="82" instance=ExtResource( 21 )]
+position = Vector2( 5518.53, 17311 )
+rotation = 0.261799
+
+[node name="StaticScenery25" parent="Scenery/Spiral" index="83" instance=ExtResource( 25 )]
+position = Vector2( 6556.04, 17280.6 )
+rotation = 2.8798
+
+[node name="ShipWall47" parent="Scenery/Spiral" index="84" instance=ExtResource( 21 )]
+position = Vector2( 8543.78, 16574 )
+rotation = -3.78756
+
+[node name="ShipWall48" parent="Scenery/Spiral" index="85" instance=ExtResource( 22 )]
+position = Vector2( 4729.37, 15669 )
+rotation = -2.09441
+
+[node name="ShipWall49" parent="Scenery/Spiral" index="86" instance=ExtResource( 22 )]
+position = Vector2( 11961.7, 12099.4 )
+rotation = 1.0472
+
+[node name="StaticScenery12" parent="Scenery/Spiral" index="87" instance=ExtResource( 25 )]
+position = Vector2( 892.237, 11671.2 )
+
+[node name="StaticScenery27" parent="Scenery/Spiral" index="88" instance=ExtResource( 23 )]
+position = Vector2( 7225.09, 13124.6 )
+rotation = -0.261799
+
+[node name="StaticScenery28" parent="Scenery/Spiral" index="89" instance=ExtResource( 25 )]
+position = Vector2( 8262.15, 13192.7 )
+rotation = 0.261799
+
+[node name="ShipWall51" parent="Scenery/Spiral" index="90" instance=ExtResource( 22 )]
+position = Vector2( 6145.99, 14514 )
+rotation = -1.83259
+
+[node name="ShipWall52" parent="Scenery/Spiral" index="91" instance=ExtResource( 21 )]
+position = Vector2( 6712.95, 15189.5 )
+rotation = -2.87979
+
+[node name="BeamDoor" parent="Scenery/Spiral" index="92" instance=ExtResource( 28 )]
+position = Vector2( 9246.21, 15137.6 )
+scale = Vector2( 1, 1.12 )
+enabled = true
+
+[node name="BeamDoor2" parent="Scenery/Spiral" index="93" instance=ExtResource( 28 )]
+position = Vector2( 10864.6, 14984.9 )
+scale = Vector2( 1, 1.39998 )
+enabled = true
+
+[node name="BeamDoor3" parent="Scenery/Spiral" index="94" instance=ExtResource( 28 )]
+position = Vector2( 12923, 15292.9 )
+scale = Vector2( 1, 1.47999 )
+enabled = true
+
+[node name="BeamDoor4" parent="Scenery/Spiral" index="95" instance=ExtResource( 28 )]
+position = Vector2( 10009.9, 14187.1 )
+rotation = 1.5708
+scale = Vector2( 1, 1.2 )
+
+[node name="BeamDoor5" parent="Scenery/Spiral" index="96" instance=ExtResource( 28 )]
+position = Vector2( 10079.3, 16132 )
+rotation = 1.5708
+scale = Vector2( 1, 1.07998 )
+
+[node name="BeamDoor7" parent="Scenery/Spiral" index="97" instance=ExtResource( 28 )]
+position = Vector2( 11849.8, 16240 )
+rotation = 1.5708
+scale = Vector2( 1, 1.59999 )
+
+[node name="Building1" parent="Scenery/Spiral" index="98" instance=ExtResource( 26 )]
+position = Vector2( 9127.2, 13938.9 )
+
+[node name="Building2" parent="Scenery/Spiral" index="99" instance=ExtResource( 29 )]
+position = Vector2( 8911.4, 15979.9 )
+scale = Vector2( 0.662257, 0.662257 )
+
+[node name="Building3" parent="Scenery/Spiral" index="100" instance=ExtResource( 27 )]
+position = Vector2( 11168, 13875.9 )
+
+[node name="Building7" parent="Scenery/Spiral" index="101" instance=ExtResource( 10 )]
+position = Vector2( 12971.8, 14278.9 )
+scale = Vector2( 0.540473, 0.540473 )
+
+[node name="Building4" parent="Scenery/Spiral" index="102" instance=ExtResource( 29 )]
+position = Vector2( 13260.6, 16312.9 )
+scale = Vector2( 0.66667, 0.66667 )
+
+[node name="Building5" parent="Scenery/Spiral" index="103" instance=ExtResource( 29 )]
+position = Vector2( 10851.7, 16197.4 )
+rotation = 1.57079
+scale = Vector2( 0.548684, 0.548684 )
+
+[node name="BeamDoor6" parent="Scenery/Spiral" index="104" instance=ExtResource( 28 )]
+position = Vector2( 12079.6, 14223.4 )
+rotation = 1.5708
+scale = Vector2( 1, 0.690539 )
+z_index = -1
 
 [node name="MarginContainer" parent="MenuCanvas" index="0"]
 visible = false
