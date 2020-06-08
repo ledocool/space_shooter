@@ -5,5 +5,5 @@ func _init():
 	data.quantity = 1
 	data.name = "rocketeer"
 	data.info = {
-		"ammo": 40
+		"ammo": 5
 	}

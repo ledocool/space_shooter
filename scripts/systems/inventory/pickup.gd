@@ -2,13 +2,12 @@ class_name Pickup
 
 # type
 ## 0 - weapon
-## 1 - ammo
-## 2 - item
+## 1 - item
 
-var type = 0
-var quantity = 0
-var name = ""
-var info: Dictionary = {}
+var type = 0 setget set_type,get_type
+var quantity = 0 setget set_quantity,get_quantity
+var name = "" setget set_name,get_name
+var info: Dictionary = {} setget set_info, get_info
 
 func set_type(t: int):
 	type = t

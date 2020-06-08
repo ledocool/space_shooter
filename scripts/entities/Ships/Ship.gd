@@ -33,21 +33,51 @@ var InventoryInstance = Inventory.new()
 
 onready var Statuses = Array()
 
-
-#func AssumeStatus(status):
-#	pass
-
+#	"rocketeer": {
+#		"enabled": false,
+#		"total_ammo": 20,
+#		"shoot_timeout": 1.2,
+#		"shoot_cooldown": 0,
+#		"ammo_type": "res://scenes/entities/ConcreteEntities/Bullets/Rocket.tscn",
+#	},
 func Pickup(item: Pickup):
 	match(item.get_type()):
 		0:
 			var data = InventoryInstance.GetWeapon(item.get_name())
 			if(!data):
 				return false
-			data.enabled = true
-			var result = InventoryInstance.SetWeapon(item.get_name(), data)
-			if(result && CurrentWeapon.empty()):
-				SwitchWeapon(item.get_name())
-			return result
+				
+			if(data.enabled):
+				var quantity = item.get_quantity()
+				var ammo = item.get_info().get("ammo", 0) * quantity
+				
+				if RemainningAmmo >= data.max_ammo || RemainningAmmo < 0:
+					return false
+				
+				if(CurrentWeapon == item.get_name()):
+					RemainningAmmo = RemainningAmmo + ammo
+					if RemainningAmmo > data.max_ammo:
+						RemainningAmmo = data.max_ammo
+					emit_signal("bullets_changed", RemainningAmmo)
+					return true
+					
+				else:
+					if data.total_ammo >= data.max_ammo || data.total_ammo < 0:
+						return false
+						
+					data.total_ammo = data.total_ammo + ammo
+					if data.total_ammo > data.max_ammo:
+						data.total_ammo = data.max_ammo
+						
+					return InventoryInstance.SetWeapon(item.get_name(), data)
+			else:
+				#new wpn
+				data.enabled = true
+				var result = InventoryInstance.SetWeapon(item.get_name(), data)
+				if(result && CurrentWeapon.empty()):
+					SwitchWeapon(item.get_name())
+				return result
+			
 		1:
 			var statusName = StatusMap.getStatusPath(item.get_name())
 			if (!statusName.empty()):
@@ -57,8 +87,6 @@ func Pickup(item: Pickup):
 					Statuses.append(status.new(self))
 					return true
 			return false
-		2:
-			pass
 			
 	print_debug("Item of unknown type: " + String(item.get_type()))
 	return false;
