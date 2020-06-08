@@ -4,6 +4,7 @@ var weapons = {
 	"slug": {
 		"enabled": false,
 		"total_ammo": -1,
+		"max_ammo": -1,
 		"shoot_timeout": 0.07,
 		"shoot_cooldown": 0,
 		"ammo_type": "res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn",
@@ -11,6 +12,7 @@ var weapons = {
 	"rocketeer": {
 		"enabled": false,
 		"total_ammo": 20,
+		"max_ammo": 20,
 		"shoot_timeout": 1.2,
 		"shoot_cooldown": 0,
 		"ammo_type": "res://scenes/entities/ConcreteEntities/Bullets/Rocket.tscn",
