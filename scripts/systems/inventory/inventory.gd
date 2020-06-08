@@ -4,7 +4,7 @@ var weapons = {
 	"slug": {
 		"enabled": false,
 		"total_ammo": -1,
-		"shoot_timeout": 0.07,
+		"shoot_timeout": 0.3,
 		"shoot_cooldown": 0,
 		"ammo_type": "res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn",
 	},
