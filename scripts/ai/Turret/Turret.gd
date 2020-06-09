@@ -97,8 +97,11 @@ func Track():
 	var target = GetTarget()
 	if(!target):
 		return
-
+	
 	var targetPosition = target.get_global_position()
+	if(!AiAPathHelper.TargetVisible(position, target.position, get_world_2d())):
+		return
+
 	($Top as Node2D).look_at(targetPosition)
 
 
@@ -133,9 +136,11 @@ func _ready():
 func _physics_process(delta):
 	aiState._physics_process(delta)
 
+
 func _on_dead():
 	($Base as StaticBody2D).set_collision_layer(1)
 	($Top as KinematicBody2D).set_collision_layer(1)
+
 
 func _on_Area2D_body_entered(body):
 	if(body is PlayerShip):

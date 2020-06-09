@@ -33,13 +33,6 @@ var InventoryInstance = Inventory.new()
 
 onready var Statuses = Array()
 
-#	"rocketeer": {
-#		"enabled": false,
-#		"total_ammo": 20,
-#		"shoot_timeout": 1.2,
-#		"shoot_cooldown": 0,
-#		"ammo_type": "res://scenes/entities/ConcreteEntities/Bullets/Rocket.tscn",
-#	},
 func Pickup(item: Pickup):
 	match(item.get_type()):
 		0:
@@ -71,7 +64,6 @@ func Pickup(item: Pickup):
 						
 					return InventoryInstance.SetWeapon(item.get_name(), data)
 			else:
-				#new wpn
 				data.enabled = true
 				var result = InventoryInstance.SetWeapon(item.get_name(), data)
 				if(result && CurrentWeapon.empty()):
