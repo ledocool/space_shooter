@@ -1,14 +1,11 @@
 extends Node2D
 
-var wirePiece = preload("res://scenes/entities/ConcreteEntities/Dynamic/WirePiece.tscn");
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var wirePiece = preload("res://scenes/entities/ConcreteEntities/Dynamic/Wire/WirePiece.tscn");
 
 var pieces = 3 
 var held_object = null
-# Called when the node enters the scene tree for the first time.
+
+
 func _ready():
 	for node in get_tree().get_nodes_in_group("pickable"):
 		node.connect("clicked", self, "_on_pickable_clicked")

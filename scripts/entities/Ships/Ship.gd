@@ -26,15 +26,17 @@ var OldSpeed = 0
 var OldForce = Vector2(0,0)
 
 var InventoryInstance = Inventory.new()
-var CannonInstance = Cannon.new()
+var StatusWrk = StatusWorker.new(self)
+onready var CannonInstance = $Cannon
 
-var Statuses = Array()
 
-func PickUp(item):
+func PickUp(item: Pickup):
+	var switchToWeapon = CannonInstance.CurrentWeapon
 	_removeWeapon()
-	var result = PickupHelper.ProcessPickup(item, InventoryInstance, self, Statuses)
-	if(result && item.get_type() == 0):
-		SwitchWeapon(item.get_name())
+	var result = PickupHelper.ProcessPickup(item, InventoryInstance, self, StatusWrk)
+	if(result && switchToWeapon == "" && item.get_type() == 0):
+		switchToWeapon = item.get_name()
+	SwitchWeapon(switchToWeapon)
 	return result
 
 
@@ -63,8 +65,7 @@ func SetInventory(data: Dictionary):
 
 
 func Save():
-	var cwpn = Cannon.CurrentWeapon
-	_removeWeapon()
+	var cwpn = _removeWeapon()
 	var data = {
 		"position": position,
 		"velocity": linear_velocity,
@@ -129,9 +130,7 @@ func GetVelocity():
 
 
 func SwitchWeapon(wpnType):
-	var currentWeaponBackup = CannonInstance.CurrentWeapon
-	if(!CannonInstance.CurrentWeapon.empty()):
-		_removeWeapon()
+	var currentWeaponBackup = _removeWeapon()
 	if(_selectWeapon(wpnType)):
 		emit_signal("bullets_changed", CannonInstance.RemainningAmmo)
 		emit_signal("weapon_changed", wpnType)
@@ -148,10 +147,7 @@ func _integrate_forces(state):
 
 
 func _physics_process(delta):
-	for status in Statuses:
-		status._physics_process(delta)
-		if (status.IsStatusDead()):
-			Statuses.erase(status)
+	StatusWrk._physics_process(delta)
 	
 	if (ShipCurrentHealth <= 0):
 		self.Destroy()
@@ -211,13 +207,16 @@ func _removeWeapon():
 		for key in weapon.keys():
 			storedData[key] = weapon[key]
 		InventoryInstance.SetWeapon(CannonInstance.CurrentWeapon, storedData)
-	else:
-		print_debug("Could not remove weapon of type " + CannonInstance.CurrentWeapon)
+	return CannonInstance.CurrentWeapon
+		
 
 
 func _selectWeapon(weapon: String):
 	var data = InventoryInstance.GetWeapon(weapon)
-	return CannonInstance.SetWeapon(weapon, data)
+	if(data != null):
+		return CannonInstance.SetWeapon(weapon, data)
+	else:
+		return false
 
 
 func _on_BlinkTimer_timeout():

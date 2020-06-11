@@ -1,8 +1,8 @@
 extends Node
 class_name Cannon
 
-var cannonCooldownTimer: Timer = Timer.new()
-var cannonAfterburnTimer: Timer = Timer.new()
+onready var cannonCooldownTimer: Timer = $CannonCooldownTimer
+onready var cannonAfterburnTimer: Timer = $CannonAfterburnTimer
 
 #"slug": {
 #		"enabled": false,
@@ -19,12 +19,10 @@ var MaxAmmo: int = 0
 var BulletType = null
 
 func _init():
-	cannonAfterburnTimer.process_mode = Timer.TIMER_PROCESS_PHYSICS
-	cannonCooldownTimer.process_mode = Timer.TIMER_PROCESS_PHYSICS
 	set_physics_process(true)
 
-func SetWeapon(name: String, data: Dictionary):
-	if(data && data.enabled == true):
+func SetWeapon(name: String, data):
+	if(data && data is Dictionary && data.enabled == true):
 		CurrentWeapon = name
 		RemainningAmmo = data.total_ammo
 		BulletType = load(data.ammo_type)

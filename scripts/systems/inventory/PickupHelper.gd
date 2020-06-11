@@ -1,6 +1,6 @@
 class_name PickupHelper
 
-static func ProcessPickup(item, inventory, statusTarget, statusArray) -> bool:
+static func ProcessPickup(item, inventory, statusTarget, statusWorker) -> bool:
 	match(item.get_type()):
 		0:			
 			var data = inventory.GetWeapon(item.get_name())
@@ -21,7 +21,7 @@ static func ProcessPickup(item, inventory, statusTarget, statusArray) -> bool:
 			if (!statusName.empty()):
 				if(statusTarget.ShipCurrentHealth < statusTarget.ShipMaxHealth):
 					var status = load(statusName)
-					statusArray.append(status.new(statusTarget))
+					statusWorker.AddStatus(status.new())
 					return true
 
 			return false
