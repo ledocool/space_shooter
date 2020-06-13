@@ -13,7 +13,7 @@ const StateMachineFactory = preload("res://scripts/systems/state-machine/state_m
 
 const bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/ShockChain.tscn")
 
-export var Health = 8
+export var Health = 7
 
 var shotTimeout = 3
 var LockedTarget = null

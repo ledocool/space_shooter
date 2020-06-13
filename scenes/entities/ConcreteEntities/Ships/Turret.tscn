@@ -85,6 +85,7 @@ position = Vector2( 131.293, -3.24753 )
 position = Vector2( -25.5162, -3.71146 )
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
