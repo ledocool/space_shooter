@@ -62,7 +62,6 @@ func _ready():
 	for shp in $ShipContainer.get_children():
 		if(shp is Ship):
 			print_debug("Connecting " + shp.get_name())
-			shp.connect("shoot_bullet", self, "_on_Ship_shoot")
 			shp.connect("exploded", self, "_on_Something_explode")
 			if(!shp is PlayerShip):
 				shp.connect("health_changed", self, "_on_enemyHealth_change")
@@ -71,15 +70,16 @@ func _ready():
 			shp.connect("shoot_bullet", self, "_on_Ship_shoot")
 			shp.connect("exploded", self, "_on_Something_explode")
 			
-	var Player = $ShipContainer/Player as Ship
+	var Player = $ShipContainer/Player as PlayerShip
 	if(Player):
 		var camera = $PlayerCamera as UI
 		Player.connect("health_changed", camera, "_on_health_change")
 		Player.connect("health_changed", self, "_on_playerHealth_change")
 		Player.connect("speed_changed", camera, "_on_speed_change")
 		Player.connect("shoot_bullet", self, "_on_player_shootBullet")
-		Player.connect("bullets_changed", camera, "_on_ammo_change")
-		Player.connect("weapon_changed", camera, "_on_weapon_change")
+		Player.connect("shoot_bullet", self, "_on_Ship_shoot")
+		Player.CannonInstance.connect("bullets_changed", camera, "_on_ammo_change")
+		Player.CannonInstance.connect("weapon_changed", camera, "_on_weapon_change")
 		camera._on_max_health_change(Player.GetMaxHealth())
 		camera._on_health_change(0, Player.GetHealth())
 		camera._on_max_speed_change(Player.GetMaxSpeed())

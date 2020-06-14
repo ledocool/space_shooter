@@ -1,13 +1,10 @@
 extends RigidBody2D
 class_name Ship
 
-signal shoot_bullet(bullet_type, direction, location, velocity)
 signal health_changed(oldHealth, newHealth)
 signal speed_changed(spd)
 signal coordinates_changed(coords)
 signal exploded(position, size, rotation)
-signal bullets_changed(ammo)
-signal weapon_changed(weaponType)
 
 export var ShipSpeed = 300
 export var ShipTopSpeed = 900
@@ -18,27 +15,11 @@ export var ShipRippleScale = 3
 
 var Cursor = null
 var EngineFiring = false
-var CannonFiring = false
 
 var EngineFiringLastTime = false
 
 var OldSpeed = 0
 var OldForce = Vector2(0,0)
-
-var InventoryInstance = Inventory.new()
-var StatusWrk = StatusWorker.new(self)
-onready var CannonInstance = $Cannon
-
-
-func PickUp(item: Pickup):
-	var switchToWeapon = CannonInstance.CurrentWeapon
-	_removeWeapon()
-	var result = PickupHelper.ProcessPickup(item, InventoryInstance, self, StatusWrk)
-	if(result && switchToWeapon == "" && item.get_type() == 0):
-		switchToWeapon = item.get_name()
-	SwitchWeapon(switchToWeapon)
-	return result
-
 
 func Damage(points: int):
 	var cooldown = ($Timers/InvulnerabilityTimer as Timer)
@@ -52,37 +33,17 @@ func Damage(points: int):
 	return true
 
 
-func GetInventory():
-	return {
-		"weapons": InventoryInstance.GetAllWeapons(),
-		"items": InventoryInstance.GetAllItems()
-	}
-
-
-func SetInventory(data: Dictionary):
-	InventoryInstance.SetAllWeapons(data.weapons)
-	InventoryInstance.SetAllItems(data.items)
-
-
 func Save():
-	var cwpn = _removeWeapon()
+	
 	var data = {
 		"position": position,
 		"velocity": linear_velocity,
-		"rotation": rotation,
-		"current_weapon": cwpn,
-		"weapons": InventoryInstance.GetAllWeapons(),
-		"items": InventoryInstance.GetAllItems()
+		"rotation": rotation
 	}
-	_selectWeapon(cwpn)
 	return data
 
 
 func Load(data: Dictionary):
-	InventoryInstance.SetAllWeapons(data.weapons)
-	InventoryInstance.SetAllItems(data.items)
-	if(data.current_weapon):
-		SwitchWeapon(data.current_weapon)
 	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
 	position = Vector2(pos[0], pos[1])
 	var vel = data.velocity.trim_prefix('(').trim_suffix(')').split(',')
@@ -129,15 +90,6 @@ func GetVelocity():
 	return linear_velocity
 
 
-func SwitchWeapon(wpnType):
-	var currentWeaponBackup = _removeWeapon()
-	if(_selectWeapon(wpnType)):
-		emit_signal("bullets_changed", CannonInstance.RemainningAmmo)
-		emit_signal("weapon_changed", wpnType)
-	else:
-		_selectWeapon(currentWeaponBackup)
-
-
 func _integrate_forces(state):
 	var oldRot = rotation
 	if(Cursor != null):
@@ -147,13 +99,10 @@ func _integrate_forces(state):
 
 
 func _physics_process(delta):
-	StatusWrk._physics_process(delta)
-	
 	if (ShipCurrentHealth <= 0):
 		self.Destroy()
 		return 0
 	
-	_tryShoot()
 	var spd = linear_velocity.length()
 	if(spd < VelocityDampThreshold && EngineFiring == false):
 		linear_damp = 5
@@ -172,11 +121,6 @@ func _onDestruction():
 	emit_signal("exploded", position, 0.15, 0)
 
 
-func _tryShoot():
-	if(CannonFiring && CannonInstance.TryShoot()):
-		_shoot()
-
-
 func _applySpeed (state, newRot, oldRot):
 	var force = Vector2(ShipSpeed, 0).rotated(newRot)
 	
@@ -192,31 +136,6 @@ func _applySpeed (state, newRot, oldRot):
 			OldForce = Vector2(0,0)
 			
 		EngineFiringLastTime = EngineFiring
-
-
-func _shoot():
-	emit_signal("shoot_bullet", CannonInstance.BulletType, rotation, ($BulletAnchor as Node2D).global_position, linear_velocity)
-	emit_signal("bullets_changed", CannonInstance.RemainningAmmo)
-	return true
-
-
-func _removeWeapon():
-	var storedData = InventoryInstance.GetWeapon(CannonInstance.CurrentWeapon)
-	if(storedData):
-		var weapon = CannonInstance.UnsetWeapon()
-		for key in weapon.keys():
-			storedData[key] = weapon[key]
-		InventoryInstance.SetWeapon(CannonInstance.CurrentWeapon, storedData)
-	return CannonInstance.CurrentWeapon
-		
-
-
-func _selectWeapon(weapon: String):
-	var data = InventoryInstance.GetWeapon(weapon)
-	if(data != null):
-		return CannonInstance.SetWeapon(weapon, data)
-	else:
-		return false
 
 
 func _on_BlinkTimer_timeout():

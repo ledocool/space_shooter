@@ -62,7 +62,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Inventory",
 "language": "GDScript",
-"path": "res://scripts/systems/inventory/Inventory.gd"
+"path": "res://scripts/systems/inventory/inventory.gd"
 }, {
 "base": "WorldEnvironment",
 "class": "Level",
