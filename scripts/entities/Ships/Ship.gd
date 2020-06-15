@@ -11,7 +11,9 @@ export var ShipTopSpeed = 900
 export var ShipMaxHealth = 5
 export var ShipCurrentHealth = 5
 export var VelocityDampThreshold = 180
-export var ShipRippleScale = 3
+
+var SpeedMultiplier: float = 1
+var ReceivedDamageMultiplier: float = 1
 
 var Cursor = null
 var EngineFiring = false
@@ -22,6 +24,7 @@ var OldSpeed = 0
 var OldForce = Vector2(0,0)
 
 func Damage(points: int):
+	points = int(points * ReceivedDamageMultiplier)
 	var cooldown = ($Timers/InvulnerabilityTimer as Timer)
 	var blink = ($Timers/BlinkTimer as Timer)
 	if(cooldown.is_stopped()):
@@ -34,7 +37,6 @@ func Damage(points: int):
 
 
 func Save():
-	
 	var data = {
 		"position": position,
 		"velocity": linear_velocity,
@@ -98,7 +100,7 @@ func _integrate_forces(state):
 	_applySpeed(state, newRot, oldRot)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if (ShipCurrentHealth <= 0):
 		self.Destroy()
 		return 0
@@ -111,7 +113,6 @@ func _physics_process(delta):
 	
 	if(spd != OldSpeed):
 		OldSpeed = spd
-		($Turbulence/Area2D as Area2D).gravity = -ShipRippleScale * spd
 		emit_signal("speed_changed", spd)
 	if(spd > 1e-6):
 		emit_signal("coordinates_changed", position);
@@ -122,7 +123,7 @@ func _onDestruction():
 
 
 func _applySpeed (state, newRot, oldRot):
-	var force = Vector2(ShipSpeed, 0).rotated(newRot)
+	var force = Vector2(ShipSpeed * SpeedMultiplier, 0).rotated(newRot)
 	
 	if(newRot != oldRot || EngineFiringLastTime != EngineFiring):
 		state.add_central_force(-OldForce)

@@ -9,7 +9,7 @@ onready var CannonInstance = $Cannon
 
 
 func _ready():
-	var succ = CannonInstance.connect("shoot_bullet", self, "_on_bullet_shot")
+	CannonInstance.connect("shoot_bullet", self, "_on_bullet_shot")
 
 func SwitchWeapon(wpnType):
 	var currentWeaponBackup = _removeWeapon()
@@ -76,7 +76,6 @@ func _input(event):
 
 
 func _physics_process(delta):
-	#CannonInstance._physics_process(delta)
 	StatusWrk._physics_process(delta)
 	self.Cursor = get_global_mouse_position()
 
