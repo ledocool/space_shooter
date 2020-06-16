@@ -1,7 +1,7 @@
 extends Node
 class_name Cannon
 
-signal shoot_bullet(bullet_type)
+signal shoot_bullet(bullet_type, shot_modifier)
 signal bullets_changed(ammo)
 signal weapon_changed(weaponType)
 
@@ -9,21 +9,14 @@ onready var cannonCooldownTimer: Timer = $CannonCooldownTimer
 onready var cannonAfterburnTimer: Timer = $CannonAfterburnTimer 
 
 var CannonFiring = false
-
-#wpn example
-#"slug": {
-#		"enabled": false,
-#		"total_ammo": -1,
-#		"max_ammo": -1,
-#		"shoot_timeout": 0.3,
-#		"shoot_cooldown": 0,
-#		"ammo_type": "res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn",
-#	},
+var CannonLocked = false
+var BulletDamageMultiplier: float = 1.0
 
 var CurrentWeapon: String = ""
 var RemainningAmmo: int = 0
 var MaxAmmo: int = 0
 var BulletType = null
+
 
 func _init():
 	set_physics_process(true)
@@ -76,7 +69,7 @@ func CheckShootPossible() -> bool:
 
 
 func _tryShoot():
-	if(CannonFiring && CheckShootPossible()):
+	if(!CannonLocked && CannonFiring && CheckShootPossible()):
 		_shoot()
 
 func _setDefault():
@@ -87,7 +80,7 @@ func _setDefault():
 
 
 func _shoot():
-	emit_signal("shoot_bullet", BulletType)
+	emit_signal("shoot_bullet", BulletType, BulletDamageMultiplier)
 	emit_signal("bullets_changed", RemainningAmmo)
 	return true
 

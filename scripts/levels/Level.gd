@@ -90,8 +90,8 @@ func _ready():
 		
 
 
-func _on_Ship_shoot(BulletType, direction, location, velocity):
-	var bullet = BulletType.instance()
+func _on_Ship_shoot(BulletType, direction, location, velocity, damage_multiplier):
+	var bullet = BulletType.instance(damage_multiplier)
 	bullet.SpawnAt(location, direction, velocity)
 	bullet.connect("exploded", self, "_on_Something_explode")
 	$BulletContainer.add_child(bullet)

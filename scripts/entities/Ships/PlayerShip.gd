@@ -1,12 +1,12 @@
 extends Ship
 class_name PlayerShip
 
-signal shoot_bullet(bullet_type, direction, location, velocity)
+signal shoot_bullet(bullet_type, direction, location, velocity, damage_multiplier)
 
 var InventoryInstance = Inventory.new()
 var StatusWrk = StatusWorker.new(self)
 onready var CannonInstance = $Cannon
-
+var DamageOnBump = false
 
 func _ready():
 	CannonInstance.connect("shoot_bullet", self, "_on_bullet_shot")
@@ -65,9 +65,9 @@ func _input(event):
 		CannonInstance.CannonFiring = false
 	
 	if event.is_action_pressed("engine_fire"):
-		self.EngineFiring = true
+		EngineFiring = true
 	elif event.is_action_released("engine_fire"):
-		self.EngineFiring = false
+		EngineFiring = false
 		
 	if event.is_action_pressed("wpn_1"):
 		SwitchWeapon("slug")
@@ -77,7 +77,7 @@ func _input(event):
 
 func _physics_process(delta):
 	StatusWrk._physics_process(delta)
-	self.Cursor = get_global_mouse_position()
+	Cursor = get_global_mouse_position()
 
 
 func _removeWeapon():
@@ -99,5 +99,13 @@ func _selectWeapon(weapon: String):
 		return false
 
 
-func _on_bullet_shot(bullet_type):
-	emit_signal("shoot_bullet", bullet_type, GetRotation(), $BulletAnchor.get_global_position(), GetVelocity())
+func _on_bullet_shot(bullet_type, damage_multiplier):
+	emit_signal("shoot_bullet", 
+		bullet_type, GetRotation(), 
+		($BulletAnchor as Position2D).get_global_position(), 
+		GetVelocity(), damage_multiplier)
+
+
+func _on_PlayerShip_body_entered(body):
+	if(DamageOnBump && body.has_method("Damage")):
+		body.Damage(9999999999)

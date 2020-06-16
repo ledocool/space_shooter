@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/entities/BeamDoor.gd"
 }, {
+"base": "Status",
+"class": "BerserkStatus",
+"language": "GDScript",
+"path": "res://scripts/systems/status/Statuses/BerserkStatus.gd"
+}, {
 "base": "RigidBody2D",
 "class": "Bullet",
 "language": "GDScript",
@@ -67,7 +72,7 @@ _global_script_classes=[ {
 "base": "Status",
 "class": "InvincibilityStatus",
 "language": "GDScript",
-"path": "res://scripts/systems/status/Statuses/InvinvibilityStatus.gd"
+"path": "res://scripts/systems/status/Statuses/InvincibilityStatus.gd"
 }, {
 "base": "WorldEnvironment",
 "class": "Level",
@@ -113,6 +118,11 @@ _global_script_classes=[ {
 "class": "ShockPlate",
 "language": "GDScript",
 "path": "res://scripts/entities/Projectiles/ShockPlate.gd"
+}, {
+"base": "Status",
+"class": "ShootInabilityStatus",
+"language": "GDScript",
+"path": "res://scripts/systems/status/Statuses/ShootInabilityStatus.gd"
 }, {
 "base": "Status",
 "class": "SpeedupStatus",
@@ -178,6 +188,7 @@ _global_script_class_icons={
 "AiAPathHelper": "",
 "AlienShipDoor": "",
 "BeamDoor": "",
+"BerserkStatus": "",
 "Bullet": "",
 "Cannon": "",
 "Collectable": "",
@@ -196,6 +207,7 @@ _global_script_class_icons={
 "SaveManager": "",
 "Ship": "",
 "ShockPlate": "",
+"ShootInabilityStatus": "",
 "SpeedupStatus": "",
 "State": "",
 "StateMachine": "",
