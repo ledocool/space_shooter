@@ -1,90 +1,30 @@
 extends RigidBody2D
 class_name Ship
 
-signal shoot_bullet(bullet_type, direction, location, velocity)
 signal health_changed(oldHealth, newHealth)
 signal speed_changed(spd)
 signal coordinates_changed(coords)
 signal exploded(position, size, rotation)
-signal bullets_changed(ammo)
-signal weapon_changed(weaponType)
 
 export var ShipSpeed = 300
 export var ShipTopSpeed = 900
 export var ShipMaxHealth = 5
 export var ShipCurrentHealth = 5
 export var VelocityDampThreshold = 180
-export var ShipRippleScale = 3
+
+var SpeedMultiplier: float = 1
+var ReceivedDamageMultiplier: float = 1
 
 var Cursor = null
 var EngineFiring = false
+
 var EngineFiringLastTime = false
 
-var CannonFiring = false
-var CannonLockedAfterburn = false
-
-var CurrentWeapon: String = ""
-var RemainningAmmo: int = 0
-var BulletType = null
 var OldSpeed = 0
 var OldForce = Vector2(0,0)
 
-var InventoryInstance = Inventory.new()
-
-onready var Statuses = Array()
-
-func Pickup(item: Pickup):
-	match(item.get_type()):
-		0:
-			var data = InventoryInstance.GetWeapon(item.get_name())
-			if(!data):
-				return false
-				
-			if(data.enabled):
-				var quantity = item.get_quantity()
-				var ammo = item.get_info().get("ammo", 0) * quantity
-				
-				if RemainningAmmo >= data.max_ammo || RemainningAmmo < 0:
-					return false
-				
-				if(CurrentWeapon == item.get_name()):
-					RemainningAmmo = RemainningAmmo + ammo
-					if RemainningAmmo > data.max_ammo:
-						RemainningAmmo = data.max_ammo
-					emit_signal("bullets_changed", RemainningAmmo)
-					return true
-					
-				else:
-					if data.total_ammo >= data.max_ammo || data.total_ammo < 0:
-						return false
-						
-					data.total_ammo = data.total_ammo + ammo
-					if data.total_ammo > data.max_ammo:
-						data.total_ammo = data.max_ammo
-						
-					return InventoryInstance.SetWeapon(item.get_name(), data)
-			else:
-				data.enabled = true
-				var result = InventoryInstance.SetWeapon(item.get_name(), data)
-				if(result && CurrentWeapon.empty()):
-					SwitchWeapon(item.get_name())
-				return result
-			
-		1:
-			var statusName = StatusMap.getStatusPath(item.get_name())
-			if (!statusName.empty()):
-				if(ShipCurrentHealth < ShipMaxHealth):
-					var status = load(statusName)
-					#status.canApply
-					Statuses.append(status.new(self))
-					return true
-			return false
-			
-	print_debug("Item of unknown type: " + String(item.get_type()))
-	return false;
-
-
 func Damage(points: int):
+	points = int(points * ReceivedDamageMultiplier)
 	var cooldown = ($Timers/InvulnerabilityTimer as Timer)
 	var blink = ($Timers/BlinkTimer as Timer)
 	if(cooldown.is_stopped()):
@@ -95,38 +35,17 @@ func Damage(points: int):
 		emit_signal("health_changed", oldShipHealth, ShipCurrentHealth)
 	return true
 
-func GetInventory():
-	return {
-		"weapons": InventoryInstance.GetAllWeapons(),
-		"items": InventoryInstance.GetAllItems()
-	}
-
-
-func SetInventory(data: Dictionary):
-	InventoryInstance.SetAllWeapons(data.weapons)
-	InventoryInstance.SetAllItems(data.items)
-
 
 func Save():
-	var cwpn = CurrentWeapon
-	_removeWeapon()
 	var data = {
 		"position": position,
 		"velocity": linear_velocity,
-		"rotation": rotation,
-		"current_weapon": cwpn,
-		"weapons": InventoryInstance.GetAllWeapons(),
-		"items": InventoryInstance.GetAllItems()
+		"rotation": rotation
 	}
-	_selectWeapon(cwpn)
 	return data
 
 
 func Load(data: Dictionary):
-	InventoryInstance.SetAllWeapons(data.weapons)
-	InventoryInstance.SetAllItems(data.items)
-	if(data.current_weapon):
-		SwitchWeapon(data.current_weapon)
 	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
 	position = Vector2(pos[0], pos[1])
 	var vel = data.velocity.trim_prefix('(').trim_suffix(')').split(',')
@@ -173,17 +92,6 @@ func GetVelocity():
 	return linear_velocity
 
 
-func SwitchWeapon(wpnType):
-	var currentWeaponBackup = CurrentWeapon
-	if(!CurrentWeapon.empty()):
-		_removeWeapon()
-	if(_selectWeapon(wpnType)):
-		emit_signal("bullets_changed", RemainningAmmo)
-		emit_signal("weapon_changed", wpnType)
-	else:
-		_selectWeapon(currentWeaponBackup)
-
-
 func _integrate_forces(state):
 	var oldRot = rotation
 	if(Cursor != null):
@@ -192,17 +100,11 @@ func _integrate_forces(state):
 	_applySpeed(state, newRot, oldRot)
 
 
-func _physics_process(delta):
-	for status in Statuses:
-		status._physics_process(delta)
-		if (status.IsStatusDead()):
-			Statuses.erase(status)
-	
+func _physics_process(_delta):
 	if (ShipCurrentHealth <= 0):
 		self.Destroy()
 		return 0
 	
-	_tryShoot()
 	var spd = linear_velocity.length()
 	if(spd < VelocityDampThreshold && EngineFiring == false):
 		linear_damp = 5
@@ -211,7 +113,6 @@ func _physics_process(delta):
 	
 	if(spd != OldSpeed):
 		OldSpeed = spd
-		($Turbulence/Area2D as Area2D).gravity = -ShipRippleScale * spd
 		emit_signal("speed_changed", spd)
 	if(spd > 1e-6):
 		emit_signal("coordinates_changed", position);
@@ -221,21 +122,8 @@ func _onDestruction():
 	emit_signal("exploded", position, 0.15, 0)
 
 
-func _tryShoot():
-	var cannonCooldown = $Timers/CannonCooldownTimer as Timer
-	if(CannonFiring 
-		&& !CannonLockedAfterburn 
-		&& cannonCooldown.is_stopped() 
-		&& RemainningAmmo != 0):
-		if _shoot():
-			if(RemainningAmmo > 0):
-				RemainningAmmo -= 1
-			emit_signal("bullets_changed", RemainningAmmo)
-			cannonCooldown.start()
-
-
 func _applySpeed (state, newRot, oldRot):
-	var force = Vector2(ShipSpeed, 0).rotated(newRot)
+	var force = Vector2(ShipSpeed * SpeedMultiplier, 0).rotated(newRot)
 	
 	if(newRot != oldRot || EngineFiringLastTime != EngineFiring):
 		state.add_central_force(-OldForce)
@@ -251,48 +139,6 @@ func _applySpeed (state, newRot, oldRot):
 		EngineFiringLastTime = EngineFiring
 
 
-func _shoot():
-	if(BulletType != null):
-		emit_signal("shoot_bullet", BulletType, rotation, ($BulletAnchor as Node2D).global_position, linear_velocity)
-		return true
-	return false
-
-
-func _removeWeapon():
-	var storedData = InventoryInstance.GetWeapon(CurrentWeapon)
-	if(storedData):
-		var cannonCooldown = $Timers/CannonCooldownTimer as Timer
-		storedData.total_ammo = RemainningAmmo
-		storedData.shoot_cooldown = cannonCooldown.get_time_left()
-		cannonCooldown.stop()
-		InventoryInstance.SetWeapon(CurrentWeapon, storedData)
-	else:
-		print_debug("Could not remove weapon of type " + CurrentWeapon)
-		
-	CurrentWeapon = ""	
-	RemainningAmmo = 0
-	BulletType = null
-
-
-func _selectWeapon(weapon: String):
-	var data = InventoryInstance.GetWeapon(weapon)
-	if(data && data.enabled == true):
-		var cannonCooldown = $Timers/CannonCooldownTimer as Timer
-		var cannonAfterburn = $Timers/CannonAfterBurnTimer as Timer
-		CurrentWeapon = weapon
-		RemainningAmmo = data.total_ammo
-		BulletType = load(data.ammo_type)
-		cannonCooldown.set_wait_time(data.shoot_timeout)
-		if(data.shoot_cooldown > 0):
-			CannonLockedAfterburn = true
-			cannonAfterburn.set_wait_time(data.shoot_cooldown)
-			cannonAfterburn.start()
-		return true
-	else:
-		print_debug("Could not select weapon of type " + weapon)
-		return false
-
-
 func _on_BlinkTimer_timeout():
 	if(self.visible):
 		self.hide()
@@ -304,7 +150,3 @@ func _on_InvulnerabilityTimer_timeout():
 	var blink = $Timers/BlinkTimer as Timer
 	blink.stop()
 	self.show()
-
-
-func _on_CannonAfterBurnTimer_timeout():
-	CannonLockedAfterburn = false

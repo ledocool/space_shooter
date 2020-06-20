@@ -52,6 +52,18 @@ func SetItem(itmType, data):
 		return true
 	return false
 
+func RestockWeapon(itemType, ammo):
+	var data = GetWeapon(itemType)
+	if (data.total_ammo >= data.max_ammo || data.total_ammo < 0):
+		return false
+						
+	data.total_ammo = data.total_ammo + ammo
+	if data.total_ammo > data.max_ammo:
+		data.total_ammo = data.max_ammo
+		
+	SetWeapon(itemType, data)
+	return true
+
 func GetAllWeapons():
 	return weapons
 	

@@ -37,7 +37,8 @@ func GetTarget():
 		return LockedTarget.get_ref()
 
 
-func _init():
+func _init(damage_multiplier = null):
+	._init(damage_multiplier)
 	Damage = 10
 
 

@@ -38,6 +38,23 @@ VelocityDampThreshold = 250
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
 
+[node name="DifferenceRecalculationTimer" type="Timer" parent="Timers" index="2"]
+process_mode = 0
+wait_time = 0.2
+
+[node name="SeesPlayerTimer" type="Timer" parent="Timers" index="3"]
+process_mode = 0
+wait_time = 0.5
+autostart = true
+
+[node name="AngryfyingTimer" type="Timer" parent="Timers" index="4"]
+process_mode = 0
+wait_time = 0.9
+one_shot = true
+
+[node name="AngryfyingBlinkTimer" type="Timer" parent="Timers" index="5"]
+wait_time = 0.07
+
 [node name="Sprite" type="AnimatedSprite" parent="." index="3"]
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
@@ -68,26 +85,9 @@ visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplodeArea" index="0"]
 shape = SubResource( 5 )
-
-[node name="DifferenceRecalculationTimer" type="Timer" parent="Timers" index="4"]
-process_mode = 0
-wait_time = 0.2
-
-[node name="SeesPlayerTimer" type="Timer" parent="Timers" index="5"]
-process_mode = 0
-wait_time = 0.5
-autostart = true
-
-[node name="AngryfyingTimer" type="Timer" parent="Timers" index="6"]
-process_mode = 0
-wait_time = 0.9
-one_shot = true
-
-[node name="AngryfyingBlinkTimer" type="Timer" parent="Timers" index="7"]
-wait_time = 0.07
-[connection signal="body_entered" from="AreaEnter" to="." method="_on_AreaEnter_body_entered"]
-[connection signal="body_exited" from="AreaExit" to="." method="_on_AreaExit_body_exited"]
-[connection signal="body_entered" from="ExplodeArea" to="." method="_on_ExplodeArea_body_entered"]
 [connection signal="timeout" from="Timers/DifferenceRecalculationTimer" to="." method="_on_DifferenceRecalculationTimer_timeout"]
 [connection signal="timeout" from="Timers/SeesPlayerTimer" to="." method="_on_SeesPlayerTimer_timeout"]
 [connection signal="timeout" from="Timers/AngryfyingBlinkTimer" to="." method="_on_AngryfyingBlinkTimer_timeout"]
+[connection signal="body_entered" from="AreaEnter" to="." method="_on_AreaEnter_body_entered"]
+[connection signal="body_exited" from="AreaExit" to="." method="_on_AreaExit_body_exited"]
+[connection signal="body_entered" from="ExplodeArea" to="." method="_on_ExplodeArea_body_entered"]

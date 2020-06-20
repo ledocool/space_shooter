@@ -6,8 +6,8 @@ signal picked_up (data)
 var data = Pickup.new()
 
 func _on_Collectable_body_entered(body):
-	if(body.has_method("Pickup")):
-		if(body.Pickup(data)):
+	if(body.has_method("PickUp")):
+		if(body.PickUp(data)):
 			visible = false
 			emit_signal("picked_up", data)
 			queue_free()
