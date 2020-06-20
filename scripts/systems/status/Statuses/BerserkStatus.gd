@@ -7,7 +7,7 @@ var OldDamageMultiplier: float = 0
 var statusTimeout = 300
 
 func IsStatusDead():
-	return statusTimeout > 0
+	return statusTimeout <= 0
 
 
 func Process(delta: float, _target: Ship):
@@ -25,3 +25,7 @@ func _onStatusExit(target: PlayerShip):
 	target.ReceivedDamageMultiplier = OldDamageMultiplier
 	target.DamageOnBump = false
 	target.CannonInstance.CannonLocked = false
+	
+	
+func CanApply(target: PlayerShip) -> bool:
+	return target.StatusWrk.HasStatus(typeof(self)) == false

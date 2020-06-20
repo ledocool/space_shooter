@@ -7,7 +7,7 @@ export var Damage = 1
 var DamageMultiplier:float = 1.0
 
 func _init(damage_multiplier = null):
-	if(DamageMultiplier != null):
+	if(damage_multiplier != null):
 		DamageMultiplier = damage_multiplier
 
 func GetSpawnAnchorPosition():

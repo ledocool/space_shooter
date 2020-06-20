@@ -22,7 +22,7 @@ func _init():
 	set_physics_process(true)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	_tryShoot()
 	
 

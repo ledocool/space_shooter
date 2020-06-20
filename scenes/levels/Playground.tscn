@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level2/AlienShipDoor.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/SlugPickup.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/Gearpak.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/BerserkBonus.tscn" type="PackedScene" id=14]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
@@ -34,19 +35,22 @@ ShipCurrentHealth = 2
 [node name="Turret" parent="ShipContainer" index="1" instance=ExtResource( 9 )]
 position = Vector2( -893.554, 1613.31 )
 
-[node name="RocketeerPickup" parent="ItemContainer" index="0" instance=ExtResource( 10 )]
+[node name="BerserkBonus" parent="ItemContainer" index="0" instance=ExtResource( 14 )]
+position = Vector2( -1433.92, -1245.08 )
+
+[node name="RocketeerPickup" parent="ItemContainer" index="1" instance=ExtResource( 10 )]
 position = Vector2( -1362.37, -1247.75 )
 
-[node name="RocketeerPickup2" parent="ItemContainer" index="1" instance=ExtResource( 10 )]
+[node name="RocketeerPickup2" parent="ItemContainer" index="2" instance=ExtResource( 10 )]
 position = Vector2( -1286.77, -1247.75 )
 
-[node name="SlugPickup" parent="ItemContainer" index="2" instance=ExtResource( 11 )]
+[node name="SlugPickup" parent="ItemContainer" index="3" instance=ExtResource( 11 )]
 position = Vector2( -1214.69, -1260.05 )
 
-[node name="SlugPickup2" parent="ItemContainer" index="3" instance=ExtResource( 11 )]
+[node name="SlugPickup2" parent="ItemContainer" index="4" instance=ExtResource( 11 )]
 position = Vector2( -1137.34, -1260.05 )
 
-[node name="Gearpak" parent="ItemContainer" index="4" instance=ExtResource( 13 )]
+[node name="Gearpak" parent="ItemContainer" index="5" instance=ExtResource( 13 )]
 position = Vector2( -1401.94, -1351.17 )
 
 [node name="LevelExit" parent="Scenery" index="0" instance=ExtResource( 12 )]

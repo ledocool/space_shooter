@@ -15,4 +15,4 @@ func Process(_delta, target):
 	dead = true
 
 func CanApply(target: PlayerShip) -> bool:
-	return target.ShipCurrentHealth < target.ShipMaxHealth
+	return target.GetHealth() < target.GetMaxHealth()

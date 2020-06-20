@@ -1,4 +1,5 @@
 extends Collectable
+class_name BerserkBonus
 
 
 func _init():

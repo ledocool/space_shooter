@@ -3,7 +3,7 @@ class_name Turret
 
 signal health_changed(oldHealth, newHealth)
 signal exploded(position, size, rotation)
-signal shoot_bullet()
+signal shoot_bullet(bullet_type, direction, location, velocity, damage_multiplier)
 
 const idle = preload("res://scripts/ai/Turret/idle.gd")
 const track = preload("res://scripts/ai/Turret/track.gd")
@@ -13,7 +13,7 @@ const StateMachineFactory = preload("res://scripts/systems/state-machine/state_m
 
 const bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/ShockChain.tscn")
 
-export var Health = 7
+export var Health = 8
 
 var shotTimeout = 3
 var LockedTarget = null
@@ -25,16 +25,18 @@ func Damage(dmg):
 	var oldHealth = Health
 	if(aiState.get_current_state() == 'dead'):
 		return
-		
+	
+	var OldHealth = Health
 	Health -= dmg
-	if Health <= 0:
+	
+	if(Health <= 0):
 		Health = 0
 		aiState.transition("dead")
 		for pos in $Top/Explosions.get_children():
 			emit_signal("exploded", pos.get_global_position(), 0.05, 0)
-	else:
+	
 # warning-ignore:unsafe_property_access
-		$Top/Sprite.frame += 1
+	$Top/Sprite.frame += (OldHealth - Health)
 	
 	emit_signal("health_changed", oldHealth, Health)
 
@@ -90,7 +92,7 @@ func Shoot():
 	var rot = $Top.global_rotation
 # warning-ignore:unsafe_property_access
 	var pos = $Top/BulletAnchor.global_position
-	emit_signal("shoot_bullet", bullet, rot, pos, Vector2(0,0))
+	emit_signal("shoot_bullet", bullet, rot, pos, Vector2(0,0), 1.0)
 
 
 func Track():
