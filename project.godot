@@ -150,11 +150,6 @@ _global_script_classes=[ {
 "path": "res://scripts/systems/status/Status.gd"
 }, {
 "base": "Reference",
-"class": "StatusMap",
-"language": "GDScript",
-"path": "res://scripts/systems/status/StatusMap.gd"
-}, {
-"base": "Reference",
 "class": "StatusWorker",
 "language": "GDScript",
 "path": "res://scripts/systems/status/StatusWorker.gd"
@@ -213,7 +208,6 @@ _global_script_class_icons={
 "StateMachine": "",
 "StateMachineFactory": "",
 "Status": "",
-"StatusMap": "",
 "StatusWorker": "",
 "Turret": "",
 "TurretPart": "",

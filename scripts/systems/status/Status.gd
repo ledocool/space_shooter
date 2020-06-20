@@ -15,3 +15,7 @@ func _onStatusEnter(_target):
 
 func _onStatusExit(_target):
 	pass
+
+
+func CanApply(_target) -> bool:
+	return false

@@ -17,13 +17,12 @@ static func ProcessPickup(item, inventory, statusTarget, statusWorker) -> bool:
 				return result
 			
 		1:
-			var statusName = StatusMap.getStatusPath(item.get_name())
-			if (!statusName.empty()):
-				if(statusTarget.ShipCurrentHealth < statusTarget.ShipMaxHealth):
-					var status = load(statusName)
-					statusWorker.AddStatus(status.new())
+			if (item.get_info().has_key("status")):
+				var status = item.get_info().status as Status
+				if(status  && status.CanApply(statusTarget)):
+					statusWorker.AddStatus(status)
 					return true
-
+					
 			return false
 	print_debug("Item of unknown type: " + String(item.get_type()))
 	return false;
