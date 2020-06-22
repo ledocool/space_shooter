@@ -97,6 +97,11 @@ func _integrate_forces(state):
 	if(Cursor != null):
 		look_at(Cursor)
 	var newRot = rotation
+	if EngineFiringLastTime != EngineFiring:
+		if EngineFiring:
+			$EngineSound.play()
+		else:
+			$EngineSound.stop()
 	_applySpeed(state, newRot, oldRot)
 
 
