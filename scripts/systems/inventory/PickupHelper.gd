@@ -17,7 +17,7 @@ static func ProcessPickup(item, inventory, statusTarget, statusWorker) -> bool:
 				return result
 			
 		1:
-			if (item.get_info().has_key("status")):
+			if (item.get_info().has("status")):
 				var status = item.get_info().status as Status
 				if(status  && status.CanApply(statusTarget)):
 					statusWorker.AddStatus(status)
