@@ -50,6 +50,5 @@ wait_time = 0.18
 
 [node name="EngineSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
-autoplay = true
 [connection signal="timeout" from="Timers/InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
 [connection signal="timeout" from="Timers/BlinkTimer" to="." method="_on_BlinkTimer_timeout"]
