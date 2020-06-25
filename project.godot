@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/entities/BeamDoor.gd"
 }, {
+"base": "Collectable",
+"class": "BerserkBonus",
+"language": "GDScript",
+"path": "res://scripts/entities/Collectable/BerserkBonus.gd"
+}, {
 "base": "Status",
 "class": "BerserkStatus",
 "language": "GDScript",
@@ -183,6 +188,7 @@ _global_script_class_icons={
 "AiAPathHelper": "",
 "AlienShipDoor": "",
 "BeamDoor": "",
+"BerserkBonus": "",
 "BerserkStatus": "",
 "Bullet": "",
 "Cannon": "",

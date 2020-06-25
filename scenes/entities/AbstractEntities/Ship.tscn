@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/entities/Ships/Ship.gd" type="Script" id=1]
 [ext_resource path="res://resources/Sound/engine.wav" type="AudioStream" id=2]
@@ -47,8 +47,5 @@ one_shot = true
 
 [node name="BlinkTimer" type="Timer" parent="Timers"]
 wait_time = 0.18
-
-[node name="EngineSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 2 )
 [connection signal="timeout" from="Timers/InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
 [connection signal="timeout" from="Timers/BlinkTimer" to="." method="_on_BlinkTimer_timeout"]
