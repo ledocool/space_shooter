@@ -25,8 +25,7 @@ func SpawnAt(pos: Vector2, angle: float, add_velocity: Vector2):
 	LastRotation = angle
 	linear_velocity = add_velocity
 	self.position = pos - anchor
-	($ShootLockOnArea as Area2D).rotate(angle)
-	($Sprite as Sprite).rotation = angle
+	_rotate(angle)
 	apply_impulse(Vector2(), Vector2(StartImpulse, 0).rotated(angle))
 
 
@@ -73,7 +72,15 @@ func _draw():
 
 func _process(_delta):
 	if(linear_velocity.length_squared() > 1):
-		($Sprite as Sprite).rotation = linear_velocity.angle()
+		var rot = linear_velocity.angle()
+		_rotate(rot)
+
+
+func _rotate(rot):
+	($Sprite as Sprite).rotation = rot
+	$CollisionShape2D.rotation = rot - deg2rad(90)
+	$LockOnArea.rotation = rot
+	$ShootLockOnArea.rotation = rot
 
 
 func _switchToRadial():
@@ -81,7 +88,8 @@ func _switchToRadial():
 	($LockOnArea/CollisionShape2D as CollisionShape2D).set_disabled(false)
 
 func _on_LockOnArea_body_exited(body):
-	if(body == LockedTarget):
+	var target = GetTarget()
+	if(body == target):
 		LockedTarget = null
 
 
