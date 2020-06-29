@@ -7,6 +7,8 @@ func _physics_process(_event):
 func _on_enter_state():
 	target.get_node("Timers/AngryfyingTimer").start()
 	target.get_node("Timers/AngryfyingBlinkTimer").start()
+	target.get_node("BeeperSound").play()
 
 func _on_leave_state(): 
 	target.get_node("Timers/AngryfyingBlinkTimer").stop()
+	target.get_node("BeeperSound").stop()

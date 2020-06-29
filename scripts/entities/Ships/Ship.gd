@@ -99,9 +99,10 @@ func _integrate_forces(state):
 	var newRot = rotation
 	if EngineFiringLastTime != EngineFiring:
 		if EngineFiring:
-			$EngineSound.play()
+			$AnimationPlayer.play("SoundStartAnimation")
 		else:
-			$EngineSound.stop()
+			$AnimationPlayer.play("SoundStopAnimation")
+			
 	_applySpeed(state, newRot, oldRot)
 
 
@@ -155,3 +156,4 @@ func _on_InvulnerabilityTimer_timeout():
 	var blink = $Timers/BlinkTimer as Timer
 	blink.stop()
 	self.show()
+
