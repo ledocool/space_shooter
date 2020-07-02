@@ -5,11 +5,10 @@ signal shoot_bullet(bullet_type, direction, location, velocity, damage_multiplie
 
 var InventoryInstance = Inventory.new()
 var StatusWrk = StatusWorker.new(self)
-onready var CannonInstance = $Cannon
 var DamageOnBump = false
 
 func _ready():
-	CannonInstance.connect("shoot_bullet", self, "_on_bullet_shot")
+	$"Cannon".connect("shoot_bullet", self, "_on_bullet_shot")
 
 func SwitchWeapon(wpnType):
 	var currentWeaponBackup = _removeWeapon()
@@ -60,9 +59,9 @@ func PickUp(item: Pickup):
 
 func _input(event):
 	if event.is_action_pressed("shoot"):
-		CannonInstance.CannonFiring = true
+		$"Cannon".CannonFiring = true
 	elif event.is_action_released("shoot"):
-		CannonInstance.CannonFiring = false
+		$"Cannon".CannonFiring = false
 	
 	if event.is_action_pressed("engine_fire"):
 		EngineFiring = true
@@ -81,10 +80,10 @@ func _physics_process(delta):
 
 
 func _removeWeapon():
-	var oldCurrentWeapon = CannonInstance.CurrentWeapon
+	var oldCurrentWeapon = $"Cannon".CurrentWeapon
 	var storedData = InventoryInstance.GetWeapon(oldCurrentWeapon)
 	if(storedData && storedData.enabled):
-		var weapon = CannonInstance.UnsetWeapon()
+		var weapon = $"Cannon".UnsetWeapon()
 		for key in weapon.keys():
 			storedData[key] = weapon[key]
 		InventoryInstance.SetWeapon(oldCurrentWeapon, storedData)
@@ -94,7 +93,7 @@ func _removeWeapon():
 func _selectWeapon(weapon: String):
 	var data = InventoryInstance.GetWeapon(weapon)
 	if(data != null):
-		return CannonInstance.SetWeapon(weapon, data)
+		return $"Cannon".SetWeapon(weapon, data)
 	else:
 		return false
 

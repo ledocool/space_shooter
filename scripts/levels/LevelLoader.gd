@@ -213,7 +213,7 @@ func _swapCurrentScene(scene: Node):
 	if(scene.has_method("InjectPlayerStartStatus") && lastLevelData is Dictionary):
 # warning-ignore:unsafe_method_access
 		scene.InjectPlayerStartStatus(lastLevelData)
-	lastLevelData = null
+		lastLevelData = null
 		
 	root.remove_child(oldCurrentScene)
 	root.add_child(scene)

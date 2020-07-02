@@ -40,7 +40,9 @@ func Save():
 	var data = {
 		"position": position,
 		"velocity": linear_velocity,
-		"rotation": rotation
+		"rotation": rotation,
+		"health": ShipCurrentHealth,
+		"max_health": ShipMaxHealth
 	}
 	return data
 
@@ -51,7 +53,8 @@ func Load(data: Dictionary):
 	var vel = data.velocity.trim_prefix('(').trim_suffix(')').split(',')
 	linear_velocity = Vector2(vel[0], vel[1])
 	rotation = data.rotation
-
+	ShipCurrentHealth = data.health
+	ShipMaxHealth = data.max_health
 
 func Destroy():
 	_onDestruction()
