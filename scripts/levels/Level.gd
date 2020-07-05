@@ -17,20 +17,23 @@ func InjectPlayerStartStatus(data: Dictionary):
 	var Player = $ShipContainer/Player as Ship
 	StartPlayerStatus = data
 	if (Player):
-		Player.SetInventory(data)
+		Player.SetInventory(data.get("inventory", {}))
+		Player.SetMaxHealth(data.get("max_health", 0))
+		Player.ShipCurrentHealth = data.get("health", 0)
 
 
-func GetPlayerStatus(reload: bool = false) -> Dictionary:
+func GetPlayerStatus(reload: bool = false):
 	if(reload):
-		if(StartPlayerStatus != null):
-			return StartPlayerStatus
-		else:
-			return {}
+		return StartPlayerStatus
 	
 	var Player = $ShipContainer/Player as Ship
 	if(!Player):
-		return {}
-	return Player.GetInventory()
+		return null
+	return {
+		"inventory": Player.GetInventory(),
+		"health": Player.GetHealth(),
+		"max_health": Player.GetMaxHealth()
+	}
 
 
 func GetPlayer():
@@ -83,9 +86,9 @@ func _ready():
 		camera._on_max_health_change(Player.GetMaxHealth())
 		camera._on_health_change(0, Player.GetHealth())
 		camera._on_max_speed_change(Player.GetMaxSpeed())
-		camera._on_speed_change(0)
-		camera._on_ammo_change(0)
-		camera._on_weapon_change("")
+		camera._on_speed_change(Player.GetVelocity().length())
+		camera._on_ammo_change(Player.get_node("Cannon").RemainningAmmo)
+		camera._on_weapon_change(Player.get_node("Cannon").CurrentWeapon)
 		
 		
 
@@ -110,17 +113,19 @@ func _on_playerHealth_change(oldhealth, health):
 	if(oldhealth > health):
 		playerHealthDamage += oldhealth - health
 	if(health <= 0):
-		var dictionaryData: Dictionary = {
+		call_deferred("_showGameLose")
+
+func _showGameLose():
+	var dictionaryData: Dictionary = {
 			"shots_fired": playerShootsBullet,
 			"damage_dealt": enemyHealthDamage,
 			"enemies_killed": enemiesKilled,
 			"accuracy": String(0) + "%",
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
-		var gameLoseMenu = $MenuCanvas/MarginContainer/GameLoseMenu
-		gameLoseMenu.SetData(dictionaryData, {})
-		gameLoseMenu.visible = true
-
+	var gameLoseMenu = $MenuCanvas/MarginContainer/GameLoseMenu
+	gameLoseMenu.SetData(dictionaryData, StartPlayerStatus)
+	gameLoseMenu.visible = true
 
 func _on_enemyHealth_change(oldhealth, health):
 	if(oldhealth > health):

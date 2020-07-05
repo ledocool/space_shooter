@@ -6,19 +6,19 @@ signal speed_changed(spd)
 signal coordinates_changed(coords)
 signal exploded(position, size, rotation)
 
-export var ShipSpeed = 300
-export var ShipTopSpeed = 900
-export var ShipMaxHealth = 5
-export var ShipCurrentHealth = 5
-export var VelocityDampThreshold = 180
+export var ShipSpeed: float = 300
+export var ShipTopSpeed: float = 900
+export var ShipMaxHealth: int = 5 setget SetMaxHealth,GetMaxHealth
+export var ShipCurrentHealth: int = 5 setget SetHealth,GetHealth
+export var VelocityDampThreshold: float = 180
 
 var SpeedMultiplier: float = 1
 var ReceivedDamageMultiplier: float = 1
 
 var Cursor = null
-var EngineFiring = false
+var EngineFiring: bool = false
 
-var EngineFiringLastTime = false
+var EngineFiringLastTime: bool = false
 
 var OldSpeed = 0
 var OldForce = Vector2(0,0)
@@ -61,20 +61,24 @@ func Destroy():
 	self.queue_free()
 
 
-func GetHealth():
+func GetHealth() -> int:
 	return ShipCurrentHealth
 
 
-func GetMaxHealth():
+func GetMaxHealth() -> int:
 	return ShipMaxHealth
 
 
-func GetMaxSpeed():
+func GetMaxSpeed() -> float:
 	return ShipTopSpeed
 
 
 func SetMaxHealth(value: int):
 	ShipMaxHealth = value
+
+func SetHealth(value: int):
+	emit_signal("health_changed", ShipCurrentHealth,  value)
+	ShipCurrentHealth = value
 
 
 func Heal(points: int):
@@ -83,15 +87,15 @@ func Heal(points: int):
 	emit_signal("health_changed", shipOldHealth,  ShipCurrentHealth)
 
 
-func GetCoordinates():
+func GetCoordinates() -> Vector2:
 	return position
 
 
-func GetRotation():
+func GetRotation() -> float:
 	return rotation
 
 
-func GetVelocity(): 
+func GetVelocity() -> Vector2: 
 	return linear_velocity
 
 

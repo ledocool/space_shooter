@@ -87,7 +87,7 @@ func _on_weapon_change(weapon):
 		_: 
 			ammoLabel.hide()
 	
-func _on_speed_change(spd):
+func _on_speed_change(spd: float):
 	speedProgress.value = spd
 	var newThreshold = getZoomThresholdReached(spd)
 	if(newThreshold):

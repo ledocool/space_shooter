@@ -36,16 +36,22 @@ func Save():
 	return data
 
 
-func GetInventory():
-	return {
+func GetInventory() -> Dictionary:
+	var currentWpn = _removeWeapon()
+	var data = {
 		"weapons": InventoryInstance.GetAllWeapons(),
-		"items": InventoryInstance.GetAllItems()
+		"items": InventoryInstance.GetAllItems(),
+		"current_weapon": currentWpn
 	}
+	_selectWeapon(currentWpn)
+	
+	return data
 
 
 func SetInventory(data: Dictionary):
 	InventoryInstance.SetAllWeapons(data.weapons)
 	InventoryInstance.SetAllItems(data.items)
+	_selectWeapon(data.current_weapon)
 
 
 func PickUp(item: Pickup):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building3.tscn" type="PackedScene" id=27]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Doors/BeamDoor.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building2.tscn" type="PackedScene" id=29]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=30]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -100,6 +101,26 @@ position = Vector2( -3666.57, -22.1768 )
 
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -3666.57, -22.1768 )
+
+[node name="Miner" parent="ShipContainer" index="1" instance=ExtResource( 30 )]
+position = Vector2( -6156.61, -562.547 )
+ShipSpeed = 300.0
+VelocityDampThreshold = 180.0
+
+[node name="Miner2" parent="ShipContainer" index="2" instance=ExtResource( 30 )]
+position = Vector2( -6359.42, -245.651 )
+ShipSpeed = 300.0
+VelocityDampThreshold = 180.0
+
+[node name="Miner3" parent="ShipContainer" index="3" instance=ExtResource( 30 )]
+position = Vector2( -6435.48, 191.665 )
+ShipSpeed = 300.0
+VelocityDampThreshold = 180.0
+
+[node name="Miner4" parent="ShipContainer" index="4" instance=ExtResource( 30 )]
+position = Vector2( -6207.31, 521.237 )
+ShipSpeed = 300.0
+VelocityDampThreshold = 180.0
 
 [node name="StartingRoom" type="Node2D" parent="AsteroidContainer" index="0"]
 
@@ -1477,9 +1498,6 @@ rotation = 1.5708
 scale = Vector2( 1, 0.690539 )
 z_index = -1
 enabled = false
-
-[node name="MarginContainer" parent="MenuCanvas" index="0"]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background" index="0"]
 z_index = -100

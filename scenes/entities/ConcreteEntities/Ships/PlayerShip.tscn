@@ -8,7 +8,6 @@
 [node name="PlayerShip" instance=ExtResource( 1 )]
 collision_layer = 3
 script = ExtResource( 2 )
-ShipSpeed = 600
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = false

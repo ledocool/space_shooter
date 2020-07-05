@@ -33,7 +33,6 @@ func LoadGame(fileName: String, interactive: bool = true):
 	if(!data):
 		print_debug("Could not parse savefile: " + fileName)
 		popupScreen.ShowModal("Could not parse savefile: " + fileName);
-		#popupScreen.popup()
 		return
 	
 	if(interactive):
@@ -46,8 +45,12 @@ func LoadGame(fileName: String, interactive: bool = true):
 		_loadSaveGameNonInteractive(data)
 
 
-func LoadNextLevel(llData: Dictionary, interactive: bool = true):
-	lastLevelData = llData
+func LoadNextLevel(llData = null, interactive: bool = true):
+	if(llData != null):
+		lastLevelData = llData
+	else:
+		lastLevelData = _try_load_last_status(false)
+		
 	LoadLevel(campaignCurrentLevel + 1, interactive)
 
 
@@ -71,16 +74,16 @@ func LoadLevelByName(name: String, interactive: bool = true):
 
 func ReloadLevel():
 	var currentScene = get_tree().get_current_scene()
-	
-	var lastPlayerStatus = null
+	lastLevelData = _try_load_last_status(true)
+	LoadLevelByName(currentScene.get_filename())
+
+
+func _try_load_last_status(reload: bool):
+	var currentScene = get_tree().get_current_scene()
 	if(currentScene.has_method("GetPlayerStatus")):
-		lastPlayerStatus = currentScene.GetPlayerStatus(true)
+		return currentScene.GetPlayerStatus(reload)
 		
-	print_debug(get_tree().reload_current_scene())
-	currentScene = get_tree().get_current_scene()
-	
-	if(lastPlayerStatus && lastPlayerStatus is Dictionary && currentScene.has_method("InjectPlayerStartStatus")):
-		currentScene.InjectPlayerStartStatus(lastPlayerStatus)
+	return null
 
 
 func _init():
@@ -210,7 +213,9 @@ func _swapCurrentScene(scene: Node):
 	var root = $"/root"
 	var oldCurrentScene = get_tree().get_current_scene()
 	
-	if(scene.has_method("InjectPlayerStartStatus") && lastLevelData is Dictionary):
+	if(scene.has_method("InjectPlayerStartStatus") 
+		&& lastLevelData != null 
+		&& lastLevelData is Dictionary):
 # warning-ignore:unsafe_method_access
 		scene.InjectPlayerStartStatus(lastLevelData)
 		lastLevelData = null

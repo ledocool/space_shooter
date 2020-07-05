@@ -1,16 +1,13 @@
 extends Control
 
-var playerData = null
-
 func _on_Retry_pressed():
 	($"/root/LevelLoader" as LevelLoader).ReloadLevel()
 
 func _on_Exit_pressed():
 	($"/root/LevelLoader" as LevelLoader).LoadLevelByName("res://scenes/interface/MainMenu.tscn")
 
-func SetData(data: Dictionary, plData: Dictionary):
+func SetData(data: Dictionary, plData = null):
 	var stats = self.find_node("Statistics")
-	playerData = plData
 	for stat in stats.get_children():
 		var name = stat.get_name()
 		var value = data.get(name, "")
@@ -18,4 +15,5 @@ func SetData(data: Dictionary, plData: Dictionary):
 		val_node.text = String(value)
 
 func _on_MenuBoard_visibility_changed():
-	get_tree().paused = self.visible
+	#get_tree().call_deferred("set_pause", self.visible)\
+	pass

@@ -90,11 +90,12 @@ margin_right = 1420.0
 margin_bottom = 580.0
 
 [node name="GameWinMenu" parent="MenuCanvas/MarginContainer" instance=ExtResource( 5 )]
+pause_mode = 2
 visible = false
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 1420.0
 margin_bottom = 580.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="EscapeMenu" parent="MenuCanvas" instance=ExtResource( 6 )]
 visible = false
@@ -131,4 +132,6 @@ layer = 100
 [node name="TriggerContainer" type="Node2D" parent="."]
 
 [node name="LevelEndTrigger" type="Area2D" parent="TriggerContainer"]
+[connection signal="load_game" from="MenuCanvas/EscapeMenu" to="." method="_on_EscapeMenu_load_game"]
+[connection signal="save_game" from="MenuCanvas/EscapeMenu" to="." method="_on_EscapeMenu_save_game"]
 [connection signal="body_shape_entered" from="TriggerContainer/LevelEndTrigger" to="." method="_on_LevelEndTrigger_body_shape_entered"]
