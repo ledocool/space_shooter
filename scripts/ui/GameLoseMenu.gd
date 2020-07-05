@@ -15,5 +15,4 @@ func SetData(data: Dictionary, plData = null):
 		val_node.text = String(value)
 
 func _on_MenuBoard_visibility_changed():
-	#get_tree().call_deferred("set_pause", self.visible)\
-	pass
+	get_tree().call_deferred("set_pause", self.visible)
