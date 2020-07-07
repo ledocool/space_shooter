@@ -1,30 +1,17 @@
 extends Node2D
+class_name Hideable
 
 export var showSpeed = 0.5
 export var hideSpeed = 0.3
 var opacity = 1.0
 var hide = false
+var running = false
 
 func _ready():
-	if(Engine.is_editor_hint()):
-		set_process(false)
-		setVisibility(0.3)
-	else:
-		setVisibility(opacity)
-
-##warning-ignore:unsafe_method_access
-#	if(!$VisibilityEnabler2D.is_on_screen()):
-#
-#		set_process(false)
-#		if(hide):
-#			opacity = 0.0
-#		else:
-#			opacity = 1.0
-#		setVisibility(opacity)
+	setVisibility(opacity)
 
 func _process(delta):
-	if(hide == false && opacity >= 1.0
-	|| hide == true && opacity <= 0.0):
+	if(!running):
 		return
 		
 	if(hide == false && opacity < 1.0):
@@ -41,9 +28,12 @@ func _process(delta):
 
 func Hide():
 	hide = true
+	running = true
 	
 func Show(): 
 	hide = false
+	visible = true
+	running = true
 	
 func setVisibility(vis):
 	if(vis > 1.0):
@@ -53,6 +43,9 @@ func setVisibility(vis):
 		
 	if(vis == 0):
 		visible = false
+	if(vis == 1 || vis == 0):
+		running = false
+		
 	(material as ShaderMaterial).set_shader_param("visibility", vis)
 
 

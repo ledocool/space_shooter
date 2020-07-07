@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level2/AlienShipDoor.tscn" type="PackedScene" id=2]
@@ -17,6 +17,10 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
 height = 266.358
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 469.175
+height = 1007.36
 
 [node name="Level" instance=ExtResource( 1 )]
 
@@ -245,8 +249,21 @@ layer = 128
 [node name="MarginContainer" parent="MenuCanvas" index="0"]
 mouse_filter = 1
 
+[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="1"]
+anchor_right = 0.0
+anchor_bottom = 0.0
+
 [node name="LevelEndTrigger" parent="TriggerContainer" index="0"]
 position = Vector2( 9060.28, -2129.68 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
 shape = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="TriggerContainer" index="1"]
+position = Vector2( 299.328, -2228.69 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/Area2D" index="0"]
+position = Vector2( -3.25391, 152.917 )
+rotation = 1.5708
+shape = SubResource( 2 )
+[connection signal="body_entered" from="TriggerContainer/Area2D" to="Scenery/AlienDoor" method="_on_Area2D_body_entered"]

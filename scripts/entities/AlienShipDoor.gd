@@ -23,7 +23,15 @@ func playDoorAnimation(closing: bool):
 
 func set_closed(closed):
 	isClosed = closed
-	($alien_ship_door_top as Node2D).visible = closed
-	($Door/CollisionShape2D as CollisionShape2D).set_disabled(!closed)
+	if(isClosed):
+		($alien_ship_door_top as Hideable).Show()
+	else:
+		($alien_ship_door_top as Hideable).Hide()
+	
+	($Door/CollisionShape2D as CollisionShape2D).call_deferred("set_disabled", !closed)
 	playDoorAnimation(closed)
 	
+
+
+func _on_Area2D_body_entered(body):
+	set_closed(!isClosed)
