@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Doors/BeamDoor.tscn" type="PackedScene" id=28]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building2.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=30]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Wire/Wirerer.tscn" type="PackedScene" id=31]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -1089,16 +1090,16 @@ rotation = -1.57079
 z_index = 0
 
 [node name="ShipWall3" parent="Scenery/Spiral" index="2" instance=ExtResource( 21 )]
-position = Vector2( 8285.39, 7842.99 )
+position = Vector2( 8298.4, 7852.75 )
 rotation = 1.57079
 z_index = 0
 
 [node name="ShipWall4" parent="Scenery/Spiral" index="3" instance=ExtResource( 21 )]
-position = Vector2( 8274.1, 9057.61 )
+position = Vector2( 8397.73, 8956.75 )
 rotation = -1.57079
 
 [node name="ShipWall5" parent="Scenery/Spiral" index="4" instance=ExtResource( 22 )]
-position = Vector2( 8003.38, 10142.6 )
+position = Vector2( 8055.44, 9924.61 )
 rotation = -0.785397
 
 [node name="StaticAsteroid" parent="Scenery/Spiral" index="5" instance=ExtResource( 8 )]
@@ -1169,11 +1170,11 @@ position = Vector2( 4025.31, 21022.2 )
 rotation = -2.87979
 
 [node name="ShipWall16" parent="Scenery/Spiral" index="22" instance=ExtResource( 21 )]
-position = Vector2( 5060.3, 20981.3 )
+position = Vector2( 5037.42, 21008.3 )
 rotation = 2.87979
 
 [node name="ShipWall17" parent="Scenery/Spiral" index="23" instance=ExtResource( 22 )]
-position = Vector2( 5780.23, 21045.1 )
+position = Vector2( 5766.19, 20995.9 )
 rotation = -3.14159
 
 [node name="ShipWall18" parent="Scenery/Spiral" index="24" instance=ExtResource( 22 )]
@@ -1189,7 +1190,7 @@ position = Vector2( 8656.73, 20362.3 )
 rotation = -3.92699
 
 [node name="StaticScenery5" parent="Scenery/Spiral" index="27" instance=ExtResource( 23 )]
-position = Vector2( 12582.6, 13981.7 )
+position = Vector2( 12768.5, 14000.7 )
 rotation = 1.309
 
 [node name="ShipWall14" parent="Scenery/Spiral" index="28" instance=ExtResource( 21 )]
@@ -1205,7 +1206,7 @@ position = Vector2( -591.182, 16018.2 )
 rotation = -1.83259
 
 [node name="ShipWall22" parent="Scenery/Spiral" index="31" instance=ExtResource( 22 )]
-position = Vector2( 5154.68, 10410.6 )
+position = Vector2( 5164.44, 10348.8 )
 rotation = -3.40339
 
 [node name="ShipWall23" parent="Scenery/Spiral" index="32" instance=ExtResource( 21 )]
@@ -1213,15 +1214,15 @@ position = Vector2( 10224.2, 12533 )
 rotation = 0.785397
 
 [node name="ShipWall24" parent="Scenery/Spiral" index="33" instance=ExtResource( 21 )]
-position = Vector2( 7102.5, 10406.7 )
+position = Vector2( 7138.29, 10270.1 )
 rotation = 3.14159
 
 [node name="ShipWall25" parent="Scenery/Spiral" index="34" instance=ExtResource( 21 )]
-position = Vector2( 6067.48, 10273.8 )
+position = Vector2( 6096.76, 10199 )
 rotation = 3.40339
 
 [node name="ShipWall26" parent="Scenery/Spiral" index="35" instance=ExtResource( 21 )]
-position = Vector2( 4219.04, 10875.9 )
+position = Vector2( 4245.07, 10840.1 )
 rotation = 2.61799
 
 [node name="ShipWall27" parent="Scenery/Spiral" index="36" instance=ExtResource( 21 )]
@@ -1336,7 +1337,7 @@ position = Vector2( 9413.9, 11958.3 )
 rotation = 0.523598
 
 [node name="ShipWall41" parent="Scenery/Spiral" index="66" instance=ExtResource( 22 )]
-position = Vector2( 10547.5, 19386.8 )
+position = Vector2( 10581.5, 19408.4 )
 rotation = 2.61799
 
 [node name="StaticScenery14" parent="Scenery/Spiral" index="67" instance=ExtResource( 23 )]
@@ -1355,7 +1356,7 @@ rotation = 2.35619
 position = Vector2( 2481.24, 14382.8 )
 
 [node name="StaticScenery17" parent="Scenery/Spiral" index="71" instance=ExtResource( 25 )]
-position = Vector2( 12197.8, 12985.3 )
+position = Vector2( 12395.1, 12981.5 )
 rotation = 1.309
 
 [node name="StaticScenery18" parent="Scenery/Spiral" index="72" instance=ExtResource( 23 )]
@@ -1363,18 +1364,18 @@ position = Vector2( 4690.36, 12890.1 )
 rotation = -0.523605
 
 [node name="StaticScenery19" parent="Scenery/Spiral" index="73" instance=ExtResource( 23 )]
-position = Vector2( 11403.2, 11383.6 )
+position = Vector2( 11315.9, 11410.2 )
 rotation = 0.523598
 
 [node name="StaticScenery20" parent="Scenery/Spiral" index="74" instance=ExtResource( 25 )]
-position = Vector2( 10454.5, 10835.4 )
-rotation = 0.785397
+position = Vector2( 10439.3, 10816.4 )
+rotation = 0.768388
 
 [node name="StaticScenery21" parent="Scenery/Spiral" index="75" instance=ExtResource( 23 )]
-position = Vector2( 9593.58, 10485 )
+position = Vector2( 9576.21, 10453.5 )
 
 [node name="StaticScenery22" parent="Scenery/Spiral" index="76" instance=ExtResource( 25 )]
-position = Vector2( 8503.68, 10498.1 )
+position = Vector2( 8435.36, 10364.7 )
 rotation = 0.261799
 
 [node name="ShipWall43" parent="Scenery/Spiral" index="77" instance=ExtResource( 21 )]
@@ -1498,6 +1499,36 @@ rotation = 1.5708
 scale = Vector2( 1, 0.690539 )
 z_index = -1
 enabled = false
+
+[node name="StaticScenery13" parent="Scenery/Spiral" index="105" instance=ExtResource( 25 )]
+position = Vector2( 10710.8, 13166.3 )
+rotation = 1.0472
+
+[node name="Wires" type="Node2D" parent="Scenery/Spiral" index="106"]
+position = Vector2( 10710.8, 13166.3 )
+rotation = 1.0472
+
+[node name="Wirerer3" parent="Scenery/Spiral/Wires" index="0" instance=ExtResource( 31 )]
+position = Vector2( 1599.29, -315.445 )
+rotation = -1.0472
+chainAmount = [ -30.0, -5.0, -7.0, -9.0, -12.0, -16.0, -19.0, -21.0, -22.0, -22.0, 0.0, 1.0, 9.0, 18.0, 27.0, 36.0, 27.0, 15.0, 6.0, 4.0, 5.0, 5.0, 3.0, -3.0 ]
+EndNodeRotation = 10.0
+
+[node name="Wirerer" parent="Scenery/Spiral/Wires" index="1" instance=ExtResource( 31 )]
+position = Vector2( -1123.47, 4112.18 )
+rotation = -2.61799
+chainAmount = [ -30.0, -8.0, -4.0, -15.0, -6.0, -2.0, 6.0, 14.0, 7.0, 8.0, 19.0, 25.0, 25.0, 19.0, -6.0, -8.0, -11.0, -2.0, -5.0, -12.0, -15.0, -16.0, -6.0, -8.0, -12.0, -22.0, 1.0, 2.0, 3.0, 1.0, 1.0, 2.0, 1.0, 1.0, 3.0, 2.0, 1.0, 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 8.0, 15.0, 15.0, 12.0, 7.0, 2.0, 3.0, 1.0, 2.0, 0.0, 1.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 6.0, 5.0, 5.0, 1.0, 4.0, 5.0, 2.0, 4.0, 1.0, 2.0, 2.0, 3.0, 2.0, 4.0, 5.0, 3.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0 ]
+StartNodeType = 0
+
+[node name="Wirerer2" parent="Scenery/Spiral/Wires" index="2" instance=ExtResource( 31 )]
+position = Vector2( 640.748, 1782.47 )
+rotation = -1.0472
+chainAmount = [ -90.0, -5.0, -4.0, -2.0, -5.0, -6.0, -7.0, -1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 2.0, 1.0, 3.0, 4.0, 3.0, 2.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0 ]
+EndNodeRotation = 10.0
+
+[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="1"]
+anchor_right = 0.0
+anchor_bottom = 0.0
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background" index="0"]
 z_index = -100
