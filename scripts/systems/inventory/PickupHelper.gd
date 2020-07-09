@@ -18,10 +18,11 @@ static func ProcessPickup(item, inventory, statusTarget, statusWorker) -> bool:
 			
 		1:
 			if (item.get_info().has("status")):
-				var status = item.get_info().status as Status
-				if(status  && status.CanApply(statusTarget)):
-					statusWorker.AddStatus(status)
-					return true
+				if(item.get_info().status is Status):
+					var status: Status = item.get_info().status
+					if(status && status.CanApply(statusTarget)):
+						statusWorker.AddStatus(status)
+						return true
 					
 			return false
 	print_debug("Item of unknown type: " + String(item.get_type()))

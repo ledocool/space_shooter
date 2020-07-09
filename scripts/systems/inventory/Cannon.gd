@@ -29,11 +29,11 @@ func SetWeapon(name: String, data):
 		RemainningAmmo = data.total_ammo
 		BulletType = load(data.ammo_type)
 		MaxAmmo = data.max_ammo
-		$CannonCooldownTimer.set_wait_time(data.shoot_timeout)
+		($CannonCooldownTimer as Timer).set_wait_time(data.shoot_timeout)
 		
 		if(data.shoot_cooldown > 0):
-			$CannonAfterburnTimer.set_wait_time(data.shoot_cooldown)
-			$CannonAfterburnTimer.start()
+			($CannonAfterburnTimer as Timer).set_wait_time(data.shoot_cooldown)
+			($CannonAfterburnTimer as Timer).start()
 		
 		emit_signal("bullets_changed", RemainningAmmo)
 		emit_signal("weapon_changed", CurrentWeapon)
@@ -46,21 +46,24 @@ func SetWeapon(name: String, data):
 
 
 func UnsetWeapon() -> Dictionary:
-	$CannonCooldownTimer.stop()
+	($CannonCooldownTimer as Timer).stop()
 	
 	var storedData = {}
 	storedData.total_ammo = RemainningAmmo
-	storedData.shoot_cooldown = $CannonCooldownTimer.get_time_left()
+	storedData.shoot_cooldown = ($CannonCooldownTimer as Timer).get_time_left()
 	
 	_setDefault()	
 	return storedData
 
 
 func CheckShootPossible() -> bool:
-	if($CannonAfterburnTimer.is_stopped() && $CannonCooldownTimer.is_stopped() && RemainningAmmo != 0 && BulletType != null):
+	if(($CannonAfterburnTimer as Timer).is_stopped() 
+			&& ($CannonCooldownTimer as Timer).is_stopped() 
+			&& RemainningAmmo != 0 
+			&& BulletType != null):
 		if(RemainningAmmo > 0):
 			RemainningAmmo -= 1
-		$CannonCooldownTimer.start()
+		($CannonCooldownTimer as Timer).start()
 		return true
 	return false
 

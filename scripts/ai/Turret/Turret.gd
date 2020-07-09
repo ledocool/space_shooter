@@ -36,8 +36,7 @@ func Damage(dmg):
 			emit_signal("exploded", pos.get_global_position(), 0.05, 0)
 	
 # warning-ignore:unsafe_property_access
-	$Top/Sprite.frame += (OldHealth - Health)
-	
+	$Top/Sprite.frame += (OldHealth - Health)	
 	emit_signal("health_changed", oldHealth, Health)
 
 

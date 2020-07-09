@@ -106,9 +106,9 @@ func _integrate_forces(state):
 	var newRot = rotation
 	if EngineFiringLastTime != EngineFiring:
 		if EngineFiring:
-			$AnimationPlayer.play("SoundStartAnimation")
+			($AnimationPlayer as AnimationPlayer).play("SoundStartAnimation")
 		else:
-			$AnimationPlayer.play("SoundStopAnimation")
+			($AnimationPlayer as AnimationPlayer).play("SoundStopAnimation")
 			
 	_applySpeed(state, newRot, oldRot)
 

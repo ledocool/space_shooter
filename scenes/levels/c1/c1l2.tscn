@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building2.tscn" type="PackedScene" id=29]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Wire/Wirerer.tscn" type="PackedScene" id=31]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Turret.tscn" type="PackedScene" id=32]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -123,6 +124,31 @@ position = Vector2( -6207.31, 521.237 )
 ShipSpeed = 300.0
 VelocityDampThreshold = 180.0
 
+[node name="Turret" parent="ShipContainer" index="5" instance=ExtResource( 32 )]
+position = Vector2( 6872.75, 6312.37 )
+scale = Vector2( 0.695561, 0.695561 )
+
+[node name="Turret5" parent="ShipContainer" index="6" instance=ExtResource( 32 )]
+position = Vector2( 11914.2, 14798.2 )
+
+[node name="Turret6" parent="ShipContainer" index="7" instance=ExtResource( 32 )]
+position = Vector2( 11924, 15432.6 )
+
+[node name="Turret2" parent="ShipContainer" index="8" instance=ExtResource( 32 )]
+position = Vector2( 8317.09, 15430.2 )
+
+[node name="Turret4" parent="ShipContainer" index="9" instance=ExtResource( 32 )]
+position = Vector2( 10082.8, 14794.9 )
+
+[node name="Turret3" parent="ShipContainer" index="10" instance=ExtResource( 32 )]
+position = Vector2( 8319.66, 14798.5 )
+
+[node name="Turret7" parent="ShipContainer" index="11" instance=ExtResource( 32 )]
+position = Vector2( 10079.2, 15438 )
+
+[node name="Turret8" parent="ShipContainer" index="12" instance=ExtResource( 32 )]
+position = Vector2( 3128.78, 2574.84 )
+
 [node name="StartingRoom" type="Node2D" parent="AsteroidContainer" index="0"]
 
 [node name="Asteroid" parent="AsteroidContainer/StartingRoom" index="0" instance=ExtResource( 18 )]
@@ -204,360 +230,333 @@ position = Vector2( 3.95239, 3965.59 )
 position = Vector2( 457.614, 3325.13 )
 
 [node name="Asteroid27" parent="AsteroidContainer/StartingRoom" index="26" instance=ExtResource( 18 )]
-position = Vector2( 1238.18, 3485.24 )
+position = Vector2( 2641.87, 3437.72 )
 
 [node name="Asteroid28" parent="AsteroidContainer/StartingRoom" index="27" instance=ExtResource( 15 )]
 position = Vector2( 657.759, 3531.94 )
 
-[node name="Asteroid29" parent="AsteroidContainer/StartingRoom" index="28" instance=ExtResource( 17 )]
-position = Vector2( 1311.57, 4219.11 )
-
-[node name="Asteroid30" parent="AsteroidContainer/StartingRoom" index="29" instance=ExtResource( 17 )]
+[node name="Asteroid30" parent="AsteroidContainer/StartingRoom" index="28" instance=ExtResource( 17 )]
 position = Vector2( 811.204, 4546.01 )
 
-[node name="Asteroid31" parent="AsteroidContainer/StartingRoom" index="30" instance=ExtResource( 18 )]
+[node name="Asteroid31" parent="AsteroidContainer/StartingRoom" index="29" instance=ExtResource( 18 )]
 position = Vector2( 531.001, 4332.52 )
 
-[node name="Asteroid32" parent="AsteroidContainer/StartingRoom" index="31" instance=ExtResource( 17 )]
+[node name="Asteroid32" parent="AsteroidContainer/StartingRoom" index="30" instance=ExtResource( 17 )]
 position = Vector2( 344.199, 4619.4 )
 
-[node name="Asteroid33" parent="AsteroidContainer/StartingRoom" index="32" instance=ExtResource( 15 )]
+[node name="Asteroid33" parent="AsteroidContainer/StartingRoom" index="31" instance=ExtResource( 15 )]
 position = Vector2( -189.521, 5173.13 )
 
-[node name="Asteroid34" parent="AsteroidContainer/StartingRoom" index="33" instance=ExtResource( 18 )]
+[node name="Asteroid34" parent="AsteroidContainer/StartingRoom" index="32" instance=ExtResource( 18 )]
 position = Vector2( 134.203, 6153.87 )
 
-[node name="Asteroid35" parent="AsteroidContainer/StartingRoom" index="34" instance=ExtResource( 15 )]
+[node name="Asteroid35" parent="AsteroidContainer/StartingRoom" index="33" instance=ExtResource( 15 )]
 position = Vector2( 289.829, 6169.43 )
 
-[node name="Asteroid36" parent="AsteroidContainer/StartingRoom" index="35" instance=ExtResource( 18 )]
+[node name="Asteroid36" parent="AsteroidContainer/StartingRoom" index="34" instance=ExtResource( 18 )]
 position = Vector2( 103.078, 6363.96 )
 
-[node name="Asteroid37" parent="AsteroidContainer/StartingRoom" index="36" instance=ExtResource( 17 )]
+[node name="Asteroid37" parent="AsteroidContainer/StartingRoom" index="35" instance=ExtResource( 17 )]
 position = Vector2( 320.955, 6457.34 )
 
-[node name="Asteroid38" parent="AsteroidContainer/StartingRoom" index="37" instance=ExtResource( 15 )]
+[node name="Asteroid38" parent="AsteroidContainer/StartingRoom" index="36" instance=ExtResource( 15 )]
 position = Vector2( 1776.06, 5033.36 )
 
-[node name="Asteroid39" parent="AsteroidContainer/StartingRoom" index="38" instance=ExtResource( 18 )]
+[node name="Asteroid39" parent="AsteroidContainer/StartingRoom" index="37" instance=ExtResource( 18 )]
 position = Vector2( 1425.9, 5632.52 )
 
-[node name="Asteroid40" parent="AsteroidContainer/StartingRoom" index="39" instance=ExtResource( 17 )]
+[node name="Asteroid40" parent="AsteroidContainer/StartingRoom" index="38" instance=ExtResource( 17 )]
 position = Vector2( 1581.53, 6410.65 )
 
-[node name="Asteroid41" parent="AsteroidContainer/StartingRoom" index="40" instance=ExtResource( 18 )]
+[node name="Asteroid41" parent="AsteroidContainer/StartingRoom" index="39" instance=ExtResource( 18 )]
 position = Vector2( 1706.03, 6597.4 )
 
-[node name="Asteroid42" parent="AsteroidContainer/StartingRoom" index="41" instance=ExtResource( 15 )]
+[node name="Asteroid42" parent="AsteroidContainer/StartingRoom" index="40" instance=ExtResource( 15 )]
 position = Vector2( 1908.34, 6340.62 )
 
-[node name="Asteroid43" parent="AsteroidContainer/StartingRoom" index="42" instance=ExtResource( 15 )]
+[node name="Asteroid43" parent="AsteroidContainer/StartingRoom" index="41" instance=ExtResource( 15 )]
 position = Vector2( 2966.6, 6021.58 )
 
-[node name="Asteroid44" parent="AsteroidContainer/StartingRoom" index="43" instance=ExtResource( 18 )]
+[node name="Asteroid44" parent="AsteroidContainer/StartingRoom" index="42" instance=ExtResource( 18 )]
 position = Vector2( 2956.44, 4542.11 )
 
-[node name="Asteroid45" parent="AsteroidContainer/StartingRoom" index="44" instance=ExtResource( 18 )]
-position = Vector2( 2865.68, 4233.54 )
-
-[node name="Asteroid46" parent="AsteroidContainer/StartingRoom" index="45" instance=ExtResource( 17 )]
-position = Vector2( 3183.33, 3924.96 )
-
-[node name="Asteroid47" parent="AsteroidContainer/StartingRoom" index="46" instance=ExtResource( 17 )]
-position = Vector2( 2530.66, 3276.17 )
-
-[node name="Asteroid48" parent="AsteroidContainer/StartingRoom" index="47" instance=ExtResource( 18 )]
-position = Vector2( 2941.07, 3084.65 )
-
-[node name="Asteroid49" parent="AsteroidContainer/StartingRoom" index="48" instance=ExtResource( 15 )]
+[node name="Asteroid49" parent="AsteroidContainer/StartingRoom" index="43" instance=ExtResource( 15 )]
 position = Vector2( 2325.46, 2756.33 )
 
-[node name="Asteroid50" parent="AsteroidContainer/StartingRoom" index="49" instance=ExtResource( 18 )]
+[node name="Asteroid50" parent="AsteroidContainer/StartingRoom" index="44" instance=ExtResource( 18 )]
 position = Vector2( 2694.83, 2263.84 )
 
-[node name="Asteroid51" parent="AsteroidContainer/StartingRoom" index="50" instance=ExtResource( 17 )]
+[node name="Asteroid51" parent="AsteroidContainer/StartingRoom" index="45" instance=ExtResource( 17 )]
 position = Vector2( 1819.29, 2291.2 )
 
-[node name="Asteroid52" parent="AsteroidContainer/StartingRoom" index="51" instance=ExtResource( 18 )]
+[node name="Asteroid52" parent="AsteroidContainer/StartingRoom" index="46" instance=ExtResource( 18 )]
 position = Vector2( 1340.49, 2318.56 )
 
-[node name="Asteroid53" parent="AsteroidContainer/StartingRoom" index="52" instance=ExtResource( 17 )]
+[node name="Asteroid53" parent="AsteroidContainer/StartingRoom" index="47" instance=ExtResource( 17 )]
 position = Vector2( 642.795, 2605.84 )
 
-[node name="Asteroid54" parent="AsteroidContainer/StartingRoom" index="53" instance=ExtResource( 18 )]
+[node name="Asteroid54" parent="AsteroidContainer/StartingRoom" index="48" instance=ExtResource( 18 )]
 position = Vector2( -1587.08, -1566.62 )
 
-[node name="Asteroid55" parent="AsteroidContainer/StartingRoom" index="54" instance=ExtResource( 17 )]
+[node name="Asteroid55" parent="AsteroidContainer/StartingRoom" index="49" instance=ExtResource( 17 )]
 position = Vector2( -1286.12, -308.042 )
 
-[node name="Asteroid56" parent="AsteroidContainer/StartingRoom" index="55" instance=ExtResource( 18 )]
+[node name="Asteroid56" parent="AsteroidContainer/StartingRoom" index="50" instance=ExtResource( 18 )]
 position = Vector2( -971.47, -773.169 )
 
-[node name="Asteroid57" parent="AsteroidContainer/StartingRoom" index="56" instance=ExtResource( 15 )]
+[node name="Asteroid57" parent="AsteroidContainer/StartingRoom" index="51" instance=ExtResource( 15 )]
 position = Vector2( -2366.85, -800.53 )
 
-[node name="Asteroid58" parent="AsteroidContainer/StartingRoom" index="57" instance=ExtResource( 18 )]
+[node name="Asteroid58" parent="AsteroidContainer/StartingRoom" index="52" instance=ExtResource( 18 )]
 position = Vector2( -2749.9, -923.652 )
 
-[node name="Asteroid59" parent="AsteroidContainer/StartingRoom" index="58" instance=ExtResource( 17 )]
+[node name="Asteroid59" parent="AsteroidContainer/StartingRoom" index="53" instance=ExtResource( 17 )]
 position = Vector2( -2448.93, -1306.7 )
 
-[node name="Asteroid60" parent="AsteroidContainer/StartingRoom" index="59" instance=ExtResource( 15 )]
+[node name="Asteroid60" parent="AsteroidContainer/StartingRoom" index="54" instance=ExtResource( 15 )]
 position = Vector2( -1929.08, -1799.19 )
 
-[node name="Asteroid61" parent="AsteroidContainer/StartingRoom" index="60" instance=ExtResource( 18 )]
+[node name="Asteroid61" parent="AsteroidContainer/StartingRoom" index="55" instance=ExtResource( 18 )]
 position = Vector2( -2394.21, -2223.27 )
 
-[node name="Asteroid62" parent="AsteroidContainer/StartingRoom" index="61" instance=ExtResource( 17 )]
+[node name="Asteroid62" parent="AsteroidContainer/StartingRoom" index="56" instance=ExtResource( 17 )]
 position = Vector2( -2134.29, -2715.76 )
 
-[node name="Asteroid63" parent="AsteroidContainer/StartingRoom" index="62" instance=ExtResource( 18 )]
+[node name="Asteroid63" parent="AsteroidContainer/StartingRoom" index="57" instance=ExtResource( 18 )]
 position = Vector2( -1395.56, -2004.39 )
 
-[node name="Asteroid64" parent="AsteroidContainer/StartingRoom" index="63" instance=ExtResource( 15 )]
+[node name="Asteroid64" parent="AsteroidContainer/StartingRoom" index="58" instance=ExtResource( 15 )]
 position = Vector2( -1108.27, -2387.43 )
 
-[node name="Asteroid65" parent="AsteroidContainer/StartingRoom" index="64" instance=ExtResource( 17 )]
+[node name="Asteroid65" parent="AsteroidContainer/StartingRoom" index="59" instance=ExtResource( 17 )]
 position = Vector2( -807.308, -1881.27 )
 
-[node name="Asteroid66" parent="AsteroidContainer/StartingRoom" index="65" instance=ExtResource( 18 )]
+[node name="Asteroid66" parent="AsteroidContainer/StartingRoom" index="60" instance=ExtResource( 18 )]
 position = Vector2( -410.582, -1484.54 )
 
-[node name="Asteroid67" parent="AsteroidContainer/StartingRoom" index="66" instance=ExtResource( 17 )]
+[node name="Asteroid67" parent="AsteroidContainer/StartingRoom" index="61" instance=ExtResource( 17 )]
 position = Vector2( -246.419, -1416.14 )
 
-[node name="Asteroid68" parent="AsteroidContainer/StartingRoom" index="67" instance=ExtResource( 18 )]
+[node name="Asteroid68" parent="AsteroidContainer/StartingRoom" index="62" instance=ExtResource( 18 )]
 position = Vector2( -109.617, -923.652 )
 
-[node name="Asteroid69" parent="AsteroidContainer/StartingRoom" index="68" instance=ExtResource( 17 )]
+[node name="Asteroid69" parent="AsteroidContainer/StartingRoom" index="63" instance=ExtResource( 17 )]
 position = Vector2( 232.388, -540.605 )
 
-[node name="Asteroid70" parent="AsteroidContainer/StartingRoom" index="69" instance=ExtResource( 18 )]
+[node name="Asteroid70" parent="AsteroidContainer/StartingRoom" index="64" instance=ExtResource( 18 )]
 position = Vector2( 3200.99, 1073.66 )
 
-[node name="Asteroid71" parent="AsteroidContainer/StartingRoom" index="70" instance=ExtResource( 17 )]
-position = Vector2( 2120.26, 1210.46 )
-
-[node name="Asteroid72" parent="AsteroidContainer/StartingRoom" index="71" instance=ExtResource( 18 )]
-position = Vector2( 3843.96, 1456.7 )
-
-[node name="Asteroid73" parent="AsteroidContainer/StartingRoom" index="72" instance=ExtResource( 17 )]
+[node name="Asteroid73" parent="AsteroidContainer/StartingRoom" index="65" instance=ExtResource( 17 )]
 position = Vector2( 3707.16, 430.688 )
 
-[node name="Asteroid74" parent="AsteroidContainer/StartingRoom" index="73" instance=ExtResource( 18 )]
-position = Vector2( 3474.6, 786.374 )
+[node name="Asteroid74" parent="AsteroidContainer/StartingRoom" index="66" instance=ExtResource( 18 )]
+position = Vector2( 3869.28, 1243.97 )
 
-[node name="Asteroid75" parent="AsteroidContainer/StartingRoom" index="74" instance=ExtResource( 15 )]
-position = Vector2( 4199.65, 1921.83 )
-
-[node name="Asteroid76" parent="AsteroidContainer/StartingRoom" index="75" instance=ExtResource( 18 )]
-position = Vector2( 4035.49, 964.217 )
-
-[node name="Asteroid77" parent="AsteroidContainer/StartingRoom" index="76" instance=ExtResource( 17 )]
+[node name="Asteroid77" parent="AsteroidContainer/StartingRoom" index="67" instance=ExtResource( 17 )]
 position = Vector2( 3310.44, 1798.71 )
 
-[node name="Asteroid78" parent="AsteroidContainer/StartingRoom" index="77" instance=ExtResource( 18 )]
+[node name="Asteroid78" parent="AsteroidContainer/StartingRoom" index="68" instance=ExtResource( 18 )]
 position = Vector2( 1655.76, -1606.09 )
 
-[node name="Asteroid79" parent="AsteroidContainer/StartingRoom" index="78" instance=ExtResource( 17 )]
+[node name="Asteroid79" parent="AsteroidContainer/StartingRoom" index="69" instance=ExtResource( 17 )]
 position = Vector2( 1065.39, -808.291 )
 
-[node name="Asteroid80" parent="AsteroidContainer/StartingRoom" index="79" instance=ExtResource( 18 )]
+[node name="Asteroid80" parent="AsteroidContainer/StartingRoom" index="70" instance=ExtResource( 18 )]
 position = Vector2( 650.538, -505.128 )
 
-[node name="Asteroid81" parent="AsteroidContainer/StartingRoom" index="80" instance=ExtResource( 15 )]
+[node name="Asteroid81" parent="AsteroidContainer/StartingRoom" index="71" instance=ExtResource( 15 )]
 position = Vector2( 682.45, -856.159 )
 
-[node name="Asteroid82" parent="AsteroidContainer/StartingRoom" index="81" instance=ExtResource( 18 )]
+[node name="Asteroid82" parent="AsteroidContainer/StartingRoom" index="72" instance=ExtResource( 18 )]
 position = Vector2( 2421.65, -1239.1 )
 
-[node name="Asteroid83" parent="AsteroidContainer/StartingRoom" index="82" instance=ExtResource( 17 )]
+[node name="Asteroid83" parent="AsteroidContainer/StartingRoom" index="73" instance=ExtResource( 17 )]
 position = Vector2( 2948.19, -1893.29 )
 
-[node name="Asteroid84" parent="AsteroidContainer/StartingRoom" index="83" instance=ExtResource( 18 )]
+[node name="Asteroid84" parent="AsteroidContainer/StartingRoom" index="74" instance=ExtResource( 18 )]
 position = Vector2( 2214.22, -2978.3 )
 
-[node name="Asteroid85" parent="AsteroidContainer/StartingRoom" index="84" instance=ExtResource( 18 )]
+[node name="Asteroid85" parent="AsteroidContainer/StartingRoom" index="75" instance=ExtResource( 18 )]
 position = Vector2( 3012.02, -3058.08 )
 
-[node name="Asteroid86" parent="AsteroidContainer/StartingRoom" index="85" instance=ExtResource( 18 )]
+[node name="Asteroid86" parent="AsteroidContainer/StartingRoom" index="76" instance=ExtResource( 18 )]
 position = Vector2( 1847.23, -2834.69 )
 
-[node name="Asteroid87" parent="AsteroidContainer/StartingRoom" index="86" instance=ExtResource( 15 )]
+[node name="Asteroid87" parent="AsteroidContainer/StartingRoom" index="77" instance=ExtResource( 15 )]
 position = Vector2( 1863.19, -2483.66 )
 
-[node name="Asteroid88" parent="AsteroidContainer/StartingRoom" index="87" instance=ExtResource( 18 )]
+[node name="Asteroid88" parent="AsteroidContainer/StartingRoom" index="78" instance=ExtResource( 18 )]
 position = Vector2( 1671.72, -2723 )
 
-[node name="Asteroid89" parent="AsteroidContainer/StartingRoom" index="88" instance=ExtResource( 15 )]
+[node name="Asteroid89" parent="AsteroidContainer/StartingRoom" index="79" instance=ExtResource( 15 )]
 position = Vector2( 1607.89, -3201.68 )
 
-[node name="Asteroid90" parent="AsteroidContainer/StartingRoom" index="89" instance=ExtResource( 15 )]
+[node name="Asteroid90" parent="AsteroidContainer/StartingRoom" index="80" instance=ExtResource( 15 )]
 position = Vector2( 698.406, -2850.65 )
 
-[node name="Asteroid91" parent="AsteroidContainer/StartingRoom" index="90" instance=ExtResource( 18 )]
+[node name="Asteroid91" parent="AsteroidContainer/StartingRoom" index="81" instance=ExtResource( 18 )]
 position = Vector2( 778.186, -3919.7 )
 
-[node name="Asteroid92" parent="AsteroidContainer/StartingRoom" index="91" instance=ExtResource( 18 )]
+[node name="Asteroid92" parent="AsteroidContainer/StartingRoom" index="82" instance=ExtResource( 18 )]
 position = Vector2( 10623, -2946.39 )
 
-[node name="Asteroid93" parent="AsteroidContainer/StartingRoom" index="92" instance=ExtResource( 17 )]
+[node name="Asteroid93" parent="AsteroidContainer/StartingRoom" index="83" instance=ExtResource( 17 )]
 position = Vector2( 10942.1, -2579.4 )
 
-[node name="Asteroid94" parent="AsteroidContainer/StartingRoom" index="93" instance=ExtResource( 15 )]
+[node name="Asteroid94" parent="AsteroidContainer/StartingRoom" index="84" instance=ExtResource( 15 )]
 position = Vector2( 9522.03, -2180.5 )
 
-[node name="Asteroid95" parent="AsteroidContainer/StartingRoom" index="94" instance=ExtResource( 18 )]
+[node name="Asteroid95" parent="AsteroidContainer/StartingRoom" index="85" instance=ExtResource( 18 )]
 position = Vector2( 8915.71, -3409.11 )
 
-[node name="Asteroid96" parent="AsteroidContainer/StartingRoom" index="95" instance=ExtResource( 17 )]
+[node name="Asteroid96" parent="AsteroidContainer/StartingRoom" index="86" instance=ExtResource( 17 )]
 position = Vector2( 10351.7, -2020.94 )
 
-[node name="Asteroid97" parent="AsteroidContainer/StartingRoom" index="96" instance=ExtResource( 17 )]
+[node name="Asteroid97" parent="AsteroidContainer/StartingRoom" index="87" instance=ExtResource( 17 )]
 position = Vector2( 11181.4, -2020.94 )
 
-[node name="Asteroid98" parent="AsteroidContainer/StartingRoom" index="97" instance=ExtResource( 15 )]
+[node name="Asteroid98" parent="AsteroidContainer/StartingRoom" index="88" instance=ExtResource( 15 )]
 position = Vector2( 10990, -1829.47 )
 
-[node name="Asteroid99" parent="AsteroidContainer/StartingRoom" index="98" instance=ExtResource( 18 )]
+[node name="Asteroid99" parent="AsteroidContainer/StartingRoom" index="89" instance=ExtResource( 18 )]
 position = Vector2( 10495.3, -1590.13 )
 
-[node name="Asteroid100" parent="AsteroidContainer/StartingRoom" index="99" instance=ExtResource( 17 )]
+[node name="Asteroid100" parent="AsteroidContainer/StartingRoom" index="90" instance=ExtResource( 17 )]
 position = Vector2( 10990, -1302.92 )
 
-[node name="Asteroid101" parent="AsteroidContainer/StartingRoom" index="100" instance=ExtResource( 18 )]
+[node name="Asteroid101" parent="AsteroidContainer/StartingRoom" index="91" instance=ExtResource( 18 )]
 position = Vector2( 8889.72, -796.032 )
 
-[node name="Asteroid102" parent="AsteroidContainer/StartingRoom" index="101" instance=ExtResource( 17 )]
+[node name="Asteroid102" parent="AsteroidContainer/StartingRoom" index="92" instance=ExtResource( 17 )]
 position = Vector2( 9926.85, -1306.62 )
 
-[node name="Asteroid103" parent="AsteroidContainer/StartingRoom" index="102" instance=ExtResource( 18 )]
+[node name="Asteroid103" parent="AsteroidContainer/StartingRoom" index="93" instance=ExtResource( 18 )]
 position = Vector2( 10214.1, -125.883 )
 
-[node name="Asteroid104" parent="AsteroidContainer/StartingRoom" index="103" instance=ExtResource( 15 )]
+[node name="Asteroid104" parent="AsteroidContainer/StartingRoom" index="94" instance=ExtResource( 15 )]
 position = Vector2( 10995.9, -237.575 )
 
-[node name="Asteroid105" parent="AsteroidContainer/StartingRoom" index="104" instance=ExtResource( 17 )]
+[node name="Asteroid105" parent="AsteroidContainer/StartingRoom" index="95" instance=ExtResource( 17 )]
 position = Vector2( 10756.6, 193.235 )
 
-[node name="Asteroid106" parent="AsteroidContainer/StartingRoom" index="105" instance=ExtResource( 15 )]
+[node name="Asteroid106" parent="AsteroidContainer/StartingRoom" index="96" instance=ExtResource( 15 )]
 position = Vector2( 9990.68, 480.442 )
 
-[node name="Asteroid107" parent="AsteroidContainer/StartingRoom" index="106" instance=ExtResource( 15 )]
+[node name="Asteroid107" parent="AsteroidContainer/StartingRoom" index="97" instance=ExtResource( 15 )]
 position = Vector2( 8522.73, 416.619 )
 
-[node name="Asteroid108" parent="AsteroidContainer/StartingRoom" index="107" instance=ExtResource( 18 )]
+[node name="Asteroid108" parent="AsteroidContainer/StartingRoom" index="98" instance=ExtResource( 18 )]
 position = Vector2( 9097.15, 879.34 )
 
-[node name="Asteroid109" parent="AsteroidContainer/StartingRoom" index="108" instance=ExtResource( 17 )]
+[node name="Asteroid109" parent="AsteroidContainer/StartingRoom" index="99" instance=ExtResource( 17 )]
 position = Vector2( 9320.53, 1038.9 )
 
-[node name="Asteroid110" parent="AsteroidContainer/StartingRoom" index="109" instance=ExtResource( 18 )]
+[node name="Asteroid110" parent="AsteroidContainer/StartingRoom" index="100" instance=ExtResource( 18 )]
 position = Vector2( 8522.73, 1693.09 )
 
-[node name="Asteroid111" parent="AsteroidContainer/StartingRoom" index="110" instance=ExtResource( 15 )]
+[node name="Asteroid111" parent="AsteroidContainer/StartingRoom" index="101" instance=ExtResource( 15 )]
 position = Vector2( 10549.1, 1150.59 )
 
-[node name="Asteroid112" parent="AsteroidContainer/StartingRoom" index="111" instance=ExtResource( 18 )]
+[node name="Asteroid112" parent="AsteroidContainer/StartingRoom" index="102" instance=ExtResource( 18 )]
 position = Vector2( 10150.2, 2219.64 )
 
-[node name="Asteroid113" parent="AsteroidContainer/StartingRoom" index="112" instance=ExtResource( 17 )]
+[node name="Asteroid113" parent="AsteroidContainer/StartingRoom" index="103" instance=ExtResource( 17 )]
 position = Vector2( 10597, 2155.81 )
 
-[node name="Asteroid114" parent="AsteroidContainer/StartingRoom" index="113" instance=ExtResource( 18 )]
+[node name="Asteroid114" parent="AsteroidContainer/StartingRoom" index="104" instance=ExtResource( 18 )]
 position = Vector2( 8985.45, 2458.98 )
 
-[node name="Asteroid115" parent="AsteroidContainer/StartingRoom" index="114" instance=ExtResource( 17 )]
+[node name="Asteroid115" parent="AsteroidContainer/StartingRoom" index="105" instance=ExtResource( 17 )]
 position = Vector2( 9081.19, 3145.08 )
 
-[node name="Asteroid116" parent="AsteroidContainer/StartingRoom" index="115" instance=ExtResource( 18 )]
+[node name="Asteroid116" parent="AsteroidContainer/StartingRoom" index="106" instance=ExtResource( 18 )]
 position = Vector2( 7852.58, 3815.23 )
 
-[node name="Asteroid117" parent="AsteroidContainer/StartingRoom" index="116" instance=ExtResource( 15 )]
+[node name="Asteroid117" parent="AsteroidContainer/StartingRoom" index="107" instance=ExtResource( 15 )]
 position = Vector2( 8187.66, 3719.5 )
 
-[node name="Asteroid118" parent="AsteroidContainer/StartingRoom" index="117" instance=ExtResource( 17 )]
+[node name="Asteroid118" parent="AsteroidContainer/StartingRoom" index="108" instance=ExtResource( 17 )]
 position = Vector2( 6592.07, 3256.77 )
 
-[node name="Asteroid119" parent="AsteroidContainer/StartingRoom" index="118" instance=ExtResource( 18 )]
+[node name="Asteroid119" parent="AsteroidContainer/StartingRoom" index="109" instance=ExtResource( 18 )]
 position = Vector2( 7453.69, 1613.31 )
 
-[node name="Asteroid120" parent="AsteroidContainer/StartingRoom" index="119" instance=ExtResource( 15 )]
-position = Vector2( 6783.54, 241.104 )
+[node name="Asteroid120" parent="AsteroidContainer/StartingRoom" index="110" instance=ExtResource( 15 )]
+position = Vector2( 6794.98, -428.135 )
 
-[node name="Asteroid121" parent="AsteroidContainer/StartingRoom" index="120" instance=ExtResource( 18 )]
-position = Vector2( 7373.91, 33.6763 )
+[node name="Asteroid121" parent="AsteroidContainer/StartingRoom" index="111" instance=ExtResource( 18 )]
+position = Vector2( 4090.19, 2500.36 )
 
-[node name="Asteroid122" parent="AsteroidContainer/StartingRoom" index="121" instance=ExtResource( 17 )]
+[node name="Asteroid122" parent="AsteroidContainer/StartingRoom" index="112" instance=ExtResource( 17 )]
 position = Vector2( 5060.3, 4277.95 )
 
-[node name="Asteroid123" parent="AsteroidContainer/StartingRoom" index="122" instance=ExtResource( 15 )]
+[node name="Asteroid123" parent="AsteroidContainer/StartingRoom" index="113" instance=ExtResource( 15 )]
 position = Vector2( 4294.41, 3512.07 )
 
-[node name="Asteroid124" parent="AsteroidContainer/StartingRoom" index="123" instance=ExtResource( 18 )]
-position = Vector2( 4836.91, 3783.32 )
+[node name="Asteroid124" parent="AsteroidContainer/StartingRoom" index="114" instance=ExtResource( 18 )]
+position = Vector2( 3537.43, 3549.88 )
 
-[node name="Asteroid125" parent="AsteroidContainer/StartingRoom" index="124" instance=ExtResource( 17 )]
-position = Vector2( 5443.24, 5155.53 )
+[node name="Asteroid125" parent="AsteroidContainer/StartingRoom" index="115" instance=ExtResource( 17 )]
+position = Vector2( 5163.11, 5840.29 )
 
-[node name="Asteroid126" parent="AsteroidContainer/StartingRoom" index="125" instance=ExtResource( 18 )]
-position = Vector2( 5746.4, 4916.19 )
+[node name="Asteroid126" parent="AsteroidContainer/StartingRoom" index="116" instance=ExtResource( 18 )]
+position = Vector2( 6898.04, 5779.92 )
 
-[node name="Asteroid127" parent="AsteroidContainer/StartingRoom" index="126" instance=ExtResource( 15 )]
-position = Vector2( 5443.24, 5522.51 )
+[node name="Asteroid127" parent="AsteroidContainer/StartingRoom" index="117" instance=ExtResource( 15 )]
+position = Vector2( 5661.12, 5981.61 )
 
-[node name="Asteroid128" parent="AsteroidContainer/StartingRoom" index="127" instance=ExtResource( 18 )]
+[node name="Asteroid128" parent="AsteroidContainer/StartingRoom" index="118" instance=ExtResource( 18 )]
 position = Vector2( 6065.52, 5522.51 )
 
-[node name="Asteroid129" parent="AsteroidContainer/StartingRoom" index="128" instance=ExtResource( 15 )]
+[node name="Asteroid129" parent="AsteroidContainer/StartingRoom" index="119" instance=ExtResource( 15 )]
 position = Vector2( 9847.07, 4804.5 )
 
-[node name="Asteroid130" parent="AsteroidContainer/StartingRoom" index="129" instance=ExtResource( 18 )]
+[node name="Asteroid130" parent="AsteroidContainer/StartingRoom" index="120" instance=ExtResource( 18 )]
 position = Vector2( 9639.65, 4581.12 )
 
-[node name="Asteroid131" parent="AsteroidContainer/StartingRoom" index="130" instance=ExtResource( 15 )]
+[node name="Asteroid131" parent="AsteroidContainer/StartingRoom" index="121" instance=ExtResource( 15 )]
 position = Vector2( 7916.41, -764.121 )
 
-[node name="Asteroid132" parent="AsteroidContainer/StartingRoom" index="131" instance=ExtResource( 18 )]
+[node name="Asteroid132" parent="AsteroidContainer/StartingRoom" index="122" instance=ExtResource( 18 )]
 position = Vector2( 8139.79, -2950.08 )
 
-[node name="Asteroid133" parent="AsteroidContainer/StartingRoom" index="132" instance=ExtResource( 17 )]
+[node name="Asteroid133" parent="AsteroidContainer/StartingRoom" index="123" instance=ExtResource( 17 )]
 position = Vector2( 8506.78, -2710.74 )
 
-[node name="Asteroid134" parent="AsteroidContainer/StartingRoom" index="133" instance=ExtResource( 18 )]
+[node name="Asteroid134" parent="AsteroidContainer/StartingRoom" index="124" instance=ExtResource( 18 )]
 position = Vector2( 7517.51, -2327.8 )
 
-[node name="Asteroid135" parent="AsteroidContainer/StartingRoom" index="134" instance=ExtResource( 17 )]
+[node name="Asteroid135" parent="AsteroidContainer/StartingRoom" index="125" instance=ExtResource( 17 )]
 position = Vector2( 6847.36, -1721.48 )
 
-[node name="Asteroid136" parent="AsteroidContainer/StartingRoom" index="135" instance=ExtResource( 18 )]
+[node name="Asteroid136" parent="AsteroidContainer/StartingRoom" index="126" instance=ExtResource( 18 )]
 position = Vector2( 4198.68, -1833.17 )
 
-[node name="Asteroid137" parent="AsteroidContainer/StartingRoom" index="136" instance=ExtResource( 15 )]
+[node name="Asteroid137" parent="AsteroidContainer/StartingRoom" index="127" instance=ExtResource( 15 )]
 position = Vector2( 4517.79, -1689.56 )
 
-[node name="Asteroid138" parent="AsteroidContainer/StartingRoom" index="137" instance=ExtResource( 19 )]
+[node name="Asteroid138" parent="AsteroidContainer/StartingRoom" index="128" instance=ExtResource( 19 )]
 position = Vector2( -3246.6, 5896.44 )
 
-[node name="Asteroid139" parent="AsteroidContainer/StartingRoom" index="138" instance=ExtResource( 16 )]
+[node name="Asteroid139" parent="AsteroidContainer/StartingRoom" index="129" instance=ExtResource( 16 )]
 position = Vector2( -3730.46, 6454.75 )
 
-[node name="Asteroid140" parent="AsteroidContainer/StartingRoom" index="139" instance=ExtResource( 20 )]
+[node name="Asteroid140" parent="AsteroidContainer/StartingRoom" index="130" instance=ExtResource( 20 )]
 position = Vector2( -3339.65, 6287.26 )
 
-[node name="Asteroid141" parent="AsteroidContainer/StartingRoom" index="140" instance=ExtResource( 20 )]
+[node name="Asteroid141" parent="AsteroidContainer/StartingRoom" index="131" instance=ExtResource( 20 )]
 position = Vector2( -2539.41, 6026.72 )
 
-[node name="Asteroid142" parent="AsteroidContainer/StartingRoom" index="141" instance=ExtResource( 19 )]
+[node name="Asteroid142" parent="AsteroidContainer/StartingRoom" index="132" instance=ExtResource( 19 )]
 position = Vector2( -3339.65, 7068.89 )
 
-[node name="Asteroid143" parent="AsteroidContainer/StartingRoom" index="142" instance=ExtResource( 16 )]
+[node name="Asteroid143" parent="AsteroidContainer/StartingRoom" index="133" instance=ExtResource( 16 )]
 position = Vector2( -2502.19, 7441.09 )
 
-[node name="Asteroid144" parent="AsteroidContainer/StartingRoom" index="143" instance=ExtResource( 19 )]
+[node name="Asteroid144" parent="AsteroidContainer/StartingRoom" index="134" instance=ExtResource( 19 )]
 position = Vector2( -938.931, 7068.89 )
 
-[node name="Asteroid145" parent="AsteroidContainer/StartingRoom" index="144" instance=ExtResource( 16 )]
+[node name="Asteroid145" parent="AsteroidContainer/StartingRoom" index="135" instance=ExtResource( 16 )]
 position = Vector2( -2278.87, 5784.78 )
 
 [node name="StartingRoom" type="Node2D" parent="Scenery" index="0"]
@@ -595,7 +594,7 @@ rotation = -2.35619
 scale = Vector2( 0.418564, 0.418564 )
 
 [node name="StaticAsteroid47" parent="Scenery/StartingRoom" index="7" instance=ExtResource( 7 )]
-position = Vector2( 2759.01, 1534.52 )
+position = Vector2( 2781.19, 994.887 )
 rotation = -2.94772
 scale = Vector2( 0.561289, 0.561289 )
 
@@ -628,7 +627,7 @@ position = Vector2( 5719.55, -2085.83 )
 scale = Vector2( 0.496451, 0.496451 )
 
 [node name="StaticAsteroid54" parent="Scenery/StartingRoom" index="14" instance=ExtResource( 3 )]
-position = Vector2( 4291.41, 14.6445 )
+position = Vector2( 4548.81, -351.435 )
 rotation = -1.309
 scale = Vector2( 0.659814, 0.659814 )
 
@@ -925,7 +924,7 @@ rotation = -2.35619
 scale = Vector2( 0.21101, 0.21101 )
 
 [node name="StaticAsteroid56" parent="Scenery/StartingRoom" index="86" instance=ExtResource( 7 )]
-position = Vector2( 1621.9, 2969.3 )
+position = Vector2( 1496.23, 4166.84 )
 rotation = -0.785397
 
 [node name="StaticAsteroid58" parent="Scenery/StartingRoom" index="87" instance=ExtResource( 7 )]
@@ -941,7 +940,7 @@ rotation = 2.87979
 position = Vector2( 883.948, 5240.57 )
 
 [node name="StaticAsteroid60" parent="Scenery/StartingRoom" index="90" instance=ExtResource( 3 )]
-position = Vector2( 3813.37, 4840.43 )
+position = Vector2( 3705.95, 5603.19 )
 rotation = -0.785397
 scale = Vector2( 1.70427, 1.70427 )
 
@@ -961,14 +960,14 @@ rotation = -1.83259
 scale = Vector2( 0.658887, 0.658887 )
 
 [node name="StaticAsteroid64" parent="Scenery/StartingRoom" index="94" instance=ExtResource( 7 )]
-position = Vector2( 3633.01, 2520.94 )
+position = Vector2( 1172.87, 3084.69 )
 
 [node name="StaticAsteroid65" parent="Scenery/StartingRoom" index="95" instance=ExtResource( 3 )]
 position = Vector2( 8716.31, -1710.37 )
 rotation = 2.09439
 
 [node name="StaticAsteroid66" parent="Scenery/StartingRoom" index="96" instance=ExtResource( 7 )]
-position = Vector2( 5717.43, -61.7334 )
+position = Vector2( 5299.13, -55.3955 )
 rotation = 2.61799
 scale = Vector2( 0.272135, 0.272135 )
 
@@ -996,7 +995,7 @@ rotation = -1.65377
 scale = Vector2( 0.382973, 0.382973 )
 
 [node name="StaticAsteroid73" parent="Scenery/StartingRoom" index="103" instance=ExtResource( 6 )]
-position = Vector2( 1762.3, 1840.6 )
+position = Vector2( 1193.1, 1692.76 )
 scale = Vector2( 0.584108, 0.584108 )
 
 [node name="StaticAsteroid74" parent="Scenery/StartingRoom" index="104" instance=ExtResource( 7 )]
@@ -1017,19 +1016,19 @@ rotation = -2.09439
 scale = Vector2( 0.333894, 0.333894 )
 
 [node name="StaticAsteroid79" parent="Scenery/StartingRoom" index="108" instance=ExtResource( 7 )]
-position = Vector2( 4891.16, 1380.36 )
+position = Vector2( 4753.55, 1380.36 )
 
 [node name="StaticAsteroid80" parent="Scenery/StartingRoom" index="109" instance=ExtResource( 3 )]
-position = Vector2( 6554.67, 1406.35 )
+position = Vector2( 5139.85, 748.975 )
 rotation = 2.09439
 scale = Vector2( 0.40213, 0.40213 )
 
 [node name="StaticAsteroid81" parent="Scenery/StartingRoom" index="110" instance=ExtResource( 6 )]
-position = Vector2( 5519.78, 2666.98 )
+position = Vector2( 7217.71, 1613.3 )
 rotation = 2.35619
 
 [node name="StaticAsteroid82" parent="Scenery/StartingRoom" index="111" instance=ExtResource( 7 )]
-position = Vector2( 6047.82, 4044.58 )
+position = Vector2( 5783.26, 4799.37 )
 
 [node name="StaticAsteroid83" parent="Scenery/StartingRoom" index="112" instance=ExtResource( 6 )]
 position = Vector2( 9985.67, -2869.4 )
@@ -1045,7 +1044,7 @@ rotation = -1.309
 scale = Vector2( 0.68021, 0.68021 )
 
 [node name="StaticAsteroid76" parent="Scenery/StartingRoom" index="115" instance=ExtResource( 6 )]
-position = Vector2( 2187.95, 4174.54 )
+position = Vector2( 5423.03, 3424.04 )
 
 [node name="AlienShipDoor" parent="Scenery/StartingRoom" index="116" instance=ExtResource( 24 )]
 position = Vector2( 6969.58, -3909.15 )
@@ -1053,29 +1052,47 @@ position = Vector2( 6969.58, -3909.15 )
 [node name="ShipWall2" parent="Scenery/StartingRoom" index="117" instance=ExtResource( 22 )]
 position = Vector2( 5630.9, -3710.14 )
 
-[node name="StaticAsteroid86" parent="Scenery/StartingRoom" index="118" instance=ExtResource( 6 )]
+[node name="StaticDebree26" parent="Scenery/StartingRoom" index="118" instance=ExtResource( 5 )]
+position = Vector2( 5263.2, -4166.99 )
+
+[node name="StaticAsteroid86" parent="Scenery/StartingRoom" index="119" instance=ExtResource( 6 )]
 position = Vector2( 8494.55, -3821.57 )
 
-[node name="StaticDebree" parent="Scenery/StartingRoom/StaticAsteroid86" index="1" instance=ExtResource( 5 )]
-position = Vector2( -3231.35, -345.421 )
-
-[node name="StaticAsteroid87" parent="Scenery/StartingRoom" index="119" instance=ExtResource( 8 )]
+[node name="StaticAsteroid87" parent="Scenery/StartingRoom" index="120" instance=ExtResource( 8 )]
 position = Vector2( 4304.93, -3387 )
 
-[node name="StaticDebree23" parent="Scenery/StartingRoom" index="120" instance=ExtResource( 5 )]
+[node name="StaticDebree23" parent="Scenery/StartingRoom" index="121" instance=ExtResource( 5 )]
 position = Vector2( 3602.95, -3609.86 )
 
-[node name="StaticAsteroid88" parent="Scenery/StartingRoom" index="121" instance=ExtResource( 7 )]
+[node name="StaticAsteroid88" parent="Scenery/StartingRoom" index="122" instance=ExtResource( 7 )]
 position = Vector2( 4605.78, -3063.87 )
 
-[node name="StaticAsteroid89" parent="Scenery/StartingRoom" index="122" instance=ExtResource( 6 )]
+[node name="StaticAsteroid89" parent="Scenery/StartingRoom" index="123" instance=ExtResource( 6 )]
 position = Vector2( 2087.56, -3944.13 )
 
-[node name="StaticAsteroid90" parent="Scenery/StartingRoom" index="123" instance=ExtResource( 7 )]
+[node name="StaticAsteroid90" parent="Scenery/StartingRoom" index="124" instance=ExtResource( 7 )]
 position = Vector2( 2912.11, -4222.7 )
 
-[node name="StaticDebree25" parent="Scenery/StartingRoom" index="124" instance=ExtResource( 4 )]
+[node name="StaticDebree25" parent="Scenery/StartingRoom" index="125" instance=ExtResource( 4 )]
 position = Vector2( 8561.4, -4412.12 )
+
+[node name="Building" type="Node2D" parent="Scenery/StartingRoom" index="126"]
+z_index = -21
+
+[node name="Building1" parent="Scenery/StartingRoom/Building" index="0" instance=ExtResource( 26 )]
+position = Vector2( 5667.31, 523.903 )
+
+[node name="Building2" parent="Scenery/StartingRoom/Building" index="1" instance=ExtResource( 29 )]
+position = Vector2( 7046.27, 689.771 )
+
+[node name="Building7" parent="Scenery/StartingRoom/Building" index="2" instance=ExtResource( 10 )]
+position = Vector2( 5827.66, 2212.81 )
+
+[node name="Building3" parent="Scenery/StartingRoom/Building" index="3" instance=ExtResource( 27 )]
+position = Vector2( 1743.15, 1040.44 )
+
+[node name="Building8" parent="Scenery/StartingRoom/Building" index="4" instance=ExtResource( 10 )]
+position = Vector2( 2131.21, 4722.93 )
 
 [node name="Spiral" type="Node2D" parent="Scenery" index="1"]
 

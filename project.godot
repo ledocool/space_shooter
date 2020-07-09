@@ -97,7 +97,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Pickup",
 "language": "GDScript",
-"path": "res://scripts/systems/inventory/Pickup.gd"
+"path": "res://scripts/systems/inventory/pickup.gd"
 }, {
 "base": "Reference",
 "class": "PickupHelper",
