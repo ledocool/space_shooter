@@ -21,7 +21,4 @@ texture = ExtResource( 3 )
 position = Vector2( 22, 0 )
 
 [node name="Cannon" parent="." index="5" instance=ExtResource( 4 )]
-
-[node name="EngineSound" parent="." index="6"]
-volume_db = -80.0
 [connection signal="body_entered" from="." to="." method="_on_PlayerShip_body_entered"]

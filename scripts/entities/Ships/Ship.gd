@@ -101,6 +101,7 @@ func GetVelocity() -> Vector2:
 
 func _integrate_forces(state):
 	var oldRot = rotation
+	
 	if(Cursor != null):
 		look_at(Cursor)
 	var newRot = rotation
@@ -135,6 +136,15 @@ func _onDestruction():
 	emit_signal("exploded", position, 0.15, 0)
 
 
+func _playBoomSound():
+	var boomSounds = $Sounds/Boom
+	var childCound = boomSounds.get_child_count()
+	var selectedNumber = randi() % childCound + 1
+	var boom = boomSounds.get_child(selectedNumber)
+	if(boom is AudioStreamPlayer2D):
+		boom.play()
+
+
 func _applySpeed (state, newRot, oldRot):
 	var force = Vector2(ShipSpeed * SpeedMultiplier, 0).rotated(newRot)
 	
@@ -164,3 +174,7 @@ func _on_InvulnerabilityTimer_timeout():
 	blink.stop()
 	self.show()
 
+
+
+func _on_Ship_body_entered(_body):
+	_playBoomSound()
