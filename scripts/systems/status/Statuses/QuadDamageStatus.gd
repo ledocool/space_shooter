@@ -1,8 +1,8 @@
 extends Status
-class_name BerserkStatus
+class_name QuadDamageStatus
 
-var ModifiedDamageMultiplier:float = 0
-var OldDamageMultiplier: float = 0
+var ModifiedDmgMultiplier:float = 4
+var OldDmgMultiplier: float = 0
 
 var statusTimeout = 300
 
@@ -18,24 +18,19 @@ func _onStatusEnter(target: PlayerShip):
 	var cannon = target.get_node("Cannon") as Cannon
 	if(cannon == null):
 		return
-	OldDamageMultiplier = target.ReceivedDamageMultiplier
-	target.ReceivedDamageMultiplier = ModifiedDamageMultiplier
-	cannon.CannonLocked = true
-	target.DamageOnBump = true
+	OldDmgMultiplier = cannon.BulletDamageMultiplier
+	cannon.BulletDamageMultiplier = ModifiedDmgMultiplier
 
 
 func _onStatusExit(target: PlayerShip):
 	var cannon = target.get_node("Cannon") as Cannon
 	if(cannon == null):
 		return
-	target.ReceivedDamageMultiplier = OldDamageMultiplier
-	target.DamageOnBump = false
-	cannon.CannonLocked = false
-	
+	cannon.BulletDamageMultiplier = OldDmgMultiplier
 	
 func CanApply(target: PlayerShip) -> bool:
 	return target.StatusWrk.HasStatus(GetType()) == false
 
 
 func GetType() -> String:
-	return "BerserkStatus"
+	return "QuadDamageStatus"

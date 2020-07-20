@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/Objects/Pickups/speed_bonus.png" type="Texture" id=1]
+[ext_resource path="res://scenes/entities/AbstractEntities/Collectable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/Effects/Shaders/PulsingOutline.tres" type="Material" id=3]
+[ext_resource path="res://scripts/entities/Collectable/SpeedBonus.gd" type="Script" id=4]
+
+[node name="SpeedBonus" instance=ExtResource( 2 )]
+script = ExtResource( 4 )
+
+[node name="speed_bonus" type="Sprite" parent="." index="1"]
+material = ExtResource( 3 )
+position = Vector2( 0.0662538, 0.365921 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 1 )

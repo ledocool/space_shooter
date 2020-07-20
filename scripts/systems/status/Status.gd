@@ -19,3 +19,7 @@ func _onStatusExit(_target):
 
 func CanApply(_target) -> bool:
 	return false
+
+
+func GetType() -> String:
+	return "Status"

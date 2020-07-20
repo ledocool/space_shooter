@@ -30,7 +30,7 @@ func RemoveStatus(status):
 	
 func HasStatus(statusType):
 	for status in StatusArray:
-		if status is statusType:
+		if status.GetType() == statusType:
 			return true
 	return false
 

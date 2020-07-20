@@ -2,7 +2,7 @@ class_name PickupHelper
 
 static func ProcessPickup(item, inventory, statusTarget, statusWorker) -> bool:
 	match(item.get_type()):
-		0:			
+		0:
 			var data = inventory.GetWeapon(item.get_name())
 			if(!data):
 				return false
@@ -19,7 +19,7 @@ static func ProcessPickup(item, inventory, statusTarget, statusWorker) -> bool:
 		1:
 			if (item.get_info().has("status")):
 				if(item.get_info().status is Status):
-					var status: Status = item.get_info().status
+					var status = item.get_info().status
 					if(status && status.CanApply(statusTarget)):
 						statusWorker.AddStatus(status)
 						return true

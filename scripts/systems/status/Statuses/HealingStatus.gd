@@ -14,5 +14,10 @@ func Process(_delta, target):
 		target.Heal(healAmount)
 	dead = true
 
+
 func CanApply(target: PlayerShip) -> bool:
 	return target.ShipCurrentHealth < target.ShipMaxHealth
+
+
+func GetType() -> String:
+	return "HealingStatus"
