@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
@@ -62,6 +62,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/LampOnPost_Green.tscn" type="PackedScene" id=60]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight_Green.tscn" type="PackedScene" id=61]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight.tscn" type="PackedScene" id=62]
+[ext_resource path="res://resources/Music/Full0.ogg" type="AudioStream" id=63]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 273.705
@@ -2532,6 +2533,7 @@ z_index = 50
 chainAmount = [ -24.0, -24.0, -24.0, 11.0, 5.0, -7.0, -7.0, -14.0, -15.0, -10.0, -5.0, -3.0, -2.0, -1.0, 0.0, 20.0, 8.0, 9.0, 14.0, -6.0, -12.0, -4.0, -5.0, 7.0, 14.0, -4.0, -7.0, -18.0, -13.0, 0.0 ]
 StartNodeType = 0
 StartNodeRotation = 50.0
+EndNodeRotation = 0
 
 [node name="StaticAsteroid52" parent="Scenery/BelowHarvester" index="12" instance=ExtResource( 17 )]
 position = Vector2( -5136.96, 12829.6 )
@@ -2881,6 +2883,7 @@ position = Vector2( 13175.7, -3915.39 )
 position = Vector2( 14782.1, -9221.15 )
 chainAmount = [ 50.0, 11.0, 1.0, 2.0, 12.0, -15.0, -5.0, -6.0, -3.0, 15.0, 15.0, 5.0, -5.0, -3.0, -6.0, -7.0, -2.0, -15.0, -24.0, -19.0, -18.0, -16.0, -30.0, -5.0, -6.0, -4.0, -3.0, -2.0, -1.0, 13.0, 15.0, 18.0, 25.0, 30.0, 40.0, 37.0, 19.0, 20.0, -7.0, -13.0, -15.0, -23.0, -26.0, -28.0, -38.0, -39.0, -15.0, 15.0, 15.0, 21.0, 17.0, 15.0, -3.0, 15.0, 25.0, -23.0, -17.0, -24.0, -22.0, -31.0 ]
 StartNodeRotation = 50.0
+EndNodeRotation = 0
 
 [node name="Wirerer2" parent="Scenery/BelowHarvester/Lastroom/Wire" index="1" groups=[
 "LastDoorWire",
@@ -2888,6 +2891,8 @@ StartNodeRotation = 50.0
 position = Vector2( 14357, -7939.5 )
 rotation = -0.785397
 chainAmount = [ 25.0, 15.0, 15.0, 12.0, -7.0, -16.0, -26.0, -26.0, -16.0, -14.0, 12.0, 21.0, 11.0, 6.0, -17.0, -3.0, -7.0, 4.0, 12.0, 13.0, 14.0, 26.0, 26.0, 27.0, 37.0, -23.0, -4.0, -15.0, -17.0, 9.0, 19.0, 29.0, 15.0, -7.0, -6.0, -5.0, -10.0, -11.0, 9.0 ]
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="Wirerer3" parent="Scenery/BelowHarvester/Lastroom/Wire" index="2" groups=[
 "LastDoorWire",
@@ -2895,6 +2900,8 @@ chainAmount = [ 25.0, 15.0, 15.0, 12.0, -7.0, -16.0, -26.0, -26.0, -16.0, -14.0,
 position = Vector2( 14706.3, -5052.17 )
 rotation = -0.261799
 chainAmount = [ -5.0, -5.0, -5.0, 6.0, 6.0, 6.0, 6.0, -7.0, -7.0, -7.0, 9.0, 9.0, 9.0, 9.0, 9.0, -7.0, -7.0, -7.0, -7.0, -7.0, -5.0, -5.0, -5.0 ]
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="Wirerer4" parent="Scenery/BelowHarvester/Lastroom/Wire" index="3" groups=[
 "LastDoorWire",
@@ -2902,6 +2909,7 @@ chainAmount = [ -5.0, -5.0, -5.0, 6.0, 6.0, 6.0, 6.0, -7.0, -7.0, -7.0, 9.0, 9.0
 position = Vector2( 15150, -3908.82 )
 rotation = -0.261799
 chainAmount = [ 11.0, -5.0, -7.0, -10.0, -20.0, 4.0, 7.0, 4.0, 5.0, 6.0, 15.0, 12.0, 5.0, 10.0, 5.0, -5.0, -6.0, 5.0, 9.0, 11.0, 12.0, 15.0, 15.0, 6.0, -7.0, -4.0, -9.0, -15.0, -12.0, -16.0, -15.0, 6.0, 12.0, 16.0, 7.0, -3.0, -8.0, -9.0, -12.0, 15.0, 12.0, 14.0, -5.0, -7.0, -9.0, -12.0, 30.0, 25.0, 15.0, 30.0, 12.0, -6.0, 0.0 ]
+StartNodeRotation = 0
 EndNodeRotation = 47.0
 
 [node name="Wirerer5" parent="Scenery/BelowHarvester/Lastroom/Wire" index="4" groups=[
@@ -2909,6 +2917,7 @@ EndNodeRotation = 47.0
 ] instance=ExtResource( 47 )]
 position = Vector2( 14031.9, -2606.71 )
 chainAmount = [ 19.0, 5.0, 12.0, 9.0, 16.0, 17.0, 19.0, 22.0, 17.0, -6.0, 12.0, 5.0 ]
+StartNodeRotation = 0
 EndNodeRotation = 33.0
 
 [node name="Wirerer6" parent="Scenery/BelowHarvester/Lastroom/Wire" index="5" groups=[
@@ -2917,12 +2926,15 @@ EndNodeRotation = 33.0
 position = Vector2( 13522.2, -2550.99 )
 rotation = 1.5708
 chainAmount = [ -42.0, -5.0, -4.0, -2.0, -1.0, -4.0, -5.0, -7.0, -4.0, -7.0, 6.0, 16.0, 17.0, 20.0, 4.0, 2.0, 1.0, -14.0, -12.0, -11.0, -10.0, -12.0, 6.0, 10.0, 17.0, 20.0, -6.0, -3.0, 2.0, -12.0, 16.0, 3.0, -8.0 ]
+StartNodeRotation = 0
 EndNodeRotation = -28.0
 
 [node name="Wirerer7" parent="Scenery/BelowHarvester/Lastroom/Wire" index="6" instance=ExtResource( 47 )]
 position = Vector2( 6129.31, -2383.36 )
 chainAmount = [ -30.0, -12.0, -18.0, -15.0, -16.0, -11.0, -5.0, -9.0, 4.0, 8.0, 12.0, 15.0, -27.0, -30.0, -12.0, 6.0, 15.0, 20.0, 6.0, 6.0, -5.0, -3.0, 8.0, 7.0, 5.0, 9.0, 12.0, 5.0, 3.0, 1.0, 2.0, 5.0, 9.0, -6.0, -3.0, -6.0, -3.0, -2.0, -4.0, -3.0, -3.0, -2.0, -1.0, -1.0, -1.0, -2.0, -1.0, -3.0, -2.0, -4.0, -3.0, -2.0, -4.0, -5.0, -3.0, -2.0, -2.0, -1.0, -4.0, -5.0, -3.0, -2.0, -5.0, -6.0, 1.0, 0.0, 0.0, 0.0, 2.0, 3.0, 1.0, -2.0, -1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 1.0, 0.0, 0.0, 0.0, 1.0, 2.0, 3.0, 1.0, 2.0, 1.0, 5.0, 3.0, 4.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 3.0, 4.0, 5.0, 7.0, 8.0, 9.0, 10.0, 21.0, 20.0, 2.0, -16.0, -30.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="Wirerer8" parent="Scenery/BelowHarvester/Lastroom/Wire" index="7" groups=[
 "LastDoorWire",
@@ -2930,6 +2942,8 @@ StartNodeType = 0
 position = Vector2( 10279.2, -2222.09 )
 rotation = -0.785397
 chainAmount = [ -15.0, -4.0, -4.0, -4.0, -5.0, -27.0, -27.0, -29.0, -26.0, 15.0, 27.0, 27.0, 24.0, 30.0, 34.0, 23.0, 22.0, 19.0, -5.0, -5.0, -18.0, -16.0, -12.0, -5.0, -1.0, -1.0, -1.0, -2.0, -1.0, -3.0, -1.0, -1.0, -2.0, -3.0, -5.0, -2.0, -2.0, -3.0, -5.0, -1.0, -1.0, -2.0, -3.0, -1.0, -6.0, 0.0 ]
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="LastroomCoverup" type="Node2D" parent="Scenery/BelowHarvester/Lastroom" index="23"]
 z_index = 127
@@ -3129,10 +3143,6 @@ position = Vector2( -1868.19, 1585.25 )
 [node name="LampOnPost" parent="Scenery/Harvester" index="6" instance=ExtResource( 60 )]
 position = Vector2( 3484.93, 1493.6 )
 rotation = 1.57079
-
-[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="1"]
-anchor_right = 0.0
-anchor_bottom = 0.0
 
 [node name="Background" parent="." index="8"]
 layer = -30
@@ -3377,6 +3387,9 @@ shape = SubResource( 3 )
 
 [node name="LastroomBeamDoorOpen" type="Node" parent="TriggerContainer" index="5"]
 script = ExtResource( 58 )
+
+[node name="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource( 63 )
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]
 [connection signal="wire_switch" from="Scenery/BelowHarvester/BuildIntersection/Wirerer" to="TriggerContainer/BelowHarvesterBeamDoorOpen" method="_on_Wirerer_wire_switch"]
 [connection signal="wire_switch" from="Scenery/BelowHarvester/Lastroom/Wire/Wirerer7" to="TriggerContainer/LastroomBeamDoorOpen" method="_on_Wirerer7_wire_switch"]

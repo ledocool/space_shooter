@@ -134,7 +134,7 @@ func _on_enemyHealth_change(oldhealth, health):
 		enemiesKilled += 1
 
 
-func _on_player_shootBullet(_BulletType, _direction, _location, _velocity):
+func _on_player_shootBullet(_BulletType, _direction, _location, _velocity, _damage_multiplier):
 	playerShootsBullet += 1
 
 

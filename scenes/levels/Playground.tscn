@@ -249,10 +249,6 @@ layer = 128
 [node name="MarginContainer" parent="MenuCanvas" index="0"]
 mouse_filter = 1
 
-[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="1"]
-anchor_right = 0.0
-anchor_bottom = 0.0
-
 [node name="LevelEndTrigger" parent="TriggerContainer" index="0"]
 position = Vector2( 9060.28, -2129.68 )
 

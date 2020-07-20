@@ -108,9 +108,11 @@ func _selectWeapon(weapon: String):
 
 func _on_bullet_shot(bullet_type, damage_multiplier):
 	emit_signal("shoot_bullet", 
-		bullet_type, GetRotation(), 
+		bullet_type, 
+		GetRotation(), 
 		($BulletAnchor as Position2D).get_global_position(), 
-		GetVelocity(), damage_multiplier)
+		GetVelocity(), 
+		damage_multiplier)
 
 
 func _on_PlayerShip_body_entered(body):
