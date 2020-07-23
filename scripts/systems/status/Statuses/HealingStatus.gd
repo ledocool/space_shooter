@@ -9,6 +9,10 @@ func IsStatusDead():
 	return dead
 
 
+func GetStatusTimeout() -> float:
+	return 0.0
+
+
 func Process(_delta, target):
 	if(target.has_method("Heal")):
 		target.Heal(healAmount)

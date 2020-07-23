@@ -23,7 +23,6 @@ static func ProcessPickup(item, inventory, statusTarget, statusWorker) -> bool:
 					if(status && status.CanApply(statusTarget)):
 						statusWorker.AddStatus(status)
 						return true
-					
 			return false
 	print_debug("Item of unknown type: " + String(item.get_type()))
 	return false;

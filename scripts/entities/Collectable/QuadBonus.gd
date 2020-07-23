@@ -5,5 +5,6 @@ func _init():
 	data.quantity = 1
 	data.name = "berzerk"
 	data.info = {
-		"status": QuadDamageStatus.new()
+		"status": QuadDamageStatus.new(),
+		"popup_message": "Quad Damage"
 	}

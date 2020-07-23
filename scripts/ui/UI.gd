@@ -86,7 +86,22 @@ func _on_weapon_change(weapon):
 			($UICanvas/TopGUI/AmmoPanel/GunIcon/Rocketeer as Control).show()
 		_: 
 			ammoLabel.hide()
-	
+
+
+func _on_status_add(status: String, pickup_timeout: float):
+	var statusPanel = $UICanvas/TopGUI/StatusPanel
+	var statusIcon = statusPanel.get_node(status)
+	if(statusIcon && statusIcon.has_method("Show")):
+		statusIcon.Show(pickup_timeout - 10)
+
+
+func _on_status_remove(status: String):
+	var statusPanel = $UICanvas/TopGUI/StatusPanel
+	var statusIcon = statusPanel.get_node(status)
+	if(statusIcon && statusIcon.has_method("Hide")):
+		statusIcon.Hide()
+
+
 func _on_speed_change(spd: float):
 	speedProgress.value = spd
 	var newThreshold = getZoomThresholdReached(spd)
@@ -96,10 +111,12 @@ func _on_speed_change(spd: float):
 			SelectedZoom = NewSelectedZoom
 			AutoZoomStep = (NewSelectedZoom - GetZoom()) / AutoZoomSpeed
 			DoAutoZoom = true
-	
+
+
 func _on_max_speed_change(maxSpd):
 	speedProgress.max_value = maxSpd;
-	
+
+
 func getZoomThresholdReached(speed):
 	var topThresh = null
 	for thresh in CameraZooms:
@@ -108,7 +125,8 @@ func getZoomThresholdReached(speed):
 			break;
 	
 	return topThresh
-			
+
+
 func doAutoZoom(delta):
 	if(!DoAutoZoom):
 		return;

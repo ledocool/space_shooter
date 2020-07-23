@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float visibility = 1.0;
+
+void fragment()
+{
+	vec4 col = texture(TEXTURE, UV);
+	if(col.a > visibility) {
+		col.a = visibility;
+	}
+	COLOR = col;
+}"
+
+[resource]
+render_priority = 10
+shader = SubResource( 1 )
+shader_param/visibility = 0.9

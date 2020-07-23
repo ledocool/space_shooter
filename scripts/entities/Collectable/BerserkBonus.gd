@@ -7,5 +7,6 @@ func _init():
 	data.quantity = 1
 	data.name = "berzerk"
 	data.info = {
-		"status": BerserkStatus.new()
+		"status": BerserkStatus.new(),
+		"popup_message": "Berserk"
 	}

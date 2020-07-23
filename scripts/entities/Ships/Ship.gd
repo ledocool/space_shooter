@@ -139,7 +139,7 @@ func _onDestruction():
 func _playBoomSound():
 	var boomSounds = $Sounds/Boom
 	var childCound = boomSounds.get_child_count()
-	var selectedNumber = randi() % childCound + 1
+	var selectedNumber = randi() % childCound
 	var boom = boomSounds.get_child(selectedNumber)
 	if(boom is AudioStreamPlayer2D):
 		boom.play()

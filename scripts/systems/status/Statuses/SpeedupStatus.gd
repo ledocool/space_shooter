@@ -4,10 +4,14 @@ class_name SpeedupStatus
 var ModifiedSpeedMultiplier:float = 2
 var OldSpeedMultiplier: float = 0
 
-var statusTimeout = 300
+var statusTimeout = 60
 
 func IsStatusDead():
 	return statusTimeout <= 0
+
+
+func GetStatusTimeout() -> float:
+	return statusTimeout
 
 
 func Process(delta: float, _target: Ship):

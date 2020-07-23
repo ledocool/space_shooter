@@ -4,10 +4,14 @@ class_name QuadDamageStatus
 var ModifiedDmgMultiplier:float = 4
 var OldDmgMultiplier: float = 0
 
-var statusTimeout = 300
+var statusTimeout = 40
 
 func IsStatusDead():
 	return statusTimeout <= 0
+
+
+func GetStatusTimeout() -> float:
+	return statusTimeout
 
 
 func Process(delta: float, _target: Ship):

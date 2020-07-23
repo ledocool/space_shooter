@@ -2,13 +2,17 @@ extends Ship
 class_name PlayerShip
 
 signal shoot_bullet(bullet_type, direction, location, velocity, damage_multiplier)
+signal status_added(statusName, statusTimeout)
+signal status_removed(statusName)
 
 var InventoryInstance = Inventory.new()
 var StatusWrk = StatusWorker.new(self)
 var DamageOnBump = false
 
 func _ready():
-	print_debug(($"Cannon" as Cannon).connect("shoot_bullet", self, "_on_bullet_shot"))
+	($"Cannon" as Cannon).connect("shoot_bullet", self, "_on_bullet_shot")
+	(StatusWrk as StatusWorker).connect("status_added", self, "_on_status_added")
+	(StatusWrk as StatusWorker).connect("status_removed", self, "_on_status_removed")
 
 func SwitchWeapon(wpnType):
 	var currentWeaponBackup = _removeWeapon()
@@ -59,6 +63,8 @@ func PickUp(item: Pickup):
 	var result = PickupHelper.ProcessPickup(item, InventoryInstance, self, StatusWrk)
 	if(result && switchToWeapon == "" && item.get_type() == 0):
 		switchToWeapon = item.get_name()
+	if(result == true && item.get_info().has("popup_message")):
+		$"/root/OverlayLayer".ShowTimedNotificatiopn(item.get_info().popup_message, 1.2)
 	SwitchWeapon(switchToWeapon)
 	return result
 
@@ -116,3 +122,10 @@ func _on_bullet_shot(bullet_type, damage_multiplier):
 func _on_PlayerShip_body_entered(body):
 	if(DamageOnBump && body.has_method("Damage")):
 		body.Damage(9999999999)
+
+
+func _on_status_added(statusName, duration):
+	emit_signal("status_added", statusName, duration)
+	
+func _on_status_removed(statusName):
+	emit_signal("status_removed", statusName)

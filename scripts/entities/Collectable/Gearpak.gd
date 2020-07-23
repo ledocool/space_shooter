@@ -6,5 +6,6 @@ func _init():
 	data.quantity = 1
 	data.name = "healing"
 	data.info = {
-		"status": HealingStatus.new()
+		"status": HealingStatus.new(),
+		"popup_message": "Gearpak HP+"
 	}

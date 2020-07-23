@@ -23,3 +23,7 @@ func CanApply(_target) -> bool:
 
 func GetType() -> String:
 	return "Status"
+
+
+func GetStatusTimeout() -> float:
+	return 0.0

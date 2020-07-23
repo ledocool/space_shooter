@@ -66,8 +66,6 @@ func _ready():
 		if(shp is Ship):
 			print_debug("Connecting " + shp.get_name())
 			shp.connect("exploded", self, "_on_Something_explode")
-			if(!shp is PlayerShip):
-				shp.connect("health_changed", self, "_on_enemyHealth_change")
 		if(shp is Turret):
 			print_debug("Connecting " + shp.get_name())
 			shp.connect("shoot_bullet", self, "_on_Ship_shoot")
@@ -76,21 +74,25 @@ func _ready():
 	var Player = $ShipContainer/Player as PlayerShip
 	if(Player):
 		var camera = $PlayerCamera as UI
+		Player.connect("health_changed", self, "_on_enemyHealth_change")
 		Player.connect("health_changed", camera, "_on_health_change")
 		Player.connect("health_changed", self, "_on_playerHealth_change")
 		Player.connect("speed_changed", camera, "_on_speed_change")
 		Player.connect("shoot_bullet", self, "_on_player_shootBullet")
 		Player.connect("shoot_bullet", self, "_on_Ship_shoot")
+
 		Player.get_node("Cannon").connect("bullets_changed", camera, "_on_ammo_change")
 		Player.get_node("Cannon").connect("weapon_changed", camera, "_on_weapon_change")
+		
+		Player.connect("status_added", camera, "_on_status_add")
+		Player.connect("status_removed", camera, "_on_status_remove")
+		
 		camera._on_max_health_change(Player.GetMaxHealth())
 		camera._on_health_change(0, Player.GetHealth())
 		camera._on_max_speed_change(Player.GetMaxSpeed())
 		camera._on_speed_change(Player.GetVelocity().length())
 		camera._on_ammo_change(Player.get_node("Cannon").RemainningAmmo)
 		camera._on_weapon_change(Player.get_node("Cannon").CurrentWeapon)
-		
-		
 
 
 func _on_Ship_shoot(BulletType, direction, location, velocity, damage_multiplier):
