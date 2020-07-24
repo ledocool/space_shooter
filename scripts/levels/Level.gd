@@ -155,7 +155,7 @@ func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_s
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
 		var gameWinMenu = $MenuCanvas/MarginContainer/GameWinMenu
-		gameWinMenu.SetData(dictionaryData, GetPlayerStatus())
+		gameWinMenu.SetData(dictionaryData)
 		gameWinMenu.visible = true
 
 
