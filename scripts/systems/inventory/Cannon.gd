@@ -80,7 +80,7 @@ func _setDefault():
 
 
 func _shoot():
-	emit_signal("shoot_bullet", BulletType, BulletDamageMultiplier)
+	emit_signal("shoot_bullet", BulletType.instance(), BulletDamageMultiplier)
 	emit_signal("bullets_changed", RemainningAmmo)
 	return true
 

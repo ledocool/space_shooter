@@ -93,8 +93,13 @@ func _ready():
 		
 
 
-func _on_Ship_shoot(BulletType, direction, location, velocity, damage_multiplier):
-	var bullet = BulletType.instance(damage_multiplier)
+# warning-ignore:unused_argument
+func _on_Ship_shoot(bullet, direction, location, velocity, damage_multiplier):
+# warning-ignore:unsafe_cast
+	if(!(bullet as Node).has_method("SpawnAt")):
+		print_debug("Could not shoot bullet")
+		return
+		
 	bullet.SpawnAt(location, direction, velocity)
 	bullet.connect("exploded", self, "_on_Something_explode")
 	$BulletContainer.add_child(bullet)

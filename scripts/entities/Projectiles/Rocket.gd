@@ -78,8 +78,11 @@ func _process(_delta):
 
 func _rotate(rot):
 	($Sprite as Sprite).rotation = rot
+# warning-ignore:unsafe_property_access
 	$CollisionShape2D.rotation = rot - deg2rad(90)
+# warning-ignore:unsafe_property_access
 	$LockOnArea.rotation = rot
+# warning-ignore:unsafe_property_access
 	$ShootLockOnArea.rotation = rot
 
 
