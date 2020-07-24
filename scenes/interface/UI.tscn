@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/ui/UI.gd" type="Script" id=1]
 [ext_resource path="res://resources/Ui/ProgressBars/GuiHealth/ui_health_under.png" type="Texture" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://resources/Objects/Pickups/rocketeer.png" type="Texture" id=12]
 [ext_resource path="res://resources/Objects/Pickups/slug_cannon.png" type="Texture" id=13]
 [ext_resource path="res://resources/Ui/Styles/theme.tres" type="Theme" id=14]
+[ext_resource path="res://scenes/interface/StatusIcons/BerzerkIcon.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/interface/StatusIcons/QuadIcon.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/interface/StatusIcons/SpeedIcon.tscn" type="PackedScene" id=17]
 
 [node name="UI" type="Node2D"]
 script = ExtResource( 1 )
@@ -179,3 +182,36 @@ __meta__ = {
 margin_left = 80.0
 margin_right = 80.0
 margin_bottom = 52.0
+
+[node name="StatusPanel" type="Control" parent="UICanvas/TopGUI"]
+anchor_top = 0.957
+anchor_right = 1.0
+anchor_bottom = 0.972
+margin_top = 0.579956
+margin_right = -0.999878
+margin_bottom = 34.6799
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuadDamageStatus" parent="UICanvas/TopGUI/StatusPanel" instance=ExtResource( 16 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 50.0
+margin_bottom = 50.0
+
+[node name="BerserkStatus" parent="UICanvas/TopGUI/StatusPanel" instance=ExtResource( 15 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 55.0
+margin_right = 105.0
+margin_bottom = 50.0
+
+[node name="SpeedupStatus" parent="UICanvas/TopGUI/StatusPanel" instance=ExtResource( 17 )]
+anchor_top = -0.0251546
+anchor_right = 0.0
+anchor_bottom = -0.0251546
+margin_left = 110.0
+margin_top = 1.25773
+margin_right = 160.0
+margin_bottom = 51.2577

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/entities/AbstractEntities/Hideable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/Objects/Asteroids/asteroid_blur.png" type="Texture" id=2]
+[ext_resource path="res://resources/Effects/Shaders/OpacityShader.tres" type="Material" id=3]
 
 [node name="ForegroundAsteroid3" instance=ExtResource( 1 )]
+material = ExtResource( 3 )
 texture = ExtResource( 2 )

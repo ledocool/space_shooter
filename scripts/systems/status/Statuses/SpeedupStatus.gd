@@ -4,10 +4,14 @@ class_name SpeedupStatus
 var ModifiedSpeedMultiplier:float = 2
 var OldSpeedMultiplier: float = 0
 
-var statusTimeout = 300
+var statusTimeout = 60
 
 func IsStatusDead():
-	statusTimeout > 0
+	return statusTimeout <= 0
+
+
+func GetStatusTimeout() -> float:
+	return statusTimeout
 
 
 func Process(delta: float, _target: Ship):
@@ -21,3 +25,11 @@ func _onStatusEnter(target: Ship):
 
 func _onStatusExit(target: Ship):
 	target.SpeedMultiplier = OldSpeedMultiplier
+
+
+func CanApply(target: PlayerShip) -> bool:
+	return target.StatusWrk.HasStatus(GetType()) == false
+
+
+func GetType() -> String:
+	return "SpeedupStatus"
