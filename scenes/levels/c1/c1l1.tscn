@@ -62,7 +62,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/LampOnPost_Green.tscn" type="PackedScene" id=60]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight_Green.tscn" type="PackedScene" id=61]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight.tscn" type="PackedScene" id=62]
-[ext_resource path="res://resources/Music/Full0.ogg" type="AudioStream" id=63]
+[ext_resource path="res://resources/Music/Full1.wav" type="AudioStream" id=63]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 273.705
@@ -3120,7 +3120,7 @@ z_index = 0
 position = Vector2( 11042.8, -377.762 )
 
 [node name="StaticAsteroid1" parent="Scenery/Exit" index="9" instance=ExtResource( 12 )]
-position = Vector2( 8757.12, -1989.8 )
+position = Vector2( 8724.36, -1989.8 )
 rotation = -2.35619
 
 [node name="StaticAsteroid2" parent="Scenery/Exit" index="10" instance=ExtResource( 13 )]

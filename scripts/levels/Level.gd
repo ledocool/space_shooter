@@ -124,7 +124,7 @@ func _showGameLose():
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
 	var gameLoseMenu = $MenuCanvas/MarginContainer/GameLoseMenu
-	gameLoseMenu.SetData(dictionaryData, StartPlayerStatus)
+	gameLoseMenu.SetData(dictionaryData)
 	gameLoseMenu.visible = true
 
 func _on_enemyHealth_change(oldhealth, health):
