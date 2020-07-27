@@ -62,7 +62,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/LampOnPost_Green.tscn" type="PackedScene" id=60]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight_Green.tscn" type="PackedScene" id=61]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight.tscn" type="PackedScene" id=62]
-[ext_resource path="res://resources/Music/Full1.wav" type="AudioStream" id=63]
+[ext_resource path="res://resources/Music/lvl1.wav" type="AudioStream" id=63]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 273.705

@@ -10,8 +10,14 @@ var StatusWrk = StatusWorker.new(self)
 var DamageOnBump = false
 
 func _ready():
+# warning-ignore:return_value_discarded
 	($"Cannon" as Cannon).connect("shoot_bullet", self, "_on_bullet_shot")
+# warning-ignore:unsafe_cast
+# warning-ignore:return_value_discarded
+# warning-ignore:unsafe_cast
 	(StatusWrk as StatusWorker).connect("status_added", self, "_on_status_added")
+# warning-ignore:return_value_discarded
+# warning-ignore:unsafe_cast
 	(StatusWrk as StatusWorker).connect("status_removed", self, "_on_status_removed")
 
 func SwitchWeapon(wpnType):
@@ -64,6 +70,7 @@ func PickUp(item: Pickup):
 	if(result && switchToWeapon == "" && item.get_type() == 0):
 		switchToWeapon = item.get_name()
 	if(result == true && item.get_info().has("popup_message")):
+# warning-ignore:unsafe_method_access
 		$"/root/OverlayLayer".ShowTimedNotificatiopn(item.get_info().popup_message, 1.2)
 	SwitchWeapon(switchToWeapon)
 	return result

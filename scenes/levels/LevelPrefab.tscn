@@ -137,6 +137,7 @@ pause_mode = 2
 volume_db = -7.0
 autoplay = true
 mix_target = 2
+bus = "Music"
 [connection signal="load_game" from="MenuCanvas/EscapeMenu" to="." method="_on_EscapeMenu_load_game"]
 [connection signal="save_game" from="MenuCanvas/EscapeMenu" to="." method="_on_EscapeMenu_save_game"]
 [connection signal="body_shape_entered" from="TriggerContainer/LevelEndTrigger" to="." method="_on_LevelEndTrigger_body_shape_entered"]
