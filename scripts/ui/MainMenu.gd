@@ -18,3 +18,12 @@ func _on_Load_game_pressed():
 	
 	var loadMenu = rightMenus.find_node("LoadMenu")
 	loadMenu.visible = true
+
+
+func _on_Credits_pressed():
+	var rightMenus = find_node("RightMenus")
+	for node in rightMenus.get_children():
+		node.visible = false
+		
+	var creditsMenu = rightMenus.find_node("CreditsMenu")
+	creditsMenu.visible = true

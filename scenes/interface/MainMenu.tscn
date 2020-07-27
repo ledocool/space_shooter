@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/ui/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://resources/Backgrounds/Menu background.png" type="Texture" id=2]
 [ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/interface/SaveLoad/LoadMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/interface/CreditsMenu.tscn" type="PackedScene" id=5]
 
 [node name="Main menu" type="Control"]
 pause_mode = 2
@@ -72,7 +73,6 @@ text = "Playground"
 [node name="Credits" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 144.0
 margin_bottom = 169.0
-disabled = true
 text = "Credits"
 
 [node name="Exit" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
@@ -102,7 +102,15 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1171.0
 margin_bottom = 1040.0
+
+[node name="CreditsMenu" parent="HSplitContainer/Control/RightMenus" instance=ExtResource( 5 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1171.0
+margin_bottom = 1040.0
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/New game" to="." method="_on_New_game_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Load game" to="." method="_on_Load_game_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Playground" to="." method="_on_Playground_pressed"]
+[connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Exit" to="." method="_on_Exit_pressed"]
