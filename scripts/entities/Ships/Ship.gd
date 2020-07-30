@@ -107,9 +107,11 @@ func _integrate_forces(state):
 	var newRot = rotation
 	if EngineFiringLastTime != EngineFiring:
 		if EngineFiring:
-			($AnimationPlayer as AnimationPlayer).play("SoundStartAnimation")
+			$LoopableSfx.Start()
+			#($AnimationPlayer as AnimationPlayer).play("SoundStartAnimation")
 		else:
-			($AnimationPlayer as AnimationPlayer).play("SoundStopAnimation")
+			#($AnimationPlayer as AnimationPlayer).play("SoundStopAnimation")
+			$LoopableSfx.Stop()
 			
 	_applySpeed(state, newRot, oldRot)
 
