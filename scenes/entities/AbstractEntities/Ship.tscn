@@ -10,7 +10,6 @@
 [ext_resource path="res://resources/Sound/boom6.wav" type="AudioStream" id=8]
 [ext_resource path="res://scenes/sound/LoopableEngine.tscn" type="PackedScene" id=9]
 
-
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="ParticlesMaterial" id=2]
