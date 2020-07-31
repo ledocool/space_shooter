@@ -38,9 +38,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="Background/MarginContainer/Control/VBoxContainer" index="1"]
 margin_top = 105.0
 margin_right = 1840.0
-margin_bottom = 154.0
+margin_bottom = 206.0
 theme = ExtResource( 1 )
-text = "Code, Graphics - Dmitrii Kollerov aka ledocool"
+text = "Code, Graphics - Dmitrii Kollerov aka ledocool
+Music - Amir Galimov aka LazyGonzalez"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
