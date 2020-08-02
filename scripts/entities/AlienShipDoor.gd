@@ -1,7 +1,7 @@
 extends Node2D
 class_name AlienShipDoor
 
-var isClosed = true setget set_closed
+export var isClosed = true setget set_closed
 
 func Save() -> Dictionary:
 	return {
@@ -12,7 +12,7 @@ func Load(data: Dictionary):
 	isClosed = data.closed
 
 func _ready():
-	set_closed(false)
+	set_closed(isClosed)
 
 func playDoorAnimation(closing: bool):
 	($Door/AnimatedSprite as AnimatedSprite).play("", closing)
