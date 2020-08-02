@@ -4,18 +4,18 @@ class_name QuadDamageStatus
 var ModifiedDmgMultiplier:float = 4
 var OldDmgMultiplier: float = 0
 
-var statusTimeout = 40
+var StatusTimeout = 40
 
 func IsStatusDead():
-	return statusTimeout <= 0
+	return StatusTimeout <= 0
 
 
 func GetStatusTimeout() -> float:
-	return statusTimeout
+	return StatusTimeout
 
 
 func Process(delta: float, _target: Ship):
-	statusTimeout -= delta
+	StatusTimeout -= delta
 
 
 func _onStatusEnter(target: PlayerShip):
@@ -38,3 +38,13 @@ func CanApply(target: PlayerShip) -> bool:
 
 func GetType() -> String:
 	return "QuadDamageStatus"
+
+
+func Save():
+	return {
+		"timeout": StatusTimeout
+	}
+
+
+func Load(data: Dictionary):
+	StatusTimeout = data.timeout

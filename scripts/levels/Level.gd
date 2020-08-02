@@ -93,6 +93,9 @@ func _ready():
 		camera._on_speed_change(Player.GetVelocity().length())
 		camera._on_ammo_change(Player.get_node("Cannon").RemainningAmmo)
 		camera._on_weapon_change(Player.get_node("Cannon").CurrentWeapon)
+		
+		for status in Player.StatusWrk.StatusArray:
+			camera._on_status_add(status.GetType(), status.GetStatusTimeout())
 
 
 # warning-ignore:unused_argument

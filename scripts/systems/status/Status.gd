@@ -27,3 +27,11 @@ func GetType() -> String:
 
 func GetStatusTimeout() -> float:
 	return 0.0
+
+
+func Save():
+	pass
+
+
+func Load(data: Dictionary):
+	pass

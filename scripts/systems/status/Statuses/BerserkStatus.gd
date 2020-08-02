@@ -4,18 +4,18 @@ class_name BerserkStatus
 var ModifiedDamageMultiplier:float = 0
 var OldDamageMultiplier: float = 0
 
-var statusTimeout = 30
+var StatusTimeout: float = 30
 
 func IsStatusDead():
-	return statusTimeout <= 0
+	return StatusTimeout <= 0
 
 
 func GetStatusTimeout() -> float:
-	return statusTimeout
+	return StatusTimeout
 
 
 func Process(delta: float, _target: Ship):
-	statusTimeout -= delta
+	StatusTimeout -= delta
 
 
 func _onStatusEnter(target: PlayerShip):
@@ -46,3 +46,13 @@ func CanApply(target: PlayerShip) -> bool:
 
 func GetType() -> String:
 	return "BerserkStatus"
+	
+
+func Save():
+	return {
+		"timeout": StatusTimeout
+	}
+
+
+func Load(data: Dictionary):
+	StatusTimeout = data.timeout

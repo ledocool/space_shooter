@@ -6,16 +6,42 @@ signal status_removed(statusName)
 var StatusArray: Array = []
 var Target = null
 
+var StatusFileDictionary = {
+	"BerserkStatus": "res://scripts/systems/status/Statuses/BerserkStatus.gd",
+	"HealingStatus": "res://scripts/systems/status/Statuses/HealingStatus.gd",
+	"QuadDamageStatus": "res://scripts/systems/status/Statuses/QuadDamageStatus.gd",
+	"SpeedupStatus": "res://scripts/systems/status/Statuses/SpeedupStatus.gd"
+}
+
+
 func _init(target: Node2D):
 	Target = weakref(target)
 
 
+
 func Save():
-	return { "statuses": StatusArray }
+	var statusDataArray = []
+	
+	for status in StatusArray:
+		if(status.has_method("Save")):
+			statusDataArray.append({
+				"type": status.GetType(),
+				"data": status.Save()
+			})
+
+	return statusDataArray
 
 
-func Load(data: Dictionary):
-	StatusArray = data.statuses
+func Load(data: Array):
+	for status in data:
+		if(!StatusFileDictionary.has(status.type)):
+			print_debug("Unknown player status: " + status.type)
+			continue
+			
+		var statusClass = load(StatusFileDictionary.get(status.type))
+		var statusInstance = statusClass.new()
+		statusInstance.Load(status.data)
+		AddStatus(statusInstance)
 
 
 func AddStatus(status):

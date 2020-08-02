@@ -20,6 +20,7 @@ func _ready():
 # warning-ignore:unsafe_cast
 	(StatusWrk as StatusWorker).connect("status_removed", self, "_on_status_removed")
 
+
 func SwitchWeapon(wpnType):
 	var currentWeaponBackup = _removeWeapon()
 	var success = _selectWeapon(wpnType)
@@ -30,6 +31,7 @@ func SwitchWeapon(wpnType):
 func Load(data: Dictionary):
 	InventoryInstance.SetAllWeapons(data.weapons)
 	InventoryInstance.SetAllItems(data.items)
+	StatusWrk.Load(data.statuses)
 	if(data.current_weapon):
 		SwitchWeapon(data.current_weapon)
 	(self as RigidBody2D).set_sleeping(false)
@@ -42,6 +44,7 @@ func Save():
 	data.weapons = InventoryInstance.GetAllWeapons()
 	data.items = InventoryInstance.GetAllItems()
 	data.current_weapon = cwpn
+	data.statuses = StatusWrk.Save()
 	_selectWeapon(cwpn)
 	return data
 

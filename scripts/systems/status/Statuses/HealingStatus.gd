@@ -1,12 +1,12 @@
 extends Status
 class_name HealingStatus
 
-var dead = false
-var healAmount = 10
+var Dead = false
+var HealAmount = 10
 
 
 func IsStatusDead():
-	return dead
+	return Dead
 
 
 func GetStatusTimeout() -> float:
@@ -15,8 +15,8 @@ func GetStatusTimeout() -> float:
 
 func Process(_delta, target):
 	if(target.has_method("Heal")):
-		target.Heal(healAmount)
-	dead = true
+		target.Heal(HealAmount)
+	Dead = true
 
 
 func CanApply(target: PlayerShip) -> bool:
@@ -25,3 +25,13 @@ func CanApply(target: PlayerShip) -> bool:
 
 func GetType() -> String:
 	return "HealingStatus"
+
+
+func Save():
+	return {
+		"dead" : Dead
+	}
+
+
+func Load(data: Dictionary):
+	Dead = data.dead

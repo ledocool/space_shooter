@@ -22,6 +22,8 @@ export var CameraZooms: Dictionary = {
 	600: 1.7
 }
 
+export var StatusBlinkTime = 5
+
 var SelectedZoom = 1
 var AutoZoomStep = 0
 var DoAutoZoom = false
@@ -92,7 +94,7 @@ func _on_status_add(status: String, pickup_timeout: float):
 	var statusPanel = $UICanvas/TopGUI/StatusPanel
 	var statusIcon = statusPanel.get_node(status)
 	if(statusIcon && statusIcon.has_method("Show")):
-		statusIcon.Show(pickup_timeout - 10)
+		statusIcon.Show(pickup_timeout - StatusBlinkTime)
 
 
 func _on_status_remove(status: String):
