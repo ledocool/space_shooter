@@ -8,6 +8,7 @@ var enitityCounter = 0
 
 export var entityOffset = 95
 export var entityMax = 15
+export var beginOffset = 48
 
 
 func Save():
@@ -54,7 +55,7 @@ func _ready():
 	var currentPos = 0
 	var oldEntityCounter = enitityCounter
 	for i in range(oldEntityCounter, entityMax):
-		currentPos = (i + 1)*entityOffset
+		currentPos = i*entityOffset + beginOffset
 		var plate = Position2D.new()
 		plate.name = "Position2D" + String(i)
 		plate.position = Vector2(currentPos, 0)
