@@ -23,11 +23,17 @@ func Load(data: Dictionary):
 	if (spt != null):
 		spt.frame = MaxHealth - health;
 
+func _ready():
+	if(health > 0):
+		$LoopableGenerator.Start()
+	else:
+		$LoopableGenerator.Stop()
 
 func Enable():
 	emit_signal("wire_switch", true)
 # warning-ignore:unsafe_method_access
 	$Energy.show()
+	$LoopableGenerator.Start()
 	($Glas_top as AnimatedSprite).frame = 0
 	($Glas_bottom as AnimatedSprite).frame = 0;
 	for child in $WireHitbox/Joint.get_children():
@@ -39,6 +45,7 @@ func Disable():
 	emit_signal("wire_switch", false)
 # warning-ignore:unsafe_method_access
 	$Energy.hide()
+	$LoopableGenerator.Stop()
 	($Glas_top as AnimatedSprite).frame = 1
 	($Glas_bottom as AnimatedSprite).frame = 1;
 	for child in $WireHitbox/Joint.get_children():

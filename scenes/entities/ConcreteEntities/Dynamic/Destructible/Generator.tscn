@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://resources/Objects/Structures/Wiring/generator_glas_top.png" type="Texture" id=1]
 [ext_resource path="res://resources/Objects/Structures/Wiring/generator_energy_1.png" type="Texture" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://resources/Objects/Structures/Wiring/generator_energy_3.png" type="Texture" id=9]
 [ext_resource path="res://resources/Objects/Structures/Wiring/generator_glas_bottom_broken.png" type="Texture" id=10]
 [ext_resource path="res://scripts/entities/Wires/Generator.gd" type="Script" id=11]
-
+[ext_resource path="res://scenes/sound/LoopableGenerator.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -96,3 +96,5 @@ polygon = PoolVector2Array( -11.3258, 32.9162, -10.7458, 31.7564, -13.4134, 28.3
 
 [node name="Joint" type="PinJoint2D" parent="WireHitbox"]
 position = Vector2( 0, 25.931 )
+
+[node name="LoopableGenerator" parent="." instance=ExtResource( 12 )]

@@ -4,7 +4,6 @@ var MustPlay: bool = false
 
 func Start():
 	MustPlay = true
-	$AudioStreamPlayer2D.volume_db = -15
 	$Timer.stop()
 	if(!$AudioStreamPlayer2D.playing):
 		$AudioStreamPlayer2D.play()
