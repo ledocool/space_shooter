@@ -10,7 +10,8 @@ var img = Image.new()
 func _ready():
 	var polygon = $Walls/Walls.polygon
 	$ColliderBody/CollisionPolygon2D.polygon = polygon
-	_createOutline(polygon)
+	$Walls/WallsOverlay.polygon = polygon
+	#_createOutline(polygon)
 	$Walls/Walls.texture_scale = scale
 
 

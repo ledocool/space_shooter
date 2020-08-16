@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/Objects/Structures/Harvester/building_tileable_base.png" type="Texture" id=1]
+[ext_resource path="res://scripts/entities/CustomShapeBuilding.gd" type="Script" id=2]
+[ext_resource path="res://resources/Objects/Structures/Harvester/building_tileable_light.png" type="Texture" id=3]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type canvas_item;
+uniform float fadeAwayStrength = 1950;
+
+void fragment() {
+	vec4 color = texture(TEXTURE, UV);
+	
+	float aspectRatioX = SCREEN_PIXEL_SIZE.x / SCREEN_PIXEL_SIZE.y;
+	
+	float sqrt2 = 1.4142135;
+	float 	screenX = SCREEN_UV.x - 0.5, 
+			screenY = SCREEN_UV.y - 0.5;
+		
+	float alpha = 1. / 
+			(
+				(
+					  screenX * screenX / (sqrt2 * aspectRatioX) 
+					+ aspectRatioX * screenY * screenY / sqrt2
+				) * fadeAwayStrength );
+	
+	color.a = min(alpha, color.a);
+	if(color.a < 0.03)
+	{
+		color.a = 0.0;
+	}
+	
+	COLOR = color;
+}
+
+"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/fadeAwayStrength = 1950.0
+
+[node name="CustomShapeBuilding" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ColliderBody" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColliderBody"]
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Walls" type="Polygon2D" parent="Walls"]
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087, -268.963, 538.087 )
+
+[node name="WallsOverlay" type="Polygon2D" parent="Walls"]
+material = SubResource( 4 )
+texture = ExtResource( 3 )

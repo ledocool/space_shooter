@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -34,25 +34,10 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Turret.tscn" type="PackedScene" id=32]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Pipes/PipeBend90.tscn" type="PackedScene" id=33]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Pipes/FatPipe4.tscn" type="PackedScene" id=34]
-
-[sub_resource type="Shader" id=1]
-code = "shader_type canvas_item;
-
-uniform vec2 center = vec2(1, 1);
-uniform float fadeAwayStrength = 1;
-
-void fragment() {
-	vec4 color = texture(TEXTURE, UV);	
-	float alpha2 = 1.0 - length(UV - center) / fadeAwayStrength;
-	alpha2 = max(0.0, alpha2);	
-	color.a = alpha2;
-	
-	COLOR = color;
-}
-"
+[ext_resource path="res://resources/Effects/Shaders/FadeAroundPlayer.shader" type="Shader" id=35]
 
 [sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+shader = ExtResource( 35 )
 shader_param/center = Vector2( 9, 7 )
 shader_param/fadeAwayStrength = 7.0
 
@@ -62,34 +47,8 @@ atlas = ExtResource( 13 )
 region = Rect2( 0, 0, 15000, 15000 )
 filter_clip = true
 
-[sub_resource type="Shader" id=4]
-code = "shader_type canvas_item;
-
-uniform vec2 center = vec2(19, 10);
-uniform float fadeAwayStrength = 10;
-
-void fragment() {
-	vec4 color = texture(TEXTURE, UV);
-	
-	float sqrt2 = 1.4142135;
-	float 	screenX = SCREEN_UV.x - 0.5, 
-			screenY = SCREEN_UV.y - 0.5;
-		
-	float alpha = screenX * screenX / sqrt2 + screenY * screenY / sqrt2;
-	float alpha2 = 1.0 - length(UV - center) / fadeAwayStrength;
-	alpha2 = max(0.0, alpha2);
-	
-	alpha = min(alpha, color.a);
-	alpha = min(alpha, alpha2);
-	
-	color.a = alpha;
-	
-	COLOR = color;
-}
-"
-
 [sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
+shader = ExtResource( 35 )
 shader_param/center = Vector2( 15, 12 )
 shader_param/fadeAwayStrength = 12.0
 
@@ -909,10 +868,10 @@ rotation = 0.100746
 scale = Vector2( 0.58921, 0.58921 )
 
 [node name="TextureRect2" type="Sprite" parent="Scenery/StartingRoom" index="82"]
-visible = false
 material = SubResource( 2 )
-position = Vector2( 4119.52, 666.067 )
-z_index = -50
+position = Vector2( 4119.52, 2116.2 )
+scale = Vector2( 1, 0.80665 )
+z_index = 20
 texture = SubResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 15000, 15000 )
@@ -921,8 +880,9 @@ region_filter_clip = true
 [node name="TextureRect" type="Sprite" parent="Scenery/StartingRoom" index="83"]
 modulate = Color( 0.87, 0.59102, 0.4176, 1 )
 material = SubResource( 5 )
-position = Vector2( 4694.64, 299.59 )
-z_index = -50
+position = Vector2( 4694.64, 1059.1 )
+scale = Vector2( 1, 0.873415 )
+z_index = 50
 texture = SubResource( 6 )
 region_rect = Rect2( 0, 0, 1500, 1500 )
 
@@ -1645,7 +1605,6 @@ position = Vector2( 24120.9, 19493.7 )
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background" index="0"]
 z_index = -100
 motion_scale = Vector2( 0.01, 0.01 )
-motion_mirroring = Vector2( 1, 1 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
