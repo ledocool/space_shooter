@@ -30,6 +30,7 @@ process_mode = 0
 layer = 126
 
 [node name="TopGUI" type="Control" parent="UICanvas"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 8.83362
