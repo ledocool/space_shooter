@@ -79,6 +79,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/systems/inventory/inventory.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "KeyCube",
+"language": "GDScript",
+"path": "res://scripts/entities/KeyCube.gd"
+}, {
 "base": "WorldEnvironment",
 "class": "Level",
 "language": "GDScript",
@@ -199,6 +204,7 @@ _global_script_class_icons={
 "HealingStatus": "",
 "Hideable": "",
 "Inventory": "",
+"KeyCube": "",
 "Level": "",
 "Miner": "",
 "Pickup": "",
@@ -391,6 +397,7 @@ cheat0={
 2d_physics/layer_4="Friend collision layer"
 2d_physics/layer_5="Misc collision layer"
 2d_physics/layer_6="Non-gameplay collision layer"
+2d_physics/layer_7="Key collision"
 2d_physics/layer_10="Tool Layer"
 2d_physics/layer_20="Vilibility"
 

@@ -80,6 +80,7 @@ func _ready():
 		Player.connect("speed_changed", camera, "_on_speed_change")
 		Player.connect("shoot_bullet", self, "_on_player_shootBullet")
 		Player.connect("shoot_bullet", self, "_on_Ship_shoot")
+		Player.connect("spawn_item", self, "_on_Ship_spawn")
 
 		Player.get_node("Cannon").connect("bullets_changed", camera, "_on_ammo_change")
 		Player.get_node("Cannon").connect("weapon_changed", camera, "_on_weapon_change")
@@ -107,7 +108,10 @@ func _on_Ship_shoot(bullet, direction, location, velocity, damage_multiplier):
 		
 	bullet.SpawnAt(location, direction, velocity)
 	bullet.connect("exploded", self, "_on_Something_explode")
-	$BulletContainer.add_child(bullet)
+	$BulletContainer.call_deferred("add_child", bullet)
+
+func _on_Ship_spawn(spawned):
+	$DynamicScenery.call_deferred("add_child", spawned)
 
 
 func _on_Something_explode(coordinates, explosionScale, rotation):

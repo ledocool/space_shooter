@@ -8,10 +8,14 @@ var img = Image.new()
 
 
 func _ready():
+# warning-ignore:unsafe_property_access
 	var polygon = $Walls/Walls.polygon
+# warning-ignore:unsafe_property_access
 	$ColliderBody/CollisionPolygon2D.polygon = polygon
+# warning-ignore:unsafe_property_access
 	$Walls/WallsOverlay.polygon = polygon
 	#_createOutline(polygon)
+# warning-ignore:unsafe_property_access
 	$Walls/Walls.texture_scale = scale
 
 
@@ -20,6 +24,7 @@ func _createOutline(shape: PoolVector2Array):
 	var rect = _findTextureDimensions(shape, dotImage.get_size())
 	img.create(rect.size.x, rect.size.y, false, dotImage.get_format())
 
+# warning-ignore:unused_variable
 	var first = true
 	var lastNode = null
 	var firstNode = null
@@ -39,7 +44,11 @@ func _createOutline(shape: PoolVector2Array):
 
 	var texture = ImageTexture.new()
 	texture.create_from_image(img)
+# warning-ignore:unsafe_method_access
+# warning-ignore:unused_variable
+# warning-ignore:unsafe_method_access
 	var result = $Sprite.set_texture(texture)
+# warning-ignore:unsafe_property_access
 	$Sprite.position = rect.end + (margin / 2)
 
 

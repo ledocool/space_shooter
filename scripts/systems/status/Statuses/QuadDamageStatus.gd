@@ -33,6 +33,7 @@ func _onStatusExit(target: PlayerShip):
 	cannon.BulletDamageMultiplier = OldDmgMultiplier
 	
 func CanApply(target: PlayerShip) -> bool:
+# warning-ignore:unsafe_property_access
 	return target.StatusWrk.HasStatus(GetType()) == false
 
 

@@ -54,6 +54,7 @@ func _physics_process(delta):
 	doAutoZoom(delta)
 
 func _ready():
+# warning-ignore:unsafe_property_access
 	$UICanvas/TopGUI.visible = true
 	SetZoom(CurrentZoom)
 	var camera = $Camera2D as Camera2D;

@@ -33,5 +33,5 @@ func Save():
 	pass
 
 
-func Load(data: Dictionary):
+func Load(_data: Dictionary):
 	pass

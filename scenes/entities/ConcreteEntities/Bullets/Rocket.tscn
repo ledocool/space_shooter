@@ -9,13 +9,13 @@
 radius = 8.42996
 height = 30.5173
 
-[sub_resource type="ConvexPolygonShape2D" id=4]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 1080, 277, 1039, 538, 930, 767, 760, 930, 540, 1040, 282, 1080, 0, 1040, -282, 930, -540, 767, -760, 538, -930, 277, -1039, 0, -1080 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 1080.0
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 540, 50 )
 
 [node name="Rocket" instance=ExtResource( 2 )]
@@ -52,16 +52,17 @@ one_shot = true
 autostart = true
 
 [node name="LockOnArea" type="Area2D" parent="." index="4"]
+visible = false
 monitorable = false
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LockOnArea" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LockOnArea" index="1"]
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 disabled = true
 
 [node name="ShootLockOnArea" type="Area2D" parent="." index="5"]
@@ -73,7 +74,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShootLockOnArea" index="0"]
 position = Vector2( 540, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 [connection signal="timeout" from="Timers/PriorityTargetDisableTimer" to="." method="_on_PriorityTargetDisableTimer_timeout"]
 [connection signal="body_entered" from="LockOnArea" to="." method="_on_LockOnArea_body_entered"]
 [connection signal="body_exited" from="LockOnArea" to="." method="_on_LockOnArea_body_exited"]

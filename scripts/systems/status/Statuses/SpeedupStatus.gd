@@ -28,6 +28,7 @@ func _onStatusExit(target: Ship):
 
 
 func CanApply(target: PlayerShip) -> bool:
+# warning-ignore:unsafe_property_access
 	return target.StatusWrk.HasStatus(GetType()) == false
 
 

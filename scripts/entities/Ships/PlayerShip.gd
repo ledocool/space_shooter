@@ -2,6 +2,7 @@ extends Ship
 class_name PlayerShip
 
 signal shoot_bullet(bullet_type, direction, location, velocity, damage_multiplier)
+signal spawn_item(item)
 signal status_added(statusName, statusTimeout)
 signal status_removed(statusName)
 
@@ -67,9 +68,9 @@ func SetInventory(data: Dictionary):
 	_selectWeapon(data.current_weapon)
 
 
-func PickUp(item: Pickup):
+func PickUp(item: Pickup, position):
 	var switchToWeapon = _removeWeapon()
-	var result = PickupHelper.ProcessPickup(item, InventoryInstance, self, StatusWrk)
+	var result = PickupHelper.ProcessPickup(item, InventoryInstance, self, StatusWrk, position)
 	if(result && switchToWeapon == "" && item.get_type() == 0):
 		switchToWeapon = item.get_name()
 	if(result == true && item.get_info().has("popup_message")):
@@ -77,6 +78,11 @@ func PickUp(item: Pickup):
 		$"/root/OverlayLayer".ShowTimedNotificatiopn(item.get_info().popup_message, 1.2)
 	SwitchWeapon(switchToWeapon)
 	return result
+
+
+func AddKey(key: KeyCube):
+	key.SetTarget(self)
+	emit_signal("spawn_item", key)
 
 
 func _input(event):
