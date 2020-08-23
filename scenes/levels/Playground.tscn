@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level2/AlienShipDoor.tscn" type="PackedScene" id=2]
@@ -20,6 +20,11 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Wire/Wirerer.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/entities/AbstractEntities/CustomShapeBuilding.tscn" type="PackedScene" id=19]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/KeyPickup.tscn" type="PackedScene" id=20]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud5.png" type="Texture" id=21]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud1.png" type="Texture" id=22]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud2.png" type="Texture" id=23]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud4.png" type="Texture" id=24]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud3.png" type="Texture" id=25]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
@@ -279,6 +284,32 @@ layer = 128
 [node name="MarginContainer" parent="MenuCanvas" index="0"]
 mouse_filter = 1
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="9"]
+layer = -29
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+motion_scale = Vector2( 0.7, 0.7 )
+
+[node name="back_asset_cloud1" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+position = Vector2( 2580.62, -2881.49 )
+texture = ExtResource( 22 )
+
+[node name="back_asset_cloud2" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
+position = Vector2( 5621.31, -2469.87 )
+texture = ExtResource( 23 )
+
+[node name="back_asset_cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="2"]
+position = Vector2( 3448.12, -3850.8 )
+texture = ExtResource( 25 )
+
+[node name="back_asset_cloud4" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="3"]
+position = Vector2( 2908.14, -1549.25 )
+texture = ExtResource( 24 )
+
+[node name="back_asset_cloud5" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="4"]
+position = Vector2( 4178.42, -2438.89 )
+texture = ExtResource( 21 )
+
 [node name="LevelEndTrigger" parent="TriggerContainer" index="0"]
 position = Vector2( 9060.28, -2129.68 )
 
@@ -295,6 +326,6 @@ position = Vector2( -3.25391, 152.917 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
-[node name="CustomShapeBuilding" parent="." index="12" instance=ExtResource( 19 )]
+[node name="CustomShapeBuilding" parent="." index="13" instance=ExtResource( 19 )]
 position = Vector2( 66.7153, -3702.72 )
 [connection signal="body_entered" from="TriggerContainer/Area2D" to="Scenery/AlienDoor" method="_on_Area2D_body_entered"]

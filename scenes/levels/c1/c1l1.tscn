@@ -2018,6 +2018,9 @@ rotation = -1.6189e-05
 [node name="IngameHint" parent="Scenery/SecretArea" index="28" instance=ExtResource( 52 )]
 position = Vector2( 7632.88, -5197.94 )
 
+[node name="Sprite" parent="Scenery/SecretArea/IngameHint" index="0"]
+frame = 0
+
 [node name="RichTextLabel" parent="Scenery/SecretArea/IngameHint" index="1"]
 margin_bottom = 239.0
 text = "Congratualtions! You've found a secret. You may have the spoils.
@@ -3086,10 +3089,11 @@ rotation = 1.57079
 
 [node name="Background" parent="." index="8"]
 layer = -30
-scroll_base_scale = Vector2( 0.1, 0.1 )
 
 [node name="Background" type="ParallaxLayer" parent="Background" index="0"]
+light_mask = 2
 z_index = -100
+motion_scale = Vector2( 0.1, 0.1 )
 motion_mirroring = Vector2( 1, 1 )
 __meta__ = {
 "_edit_group_": true,
@@ -3106,41 +3110,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="9"]
-layer = -29
-follow_viewport_enable = true
-follow_viewport_scale = 0.1
-scroll_base_scale = Vector2( 0.09, 0.09 )
-scroll_ignore_camera_zoom = true
-
-[node name="Beautify" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
-light_mask = 2
-position = Vector2( 0, 365.181 )
-scale = Vector2( 0.5, 0.5 )
-z_index = -101
-
-[node name="back_asset_cloud1" type="Sprite" parent="ParallaxBackground/Beautify" index="0"]
-position = Vector2( -15760.8, -1664.1 )
-texture = ExtResource( 66 )
-
-[node name="back_asset_cloud2" type="Sprite" parent="ParallaxBackground/Beautify" index="1"]
-position = Vector2( -16127.8, 953.647 )
-texture = ExtResource( 67 )
-
-[node name="back_asset_cloud4" type="Sprite" parent="ParallaxBackground/Beautify" index="2"]
-position = Vector2( -12602, -2108.64 )
-texture = ExtResource( 65 )
-
-[node name="back_asset_cloud3" type="Sprite" parent="ParallaxBackground/Beautify" index="3"]
-position = Vector2( -13845.5, -371.132 )
-texture = ExtResource( 67 )
-
-[node name="back_asset_cloud5" type="Sprite" parent="ParallaxBackground/Beautify" index="4"]
-position = Vector2( -10532.2, -1018.73 )
-texture = ExtResource( 64 )
+[node name="Foreground" parent="." index="9"]
+layer = -28
 
 [node name="Front" type="ParallaxLayer" parent="Foreground" index="0"]
-visible = false
+modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
 light_mask = 0
 z_index = 4096
 motion_scale = Vector2( 1.1, 1.1 )
@@ -3256,7 +3230,8 @@ position = Vector2( -2883.61, 751.113 )
 texture = ExtResource( 25 )
 
 [node name="Back" type="ParallaxLayer" parent="Foreground" index="1"]
-visible = false
+modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
+z_index = -20
 
 [node name="asteroid1" type="Sprite" parent="Foreground/Back" index="0"]
 position = Vector2( -4800.96, 4261.83 )
@@ -3332,6 +3307,33 @@ position = Vector2( 287.758, 6977.85 )
 rotation = 1.309
 texture = ExtResource( 27 )
 
+[node name="Beautify" type="ParallaxLayer" parent="Foreground" index="2"]
+light_mask = 2
+position = Vector2( 0, 365.181 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -99
+motion_scale = Vector2( 0.7, 0.7 )
+
+[node name="back_asset_cloud1" type="Sprite" parent="Foreground/Beautify" index="0"]
+position = Vector2( -16172.7, -2191.36 )
+texture = ExtResource( 66 )
+
+[node name="back_asset_cloud2" type="Sprite" parent="Foreground/Beautify" index="1"]
+position = Vector2( -12781.2, -1288.43 )
+texture = ExtResource( 67 )
+
+[node name="back_asset_cloud4" type="Sprite" parent="Foreground/Beautify" index="2"]
+position = Vector2( -16702, 652.782 )
+texture = ExtResource( 65 )
+
+[node name="back_asset_cloud3" type="Sprite" parent="Foreground/Beautify" index="3"]
+position = Vector2( -14868.2, 722.456 )
+texture = ExtResource( 67 )
+
+[node name="back_asset_cloud5" type="Sprite" parent="Foreground/Beautify" index="4"]
+position = Vector2( -2910.34, -535.898 )
+texture = ExtResource( 64 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
 position = Vector2( 10979.6, -399.078 )
 shape = SubResource( 1 )
@@ -3361,7 +3363,7 @@ shape = SubResource( 3 )
 [node name="LastroomBeamDoorOpen" type="Node" parent="TriggerContainer" index="5"]
 script = ExtResource( 58 )
 
-[node name="AudioStreamPlayer" parent="." index="12"]
+[node name="AudioStreamPlayer" parent="." index="11"]
 stream = ExtResource( 63 )
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]
 [connection signal="wire_switch" from="Scenery/BelowHarvester/BuildIntersection/Wirerer" to="TriggerContainer/BelowHarvesterBeamDoorOpen" method="_on_Wirerer_wire_switch"]

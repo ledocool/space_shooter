@@ -36,23 +36,23 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Pipes/FatPipe4.tscn" type="PackedScene" id=34]
 [ext_resource path="res://resources/Effects/Shaders/FadeAroundPlayer.shader" type="Shader" id=35]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 35 )
 shader_param/center = Vector2( 9, 7 )
 shader_param/fadeAwayStrength = 7.0
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 flags = 6
 atlas = ExtResource( 13 )
 region = Rect2( 0, 0, 15000, 15000 )
 filter_clip = true
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 35 )
 shader_param/center = Vector2( 15, 12 )
 shader_param/fadeAwayStrength = 12.0
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=4]
 flags = 6
 atlas = ExtResource( 12 )
 region = Rect2( 0, 0, 15000, 12000 )
@@ -868,22 +868,22 @@ rotation = 0.100746
 scale = Vector2( 0.58921, 0.58921 )
 
 [node name="TextureRect2" type="Sprite" parent="Scenery/StartingRoom" index="82"]
-material = SubResource( 2 )
+material = SubResource( 1 )
 position = Vector2( 4119.52, 2116.2 )
 scale = Vector2( 1, 0.80665 )
 z_index = 20
-texture = SubResource( 3 )
+texture = SubResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 15000, 15000 )
 region_filter_clip = true
 
 [node name="TextureRect" type="Sprite" parent="Scenery/StartingRoom" index="83"]
 modulate = Color( 0.87, 0.59102, 0.4176, 1 )
-material = SubResource( 5 )
+material = SubResource( 3 )
 position = Vector2( 4694.64, 1059.1 )
 scale = Vector2( 1, 0.873415 )
 z_index = 50
-texture = SubResource( 6 )
+texture = SubResource( 4 )
 region_rect = Rect2( 0, 0, 1500, 1500 )
 
 [node name="StaticAsteroid40" parent="Scenery/StartingRoom" index="84" instance=ExtResource( 6 )]
