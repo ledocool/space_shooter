@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
@@ -63,6 +63,10 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight_Green.tscn" type="PackedScene" id=61]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight.tscn" type="PackedScene" id=62]
 [ext_resource path="res://resources/Music/lvl1.wav" type="AudioStream" id=63]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud5.png" type="Texture" id=64]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud4.png" type="Texture" id=65]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud1.png" type="Texture" id=66]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud2.png" type="Texture" id=67]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 273.705
@@ -92,22 +96,16 @@ position = Vector2( -8586.13, 22.1924 )
 [node name="Miner2" parent="ShipContainer" index="1" instance=ExtResource( 2 )]
 position = Vector2( -4598.03, -1326.03 )
 rotation = 1.57079
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner8" parent="ShipContainer" index="2" instance=ExtResource( 2 )]
 position = Vector2( 1127.02, -3217.6 )
 rotation = -0.785397
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner11_slp" parent="ShipContainer" index="3" groups=[
 "SleepingShips",
 ] instance=ExtResource( 2 )]
 position = Vector2( -5743.42, -129.562 )
 rotation = 3.14159
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 TurnedOn = false
 
 [node name="Miner12_slp" parent="ShipContainer" index="4" groups=[
@@ -115,8 +113,6 @@ TurnedOn = false
 ] instance=ExtResource( 2 )]
 position = Vector2( -5668.07, -345.324 )
 rotation = -2.09441
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 TurnedOn = false
 
 [node name="Miner13_slp" parent="ShipContainer" index="5" groups=[
@@ -124,152 +120,96 @@ TurnedOn = false
 ] instance=ExtResource( 2 )]
 position = Vector2( -5232.98, -138.431 )
 rotation = 2.35619
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 TurnedOn = false
 
 [node name="Miner14_slp" parent="ShipContainer" index="6" groups=[
 "SleepingShips",
 ] instance=ExtResource( 2 )]
 position = Vector2( -5529.55, 108.22 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 TurnedOn = false
 
 [node name="Miner" parent="ShipContainer" index="7" instance=ExtResource( 2 )]
 position = Vector2( 2430.39, -1620.53 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner3" parent="ShipContainer" index="8" instance=ExtResource( 2 )]
 position = Vector2( 4149.56, -5930.09 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner5" parent="ShipContainer" index="9" instance=ExtResource( 2 )]
 position = Vector2( 4978.86, -5254.54 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner6" parent="ShipContainer" index="10" instance=ExtResource( 2 )]
 position = Vector2( 4922.95, -5054.2 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner12" parent="ShipContainer" index="11" instance=ExtResource( 2 )]
 position = Vector2( 2319.01, -3763.13 )
 rotation = 1.57079
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner13" parent="ShipContainer" index="12" instance=ExtResource( 2 )]
 position = Vector2( 2445.77, -3832.49 )
 rotation = 1.57079
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner14" parent="ShipContainer" index="13" instance=ExtResource( 2 )]
 position = Vector2( 2936.06, -3734.43 )
 rotation = 2.35619
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner15" parent="ShipContainer" index="14" instance=ExtResource( 2 )]
 position = Vector2( 6732.36, -3813.55 )
 rotation = -2.87979
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner16" parent="ShipContainer" index="15" instance=ExtResource( 2 )]
 position = Vector2( 7093.97, -3956.51 )
 rotation = -1.83259
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner4" parent="ShipContainer" index="16" instance=ExtResource( 2 )]
 position = Vector2( 1878.29, 6991.71 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner7" parent="ShipContainer" index="17" instance=ExtResource( 2 )]
 position = Vector2( 1641.99, 9300.15 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner9" parent="ShipContainer" index="18" instance=ExtResource( 2 )]
 position = Vector2( 3668.7, 7327.98 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner10" parent="ShipContainer" index="19" instance=ExtResource( 2 )]
 position = Vector2( 4150.38, 8309.52 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner11" parent="ShipContainer" index="20" instance=ExtResource( 2 )]
 position = Vector2( 987.634, 7836.92 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner17" parent="ShipContainer" index="21" instance=ExtResource( 2 )]
 position = Vector2( 1178.49, 11390.5 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner20" parent="ShipContainer" index="22" instance=ExtResource( 2 )]
 position = Vector2( 5504.54, 7991.42 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner21" parent="ShipContainer" index="23" instance=ExtResource( 2 )]
 position = Vector2( 5295.51, 8200.46 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner22" parent="ShipContainer" index="24" instance=ExtResource( 2 )]
 position = Vector2( -939.097, 10854.3 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner23" parent="ShipContainer" index="25" instance=ExtResource( 2 )]
 position = Vector2( -1266.28, 9890.89 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner18" parent="ShipContainer" index="26" instance=ExtResource( 2 )]
 position = Vector2( 233.301, 5746.6 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner19" parent="ShipContainer" index="27" instance=ExtResource( 2 )]
 position = Vector2( 3577.81, 5464.86 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner24" parent="ShipContainer" index="28" instance=ExtResource( 2 )]
 position = Vector2( -5664.71, 7635.9 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner25" parent="ShipContainer" index="29" instance=ExtResource( 2 )]
 position = Vector2( -7149.85, 8353.08 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner26" parent="ShipContainer" index="30" instance=ExtResource( 2 )]
 position = Vector2( -7790.87, 9977.85 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner27" parent="ShipContainer" index="31" instance=ExtResource( 2 )]
 position = Vector2( -78.5957, 3458.9 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Miner28" parent="ShipContainer" index="32" instance=ExtResource( 2 )]
 position = Vector2( -2309.61, 2950.36 )
-ShipSpeed = 300.0
-VelocityDampThreshold = 180.0
 
 [node name="Asteroid" parent="AsteroidContainer" index="0" instance=ExtResource( 3 )]
 position = Vector2( -8018.51, -5.83704 )
@@ -3146,17 +3086,17 @@ rotation = 1.57079
 
 [node name="Background" parent="." index="8"]
 layer = -30
+scroll_base_scale = Vector2( 0.1, 0.1 )
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background" index="0"]
+[node name="Background" type="ParallaxLayer" parent="Background" index="0"]
 z_index = -100
-motion_scale = Vector2( 0.01, 0.01 )
 motion_mirroring = Vector2( 1, 1 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="Background/ParallaxLayer" index="0"]
+[node name="Sprite" type="Sprite" parent="Background/Background" index="0"]
 position = Vector2( 0, -8.19141 )
 texture = ExtResource( 22 )
 region_enabled = true
@@ -3165,6 +3105,39 @@ __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="9"]
+layer = -29
+follow_viewport_enable = true
+follow_viewport_scale = 0.1
+scroll_base_scale = Vector2( 0.09, 0.09 )
+scroll_ignore_camera_zoom = true
+
+[node name="Beautify" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+light_mask = 2
+position = Vector2( 0, 365.181 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -101
+
+[node name="back_asset_cloud1" type="Sprite" parent="ParallaxBackground/Beautify" index="0"]
+position = Vector2( -15760.8, -1664.1 )
+texture = ExtResource( 66 )
+
+[node name="back_asset_cloud2" type="Sprite" parent="ParallaxBackground/Beautify" index="1"]
+position = Vector2( -16127.8, 953.647 )
+texture = ExtResource( 67 )
+
+[node name="back_asset_cloud4" type="Sprite" parent="ParallaxBackground/Beautify" index="2"]
+position = Vector2( -12602, -2108.64 )
+texture = ExtResource( 65 )
+
+[node name="back_asset_cloud3" type="Sprite" parent="ParallaxBackground/Beautify" index="3"]
+position = Vector2( -13845.5, -371.132 )
+texture = ExtResource( 67 )
+
+[node name="back_asset_cloud5" type="Sprite" parent="ParallaxBackground/Beautify" index="4"]
+position = Vector2( -10532.2, -1018.73 )
+texture = ExtResource( 64 )
 
 [node name="Front" type="ParallaxLayer" parent="Foreground" index="0"]
 visible = false
@@ -3388,7 +3361,7 @@ shape = SubResource( 3 )
 [node name="LastroomBeamDoorOpen" type="Node" parent="TriggerContainer" index="5"]
 script = ExtResource( 58 )
 
-[node name="AudioStreamPlayer" parent="." index="11"]
+[node name="AudioStreamPlayer" parent="." index="12"]
 stream = ExtResource( 63 )
 [connection signal="picked_up" from="ItemContainer/SlugPickup" to="TriggerContainer/WpnPickupTrigger" method="_on_SlugPickup_picked_up"]
 [connection signal="wire_switch" from="Scenery/BelowHarvester/BuildIntersection/Wirerer" to="TriggerContainer/BelowHarvesterBeamDoorOpen" method="_on_Wirerer_wire_switch"]
