@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=2]
@@ -67,6 +67,18 @@
 [ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud4.png" type="Texture" id=65]
 [ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud1.png" type="Texture" id=66]
 [ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud2.png" type="Texture" id=67]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains16.png" type="Texture" id=68]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains3.png" type="Texture" id=69]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains4.png" type="Texture" id=70]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains2.png" type="Texture" id=71]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains17.png" type="Texture" id=72]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains18.png" type="Texture" id=73]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains14.png" type="Texture" id=74]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains12.png" type="Texture" id=75]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains13.png" type="Texture" id=76]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains15.png" type="Texture" id=77]
+[ext_resource path="res://resources/Backgrounds/Assets/ship_remains11.png" type="Texture" id=78]
+[ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud3.png" type="Texture" id=79]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 273.705
@@ -3101,17 +3113,18 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Background/Background" index="0"]
-position = Vector2( 0, -8.19141 )
+light_mask = 4
 texture = ExtResource( 22 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 30000, 30000 )
 __meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
+"_edit_group_": true
 }
 
 [node name="Foreground" parent="." index="9"]
 layer = -28
+scroll_limit_begin = Vector2( -10000, -7835 )
+scroll_limit_end = Vector2( 11644, 15850 )
 
 [node name="Front" type="ParallaxLayer" parent="Foreground" index="0"]
 modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
@@ -3307,32 +3320,288 @@ position = Vector2( 287.758, 6977.85 )
 rotation = 1.309
 texture = ExtResource( 27 )
 
-[node name="Beautify" type="ParallaxLayer" parent="Foreground" index="2"]
+[node name="Clouds" type="ParallaxLayer" parent="Foreground" index="2"]
 light_mask = 2
 position = Vector2( 0, 365.181 )
 scale = Vector2( 0.5, 0.5 )
 z_index = -99
 motion_scale = Vector2( 0.7, 0.7 )
 
-[node name="back_asset_cloud1" type="Sprite" parent="Foreground/Beautify" index="0"]
+[node name="back_asset_cloud1" type="Sprite" parent="Foreground/Clouds" index="0"]
 position = Vector2( -16172.7, -2191.36 )
 texture = ExtResource( 66 )
 
-[node name="back_asset_cloud2" type="Sprite" parent="Foreground/Beautify" index="1"]
+[node name="back_asset_cloud2" type="Sprite" parent="Foreground/Clouds" index="1"]
 position = Vector2( -12781.2, -1288.43 )
 texture = ExtResource( 67 )
 
-[node name="back_asset_cloud4" type="Sprite" parent="Foreground/Beautify" index="2"]
+[node name="back_asset_cloud4" type="Sprite" parent="Foreground/Clouds" index="2"]
 position = Vector2( -16702, 652.782 )
 texture = ExtResource( 65 )
 
-[node name="back_asset_cloud3" type="Sprite" parent="Foreground/Beautify" index="3"]
-position = Vector2( -14868.2, 722.456 )
+[node name="back_asset_cloud3" type="Sprite" parent="Foreground/Clouds" index="3"]
+position = Vector2( -17079.8, 220.856 )
 texture = ExtResource( 67 )
 
-[node name="back_asset_cloud5" type="Sprite" parent="Foreground/Beautify" index="4"]
+[node name="back_asset_cloud5" type="Sprite" parent="Foreground/Clouds" index="4"]
 position = Vector2( -2910.34, -535.898 )
 texture = ExtResource( 64 )
+
+[node name="back_asset_cloud6" type="Sprite" parent="Foreground/Clouds" index="5"]
+position = Vector2( -6959.68, -2244.57 )
+texture = ExtResource( 65 )
+
+[node name="back_asset_cloud7" type="Sprite" parent="Foreground/Clouds" index="6"]
+position = Vector2( -13466.6, -1400.05 )
+texture = ExtResource( 79 )
+
+[node name="back_asset_cloud8" type="Sprite" parent="Foreground/Clouds" index="7"]
+position = Vector2( -3884.48, 5561.7 )
+texture = ExtResource( 67 )
+
+[node name="back_asset_cloud9" type="Sprite" parent="Foreground/Clouds" index="8"]
+position = Vector2( -2051.19, 4615.48 )
+texture = ExtResource( 79 )
+
+[node name="back_asset_cloud10" type="Sprite" parent="Foreground/Clouds" index="9"]
+position = Vector2( -1932.92, -647.835 )
+texture = ExtResource( 65 )
+
+[node name="back_asset_cloud11" type="Sprite" parent="Foreground/Clouds" index="10"]
+position = Vector2( -5008.11, 830.625 )
+texture = ExtResource( 64 )
+
+[node name="back_asset_cloud12" type="Sprite" parent="Foreground/Clouds" index="11"]
+position = Vector2( 2975.57, -5970.29 )
+texture = ExtResource( 79 )
+
+[node name="back_asset_cloud13" type="Sprite" parent="Foreground/Clouds" index="12"]
+position = Vector2( 3507.82, -4255.28 )
+texture = ExtResource( 67 )
+
+[node name="back_asset_cloud14" type="Sprite" parent="Foreground/Clouds" index="13"]
+position = Vector2( 5932.49, -10346.5 )
+texture = ExtResource( 66 )
+
+[node name="back_asset_cloud15" type="Sprite" parent="Foreground/Clouds" index="14"]
+position = Vector2( -17072.3, 18690.4 )
+texture = ExtResource( 65 )
+
+[node name="back_asset_cloud16" type="Sprite" parent="Foreground/Clouds" index="15"]
+position = Vector2( -8911.25, 20346.3 )
+texture = ExtResource( 64 )
+
+[node name="back_asset_cloud17" type="Sprite" parent="Foreground/Clouds" index="16"]
+position = Vector2( -2938.27, 16088.3 )
+texture = ExtResource( 65 )
+
+[node name="back_asset_cloud18" type="Sprite" parent="Foreground/Clouds" index="17"]
+position = Vector2( -2819.99, 25432.2 )
+texture = ExtResource( 79 )
+
+[node name="back_asset_cloud19" type="Sprite" parent="Foreground/Clouds" index="18"]
+position = Vector2( 4217.48, 26141.9 )
+texture = ExtResource( 67 )
+
+[node name="back_asset_cloud20" type="Sprite" parent="Foreground/Clouds" index="19"]
+position = Vector2( 14744.1, 22475.3 )
+texture = ExtResource( 79 )
+
+[node name="back_asset_cloud21" type="Sprite" parent="Foreground/Clouds" index="20"]
+position = Vector2( 18529, 16029.2 )
+texture = ExtResource( 65 )
+
+[node name="back_asset_cloud22" type="Sprite" parent="Foreground/Clouds" index="21"]
+position = Vector2( 12260.3, 15970.1 )
+texture = ExtResource( 64 )
+
+[node name="back_asset_cloud23" type="Sprite" parent="Foreground/Clouds" index="22"]
+position = Vector2( 13561.3, 5147.73 )
+texture = ExtResource( 65 )
+
+[node name="back_asset_cloud24" type="Sprite" parent="Foreground/Clouds" index="23"]
+position = Vector2( 12615.1, 357.519 )
+texture = ExtResource( 79 )
+
+[node name="back_asset_cloud25" type="Sprite" parent="Foreground/Clouds" index="24"]
+position = Vector2( 18115, -2008.02 )
+texture = ExtResource( 66 )
+
+[node name="Ships" type="ParallaxLayer" parent="Foreground" index="3"]
+motion_scale = Vector2( 0.9, 0.9 )
+
+[node name="ship_remains16" type="Sprite" parent="Foreground/Ships" index="0"]
+position = Vector2( -6870.35, -142.358 )
+rotation = -0.261799
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 68 )
+
+[node name="ship_remains17" type="Sprite" parent="Foreground/Ships" index="1"]
+position = Vector2( -7992.71, 846.39 )
+rotation = -3.40339
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 72 )
+
+[node name="ship_remains18" type="Sprite" parent="Foreground/Ships" index="2"]
+position = Vector2( -3236.03, -676.817 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 73 )
+
+[node name="ship_remains14" type="Sprite" parent="Foreground/Ships" index="3"]
+position = Vector2( -4338.35, -984.13 )
+rotation = -2.61799
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 74 )
+
+[node name="ship_remains19" type="Sprite" parent="Foreground/Ships" index="4"]
+position = Vector2( -68.1675, 3341.27 )
+rotation = 1.309
+texture = ExtResource( 68 )
+
+[node name="ship_remains20" type="Sprite" parent="Foreground/Ships" index="5"]
+position = Vector2( -931.556, 2496.05 )
+texture = ExtResource( 73 )
+
+[node name="ship_remains13" type="Sprite" parent="Foreground/Ships" index="6"]
+position = Vector2( -1122.41, 7912.68 )
+texture = ExtResource( 76 )
+
+[node name="ship_remains15" type="Sprite" parent="Foreground/Ships" index="7"]
+position = Vector2( -5003.11, 11202.6 )
+rotation = -1.309
+texture = ExtResource( 74 )
+
+[node name="ship_remains21" type="Sprite" parent="Foreground/Ships" index="8"]
+position = Vector2( -322.641, 13383.8 )
+rotation = 0.785397
+texture = ExtResource( 72 )
+
+[node name="ship_remains22" type="Sprite" parent="Foreground/Ships" index="9"]
+position = Vector2( 758.867, 13920 )
+texture = ExtResource( 77 )
+
+[node name="ship_remains23" type="Sprite" parent="Foreground/Ships" index="10"]
+position = Vector2( 4276.04, 12411.4 )
+rotation = -2.35619
+texture = ExtResource( 68 )
+
+[node name="ship_remains12" type="Sprite" parent="Foreground/Ships" index="11"]
+position = Vector2( 6657.17, 12084.2 )
+texture = ExtResource( 75 )
+
+[node name="ship_remains24" type="Sprite" parent="Foreground/Ships" index="12"]
+position = Vector2( 4157.89, 12220.5 )
+rotation = 1.83259
+texture = ExtResource( 76 )
+
+[node name="ship_remains25" type="Sprite" parent="Foreground/Ships" index="13"]
+position = Vector2( 6157.31, 12793.1 )
+texture = ExtResource( 77 )
+
+[node name="ship_remains26" type="Sprite" parent="Foreground/Ships" index="14"]
+position = Vector2( 4939.48, 9012.36 )
+texture = ExtResource( 75 )
+
+[node name="ship_remains27" type="Sprite" parent="Foreground/Ships" index="15"]
+position = Vector2( 3334.27, 8131.3 )
+rotation = 1.0472
+texture = ExtResource( 77 )
+
+[node name="ship_remains28" type="Sprite" parent="Foreground/Ships" index="16"]
+position = Vector2( 1746.54, 5632.58 )
+rotation = -2.09439
+texture = ExtResource( 72 )
+
+[node name="ship_remains29" type="Sprite" parent="Foreground/Ships" index="17"]
+position = Vector2( 9294.77, 5528.46 )
+rotation = 1.57079
+texture = ExtResource( 77 )
+
+[node name="ship_remains30" type="Sprite" parent="Foreground/Ships" index="18"]
+position = Vector2( 10920.5, 9094.35 )
+texture = ExtResource( 74 )
+
+[node name="ship_remains31" type="Sprite" parent="Foreground/Ships" index="19"]
+position = Vector2( 7367.58, 4851.73 )
+texture = ExtResource( 77 )
+
+[node name="ship_remains32" type="Sprite" parent="Foreground/Ships" index="20"]
+position = Vector2( 4009.92, 2574.24 )
+texture = ExtResource( 76 )
+
+[node name="ship_remains33" type="Sprite" parent="Foreground/Ships" index="21"]
+position = Vector2( 8174.46, 62.5023 )
+texture = ExtResource( 77 )
+
+[node name="ship_remains34" type="Sprite" parent="Foreground/Ships" index="22"]
+position = Vector2( 6755.92, -392.994 )
+texture = ExtResource( 68 )
+
+[node name="ship_remains35" type="Sprite" parent="Foreground/Ships" index="23"]
+position = Vector2( 8135.42, 4448.29 )
+texture = ExtResource( 72 )
+
+[node name="ship_remains36" type="Sprite" parent="Foreground/Ships" index="24"]
+position = Vector2( -961.501, 1507.08 )
+rotation = 0.523598
+texture = ExtResource( 74 )
+
+[node name="ship_remains37" type="Sprite" parent="Foreground/Ships" index="25"]
+position = Vector2( 8382.69, -210.796 )
+rotation = -2.61799
+texture = ExtResource( 77 )
+
+[node name="ship_remains3" type="Sprite" parent="Foreground/Ships" index="26"]
+position = Vector2( 8200.49, -692.321 )
+rotation = 0.523598
+texture = ExtResource( 69 )
+
+[node name="ship_remains4" type="Sprite" parent="Foreground/Ships" index="27"]
+position = Vector2( 1641.34, 5164.07 )
+texture = ExtResource( 70 )
+
+[node name="ship_remains38" type="Sprite" parent="Foreground/Ships" index="28"]
+position = Vector2( 548.773, -2722.53 )
+rotation = -0.261799
+texture = ExtResource( 76 )
+
+[node name="ship_remains2" type="Sprite" parent="Foreground/Ships" index="29"]
+position = Vector2( 4765.37, -5364.42 )
+texture = ExtResource( 71 )
+
+[node name="ship_remains5" type="Sprite" parent="Foreground/Ships" index="30"]
+position = Vector2( 3789.31, -6002.11 )
+rotation = -0.261799
+texture = ExtResource( 69 )
+
+[node name="ship_remains11" type="Sprite" parent="Foreground/Ships" index="31"]
+position = Vector2( 6131.86, -4570.55 )
+texture = ExtResource( 78 )
+
+[node name="ship_remains39" type="Sprite" parent="Foreground/Ships" index="32"]
+position = Vector2( 3620.12, -4791.79 )
+rotation = 0.523598
+texture = ExtResource( 73 )
+
+[node name="ship_remains40" type="Sprite" parent="Foreground/Ships" index="33"]
+position = Vector2( 184.375, 5723.68 )
+rotation = -0.523598
+texture = ExtResource( 68 )
+
+[node name="ship_remains41" type="Sprite" parent="Foreground/Ships" index="34"]
+position = Vector2( -2366.41, 9445.74 )
+rotation = -0.261799
+texture = ExtResource( 72 )
+
+[node name="ship_remains42" type="Sprite" parent="Foreground/Ships" index="35"]
+position = Vector2( 2318.7, 7858 )
+rotation = 0.261799
+texture = ExtResource( 74 )
+
+[node name="ship_remains43" type="Sprite" parent="Foreground/Ships" index="36"]
+position = Vector2( 2917.36, 14102.1 )
+rotation = -0.785397
+texture = ExtResource( 75 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
 position = Vector2( 10979.6, -399.078 )

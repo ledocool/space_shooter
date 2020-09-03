@@ -62,6 +62,15 @@ func GetStats():
 
 
 func _ready():
+	for layer in $Foreground.get_children():
+# warning-ignore:unsafe_cast
+		var multiplier = (layer as ParallaxLayer).motion_scale
+		for object in layer.get_children():
+			var pos: Vector2 = object.position
+			pos.x *= multiplier.x
+			pos.y *= multiplier.y
+			object.position = pos
+	
 	for shp in $ShipContainer.get_children():
 		if(shp is Ship):
 			print_debug("Connecting " + shp.get_name())
