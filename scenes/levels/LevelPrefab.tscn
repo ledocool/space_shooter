@@ -100,6 +100,7 @@ margin_bottom = 580.0
 visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuCanvas/EscapeMenu"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 250.0

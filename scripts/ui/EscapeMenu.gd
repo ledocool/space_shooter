@@ -4,14 +4,51 @@ signal save_game()
 signal load_game()
 signal options()
 
+
+var cheats: Array = []
+
+
 func _ready():
 	_on_EscapeMenu_visibility_changed()
+	_add_cheat_entries()
+
 
 func _unhandled_key_input(event):
 	if(event.is_action_pressed("ui_menu")):
 		self.visible = !self.visible
 		get_tree().paused = self.visible
 
+
+func _add_cheat_entries():
+	var list: ItemList = $CheatMenu/MarginContainer/ItemList
+	cheats.append({
+		"name": "Invulnerability",
+		"enabled": false,
+		"actor": null
+	})
+	cheats.append({
+		"name": "Destroy on bump",
+		"enabled": false,
+		"actor": null
+	})
+	cheats.append({
+		"name": "Speedup",
+		"enabled": false,
+		"actor": null
+	})
+	cheats.append({
+		"name": "Invisibility",
+		"enabled": false,
+		"actor": null
+	})
+	cheats.append({
+		"name": "Noclip",
+		"enabled": false,
+		"actor": null
+	})
+	
+	for cheat in cheats:
+		list.add_item(cheat.name)
 
 func _exit_tree():
 	get_tree().paused = false
@@ -45,7 +82,27 @@ func _on_EscapeMenu_visibility_changed():
 	pin.set_pickable(self.visible)
 	pin.set_physics_process(self.visible)
 	pin.set_process_input(self.visible)
+# warning-ignore:unsafe_property_access
+	$CheatMenu.visible = false
 
 
-func _on_CheatMenuSwitch_body_entered(_body):
-	print("Cheat menu enabled!")
+func _on_MenuButton_pressed():
+# warning-ignore:unsafe_property_access
+	$CheatMenu.visible = false
+	for cheat in cheats:
+		if (cheat.has("actor") && cheat.actor != null):
+			if (cheat.enabled):
+				cheat.actor.Enable()
+			else:
+				cheat.actor.Disable()
+
+
+func _on_ItemList_multi_selected(index, selected):
+	if(cheats.size() >= index):
+		return
+	cheats[index].enabled = selected
+
+
+func _on_Pin_pulledDown():
+# warning-ignore:unsafe_property_access
+	$CheatMenu.visible = true

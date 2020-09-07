@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
+signal pulledDown()
+
 var isGrabbed = false
 var isMouseOver = false
 export var detectPressDistance = 300
+export var detectDownY = 880
 onready var startPosition = self.position
 
 func _input(event):
@@ -29,4 +32,6 @@ func _physics_process(_delta):
 		var speedVector = mousePosition - position
 # warning-ignore:return_value_discarded
 		move_and_slide(speedVector)
+		if(position.y >= detectDownY):
+			emit_signal("pulledDown")
 

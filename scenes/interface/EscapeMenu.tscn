@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/ui/EscapeMenu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=2]
@@ -13,9 +13,6 @@ extents = Vector2( 96.1012, 540.141 )
 [sub_resource type="CapsuleShape2D" id=3]
 radius = 81.8971
 height = 131.467
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 261.367, 106.742 )
 
 [node name="EscapeMenu" type="Control"]
 pause_mode = 2
@@ -114,27 +111,49 @@ script = ExtResource( 3 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
-[node name="CheatMenuSwitch" type="Area2D" parent="CheatMenuEnabler"]
-position = Vector2( 1764.88, 989.077 )
-input_pickable = false
-gravity_vec = Vector2( 0, 0 )
-gravity = 0.0
-linear_damp = 0.0
-angular_damp = 0.0
-priority = 128.0
-monitorable = false
-collision_layer = 0
-collision_mask = 131072
+[node name="CheatMenu" type="Control" parent="."]
+margin_left = 1418.0
+margin_right = 1918.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CheatMenuEnabler/CheatMenuSwitch"]
-shape = SubResource( 4 )
-[connection signal="mouse_entered" from="." to="." method="_on_EscapeMenu_mouse_entered"]
+[node name="MarginContainer" type="MarginContainer" parent="CheatMenu"]
+margin_left = 8.14941
+margin_top = 20.4235
+margin_right = 488.149
+margin_bottom = 980.424
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="CheatMenu/MarginContainer"]
+margin_right = 479.0
+margin_bottom = 960.0
+select_mode = 1
+allow_reselect = true
+allow_rmb_select = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuButton" parent="CheatMenu" instance=ExtResource( 2 )]
+anchor_left = 0.359
+anchor_top = 0.932
+anchor_right = 0.619
+anchor_bottom = 0.955
+margin_left = -0.126114
+margin_top = 0.325439
+margin_right = -0.126099
+margin_bottom = 0.485474
+text = "Close"
 [connection signal="visibility_changed" from="." to="." method="_on_EscapeMenu_visibility_changed"]
 [connection signal="pressed" from="CenterContainer/ItemList/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="CenterContainer/ItemList/Save game" to="." method="_on_Save_game_pressed"]
 [connection signal="pressed" from="CenterContainer/ItemList/Load game" to="." method="_on_Load_game_pressed"]
 [connection signal="pressed" from="CenterContainer/ItemList/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="CenterContainer/ItemList/Exit" to="." method="_on_Exit_pressed"]
-[connection signal="mouse_entered" from="CheatMenuEnabler/PinBorder" to="." method="_on_PinBorder_mouse_entered"]
-[connection signal="mouse_exited" from="CheatMenuEnabler/Pin" to="CheatMenuEnabler/Pin" method="_on_Pin_mouse_exited"]
-[connection signal="body_entered" from="CheatMenuEnabler/CheatMenuSwitch" to="." method="_on_CheatMenuSwitch_body_entered"]
+[connection signal="pulledDown" from="CheatMenuEnabler/Pin" to="." method="_on_Pin_pulledDown"]
+[connection signal="multi_selected" from="CheatMenu/MarginContainer/ItemList" to="." method="_on_ItemList_multi_selected"]
+[connection signal="pressed" from="CheatMenu/MenuButton" to="." method="_on_MenuButton_pressed"]
