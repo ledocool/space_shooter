@@ -11,6 +11,7 @@ var interactiveLoader = null
 var loadScreen = preload("res://scenes/interface/LoadingScreen.tscn")
 onready var popupScreen = $"/root/OverlayLayer"
 
+
 var loadData = null
 var lastLevelData = null
 

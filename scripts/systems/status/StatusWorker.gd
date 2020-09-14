@@ -18,7 +18,6 @@ func _init(target: Node2D):
 	Target = weakref(target)
 
 
-
 func Save():
 	var statusDataArray = []
 	

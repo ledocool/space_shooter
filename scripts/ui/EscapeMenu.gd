@@ -24,30 +24,28 @@ func _add_cheat_entries():
 	cheats.append({
 		"name": "Invulnerability",
 		"enabled": false,
-		"actor": null
+		"actor": InvulnerabilityActor.new()
 	})
 	cheats.append({
 		"name": "Destroy on bump",
 		"enabled": false,
-		"actor": null
+		"actor": DestroyOnBumpActor.new()
 	})
 	cheats.append({
 		"name": "Speedup",
 		"enabled": false,
-		"actor": null
-	})
-	cheats.append({
-		"name": "Invisibility",
-		"enabled": false,
-		"actor": null
+		"actor": SpeedupActor.new()
 	})
 	cheats.append({
 		"name": "Noclip",
 		"enabled": false,
-		"actor": null
+		"actor": NoclipActor.new()
 	})
 	
 	for cheat in cheats:
+		var level = $"/root/Level/"
+		if(cheat.actor != null):
+			cheat.actor.Init(level)
 		list.add_item(cheat.name)
 
 func _exit_tree():
@@ -91,14 +89,11 @@ func _on_MenuButton_pressed():
 	$CheatMenu.visible = false
 	for cheat in cheats:
 		if (cheat.has("actor") && cheat.actor != null):
-			if (cheat.enabled):
-				cheat.actor.Enable()
-			else:
-				cheat.actor.Disable()
+			cheat.actor.Switch(cheat.enabled)
 
 
 func _on_ItemList_multi_selected(index, selected):
-	if(cheats.size() >= index):
+	if(cheats.size() <= index):
 		return
 	cheats[index].enabled = selected
 
@@ -106,3 +101,5 @@ func _on_ItemList_multi_selected(index, selected):
 func _on_Pin_pulledDown():
 # warning-ignore:unsafe_property_access
 	$CheatMenu.visible = true
+# warning-ignore:unsafe_property_access
+	$"CenterContainer/ItemList/Save game".visible = false
