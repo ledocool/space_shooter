@@ -33,7 +33,8 @@ func Damage(points: int):
 		var oldShipHealth = ShipCurrentHealth
 		ShipCurrentHealth = 0 if ShipCurrentHealth < points else ShipCurrentHealth - points
 		emit_signal("health_changed", oldShipHealth, ShipCurrentHealth)
-	return true
+		return true
+	return false
 
 
 func Save():

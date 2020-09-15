@@ -85,6 +85,12 @@ func AddKey(key: KeyCube):
 	emit_signal("spawn_item", key)
 
 
+func Damage(points: int):
+	var damaged = .Damage(points)
+	if(damaged && !$Sounds/Damage/Dmg1.playing):
+		$Sounds/Damage/Dmg1.play()
+
+
 func _input(event):
 	if event.is_action_pressed("shoot"):
 # warning-ignore:unsafe_property_access

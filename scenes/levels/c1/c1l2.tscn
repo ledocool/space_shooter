@@ -670,11 +670,14 @@ enabled = true
 ] instance=ExtResource( 31 )]
 position = Vector2( 26692.7, 14778.5 )
 chainAmount = [ -3.0, -23.0, -1.0, 0.0, 1.0, 3.0, 6.0, 3.0, 4.0, 6.0, 6.0, 2.0, 1.0, 2.0, 1.0, 3.0, 1.0, 2.0, 4.0, 1.0 ]
+StartNodeRotation = 0
 EndNodeRotation = -19.0
 
 [node name="KeyWirererBottom" parent="DynamicScenery" index="13" instance=ExtResource( 31 )]
 position = Vector2( 22377.7, 16160.1 )
 chainAmount = [ -11.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 4.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, 1.0, 1.0, 4.0, 4.0, 4.0, 4.0, 1.0, 1.0, 1.0, 1.0, 1.0, -6.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.0, -2.0, 2.0, -1.0, 0.5, -0.5, -1.0, -3.0, -5.0, -3.0, -2.0, -2.0, -2.0, -5.0, -2.0, -4.0, -4.0, -4.0, -4.0, -5.0, -5.0, -5.0, -6.0, -7.0, -7.0, -8.0, -4.0, -6.0, -3.0, -5.0, -2.0, -2.0, -2.0, -4.0, -2.0, -2.0, -2.0, -2.0, -4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+StartNodeType = 0
+StartNodeRotation = 0
 EndNodeRotation = 39.0
 
 [node name="KeyWirerTop" parent="DynamicScenery" index="14" instance=ExtResource( 31 )]
@@ -682,6 +685,7 @@ position = Vector2( 21386.1, 14021.9 )
 rotation = 3.14159
 chainAmount = [ -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, 7.0, 7.0, 8.0, 9.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, -6.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, 0.0, 0.0, 1.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
 EndNodeRotation = 10.0
 
 [node name="KeyWirerDoors" parent="DynamicScenery" index="15" groups=[
@@ -689,6 +693,8 @@ EndNodeRotation = 10.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 18505.9, 14248.9 )
 chainAmount = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="StartingRoom" type="Node2D" parent="Scenery" index="0"]
 
@@ -1592,16 +1598,19 @@ enabled = true
 position = Vector2( 10009.9, 14187.1 )
 rotation = 1.5708
 scale = Vector2( 1, 1.2 )
+enabled = false
 
 [node name="BeamDoor5" parent="Scenery/Spiral" index="89" instance=ExtResource( 28 )]
 position = Vector2( 10079.3, 16132 )
 rotation = 1.5708
 scale = Vector2( 1, 1.07998 )
+enabled = false
 
 [node name="BeamDoor7" parent="Scenery/Spiral" index="90" instance=ExtResource( 28 )]
 position = Vector2( 11849.8, 16240 )
 rotation = 1.5708
 scale = Vector2( 1, 1.59999 )
+enabled = false
 
 [node name="Building1" parent="Scenery/Spiral" index="91" instance=ExtResource( 26 )]
 position = Vector2( 9127.2, 13938.9 )
@@ -1631,6 +1640,7 @@ position = Vector2( 12079.6, 14223.4 )
 rotation = 1.5708
 scale = Vector2( 1, 0.690539 )
 z_index = -1
+enabled = false
 
 [node name="StaticScenery13" parent="Scenery/Spiral" index="98" instance=ExtResource( 25 )]
 position = Vector2( 10710.8, 13166.3 )
@@ -1644,6 +1654,7 @@ rotation = 1.0472
 position = Vector2( 1599.29, -315.445 )
 rotation = -1.0472
 chainAmount = [ -30.0, -5.0, -7.0, -9.0, -12.0, -16.0, -19.0, -21.0, -22.0, -22.0, 0.0, 1.0, 9.0, 18.0, 27.0, 36.0, 27.0, 15.0, 6.0, 4.0, 5.0, 5.0, 3.0, -3.0 ]
+StartNodeRotation = 0
 EndNodeRotation = 10.0
 
 [node name="Wirerer" parent="Scenery/Spiral/Wires" index="1" instance=ExtResource( 31 )]
@@ -1651,11 +1662,14 @@ position = Vector2( -1123.47, 4112.18 )
 rotation = -2.61799
 chainAmount = [ -30.0, -8.0, -4.0, -15.0, -6.0, -2.0, 6.0, 14.0, 7.0, 8.0, 19.0, 25.0, 25.0, 19.0, -6.0, -8.0, -11.0, -2.0, -5.0, -12.0, -15.0, -16.0, -6.0, -8.0, -12.0, -22.0, 1.0, 2.0, 3.0, 1.0, 1.0, 2.0, 1.0, 1.0, 3.0, 2.0, 1.0, 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 8.0, 15.0, 15.0, 12.0, 7.0, 2.0, 3.0, 1.0, 2.0, 0.0, 1.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 6.0, 5.0, 5.0, 1.0, 4.0, 5.0, 2.0, 4.0, 1.0, 2.0, 2.0, 3.0, 2.0, 4.0, 5.0, 3.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="Wirerer2" parent="Scenery/Spiral/Wires" index="2" instance=ExtResource( 31 )]
 position = Vector2( 640.748, 1782.47 )
 rotation = -1.0472
 chainAmount = [ -90.0, -5.0, -4.0, -2.0, -5.0, -6.0, -7.0, -1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 2.0, 1.0, 3.0, 4.0, 3.0, 2.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0 ]
+StartNodeRotation = 0
 EndNodeRotation = 10.0
 
 [node name="KeyRoom" type="Node2D" parent="Scenery" index="2"]

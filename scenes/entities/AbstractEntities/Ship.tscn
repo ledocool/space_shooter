@@ -127,21 +127,27 @@ anims/SoundStopAnimation = SubResource( 4 )
 
 [node name="Boom1" type="AudioStreamPlayer2D" parent="Sounds/Boom"]
 stream = ExtResource( 4 )
+bus = "Sfx"
 
 [node name="Boom2" type="AudioStreamPlayer2D" parent="Sounds/Boom"]
 stream = ExtResource( 5 )
+bus = "Sfx"
 
 [node name="Boom3" type="AudioStreamPlayer2D" parent="Sounds/Boom"]
 stream = ExtResource( 6 )
+bus = "Sfx"
 
 [node name="Boom4" type="AudioStreamPlayer2D" parent="Sounds/Boom"]
 stream = ExtResource( 3 )
+bus = "Sfx"
 
 [node name="Boom5" type="AudioStreamPlayer2D" parent="Sounds/Boom"]
 stream = ExtResource( 7 )
+bus = "Sfx"
 
 [node name="Boom6" type="AudioStreamPlayer2D" parent="Sounds/Boom"]
 stream = ExtResource( 8 )
+bus = "Sfx"
 
 [node name="LoopableSfx" parent="." instance=ExtResource( 9 )]
 [connection signal="body_entered" from="." to="." method="_on_Ship_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level2/AlienShipDoor.tscn" type="PackedScene" id=2]
@@ -25,6 +25,10 @@
 [ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud2.png" type="Texture" id=23]
 [ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud4.png" type="Texture" id=24]
 [ext_resource path="res://resources/Backgrounds/Assets/back_asset_cloud3.png" type="Texture" id=25]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/ShipWall2.tscn" type="PackedScene" id=26]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/ShipWall1.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/ShipWall3.tscn" type="PackedScene" id=28]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Static/Scenery/ShipWall4.tscn" type="PackedScene" id=29]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
@@ -83,6 +87,8 @@ position = Vector2( -2063.85, -1315.97 )
 position = Vector2( -1850.58, -1337.6 )
 chainAmount = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="LevelExit" parent="Scenery" index="0" instance=ExtResource( 12 )]
 position = Vector2( 9063.01, -2105.9 )
@@ -273,6 +279,18 @@ position = Vector2( -4107.1, -3982.6 )
 
 [node name="AlienDoor" parent="Scenery" index="48" instance=ExtResource( 2 )]
 position = Vector2( 259.926, -2845.51 )
+
+[node name="ShipWall1" parent="Scenery" index="49" instance=ExtResource( 27 )]
+position = Vector2( 1707.72, -1540.55 )
+
+[node name="ShipWall2" parent="Scenery" index="50" instance=ExtResource( 26 )]
+position = Vector2( 2930.03, -1454.12 )
+
+[node name="StaticScenery" parent="Scenery" index="51" instance=ExtResource( 28 )]
+position = Vector2( 4189.37, -1540.55 )
+
+[node name="StaticScenery2" parent="Scenery" index="52" instance=ExtResource( 29 )]
+position = Vector2( 5522.8, -1589.93 )
 
 [node name="MenuCanvas" parent="." index="7"]
 layer = 128
