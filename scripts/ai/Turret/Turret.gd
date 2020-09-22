@@ -67,6 +67,12 @@ func GetRotation():
 func GetVelocity(): 
 	return Vector2.ZERO
 
+func IsPlayerVisible():
+	var target = GetTarget()
+	if(!target):
+		return false
+	
+	return AiAPathHelper.TargetVisible(position, target.position, get_world_2d())
 
 func GetTarget():
 	if(LockedTarget == null):
@@ -93,17 +99,22 @@ func Shoot():
 	var pos = $Top/BulletAnchor.global_position
 	emit_signal("shoot_bullet", bullet.instance(), rot, pos, Vector2(0,0), 1.0)
 
+func SkipShoot():
+	if(aiState.get_current_state() == "shoot"):
+		aiState.transition("track")
+
 
 func Track():
 	var target = GetTarget()
 	if(!target):
-		return
+		return false
 	
 	var targetPosition = target.get_global_position()
 	if(!AiAPathHelper.TargetVisible(position, target.position, get_world_2d())):
-		return
+		return false
 
 	($Top as Node2D).look_at(targetPosition)
+	return true
 
 
 func StartAftershootCooldown():
