@@ -4,7 +4,6 @@
 [ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/ui/GameWinMenu.gd" type="Script" id=3]
 
-
 [node name="GameWinMenu" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
@@ -16,16 +15,17 @@ margin_top = -2.27205
 margin_bottom = 62.728
 
 [node name="Next level" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="0" instance=ExtResource( 2 )]
-margin_right = 130.0
-text = "Next level"
+margin_right = 150.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 150, 22 )
+Text = "Next level"
 
 [node name="Retry" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="1"]
-margin_top = 40.0
-margin_right = 130.0
-margin_bottom = 65.0
+margin_top = 37.0
+margin_bottom = 59.0
 
 [node name="Exit" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="2"]
-margin_top = 80.0
-margin_right = 130.0
-margin_bottom = 105.0
+margin_top = 74.0
+margin_bottom = 96.0
+Text = "Exit"
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList/Next level" to="." method="_on_Next_level_pressed"]

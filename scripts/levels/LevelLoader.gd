@@ -108,7 +108,6 @@ func _physics_process(_delta):
 			interactiveLoader = null
 			set_physics_process(false)
 		elif (pollResult == OK):
-			print_debug(String(interactiveLoader.get_stage()) + "/" + String(interactiveLoader.get_stage_count()))
 			screen.SetCurrentStage(interactiveLoader.get_stage())
 			pass
 

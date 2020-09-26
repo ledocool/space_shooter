@@ -298,6 +298,11 @@ layer = 128
 [node name="MarginContainer" parent="MenuCanvas" index="0"]
 mouse_filter = 1
 
+[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="1"]
+pause_mode = 2
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." index="9"]
 layer = -29
 

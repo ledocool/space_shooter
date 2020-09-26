@@ -56,5 +56,6 @@ margin_left = -65.0
 margin_top = -25.0
 margin_right = 65.0
 margin_bottom = 0.0
-text = "Ok"
+rect_min_size = Vector2( 150, 22 )
+Text = "Close"
 [connection signal="pressed" from="Background/MarginContainer/Control/MenuButton" to="." method="_on_MenuButton_pressed"]

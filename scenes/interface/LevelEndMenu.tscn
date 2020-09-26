@@ -15,20 +15,23 @@ margin_right = 1840.0
 margin_bottom = 1000.0
 
 [node name="ItemList" type="VBoxContainer" parent="Background/MarginContainer/CenterContainer" index="0"]
-margin_left = 891.0
-margin_top = 467.0
-margin_right = 948.0
-margin_bottom = 532.0
+margin_left = 845.0
+margin_top = 470.0
+margin_right = 995.0
+margin_bottom = 529.0
 custom_constants/separation = 15
 
 [node name="Retry" parent="Background/MarginContainer/CenterContainer/ItemList" index="0" instance=ExtResource( 3 )]
-margin_right = 57.0
-text = "Retry"
+margin_right = 150.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 150, 22 )
+Text = "Retry"
 
 [node name="Exit" parent="Background/MarginContainer/CenterContainer/ItemList" index="1" instance=ExtResource( 3 )]
-margin_top = 40.0
-margin_right = 57.0
-margin_bottom = 65.0
-text = "Exit"
+margin_top = 37.0
+margin_right = 150.0
+margin_bottom = 59.0
+rect_min_size = Vector2( 150, 22 )
+Text = "Exit"
 [connection signal="pressed" from="Background/MarginContainer/CenterContainer/ItemList/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="Background/MarginContainer/CenterContainer/ItemList/Exit" to="." method="_on_Exit_pressed"]

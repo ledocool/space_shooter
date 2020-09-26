@@ -91,6 +91,8 @@ func Damage(points: int):
 	if(damaged && !$Sounds/Damage/Dmg1.playing):
 # warning-ignore:unsafe_method_access
 		$Sounds/Damage/Dmg1.play()
+		
+	return damaged
 
 
 func _input(event):

@@ -43,6 +43,9 @@ margin_bottom = 60.0
 [node name="CenterContainer" type="CenterContainer" parent="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer/Control2" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer/Control2/CenterContainer" index="0"]
 margin_left = 762.0
@@ -75,9 +78,10 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -25.0
-margin_right = 0.0
+margin_right = -178.0
 margin_bottom = 0.0
-text = "Load Game"
+Text = "Load game"
+disabled = true
 [connection signal="draw" from="." to="." method="_on_LoadMenu_draw"]
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer/Control/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="item_activated" from="Background/MarginContainer/VSplitContainer/HSplitContainer/SaveList" to="." method="_on_SaveList_item_activated"]

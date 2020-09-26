@@ -84,10 +84,10 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -25.0
-margin_right = 0.0
+margin_right = -120.0
 margin_bottom = 0.0
+Text = "Save game"
 disabled = true
-text = "Save Game"
 [connection signal="visibility_changed" from="." to="." method="_on_SaveMenu_visibility_changed"]
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer2/Control/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="draw" from="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer/NewSaveName" to="." method="_on_NewSaveName_draw"]

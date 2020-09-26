@@ -63,9 +63,9 @@ __meta__ = {
 }
 
 [node name="Ok" parent="MenuBoard/Control/MarginContainer/CenterContainer" instance=ExtResource( 1 )]
-margin_left = 949.0
-margin_top = 108.0
-margin_right = 977.0
-margin_bottom = 133.0
-text = "Ok"
+margin_left = 888.0
+margin_top = 109.0
+margin_right = 1038.0
+margin_bottom = 131.0
+rect_min_size = Vector2( 150, 22 )
 [connection signal="pressed" from="MenuBoard/Control/MarginContainer/CenterContainer/Ok" to="." method="_on_Ok_pressed"]

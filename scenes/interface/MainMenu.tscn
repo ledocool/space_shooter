@@ -41,47 +41,57 @@ __meta__ = {
 }
 
 [node name="Menu inner" type="CenterContainer" parent="HSplitContainer"]
-margin_right = 719.0
+margin_right = 750.0
 margin_bottom = 1080.0
 
 [node name="GridContainer" type="GridContainer" parent="HSplitContainer/Menu inner"]
 margin_left = 300.0
-margin_top = 437.0
-margin_right = 419.0
-margin_bottom = 642.0
+margin_top = 446.0
+margin_right = 450.0
+margin_bottom = 633.0
 custom_constants/vseparation = 11
 
 [node name="New game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
-text = "New game"
+margin_right = 150.0
+margin_bottom = 22.0
+Text = "New game"
 
 [node name="Load game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
-margin_top = 36.0
-margin_bottom = 61.0
-text = "Load game"
+margin_top = 33.0
+margin_right = 150.0
+margin_bottom = 55.0
+Text = "Load game"
 
 [node name="Options" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
-margin_top = 72.0
-margin_bottom = 97.0
+margin_top = 66.0
+margin_right = 150.0
+margin_bottom = 88.0
+Text = "Options"
 disabled = true
-text = "Options"
 
 [node name="Playground" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
-margin_top = 108.0
-margin_bottom = 133.0
-text = "Playground"
+margin_top = 99.0
+margin_right = 150.0
+margin_bottom = 121.0
+Text = "Playground"
 
 [node name="Credits" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
-margin_top = 144.0
-margin_bottom = 169.0
+margin_top = 132.0
+margin_right = 150.0
+margin_bottom = 154.0
+Text = "Credits"
+
+[node name="MenuButton" parent="HSplitContainer/Menu inner/GridContainer/Credits" index="0"]
 text = "Credits"
 
 [node name="Exit" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
-margin_top = 180.0
-margin_bottom = 205.0
-text = "Exit"
+margin_top = 165.0
+margin_right = 150.0
+margin_bottom = 187.0
+Text = "Exit"
 
 [node name="Control" type="Control" parent="HSplitContainer"]
-margin_left = 719.0
+margin_left = 750.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 
@@ -100,17 +110,19 @@ __meta__ = {
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1171.0
+margin_right = 1140.0
 margin_bottom = 1040.0
 
 [node name="CreditsMenu" parent="HSplitContainer/Control/RightMenus" instance=ExtResource( 5 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1171.0
+margin_right = 1140.0
 margin_bottom = 1040.0
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/New game" to="." method="_on_New_game_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Load game" to="." method="_on_Load_game_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Playground" to="." method="_on_Playground_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Exit" to="." method="_on_Exit_pressed"]
+
+[editable path="HSplitContainer/Menu inner/GridContainer/Credits"]
