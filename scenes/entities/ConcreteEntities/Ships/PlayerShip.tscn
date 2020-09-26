@@ -25,6 +25,9 @@ position = Vector2( 22, 0 )
 [node name="Dmg1" type="AudioStreamPlayer2D" parent="Sounds/Damage" index="0"]
 stream = ExtResource( 5 )
 bus = "Sfx"
+
+[node name="AudioStreamPlayer2D2" parent="LoopableSfx" index="1"]
+volume_db = -9.0
 [connection signal="body_entered" from="." to="." method="_on_PlayerShip_body_entered"]
 
 [editable path="LoopableSfx"]

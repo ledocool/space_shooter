@@ -36,6 +36,11 @@ func GetTarget():
 		return LockedTarget.get_ref()
 
 
+func _ready():
+	._ready()
+	$EngineSound.play()
+
+
 func _init(damage_multiplier = null):
 	._init(damage_multiplier)
 	Damage = 10

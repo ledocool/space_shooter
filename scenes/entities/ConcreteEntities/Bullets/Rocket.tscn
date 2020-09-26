@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://resources/Objects/Projectiles/rocket.png" type="Texture" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Bullets/Bullet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/entities/Projectiles/Rocket.gd" type="Script" id=3]
 [ext_resource path="res://resources/Effects/EngineParticles.tres" type="Material" id=4]
+[ext_resource path="res://resources/Sound/small_engine.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.42996
@@ -75,6 +76,10 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShootLockOnArea" index="0"]
 position = Vector2( 540, 0 )
 shape = SubResource( 4 )
+
+[node name="EngineSound" type="AudioStreamPlayer2D" parent="." index="6"]
+stream = ExtResource( 5 )
+volume_db = -9.0
 [connection signal="timeout" from="Timers/PriorityTargetDisableTimer" to="." method="_on_PriorityTargetDisableTimer_timeout"]
 [connection signal="body_entered" from="LockOnArea" to="." method="_on_LockOnArea_body_entered"]
 [connection signal="body_exited" from="LockOnArea" to="." method="_on_LockOnArea_body_exited"]

@@ -87,7 +87,9 @@ func AddKey(key: KeyCube):
 
 func Damage(points: int):
 	var damaged = .Damage(points)
+# warning-ignore:unsafe_property_access
 	if(damaged && !$Sounds/Damage/Dmg1.playing):
+# warning-ignore:unsafe_method_access
 		$Sounds/Damage/Dmg1.play()
 
 

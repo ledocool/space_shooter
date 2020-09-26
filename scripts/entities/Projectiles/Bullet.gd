@@ -9,6 +9,9 @@ var DamageMultiplier:float = 1.0
 func _init(damage_multiplier = null):
 	if(damage_multiplier != null):
 		DamageMultiplier = damage_multiplier
+		
+func _ready():
+	pass
 
 func GetSpawnAnchorPosition():
 	return ($SpawnAnchor as Node2D).position
