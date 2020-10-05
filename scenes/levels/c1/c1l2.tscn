@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -43,6 +43,9 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/KeyPickup.tscn" type="PackedScene" id=41]
 [ext_resource path="res://scripts/levels/c1l2/SpiralEnterTrigger.gd" type="Script" id=42]
 [ext_resource path="res://scripts/levels/c1l2/SpiralTrigger.gd" type="Script" id=43]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/Gearpak.tscn" type="PackedScene" id=44]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/RocketeerPickup.tscn" type="PackedScene" id=45]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/SpeedBonus.tscn" type="PackedScene" id=46]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 35 )
@@ -161,6 +164,93 @@ position = Vector2( -1225.58, 2914.88 )
 
 [node name="Miner14" parent="ShipContainer" index="28" instance=ExtResource( 36 )]
 position = Vector2( -632.247, 2093.17 )
+
+[node name="Miner28" parent="ShipContainer" index="29" instance=ExtResource( 36 )]
+position = Vector2( 10206.5, -3866.35 )
+
+[node name="Miner29" parent="ShipContainer" index="30" instance=ExtResource( 36 )]
+position = Vector2( 10504.7, -3745.21 )
+
+[node name="Miner30" parent="ShipContainer" index="31" instance=ExtResource( 36 )]
+position = Vector2( 10849.5, -3465.67 )
+
+[node name="Miner31" parent="ShipContainer" index="32" instance=ExtResource( 36 )]
+position = Vector2( 7124.88, 9866.77 )
+
+[node name="Miner32" parent="ShipContainer" index="33" instance=ExtResource( 36 )]
+position = Vector2( 5426.29, 8675.22 )
+
+[node name="Miner33" parent="ShipContainer" index="34" instance=ExtResource( 36 )]
+position = Vector2( 1889.68, 13923.1 )
+
+[node name="Miner34" parent="ShipContainer" index="35" instance=ExtResource( 36 )]
+position = Vector2( 1775.6, 19868.2 )
+
+[node name="Miner35" parent="ShipContainer" index="36" instance=ExtResource( 36 )]
+position = Vector2( 11853, 15281.1 )
+
+[node name="Miner36" parent="ShipContainer" index="37" instance=ExtResource( 36 )]
+position = Vector2( 9938.96, 15141.7 )
+
+[node name="Miner37" parent="ShipContainer" index="38" instance=ExtResource( 36 )]
+position = Vector2( 6440.38, 20250.1 )
+
+[node name="Miner38" parent="ShipContainer" index="39" instance=ExtResource( 36 )]
+position = Vector2( 6769.95, 19527.6 )
+
+[node name="Miner39" parent="ShipContainer" index="40" instance=ExtResource( 36 )]
+position = Vector2( 3233.34, 15750.1 )
+
+[node name="Miner40" parent="ShipContainer" index="41" instance=ExtResource( 36 )]
+position = Vector2( 3689.68, 15230.4 )
+
+[node name="Miner41" parent="ShipContainer" index="42" instance=ExtResource( 36 )]
+position = Vector2( 3816.44, 14368.4 )
+
+[node name="Miner42" parent="ShipContainer" index="43" instance=ExtResource( 36 )]
+position = Vector2( 2840.38, 15091 )
+
+[node name="Miner43" parent="ShipContainer" index="44" instance=ExtResource( 36 )]
+position = Vector2( 5730.52, 16675.5 )
+
+[node name="Miner44" parent="ShipContainer" index="45" instance=ExtResource( 36 )]
+position = Vector2( 5527.7, 16092.4 )
+
+[node name="Miner45" parent="ShipContainer" index="46" instance=ExtResource( 36 )]
+position = Vector2( 5274.18, 13151.5 )
+
+[node name="Miner46" parent="ShipContainer" index="47" instance=ExtResource( 36 )]
+position = Vector2( 10877, 18526.2 )
+
+[node name="Miner47" parent="ShipContainer" index="48" instance=ExtResource( 36 )]
+position = Vector2( 9507.97, 19540.3 )
+
+[node name="Miner48" parent="ShipContainer" index="49" instance=ExtResource( 36 )]
+position = Vector2( 6212.21, 10679.7 )
+
+[node name="Miner49" parent="ShipContainer" index="50" instance=ExtResource( 36 )]
+position = Vector2( 10462, 3207.19 )
+
+[node name="Miner50" parent="ShipContainer" index="51" instance=ExtResource( 36 )]
+position = Vector2( 10828.1, 2372.06 )
+
+[node name="Miner51" parent="ShipContainer" index="52" instance=ExtResource( 36 )]
+position = Vector2( 7945.21, 1628.45 )
+
+[node name="Miner52" parent="ShipContainer" index="53" instance=ExtResource( 36 )]
+position = Vector2( 6240.64, 3355.91 )
+
+[node name="Miner53" parent="ShipContainer" index="54" instance=ExtResource( 36 )]
+position = Vector2( 4673.34, 3069.91 )
+
+[node name="Miner54" parent="ShipContainer" index="55" instance=ExtResource( 36 )]
+position = Vector2( 3529.33, 1353.89 )
+
+[node name="Miner55" parent="ShipContainer" index="56" instance=ExtResource( 36 )]
+position = Vector2( 1573.07, 2120.38 )
+
+[node name="Miner56" parent="ShipContainer" index="57" instance=ExtResource( 36 )]
+position = Vector2( 2065, 3435.99 )
 
 [node name="Asteroid" parent="AsteroidContainer" index="0" instance=ExtResource( 15 )]
 position = Vector2( -181.949, 14157.6 )
@@ -1488,6 +1578,63 @@ rotation = 0.811725
 
 [node name="KeyPickup" parent="ItemContainer" index="0" instance=ExtResource( 41 )]
 position = Vector2( 26980, 14320.8 )
+
+[node name="Gearpak" parent="ItemContainer" index="1" instance=ExtResource( 44 )]
+position = Vector2( 11790.6, -195.039 )
+
+[node name="Gearpak2" parent="ItemContainer" index="2" instance=ExtResource( 44 )]
+position = Vector2( 7178.18, 2348.79 )
+
+[node name="Gearpak4" parent="ItemContainer" index="3" instance=ExtResource( 44 )]
+position = Vector2( -1133.51, -4034.07 )
+
+[node name="Gearpak6" parent="ItemContainer" index="4" instance=ExtResource( 44 )]
+position = Vector2( -2838.71, 6653.72 )
+
+[node name="Gearpak7" parent="ItemContainer" index="5" instance=ExtResource( 44 )]
+position = Vector2( -2698.94, 6597.81 )
+
+[node name="RocketeerPickup" parent="ItemContainer" index="6" instance=ExtResource( 45 )]
+position = Vector2( -2857.35, 6495.32 )
+
+[node name="RocketeerPickup2" parent="ItemContainer" index="7" instance=ExtResource( 45 )]
+position = Vector2( 11799.9, -362.764 )
+
+[node name="RocketeerPickup3" parent="ItemContainer" index="8" instance=ExtResource( 45 )]
+position = Vector2( 4336.18, 2264.92 )
+
+[node name="RocketeerPickup4" parent="ItemContainer" index="9" instance=ExtResource( 45 )]
+position = Vector2( 1764.4, 2777.42 )
+
+[node name="RocketeerPickup5" parent="ItemContainer" index="10" instance=ExtResource( 45 )]
+position = Vector2( -1413.05, -3847.71 )
+
+[node name="Gearpak8" parent="ItemContainer" index="11" instance=ExtResource( 44 )]
+position = Vector2( 7029.09, -3176.81 )
+
+[node name="SpeedBonus" parent="ItemContainer" index="12" instance=ExtResource( 46 )]
+position = Vector2( 7454.46, 8258.6 )
+
+[node name="Gearpak9" parent="ItemContainer" index="13" instance=ExtResource( 44 )]
+position = Vector2( 7044.63, 14340.8 )
+
+[node name="Gearpak3" parent="ItemContainer" index="14" instance=ExtResource( 44 )]
+position = Vector2( 2591.24, 7073.95 )
+
+[node name="Gearpak5" parent="ItemContainer" index="15" instance=ExtResource( 44 )]
+position = Vector2( 2476.84, 7245.55 )
+
+[node name="Gearpak10" parent="ItemContainer" index="16" instance=ExtResource( 44 )]
+position = Vector2( 2980.21, 6810.82 )
+
+[node name="Gearpak11" parent="ItemContainer" index="17" instance=ExtResource( 44 )]
+position = Vector2( 2808.6, 6787.94 )
+
+[node name="Gearpak12" parent="ItemContainer" index="18" instance=ExtResource( 44 )]
+position = Vector2( 2602.68, 6135.86 )
+
+[node name="Gearpak13" parent="ItemContainer" index="19" instance=ExtResource( 44 )]
+position = Vector2( 2705.64, 6227.38 )
 
 [node name="Crate2" parent="DynamicScenery" index="0" instance=ExtResource( 40 )]
 position = Vector2( 25600.3, 12238.2 )
@@ -2910,6 +3057,10 @@ scale = Vector2( 0.186613, 0.226613 )
 [node name="Pipe19" parent="Scenery/KeyRoom" index="72" instance=ExtResource( 30 )]
 position = Vector2( 23478.4, 13773.9 )
 rotation = 1.5708
+
+[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="1"]
+anchor_right = 0.0
+anchor_bottom = 0.0
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background" index="0"]
 z_index = -100
