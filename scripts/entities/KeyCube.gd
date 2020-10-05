@@ -9,14 +9,22 @@ export var AgitatedDistance: float = 500
 export var RotateRadius: float = 350
 var RotateAngle: float = 0
 
+func Destroy():
+	_onDestruction()
+	self.queue_free()
+
+
 func SetTarget(target):
 	Target = weakref(target)
+
 
 func SpawnAt(Position: Vector2):
 	self.position = Position
 
+
 func _ready():
 	_on_UpdateCoordinatesTimer_timeout()
+
 
 func _physics_process(delta):
 	RotateAngle += delta + PI/136
@@ -43,3 +51,6 @@ func _on_UpdateCoordinatesTimer_timeout():
 	var targetRadius = Vector2(RotateRadius, 0).rotated(RotateAngle)
 	TargetPosition = tg.GetCoordinates()# + targetRadius
 
+
+func _onDestruction():
+	pass

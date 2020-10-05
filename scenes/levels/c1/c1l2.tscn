@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -46,6 +46,8 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/Gearpak.tscn" type="PackedScene" id=44]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/RocketeerPickup.tscn" type="PackedScene" id=45]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/SpeedBonus.tscn" type="PackedScene" id=46]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/SlugPickup.tscn" type="PackedScene" id=47]
+[ext_resource path="res://scripts/levels/c1l2/AlienDoorTrigger.gd" type="Script" id=48]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 35 )
@@ -71,6 +73,10 @@ region = Rect2( 0, 0, 15000, 12000 )
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 500.0
 height = 1069.11
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 790.342
+height = 1152.12
 
 [node name="Level" instance=ExtResource( 1 )]
 
@@ -1576,6 +1582,66 @@ rotation = 0.811725
 position = Vector2( 10390.1, 14625.6 )
 rotation = 0.811725
 
+[node name="Asteroid346" parent="AsteroidContainer" index="345" instance=ExtResource( 18 )]
+position = Vector2( -6251.52, 427.547 )
+
+[node name="Asteroid347" parent="AsteroidContainer" index="346" instance=ExtResource( 17 )]
+position = Vector2( -6176, -544.226 )
+rotation = 1.86523
+
+[node name="Asteroid348" parent="AsteroidContainer" index="347" instance=ExtResource( 18 )]
+position = Vector2( -6392.51, -443.524 )
+rotation = 1.86523
+
+[node name="Asteroid349" parent="AsteroidContainer" index="348" instance=ExtResource( 18 )]
+position = Vector2( -6392.51, -614.717 )
+rotation = 1.86523
+
+[node name="Asteroid350" parent="AsteroidContainer" index="349" instance=ExtResource( 19 )]
+position = Vector2( -5335.14, -171.629 )
+rotation = 0.635247
+
+[node name="Asteroid351" parent="AsteroidContainer" index="350" instance=ExtResource( 19 )]
+position = Vector2( -5566.75, -121.278 )
+rotation = 0.635247
+
+[node name="Asteroid352" parent="AsteroidContainer" index="351" instance=ExtResource( 20 )]
+position = Vector2( -5491.22, -136.383 )
+rotation = 0.635247
+
+[node name="Asteroid353" parent="AsteroidContainer" index="352" instance=ExtResource( 20 )]
+position = Vector2( -5748.01, -106.173 )
+
+[node name="Asteroid354" parent="AsteroidContainer" index="353" instance=ExtResource( 16 )]
+position = Vector2( -4947.43, -1052.77 )
+rotation = -2.47246
+
+[node name="Asteroid355" parent="AsteroidContainer" index="354" instance=ExtResource( 20 )]
+position = Vector2( -5400.59, 1031.76 )
+
+[node name="Asteroid356" parent="AsteroidContainer" index="355" instance=ExtResource( 19 )]
+position = Vector2( -5239.47, 1117.36 )
+
+[node name="Asteroid357" parent="AsteroidContainer" index="356" instance=ExtResource( 16 )]
+position = Vector2( -4710.78, -821.156 )
+rotation = 0.875924
+
+[node name="Asteroid358" parent="AsteroidContainer" index="357" instance=ExtResource( 18 )]
+position = Vector2( -4328.12, 825.32 )
+rotation = -0.914915
+
+[node name="Asteroid359" parent="AsteroidContainer" index="358" instance=ExtResource( 15 )]
+position = Vector2( -4539.59, 734.688 )
+rotation = -0.914915
+
+[node name="Asteroid360" parent="AsteroidContainer" index="359" instance=ExtResource( 18 )]
+position = Vector2( -3849.78, -131.348 )
+rotation = 0.635247
+
+[node name="Asteroid361" parent="AsteroidContainer" index="360" instance=ExtResource( 17 )]
+position = Vector2( -4358.33, 241.249 )
+rotation = 0.635247
+
 [node name="KeyPickup" parent="ItemContainer" index="0" instance=ExtResource( 41 )]
 position = Vector2( 26980, 14320.8 )
 
@@ -1635,6 +1701,15 @@ position = Vector2( 2602.68, 6135.86 )
 
 [node name="Gearpak13" parent="ItemContainer" index="19" instance=ExtResource( 44 )]
 position = Vector2( 2705.64, 6227.38 )
+
+[node name="SlugPickup" parent="ItemContainer" index="20" instance=ExtResource( 47 )]
+position = Vector2( -6537.78, 5.34436 )
+
+[node name="Gearpak14" parent="ItemContainer" index="21" instance=ExtResource( 44 )]
+position = Vector2( -4307.98, 991.478 )
+
+[node name="Gearpak15" parent="ItemContainer" index="22" instance=ExtResource( 44 )]
+position = Vector2( -4182.1, 1077.07 )
 
 [node name="Crate2" parent="DynamicScenery" index="0" instance=ExtResource( 40 )]
 position = Vector2( 25600.3, 12238.2 )
@@ -3092,8 +3167,19 @@ script = ExtResource( 42 )
 
 [node name="SpiralTrigger" type="Node" parent="TriggerContainer" index="3"]
 script = ExtResource( 43 )
+
+[node name="AlienDoorTrigger" type="Area2D" parent="TriggerContainer" index="4"]
+collision_layer = 0
+collision_mask = 64
+script = ExtResource( 48 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/AlienDoorTrigger" index="0"]
+position = Vector2( 6963.23, -3118.81 )
+rotation = 1.5708
+shape = SubResource( 6 )
 [connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
 [connection signal="wire_switch" from="DynamicScenery/KeyWirererBottom" to="TriggerContainer/KeyRoomTrigger" method="_on_bottom_generator_switch"]
 [connection signal="wire_switch" from="DynamicScenery/KeyWirerTop" to="TriggerContainer/KeyRoomTrigger" method="_on_top_generator_switch"]
 [connection signal="wire_switch" from="DynamicScenery/InspiralGenerator" to="TriggerContainer/SpiralTrigger" method="_on_InspiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="DynamicScenery/SpiralGenerator" to="TriggerContainer/SpiralEnterTrigger" method="_on_SpiralGenerator_wire_switch"]
+[connection signal="body_entered" from="TriggerContainer/AlienDoorTrigger" to="TriggerContainer/AlienDoorTrigger" method="_on_AlienDoorTrigger_body_entered"]
