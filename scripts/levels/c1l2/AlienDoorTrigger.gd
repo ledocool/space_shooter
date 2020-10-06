@@ -1,15 +1,20 @@
 extends Area2D
 
+var alienDoorOpened = false
 onready var AlienDoor = $"/root/Level/Scenery/StartingRoom/AlienShipDoor"
 
 func Load(data: Dictionary):
-	AlienDoor.Load(data.alienDoor)
+	alienDoorOpened = data.alienDoor
 
 
 func Save():
 	return {
-		"alienDoor": AlienDoor.Save()
+		"alienDoor": alienDoorOpened
 	}
+
+
+func _ready():
+	AlienDoor.isClosed = !alienDoorOpened
 
 
 func _on_AlienDoorTrigger_body_entered(body):
@@ -19,5 +24,5 @@ func _on_AlienDoorTrigger_body_entered(body):
 
 func openDeferred(body: KeyCube):
 	body.Destroy()
-	AlienDoor.isClosed(false)
+	AlienDoor.isClosed = false
 

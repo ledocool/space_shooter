@@ -2,9 +2,9 @@ extends Node
 
 var opened = false
 
-onready var generator = $"/root/Level/DynamicScenery/SpiralGenerator"
+onready var generator = $"/root/Level/Scenery/StartingRoom/Building/SpiralGenerator"
 onready var wires = get_tree().get_nodes_in_group("spiral_entrance_wire")
-onready var door = $"/root/Level/DynamicScenery/SpiralEntrance"
+onready var door = $"/root/Level/Scenery/StartingRoom/Building/SpiralEntrance"
 
 func Save():
 	return {
@@ -21,7 +21,7 @@ func _ready():
 		generator.Enable()
 	else:
 		generator.Disable()
-	
+
 	_switch(!opened)
 
 

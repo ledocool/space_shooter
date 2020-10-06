@@ -3,7 +3,7 @@ extends Node
 var horizontalOpened = true
 var verticalOpened = false
 
-onready var generator = $"/root/Level/DynamicScenery/SpiralGenerator"
+onready var generator = $"/root/Level/Scenery/Spiral/InspiralGenerator"
 onready var wires = get_tree().get_nodes_in_group("inspiral_wire")
 onready var horizontalDoors = get_tree().get_nodes_in_group("spiral_horizontal_doors")
 onready var verticalDoors = get_tree().get_nodes_in_group("spiral_vertical_doors")
@@ -21,10 +21,13 @@ func Load(data: Dictionary):
 
 
 func _ready():
+	generator.emitSignals = false
 	if(generatorOn()):
 		generator.Enable()
 	else:
 		generator.Disable()
+		
+	generator.emitSignals = true
 	
 	_switchHorizontal(!horizontalOpened)
 	_switchVertical(!verticalOpened)

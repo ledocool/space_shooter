@@ -20,14 +20,15 @@ var startNode
 var endNode
 var startNodeRotation = 0
 var endNodeRotation = 0
-var created = false
+var emitSignals = false
+
 
 func Enable():
 	if(Engine.is_editor_hint()):
 		return
 	
-	if(created):
-		emit_signal("wire_switch", true)
+	if(emitSignals):
+		emit_signal("emitSignalsitch", true)
 	for child in $Anchor.get_children():
 		if(child.has_method("Enable")):
 			child.Enable()
@@ -37,7 +38,7 @@ func Disable():
 	if(Engine.is_editor_hint()):
 		return
 	
-	if(created):
+	if(emitSignals):
 		emit_signal("wire_switch", false)
 	for child in $Anchor.get_children():
 		if(child.has_method("Disable")):
@@ -54,7 +55,7 @@ func _ready():
 		i.queue_free()
 	_buildChain()
 	Enable()
-	created = true;
+	emitSignals = true;
 
 
 func _setStartNodeRotation(val):
@@ -162,4 +163,6 @@ func _addPiece(parent, piece, rotation = 0):
 	
 	
 func _on_Generator_switch(enabled):
+	if(!emitSignals):
+		return
 	emit_signal("wire_switch", enabled)

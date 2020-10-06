@@ -3,14 +3,6 @@ class_name AlienShipDoor
 
 export var isClosed = true setget set_closed
 
-func Save() -> Dictionary:
-	return {
-		"closed": isClosed
-	}
-
-func Load(data: Dictionary):
-	isClosed = data.closed
-
 func _ready():
 	set_closed(isClosed)
 

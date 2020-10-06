@@ -3,8 +3,8 @@ extends Node
 var topGeneratorOn = true
 var bottomGeneratorOn = true
 
-onready var topGenerator = $"/root/Level/DynamicScenery/KeyWirerTop"
-onready var bottomGenerator = $"/root/Level/DynamicScenery/KeyWirererBottom"
+onready var topGenerator = $"/root/Level/Scenery/KeyRoom/Wires/KeyWirerTop"
+onready var bottomGenerator = $"/root/Level/Scenery/KeyRoom/Wires/KeyWirererBottom"
 onready var cageDoors = get_tree().get_nodes_in_group("cage_doors")
 onready var bottomWires = get_tree().get_nodes_in_group("key_room_bottom_wire")
 onready var bottomDoors = get_tree().get_nodes_in_group("key_room_bottom_door")
