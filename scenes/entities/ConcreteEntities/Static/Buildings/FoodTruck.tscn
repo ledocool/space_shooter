@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://resources/Objects/Structures/Harvester/space_food_truck_top.png" type="Texture" id=1]
+[ext_resource path="res://resources/Objects/Structures/Harvester/space_food_truck_below.png" type="Texture" id=2]
+[ext_resource path="res://resources/Effects/explosion/splosion4.png" type="Texture" id=3]
+[ext_resource path="res://resources/Effects/explosion/splosion5.png" type="Texture" id=4]
+[ext_resource path="res://resources/Effects/explosion/splosion1.png" type="Texture" id=5]
+[ext_resource path="res://resources/Effects/explosion/splosion3.png" type="Texture" id=6]
+[ext_resource path="res://resources/Effects/explosion/splosion2.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 9.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 201.695, 93.0193 )
+
+[node name="FoodTruck" type="Node2D"]
+
+[node name="Bottom" type="Sprite" parent="."]
+z_index = -20
+z_as_relative = false
+texture = ExtResource( 2 )
+
+[node name="Top" type="Sprite" parent="."]
+z_index = 21
+z_as_relative = false
+texture = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 203.485, -206.384 )
+scale = Vector2( 0.04, 0.04 )
+z_index = 22
+frames = SubResource( 1 )
+frame = 4
+playing = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 150
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = 150
+polygon = PoolVector2Array( -183.962, 18.678, -183.962, 149.998, -30.0012, 150.753, -30.7559, 131.13, -165.849, 131.885, -165.849, 19.4328 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+z_index = 150
+polygon = PoolVector2Array( 49.2436, 147.734, 49.2436, 128.866, 187.356, 126.602, 186.601, 20.1875, 206.978, 20.1875, 208.488, 145.47, 176.035, 146.979 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 4.52826, -73.2071 )
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PoolVector2Array( -181.698, -209.245, -187.736, -194.151, -188.491, -163.208, 205.469, -163.208, 195.658, -167.736, 173.016, -168.491, 162.45, -173.019, 154.903, -173.019, 154.149, -182.075, 148.866, -185.849, 127.734, -185.094, 113.394, -197.17, 55.2813, -196.415, 47.7341, -185.849, 28.8663, -185.849, 23.5834, -210.754 )

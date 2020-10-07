@@ -65,7 +65,7 @@ func generatorOn():
 	return horizontalOpened == true && verticalOpened == false
 
 
-func _on_InspiralGenerator_wire_switch(isOn):
+func _on_InspiralGenerator_wire_switch(_isOn):
 	horizontalOpened = false
 	verticalOpened = true
 	_switchHorizontal(!horizontalOpened)
@@ -73,7 +73,6 @@ func _on_InspiralGenerator_wire_switch(isOn):
 	_switchWires(generatorOn())
 
 
-
-func _on_KeyPickup_picked_up(data):
+func _on_KeyPickup_picked_up(_data):
 	horizontalOpened = true
 	_switchHorizontal(!horizontalOpened)

@@ -38,6 +38,7 @@ func GetTarget():
 
 func _ready():
 	._ready()
+# warning-ignore:unsafe_method_access
 	$EngineSound.play()
 
 

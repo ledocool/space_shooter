@@ -55,12 +55,14 @@ custom_constants/vseparation = 11
 margin_right = 150.0
 margin_bottom = 22.0
 Text = "New game"
+disabled = false
 
 [node name="Load game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 33.0
 margin_right = 150.0
 margin_bottom = 55.0
 Text = "Load game"
+disabled = false
 
 [node name="Options" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 66.0
@@ -74,12 +76,14 @@ margin_top = 99.0
 margin_right = 150.0
 margin_bottom = 121.0
 Text = "Playground"
+disabled = false
 
 [node name="Credits" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 132.0
 margin_right = 150.0
 margin_bottom = 154.0
 Text = "Credits"
+disabled = false
 
 [node name="MenuButton" parent="HSplitContainer/Menu inner/GridContainer/Credits" index="0"]
 text = "Credits"
@@ -89,6 +93,7 @@ margin_top = 165.0
 margin_right = 150.0
 margin_bottom = 187.0
 Text = "Exit"
+disabled = false
 
 [node name="Control" type="Control" parent="HSplitContainer"]
 margin_left = 750.0

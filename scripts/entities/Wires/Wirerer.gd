@@ -28,7 +28,7 @@ func Enable():
 		return
 	
 	if(emitSignals):
-		emit_signal("emitSignalsitch", true)
+		emit_signal("wire_switch", true)
 	for child in $Anchor.get_children():
 		if(child.has_method("Enable")):
 			child.Enable()
