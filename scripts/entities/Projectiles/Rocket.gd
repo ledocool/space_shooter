@@ -77,8 +77,8 @@ func _collide(state: Physics2DDirectBodyState):
 		if body is RigidBody2D:
 			var contactPoint = state.get_contact_collider_position(i) - body.get_global_position()
 			var sumVelocity = contactVelocity + state.get_contact_collider_velocity_at_position(i)
-			var contactNormal = state.get_contact_local_normal(1)
-			body.apply_impulse(contactPoint, sumVelocity * ImpulseMultiplier)
+			var contactNormal = state.get_contact_local_normal(i)
+			body.apply_impulse(contactPoint, (sumVelocity * ImpulseMultiplier).project(contactNormal))
 	
 
 func _draw():
