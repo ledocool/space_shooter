@@ -9,7 +9,7 @@ export var StartImpulse: float = 1300
 var LockedTarget = null
 var OldForce = Vector2(0,0)
 var LastRotation = 0
-
+var ImpulseMultiplier = 1
 
 func Save():
 	var prevSave = .Save()
@@ -49,7 +49,7 @@ func _init(damage_multiplier = null):
 
 func _integrate_forces(state):
 	var target = GetTarget()
-	var rot = LastRotation
+	var rot = LastRotation 
 	
 	if(target):
 		var cursor = AiAPathHelper.Track(
@@ -67,7 +67,19 @@ func _integrate_forces(state):
 	state.add_central_force(force)
 	OldForce = force
 	_ceilSpeed()
+	_collide(state)
 
+
+func _collide(state: Physics2DDirectBodyState):
+	var contactVelocity = Vector2(1000, 0).rotated(OldForce.angle())
+	for i in range(state.get_contact_count()):
+		var body = state.get_contact_collider_object(i)
+		if body is RigidBody2D:
+			var contactPoint = state.get_contact_collider_position(i) - body.get_global_position()
+			var sumVelocity = contactVelocity + state.get_contact_collider_velocity_at_position(i)
+			var contactNormal = state.get_contact_local_normal(1)
+			body.apply_impulse(contactPoint, sumVelocity * ImpulseMultiplier)
+	
 
 func _draw():
 	var target = GetTarget()
