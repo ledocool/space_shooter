@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level2/AlienShipDoor.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/FoodTruck.tscn" type="PackedScene" id=30]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Asteroid2.tscn" type="PackedScene" id=31]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Asteroid3.tscn" type="PackedScene" id=32]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Doomguy.tscn" type="PackedScene" id=33]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
@@ -92,6 +93,9 @@ position = Vector2( -2257.26, -1719.61 )
 
 [node name="Asteroid13" parent="AsteroidContainer" index="12" instance=ExtResource( 9 )]
 position = Vector2( -1240.27, -1864.16 )
+
+[node name="Doomguy" parent="AsteroidContainer" index="13" instance=ExtResource( 33 )]
+position = Vector2( -868.585, -1637.01 )
 
 [node name="RocketeerPickup" parent="ItemContainer" index="0" instance=ExtResource( 10 )]
 position = Vector2( -1362.37, -1247.75 )
