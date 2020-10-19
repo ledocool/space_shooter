@@ -5,7 +5,7 @@ signal wire_switch(isOn)
 export var MaxHealth = 1
 onready var health = MaxHealth
 
-
+#generators are saved and loaded by control script assigned to it.
 func Save():
 	return {
 		"position": position,
@@ -13,15 +13,12 @@ func Save():
 		"health": health 
 	}
 
-
+#generators are saved and loaded by control script assigned to it.
 func Load(data: Dictionary):
 	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
 	position = Vector2(pos[0], pos[1])
 	health = data.health
 	self.rotation = data.rotation
-	var spt = $AnimatedSprite as AnimatedSprite;
-	if (spt != null):
-		spt.frame = MaxHealth - health;
 
 func _ready():
 	if(health > 0):

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 class_name KeyCube
 
+var LoadTargetPath = null
 var Target: WeakRef
 var TargetPosition = Vector2()
 export var Speed: float = 920
@@ -8,6 +9,21 @@ export var CalmDistance: float = 100
 export var AgitatedDistance: float = 500
 export var RotateRadius: float = 350
 var RotateAngle: float = 0
+
+func Save() -> Dictionary:
+	var tg = Target.get_ref()
+	var tgPath = null
+	if(tg):
+		tgPath = get_path_to(tg)
+
+	return {
+		"target": tgPath,
+		"position": position
+	}
+	
+func Load(data: Dictionary):
+	position = LoadHelper.StringToVector2(data.position)
+	LoadTargetPath = data.target
 
 func Destroy():
 	_onDestruction()
@@ -23,6 +39,10 @@ func SpawnAt(Position: Vector2):
 
 
 func _ready():
+	if(LoadTargetPath != null):
+		var ref = get_node_or_null(LoadTargetPath)
+		Target = weakref(ref)
+	
 	_on_UpdateCoordinatesTimer_timeout()
 
 

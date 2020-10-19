@@ -104,6 +104,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/levels/Level.gd"
 }, {
+"base": "Reference",
+"class": "LoadHelper",
+"language": "GDScript",
+"path": "res://scripts/levels/LoadHelper.gd"
+}, {
 "base": "Ship",
 "class": "Miner",
 "language": "GDScript",
@@ -234,6 +239,7 @@ _global_script_class_icons={
 "InvulnerabilityActor": "",
 "KeyCube": "",
 "Level": "",
+"LoadHelper": "",
 "Miner": "",
 "NoclipActor": "",
 "Pickup": "",
