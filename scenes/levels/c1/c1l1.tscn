@@ -51,7 +51,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Barrel.tscn" type="PackedScene" id=49]
 [ext_resource path="res://resources/Objects/Structures/Pipes/pipes_straight.png" type="Texture" id=50]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/RocketeerPickup.tscn" type="PackedScene" id=51]
-[ext_resource path="res://scenes/interface/hints/IngameHint.tscn" type="PackedScene" id=52]
+[ext_resource path="res://scenes/interface/hints/WpnChangeHint.tscn" type="PackedScene" id=52]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Buildings/Building1.tscn" type="PackedScene" id=53]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Struts/Strut1.tscn" type="PackedScene" id=54]
 [ext_resource path="res://scenes/interface/hints/GeneratorHint.tscn" type="PackedScene" id=55]
@@ -2028,17 +2028,8 @@ scale = Vector2( 1.41834, 1.41834 )
 position = Vector2( 8486.18, -5691.89 )
 rotation = -1.6189e-05
 
-[node name="IngameHint" parent="Scenery/SecretArea" index="28" instance=ExtResource( 52 )]
-position = Vector2( 7632.88, -5197.94 )
-
-[node name="Sprite" parent="Scenery/SecretArea/IngameHint" index="0"]
-frame = 0
-
-[node name="RichTextLabel" parent="Scenery/SecretArea/IngameHint" index="1"]
-margin_bottom = 239.0
-text = "Congratualtions! You've found a secret. You may have the spoils.
-
-Press 1-2 to change!"
+[node name="WpnChangeHint" parent="Scenery/SecretArea" index="28" instance=ExtResource( 52 )]
+position = Vector2( 7761.13, -5367.68 )
 
 [node name="Building7" parent="Scenery" index="2" instance=ExtResource( 36 )]
 position = Vector2( -1001.05, 4827.23 )
@@ -3632,8 +3623,6 @@ stream = ExtResource( 63 )
 [connection signal="body_entered" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_entered"]
 [connection signal="body_exited" from="TriggerContainer/SecretRevealTrigger" to="TriggerContainer/SecretRevealTrigger" method="_on_SecretRevealTrigger_body_exited"]
 [connection signal="body_entered" from="TriggerContainer/LastroomRevealTrigger" to="TriggerContainer/LastroomRevealTrigger" method="_on_LastroomRevealTrigger_body_entered"]
-
-[editable path="Scenery/SecretArea/IngameHint"]
 
 [editable path="Scenery/HarvesterEntrance/Barrels/Lights2/RoundBlinkingLight"]
 
