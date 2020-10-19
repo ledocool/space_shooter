@@ -79,13 +79,14 @@ height = 1152.12
 extents = Vector2( 1268.19, 746.444 )
 
 [node name="Level" instance=ExtResource( 1 )]
+secretsMax = 2
 
 [node name="PlayerCamera" parent="." index="0"]
-position = Vector2( -7400.82, -20.2089 )
+position = Vector2( -7400.82, -20.209 )
 LeftCameraBorder = -8000
 
 [node name="Player" parent="ShipContainer" index="0"]
-position = Vector2( -7400.82, -20.2089 )
+position = Vector2( -7400.82, -20.209 )
 
 [node name="Turret8" parent="ShipContainer" index="1" instance=ExtResource( 32 )]
 position = Vector2( 3128.78, 2574.84 )
@@ -3950,10 +3951,6 @@ rotation = 1.47054
 position = Vector2( 6194.9, -4532.56 )
 rotation = -1.79264
 
-[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="1"]
-anchor_right = 0.0
-anchor_bottom = 0.0
-
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background" index="0"]
 z_index = -100
 motion_scale = Vector2( 0.01, 0.01 )
@@ -3996,10 +3993,12 @@ rotation = 1.5708
 shape = SubResource( 4 )
 
 [node name="DoomRevealTrigger" type="Area2D" parent="TriggerContainer" index="5"]
+position = Vector2( 29423.6, 14409.3 )
+collision_layer = 2
+collision_mask = 2
 script = ExtResource( 55 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/DoomRevealTrigger" index="0"]
-position = Vector2( 29423.6, 14409.3 )
 shape = SubResource( 5 )
 [connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
 [connection signal="wire_switch" from="Scenery/StartingRoom/Building/SpiralGenerator" to="TriggerContainer/SpiralEnterTrigger" method="_on_SpiralGenerator_wire_switch"]
@@ -4007,3 +4006,5 @@ shape = SubResource( 5 )
 [connection signal="wire_switch" from="Scenery/KeyRoom/Wires/KeyWirererBottom" to="TriggerContainer/KeyRoomTrigger" method="_on_bottom_generator_switch"]
 [connection signal="wire_switch" from="Scenery/KeyRoom/Wires/KeyWirerTop" to="TriggerContainer/KeyRoomTrigger" method="_on_top_generator_switch"]
 [connection signal="body_entered" from="TriggerContainer/AlienDoorTrigger" to="TriggerContainer/AlienDoorTrigger" method="_on_AlienDoorTrigger_body_entered"]
+[connection signal="body_entered" from="TriggerContainer/DoomRevealTrigger" to="TriggerContainer/DoomRevealTrigger" method="_on_DoomRevealTrigger_body_entered"]
+[connection signal="body_exited" from="TriggerContainer/DoomRevealTrigger" to="TriggerContainer/DoomRevealTrigger" method="_on_DoomRevealTrigger_body_exited"]

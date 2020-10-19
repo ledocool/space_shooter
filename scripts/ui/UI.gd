@@ -94,14 +94,14 @@ func _on_weapon_change(weapon):
 
 func _on_status_add(status: String, pickup_timeout: float):
 	var statusPanel = $UICanvas/TopGUI/StatusPanel
-	var statusIcon = statusPanel.get_node(status)
+	var statusIcon = statusPanel.get_node_or_null(status)
 	if(statusIcon && statusIcon.has_method("Show")):
 		statusIcon.Show(pickup_timeout - StatusBlinkTime)
 
 
 func _on_status_remove(status: String):
 	var statusPanel = $UICanvas/TopGUI/StatusPanel
-	var statusIcon = statusPanel.get_node(status)
+	var statusIcon = statusPanel.get_node_or_null(status)
 	if(statusIcon && statusIcon.has_method("Hide")):
 		statusIcon.Hide()
 
