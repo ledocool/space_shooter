@@ -1,0 +1,18 @@
+[gd_resource type="ParticlesMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://resources/Effects/WindEffect2.tres" type="Curve" id=1]
+
+[sub_resource type="CurveTexture" id=1]
+curve = ExtResource( 1 )
+
+[resource]
+trail_divisor = 9
+emission_shape = 1
+emission_sphere_radius = 355.0
+flag_disable_z = true
+gravity = Vector3( 98, 0, 0 )
+angular_velocity = 320.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+orbit_velocity_curve = SubResource( 1 )
+color = Color( 0.780392, 0.494118, 0.682353, 1 )

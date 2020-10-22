@@ -3078,10 +3078,6 @@ position = Vector2( -1868.19, 1585.25 )
 position = Vector2( 3484.93, 1493.6 )
 rotation = 1.57079
 
-[node name="GameWinMenu" parent="MenuCanvas/MarginContainer" index="1"]
-anchor_right = 0.0
-anchor_bottom = 0.0
-
 [node name="Background" parent="." index="8"]
 layer = -30
 

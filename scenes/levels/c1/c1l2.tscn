@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -57,6 +57,8 @@
 [ext_resource path="res://scripts/levels/c1l2/DoomRevealTrigger.gd" type="Script" id=55]
 [ext_resource path="res://scenes/interface/hints/WpnChangeHint.tscn" type="PackedScene" id=56]
 [ext_resource path="res://scripts/levels/c1l1/SnackFoundTrigger.gd" type="Script" id=57]
+[ext_resource path="res://scenes/effects/WindEffect.tscn" type="PackedScene" id=58]
+[ext_resource path="res://scripts/levels/c1l2/WindRevealTrigger.gd" type="Script" id=59]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 35 )
@@ -2245,7 +2247,7 @@ position = Vector2( 27673.5, 13286 )
 rotation = -2.76289
 
 [node name="KeyPickup" parent="ItemContainer" index="0" instance=ExtResource( 41 )]
-position = Vector2( 26980, 14320.8 )
+position = Vector2( 26980, 14309.7 )
 
 [node name="Gearpak" parent="ItemContainer" index="1" instance=ExtResource( 44 )]
 position = Vector2( 11790.6, -195.039 )
@@ -3095,6 +3097,83 @@ rotation = 0.229474
 [node name="WpnChangeHint" parent="Scenery/StartingRoom" index="115" instance=ExtResource( 56 )]
 position = Vector2( -3630.23, -25.5232 )
 
+[node name="Wind15" parent="Scenery/StartingRoom" index="116" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 7325.4, 5999.21 )
+rotation = -2.12065
+
+[node name="Wind16" parent="Scenery/StartingRoom" index="117" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 6720.42, 3863.26 )
+rotation = -0.847352
+
+[node name="Wind17" parent="Scenery/StartingRoom" index="118" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 9140.34, 1690.27 )
+rotation = -1.96247
+
+[node name="Wind18" parent="Scenery/StartingRoom" index="119" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 8288.43, -482.716 )
+rotation = -2.387
+
+[node name="Wind19" parent="Scenery/StartingRoom" index="120" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 7041.43, -1939.61 )
+rotation = -1.5656
+
+[node name="Wind20" parent="Scenery/StartingRoom" index="121" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 5288.22, -3260.68 )
+rotation = -0.121697
+
+[node name="Wind21" parent="Scenery/StartingRoom" index="122" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 8523.01, -3174.26 )
+rotation = -2.86383
+
+[node name="Wind22" parent="Scenery/StartingRoom" index="123" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 5572.19, -2470.51 )
+rotation = -0.842039
+
+[node name="Wind23" parent="Scenery/StartingRoom" index="124" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 6238.9, -2100.11 )
+rotation = -1.13094
+
+[node name="Wind24" parent="Scenery/StartingRoom" index="125" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 7806.91, -2137.15 )
+rotation = -2.03998
+
+[node name="Wind25" parent="Scenery/StartingRoom" index="126" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 8325.47, -2433.47 )
+rotation = -2.27001
+
 [node name="Spiral" type="Node2D" parent="Scenery" index="1"]
 
 [node name="ShipWall2" parent="Scenery/Spiral" index="0" instance=ExtResource( 22 )]
@@ -3537,6 +3616,62 @@ position = Vector2( 9487.51, 14612.4 )
 chainAmount = [ -90.0, -5.0, -4.0, -2.0, -5.0, -6.0, -7.0, -1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 2.0, 1.0, 3.0, 4.0, 3.0, 2.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0 ]
 EndNodeRotation = 10.0
 
+[node name="Wind7" parent="Scenery/Spiral" index="101" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 11834.3, 15510.2 )
+rotation = 1.67927
+
+[node name="Wind8" parent="Scenery/Spiral" index="102" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 9594.49, 18900.1 )
+rotation = 2.65258
+
+[node name="Wind9" parent="Scenery/Spiral" index="103" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 4958.25, 20158.2 )
+rotation = -2.92374
+
+[node name="Wind10" parent="Scenery/Spiral" index="104" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 2176.9, 18987.8 )
+rotation = -2.04017
+
+[node name="Wind11" parent="Scenery/Spiral" index="105" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 397.049, 16088.3 )
+rotation = -1.64647
+
+[node name="Wind12" parent="Scenery/Spiral" index="106" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 2485.56, 11184.7 )
+rotation = -0.657435
+
+[node name="Wind13" parent="Scenery/Spiral" index="107" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 5053.64, 9493.27 )
+rotation = -0.175912
+
+[node name="Wind14" parent="Scenery/Spiral" index="108" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 7436.52, 8641.36 )
+rotation = -1.60453
+
 [node name="KeyRoom" type="Node2D" parent="Scenery" index="2"]
 
 [node name="Pipe" parent="Scenery/KeyRoom" index="0" instance=ExtResource( 34 )]
@@ -3929,6 +4064,48 @@ rotation = 1.5708
 scale = Vector2( 1, 0.6 )
 enabled = true
 
+[node name="Wind" parent="Scenery/KeyRoom" index="69" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 26363.4, 14361.3 )
+rotation = 2.98675
+
+[node name="Wind2" parent="Scenery/KeyRoom" index="70" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 23424.9, 14528.8 )
+rotation = 3.03568
+
+[node name="Wind3" parent="Scenery/KeyRoom" index="71" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 20957.7, 14646.1 )
+rotation = -3.00676
+
+[node name="Wind4" parent="Scenery/KeyRoom" index="72" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 18385.3, 14673.3 )
+rotation = -3.06929
+
+[node name="Wind5" parent="Scenery/KeyRoom" index="73" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 15651.7, 14763.6 )
+rotation = 2.72122
+
+[node name="Wind6" parent="Scenery/KeyRoom" index="74" groups=[
+"wind",
+] instance=ExtResource( 58 )]
+visible = false
+position = Vector2( 14519.7, 15299.5 )
+rotation = -3.11228
+
 [node name="Exit" type="Node2D" parent="Scenery" index="3"]
 
 [node name="StaticScenery" parent="Scenery/Exit" index="0" instance=ExtResource( 25 )]
@@ -4011,7 +4188,11 @@ script = ExtResource( 57 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/SnackFoundTrigger" index="0"]
 position = Vector2( 2841.97, 6984.5 )
 shape = SubResource( 6 )
+
+[node name="WindRevealTrigger" type="Node" parent="TriggerContainer" index="7"]
+script = ExtResource( 59 )
 [connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
+[connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/WindRevealTrigger" method="_on_KeyPickup_picked_up" flags=3]
 [connection signal="wire_switch" from="Scenery/StartingRoom/Building/SpiralGenerator" to="TriggerContainer/SpiralEnterTrigger" method="_on_SpiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/Spiral/InspiralGenerator" to="TriggerContainer/SpiralTrigger" method="_on_InspiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/KeyRoom/Wires/KeyWirererBottom" to="TriggerContainer/KeyRoomTrigger" method="_on_bottom_generator_switch"]

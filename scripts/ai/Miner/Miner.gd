@@ -23,6 +23,7 @@ var StartState = 'idle'
 func Save():
 	var data = .Save()
 	data.state = aiState.get_current_state()
+	data.is_on = IsOn()
 	var p = GetPlayer()
 	if(p):
 		data.target = get_path_to(p)
@@ -35,6 +36,7 @@ func Load(data: Dictionary):
 		if(data.has("state") && data.state != ""):
 			StartState = data.state
 			set_sleeping(false)
+	TurnedOn = data.is_on
 	return .Load(data)
 
 
