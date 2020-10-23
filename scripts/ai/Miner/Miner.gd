@@ -82,6 +82,11 @@ func GetPlayer():
 	else: 
 		return Player.get_ref()
 
+func StartScanning():
+	$Timers/PlayerSeenTimeout.start()
+
+func StopScanning():
+	$Timers/PlayerSeenTimeout.stop()
 
 func SetAiTimersTicking(isTicking):
 	($Timers/DifferenceRecalculationTimer as Timer).set_paused(!isTicking)
@@ -166,3 +171,8 @@ func _on_AngryfyingBlinkTimer_timeout():
 		SetSpriteChill()
 	else:
 		SetSpriteAngry()
+
+
+func _on_PlayerSeenTimeout_timeout():
+	if (IsNearPlayer() && IsSeesPlayer()):
+		aiState.transition("angryfying")

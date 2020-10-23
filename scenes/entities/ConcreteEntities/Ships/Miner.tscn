@@ -54,6 +54,10 @@ one_shot = true
 [node name="AngryfyingBlinkTimer" type="Timer" parent="Timers" index="5"]
 wait_time = 0.07
 
+[node name="PlayerSeenTimeout" type="Timer" parent="Timers" index="6"]
+process_mode = 0
+wait_time = 0.3
+
 [node name="Sprite" type="AnimatedSprite" parent="." index="3"]
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
@@ -95,6 +99,7 @@ volume_db = 6.0
 [connection signal="timeout" from="Timers/DifferenceRecalculationTimer" to="." method="_on_DifferenceRecalculationTimer_timeout"]
 [connection signal="timeout" from="Timers/SeesPlayerTimer" to="." method="_on_SeesPlayerTimer_timeout"]
 [connection signal="timeout" from="Timers/AngryfyingBlinkTimer" to="." method="_on_AngryfyingBlinkTimer_timeout"]
+[connection signal="timeout" from="Timers/PlayerSeenTimeout" to="." method="_on_PlayerSeenTimeout_timeout"]
 [connection signal="body_entered" from="AreaEnter" to="." method="_on_AreaEnter_body_entered"]
 [connection signal="body_exited" from="AreaExit" to="." method="_on_AreaExit_body_exited"]
 [connection signal="body_entered" from="ExplodeArea" to="." method="_on_ExplodeArea_body_entered"]

@@ -27,3 +27,7 @@ func _on_Credits_pressed():
 		
 	var creditsMenu = rightMenus.find_node("CreditsMenu")
 	creditsMenu.visible = true
+
+
+func _on_Quicktart_pressed():
+	($"/root/LevelLoader" as LevelLoader).LoadLevel(1)

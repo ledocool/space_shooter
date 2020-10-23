@@ -2360,6 +2360,48 @@ position = Vector2( 28909.9, 17743.4 )
 [node name="RocketeerPickup21" parent="ItemContainer" index="37" instance=ExtResource( 45 )]
 position = Vector2( 29085.6, 17535.1 )
 
+[node name="Gearpak7" parent="ItemContainer" index="38" instance=ExtResource( 44 )]
+position = Vector2( 8.48047, 13207.4 )
+
+[node name="Gearpak16" parent="ItemContainer" index="39" instance=ExtResource( 44 )]
+position = Vector2( 1938.29, 14229.7 )
+
+[node name="Gearpak17" parent="ItemContainer" index="40" instance=ExtResource( 44 )]
+position = Vector2( 7765.92, 19468.4 )
+
+[node name="Gearpak18" parent="ItemContainer" index="41" instance=ExtResource( 44 )]
+position = Vector2( 2903.19, 17118.3 )
+
+[node name="Gearpak19" parent="ItemContainer" index="42" instance=ExtResource( 44 )]
+position = Vector2( 11787.9, 18341.1 )
+
+[node name="Gearpak20" parent="ItemContainer" index="43" instance=ExtResource( 44 )]
+position = Vector2( 7985.65, 10507.3 )
+
+[node name="Gearpak21" parent="ItemContainer" index="44" instance=ExtResource( 44 )]
+position = Vector2( 2845.87, 12714.1 )
+
+[node name="Gearpak22" parent="ItemContainer" index="45" instance=ExtResource( 44 )]
+position = Vector2( 2826.76, 14729.9 )
+
+[node name="Gearpak23" parent="ItemContainer" index="46" instance=ExtResource( 44 )]
+position = Vector2( 4097.38, 17615.1 )
+
+[node name="Gearpak24" parent="ItemContainer" index="47" instance=ExtResource( 44 )]
+position = Vector2( 9456.88, 16449.5 )
+
+[node name="Gearpak25" parent="ItemContainer" index="48" instance=ExtResource( 44 )]
+position = Vector2( 7164.05, 11749.2 )
+
+[node name="Gearpak26" parent="ItemContainer" index="49" instance=ExtResource( 44 )]
+position = Vector2( 4584.6, 13430.6 )
+
+[node name="Gearpak27" parent="ItemContainer" index="50" instance=ExtResource( 44 )]
+position = Vector2( 5320.22, 16955.9 )
+
+[node name="Gearpak28" parent="ItemContainer" index="51" instance=ExtResource( 44 )]
+position = Vector2( 7679.94, 16650.2 )
+
 [node name="Crate2" parent="DynamicScenery" index="0" instance=ExtResource( 40 )]
 position = Vector2( 25600.3, 12238.2 )
 
@@ -3542,7 +3584,6 @@ enabled = true
 position = Vector2( 10009.9, 14187.1 )
 rotation = 1.5708
 scale = Vector2( 1, 1.2 )
-enabled = false
 
 [node name="BeamDoor5" parent="Scenery/Spiral" index="88" groups=[
 "spiral_horizontal_doors",
@@ -3550,7 +3591,6 @@ enabled = false
 position = Vector2( 10079.3, 16132 )
 rotation = 1.5708
 scale = Vector2( 1, 1.07998 )
-enabled = false
 
 [node name="BeamDoor7" parent="Scenery/Spiral" index="89" groups=[
 "spiral_horizontal_doors",
@@ -3558,7 +3598,6 @@ enabled = false
 position = Vector2( 11849.8, 16240 )
 rotation = 1.5708
 scale = Vector2( 1, 1.59999 )
-enabled = false
 
 [node name="Building1" parent="Scenery/Spiral" index="90" instance=ExtResource( 26 )]
 position = Vector2( 9127.2, 13938.9 )
@@ -3595,7 +3634,6 @@ position = Vector2( 12079.6, 14223.4 )
 rotation = 1.5708
 scale = Vector2( 1, 0.690539 )
 z_index = -1
-enabled = false
 
 [node name="StaticScenery13" parent="Scenery/Spiral" index="97" instance=ExtResource( 25 )]
 position = Vector2( 10710.8, 13166.3 )

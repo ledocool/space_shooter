@@ -12,6 +12,7 @@ animations = [ {
 } ]
 
 [node name="Emitter" type="Node2D"]
+z_index = -52
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 0, -35.21 )

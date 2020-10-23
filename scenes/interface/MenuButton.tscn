@@ -5,7 +5,7 @@
 [ext_resource path="res://resources/Sound/button_press.wav" type="AudioStream" id=3]
 
 [node name="MenuButton" type="Control"]
-margin_right = 130.0
+margin_right = 150.0
 margin_bottom = 25.0
 rect_min_size = Vector2( 150, 22 )
 script = ExtResource( 2 )
