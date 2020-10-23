@@ -3054,6 +3054,7 @@ position = Vector2( 6971.75, 6450.23 )
 rotation = 3.14159
 scale = Vector2( 1.32, 1.32 )
 chainAmount = [ -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+StartNodeRotation = 0
 EndNodeRotation = -17.0
 
 [node name="SpiralWire" parent="Scenery/StartingRoom/Building" index="7" groups=[
@@ -3061,6 +3062,7 @@ EndNodeRotation = -17.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 5279.94, 4733.8 )
 chainAmount = [ 90.0, 1.0, 2.0, 3.0, 3.0, 4.0, 4.0, 4.0, 5.0, 0.0, 2.0, 4.0, -1.0, -3.0, -1.0, -1.0, -1.0, -2.0, -2.0, -1.0, -1.0, -2.0, -3.0, 1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+StartNodeRotation = 0
 EndNodeRotation = -3.0
 
 [node name="SpiralWire3" parent="Scenery/StartingRoom/Building" index="8" groups=[
@@ -3068,6 +3070,7 @@ EndNodeRotation = -3.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 4689.7, 1970.85 )
 chainAmount = [ 135.0, -5.0, -6.0, -3.0, -2.0, -1.0, -1.0, -1.0, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 0.0 ]
+StartNodeRotation = 0
 EndNodeRotation = 3.0
 
 [node name="SpiralWire2" parent="Scenery/StartingRoom/Building" index="9" groups=[
@@ -3075,6 +3078,7 @@ EndNodeRotation = 3.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 2391.32, 4047.32 )
 chainAmount = [ -122.0, 3.0, 3.0, 3.0, 3.0, 0.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, -1.0, -3.0, -3.0, -2.0, -2.0, -2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.108, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, -1.0, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+StartNodeRotation = 0
 EndNodeRotation = -25.0
 
 [node name="SpiralGenerator" parent="Scenery/StartingRoom/Building" index="10" instance=ExtResource( 31 )]
@@ -3082,6 +3086,7 @@ position = Vector2( 1608.79, 1734.47 )
 rotation = -1.5708
 chainAmount = [ -1.0, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -21.0, -21.0, -21.0, -21.0, -12.0, -12.0, -5.0, -5.0, -5.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
 EndNodeRotation = -15.0
 
 [node name="SpiralEntrance" parent="Scenery/StartingRoom/Building" index="11" instance=ExtResource( 28 )]
@@ -3601,12 +3606,15 @@ position = Vector2( 6587.81, 14249.4 )
 rotation = -1.57079
 chainAmount = [ -30.0, -8.0, -4.0, -15.0, -6.0, -2.0, 6.0, 14.0, 7.0, 8.0, 19.0, 25.0, 25.0, 19.0, -6.0, -8.0, -11.0, -2.0, -5.0, -12.0, -15.0, -16.0, -6.0, -8.0, -12.0, -22.0, 1.0, 2.0, 3.0, 1.0, 1.0, 2.0, 1.0, 1.0, 3.0, 2.0, 1.0, 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 8.0, 15.0, 15.0, 12.0, 7.0, 2.0, 3.0, 1.0, 2.0, 0.0, 1.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 6.0, 5.0, 5.0, 1.0, 4.0, 5.0, 2.0, 4.0, 1.0, 2.0, 2.0, 3.0, 2.0, 4.0, 5.0, 3.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="InspiralWirer" parent="Scenery/Spiral" index="99" groups=[
 "inspiral_wire",
 ] instance=ExtResource( 31 )]
 position = Vector2( 11783.6, 14393.6 )
 chainAmount = [ -30.0, -5.0, -7.0, -9.0, -12.0, -16.0, -19.0, -21.0, -22.0, -22.0, 0.0, 1.0, 9.0, 18.0, 27.0, 36.0, 27.0, 15.0, 6.0, 4.0, 5.0, 5.0, 3.0, -3.0 ]
+StartNodeRotation = 0
 EndNodeRotation = 10.0
 
 [node name="InstpiralWirer2" parent="Scenery/Spiral" index="100" groups=[
@@ -3614,6 +3622,7 @@ EndNodeRotation = 10.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 9487.51, 14612.4 )
 chainAmount = [ -90.0, -5.0, -4.0, -2.0, -5.0, -6.0, -7.0, -1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 2.0, 1.0, 3.0, 4.0, 3.0, 2.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0 ]
+StartNodeRotation = 0
 EndNodeRotation = 10.0
 
 [node name="Wind7" parent="Scenery/Spiral" index="101" groups=[
@@ -3989,12 +3998,14 @@ rotation = 1.5708
 ] instance=ExtResource( 31 )]
 position = Vector2( 26692.7, 14778.5 )
 chainAmount = [ -3.0, -23.0, -1.0, 0.0, 1.0, 3.0, 6.0, 3.0, 4.0, 6.0, 6.0, 2.0, 1.0, 2.0, 1.0, 3.0, 1.0, 2.0, 4.0, 1.0 ]
+StartNodeRotation = 0
 EndNodeRotation = -19.0
 
 [node name="KeyWirererBottom" parent="Scenery/KeyRoom/Wires" index="1" instance=ExtResource( 31 )]
 position = Vector2( 22377.7, 16160.1 )
 chainAmount = [ -11.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 4.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, 1.0, 1.0, 4.0, 4.0, 4.0, 4.0, 1.0, 1.0, 1.0, 1.0, 1.0, -6.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.0, -2.0, 2.0, -1.0, 0.5, -0.5, -1.0, -3.0, -5.0, -3.0, -2.0, -2.0, -2.0, -5.0, -2.0, -4.0, -4.0, -4.0, -4.0, -5.0, -5.0, -5.0, -6.0, -7.0, -7.0, -8.0, -4.0, -6.0, -3.0, -5.0, -2.0, -2.0, -2.0, -4.0, -2.0, -2.0, -2.0, -2.0, -4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
 EndNodeRotation = 39.0
 
 [node name="KeyWirerTop" parent="Scenery/KeyRoom/Wires" index="2" instance=ExtResource( 31 )]
@@ -4002,6 +4013,7 @@ position = Vector2( 21386.1, 14021.9 )
 rotation = 3.14159
 chainAmount = [ -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, 7.0, 7.0, 8.0, 9.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, -6.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, 0.0, 0.0, 1.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
 EndNodeRotation = 10.0
 
 [node name="KeyWirerDoors" parent="Scenery/KeyRoom/Wires" index="3" groups=[
@@ -4009,6 +4021,8 @@ EndNodeRotation = 10.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 18505.9, 14248.9 )
 chainAmount = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="BeamDoor2" parent="Scenery/KeyRoom/Wires" index="4" groups=[
 "key_room_left_door",
@@ -4191,8 +4205,8 @@ shape = SubResource( 6 )
 
 [node name="WindRevealTrigger" type="Node" parent="TriggerContainer" index="7"]
 script = ExtResource( 59 )
-[connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
 [connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/WindRevealTrigger" method="_on_KeyPickup_picked_up" flags=3]
+[connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
 [connection signal="wire_switch" from="Scenery/StartingRoom/Building/SpiralGenerator" to="TriggerContainer/SpiralEnterTrigger" method="_on_SpiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/Spiral/InspiralGenerator" to="TriggerContainer/SpiralTrigger" method="_on_InspiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/KeyRoom/Wires/KeyWirererBottom" to="TriggerContainer/KeyRoomTrigger" method="_on_bottom_generator_switch"]

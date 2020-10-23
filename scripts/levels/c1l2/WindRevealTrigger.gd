@@ -25,4 +25,5 @@ func ShowWind():
 
 
 func _on_KeyPickup_picked_up(_data):
+	shown = true
 	ShowWind()
