@@ -126,7 +126,7 @@ margin_bottom = 580.0
 scroll_ignore_camera_zoom = true
 
 [node name="Foreground" type="ParallaxBackground" parent="."]
-layer = 100
+layer = -28
 
 [node name="TriggerContainer" type="Node2D" parent="."]
 
