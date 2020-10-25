@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name KeyCube
 
+signal exploded(position, size, rotation)
+
 var LoadTargetPath = null
 var Target: WeakRef
 var TargetPosition = Vector2()
@@ -73,4 +75,4 @@ func _on_UpdateCoordinatesTimer_timeout():
 
 
 func _onDestruction():
-	pass
+	emit_signal("exploded", position, Vector2(0.1, 0.1), rotation)

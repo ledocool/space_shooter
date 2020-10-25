@@ -83,9 +83,11 @@ func GetPlayer():
 		return Player.get_ref()
 
 func StartScanning():
+# warning-ignore:unsafe_method_access
 	$Timers/PlayerSeenTimeout.start()
 
 func StopScanning():
+# warning-ignore:unsafe_method_access
 	$Timers/PlayerSeenTimeout.stop()
 
 func SetAiTimersTicking(isTicking):

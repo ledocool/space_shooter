@@ -79,7 +79,11 @@ func _ready():
 			#print_debug("Connecting " + shp.get_name())
 			shp.connect("shoot_bullet", self, "_on_Ship_shoot")
 			shp.connect("exploded", self, "_on_Something_explode")
-			
+	
+	for scn in $DynamicScenery.get_children():
+		if(scn is KeyCube):
+			scn.connect("exploded", self, "_on_Something_explode")
+	
 	var Player = $ShipContainer/Player as PlayerShip
 	if(Player):
 		var camera = $PlayerCamera as UI

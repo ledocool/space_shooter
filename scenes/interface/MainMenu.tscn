@@ -52,38 +52,32 @@ margin_bottom = 650.0
 custom_constants/vseparation = 11
 
 [node name="New game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
-margin_right = 150.0
 margin_bottom = 22.0
 Text = "New game"
 
 [node name="Quicktart" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 33.0
-margin_right = 150.0
 margin_bottom = 55.0
 Text = "Level 2"
 
 [node name="Load game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 66.0
-margin_right = 150.0
 margin_bottom = 88.0
 Text = "Load game"
 
 [node name="Options" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 99.0
-margin_right = 150.0
 margin_bottom = 121.0
 Text = "Options"
 disabled = true
 
 [node name="Playground" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 132.0
-margin_right = 150.0
 margin_bottom = 154.0
 Text = "Playground"
 
 [node name="Credits" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 165.0
-margin_right = 150.0
 margin_bottom = 187.0
 Text = "Credits"
 
@@ -92,7 +86,6 @@ text = "Credits"
 
 [node name="Exit" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 margin_top = 198.0
-margin_right = 150.0
 margin_bottom = 220.0
 Text = "Exit"
 
