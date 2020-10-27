@@ -202,372 +202,195 @@ position = Vector2( 1775.6, 19868.2 )
 [node name="Miner35" parent="ShipContainer" index="33" instance=ExtResource( 36 )]
 position = Vector2( 11853, 15281.1 )
 
-[node name="Miner36" parent="ShipContainer" index="34" instance=ExtResource( 36 )]
-position = Vector2( 9938.96, 15141.7 )
-
-[node name="Miner37" parent="ShipContainer" index="35" instance=ExtResource( 36 )]
+[node name="Miner37" parent="ShipContainer" index="34" instance=ExtResource( 36 )]
 position = Vector2( 6440.38, 20250.1 )
 
-[node name="Miner38" parent="ShipContainer" index="36" instance=ExtResource( 36 )]
+[node name="Miner38" parent="ShipContainer" index="35" instance=ExtResource( 36 )]
 position = Vector2( 6769.95, 19527.6 )
 
-[node name="Miner39" parent="ShipContainer" index="37" instance=ExtResource( 36 )]
-position = Vector2( 3233.34, 15750.1 )
-
-[node name="Miner40" parent="ShipContainer" index="38" instance=ExtResource( 36 )]
-position = Vector2( 3689.68, 15230.4 )
-
-[node name="Miner41" parent="ShipContainer" index="39" instance=ExtResource( 36 )]
+[node name="Miner41" parent="ShipContainer" index="36" instance=ExtResource( 36 )]
 position = Vector2( 3816.44, 14368.4 )
 
-[node name="Miner42" parent="ShipContainer" index="40" instance=ExtResource( 36 )]
-position = Vector2( 2840.38, 15091 )
-
-[node name="Miner43" parent="ShipContainer" index="41" instance=ExtResource( 36 )]
+[node name="Miner43" parent="ShipContainer" index="37" instance=ExtResource( 36 )]
 position = Vector2( 5730.52, 16675.5 )
 
-[node name="Miner44" parent="ShipContainer" index="42" instance=ExtResource( 36 )]
-position = Vector2( 5527.7, 16092.4 )
-
-[node name="Miner45" parent="ShipContainer" index="43" instance=ExtResource( 36 )]
-position = Vector2( 5274.18, 13151.5 )
-
-[node name="Miner46" parent="ShipContainer" index="44" instance=ExtResource( 36 )]
-position = Vector2( 10877, 18526.2 )
-
-[node name="Miner47" parent="ShipContainer" index="45" instance=ExtResource( 36 )]
-position = Vector2( 9507.97, 19540.3 )
-
-[node name="Miner48" parent="ShipContainer" index="46" instance=ExtResource( 36 )]
-position = Vector2( 6212.21, 10679.7 )
-
-[node name="Miner49" parent="ShipContainer" index="47" instance=ExtResource( 36 )]
+[node name="Miner49" parent="ShipContainer" index="38" instance=ExtResource( 36 )]
 position = Vector2( 10462, 3207.19 )
 
-[node name="Miner50" parent="ShipContainer" index="48" instance=ExtResource( 36 )]
+[node name="Miner50" parent="ShipContainer" index="39" instance=ExtResource( 36 )]
 position = Vector2( 10828.1, 2372.06 )
 
-[node name="Miner51" parent="ShipContainer" index="49" instance=ExtResource( 36 )]
+[node name="Miner51" parent="ShipContainer" index="40" instance=ExtResource( 36 )]
 position = Vector2( 7945.21, 1628.45 )
 
-[node name="Miner52" parent="ShipContainer" index="50" instance=ExtResource( 36 )]
+[node name="Miner52" parent="ShipContainer" index="41" instance=ExtResource( 36 )]
 position = Vector2( 6240.64, 3355.91 )
 
-[node name="Miner53" parent="ShipContainer" index="51" instance=ExtResource( 36 )]
+[node name="Miner53" parent="ShipContainer" index="42" instance=ExtResource( 36 )]
 position = Vector2( 4673.34, 3069.91 )
 
-[node name="Miner54" parent="ShipContainer" index="52" instance=ExtResource( 36 )]
+[node name="Miner54" parent="ShipContainer" index="43" instance=ExtResource( 36 )]
 position = Vector2( 3529.33, 1353.89 )
 
-[node name="Miner55" parent="ShipContainer" index="53" instance=ExtResource( 36 )]
+[node name="Miner55" parent="ShipContainer" index="44" instance=ExtResource( 36 )]
 position = Vector2( 1573.07, 2120.38 )
 
-[node name="Miner56" parent="ShipContainer" index="54" instance=ExtResource( 36 )]
+[node name="Miner56" parent="ShipContainer" index="45" instance=ExtResource( 36 )]
 position = Vector2( 2065, 3435.99 )
 
-[node name="Miner18" parent="ShipContainer" index="55" instance=ExtResource( 36 )]
+[node name="Miner18" parent="ShipContainer" index="46" instance=ExtResource( 36 )]
 position = Vector2( 6746.92, 8906.91 )
 
-[node name="Miner24" parent="ShipContainer" index="56" instance=ExtResource( 36 )]
+[node name="Miner24" parent="ShipContainer" index="47" instance=ExtResource( 36 )]
 position = Vector2( 3839.5, 10114.8 )
 
-[node name="Miner27" parent="ShipContainer" index="57" instance=ExtResource( 36 )]
+[node name="Miner27" parent="ShipContainer" index="48" instance=ExtResource( 36 )]
 position = Vector2( 4317.05, 9510.87 )
 
-[node name="Miner57" parent="ShipContainer" index="58" instance=ExtResource( 36 )]
-position = Vector2( 2378.78, 10634.5 )
-
-[node name="Miner58" parent="ShipContainer" index="59" instance=ExtResource( 36 )]
-position = Vector2( 2617.55, 11463.2 )
-
-[node name="Miner59" parent="ShipContainer" index="60" instance=ExtResource( 36 )]
-position = Vector2( 2814.19, 10789 )
-
-[node name="Miner60" parent="ShipContainer" index="61" instance=ExtResource( 36 )]
-position = Vector2( 932.093, 11898.6 )
-
-[node name="Miner61" parent="ShipContainer" index="62" instance=ExtResource( 36 )]
-position = Vector2( 1648.41, 12362.1 )
-
-[node name="Miner62" parent="ShipContainer" index="63" instance=ExtResource( 36 )]
-position = Vector2( 1606.28, 11940.7 )
-
-[node name="Miner63" parent="ShipContainer" index="64" instance=ExtResource( 36 )]
+[node name="Miner63" parent="ShipContainer" index="49" instance=ExtResource( 36 )]
 position = Vector2( 1297.28, 13008.2 )
 
-[node name="Miner64" parent="ShipContainer" index="65" instance=ExtResource( 36 )]
+[node name="Miner64" parent="ShipContainer" index="50" instance=ExtResource( 36 )]
 position = Vector2( 201.729, 13036.3 )
 
-[node name="Miner65" parent="ShipContainer" index="66" instance=ExtResource( 36 )]
+[node name="Miner65" parent="ShipContainer" index="51" instance=ExtResource( 36 )]
 position = Vector2( 1522, 14567.2 )
 
-[node name="Miner66" parent="ShipContainer" index="67" instance=ExtResource( 36 )]
+[node name="Miner66" parent="ShipContainer" index="52" instance=ExtResource( 36 )]
 position = Vector2( 1325.37, 15353.8 )
 
-[node name="Miner67" parent="ShipContainer" index="68" instance=ExtResource( 36 )]
+[node name="Miner67" parent="ShipContainer" index="53" instance=ExtResource( 36 )]
 position = Vector2( 173.638, 15129.1 )
 
-[node name="Miner68" parent="ShipContainer" index="69" instance=ExtResource( 36 )]
+[node name="Miner68" parent="ShipContainer" index="54" instance=ExtResource( 36 )]
 position = Vector2( -626.953, 14328.5 )
 
-[node name="Miner69" parent="ShipContainer" index="70" instance=ExtResource( 36 )]
-position = Vector2( 243.866, 17039.2 )
-
-[node name="Miner70" parent="ShipContainer" index="71" instance=ExtResource( 36 )]
+[node name="Miner70" parent="ShipContainer" index="55" instance=ExtResource( 36 )]
 position = Vector2( 988.275, 16168.4 )
 
-[node name="Miner71" parent="ShipContainer" index="72" instance=ExtResource( 36 )]
+[node name="Miner71" parent="ShipContainer" index="56" instance=ExtResource( 36 )]
 position = Vector2( 398.366, 16056.1 )
 
-[node name="Miner72" parent="ShipContainer" index="73" instance=ExtResource( 36 )]
-position = Vector2( 1859.09, 17039.2 )
-
-[node name="Miner73" parent="ShipContainer" index="74" instance=ExtResource( 36 )]
-position = Vector2( 1901.23, 18471.9 )
-
-[node name="Miner74" parent="ShipContainer" index="75" instance=ExtResource( 36 )]
-position = Vector2( 889.957, 17797.7 )
-
-[node name="Miner75" parent="ShipContainer" index="76" instance=ExtResource( 36 )]
-position = Vector2( 3685, 19820.2 )
-
-[node name="Miner76" parent="ShipContainer" index="77" instance=ExtResource( 36 )]
-position = Vector2( 2715.87, 19103.9 )
-
-[node name="Miner77" parent="ShipContainer" index="78" instance=ExtResource( 36 )]
-position = Vector2( 3418.14, 18809 )
-
-[node name="Miner78" parent="ShipContainer" index="79" instance=ExtResource( 36 )]
-position = Vector2( 4499.64, 20368 )
-
-[node name="Miner79" parent="ShipContainer" index="80" instance=ExtResource( 36 )]
+[node name="Miner79" parent="ShipContainer" index="57" instance=ExtResource( 36 )]
 position = Vector2( 7224.46, 19922.1 )
 
-[node name="Miner80" parent="ShipContainer" index="81" instance=ExtResource( 36 )]
-position = Vector2( 8741.37, 19472.6 )
-
-[node name="Miner81" parent="ShipContainer" index="82" instance=ExtResource( 36 )]
+[node name="Miner81" parent="ShipContainer" index="58" instance=ExtResource( 36 )]
 position = Vector2( 8207.64, 20526 )
 
-[node name="Miner82" parent="ShipContainer" index="83" instance=ExtResource( 36 )]
-position = Vector2( 9630.07, 18391.4 )
-
-[node name="Miner83" parent="ShipContainer" index="84" instance=ExtResource( 36 )]
-position = Vector2( 11184.2, 17543.7 )
-
-[node name="Miner84" parent="ShipContainer" index="85" instance=ExtResource( 36 )]
-position = Vector2( 10738.6, 18108.8 )
-
-[node name="Miner85" parent="ShipContainer" index="86" instance=ExtResource( 36 )]
-position = Vector2( 10010.5, 18728.3 )
-
-[node name="Miner86" parent="ShipContainer" index="87" instance=ExtResource( 36 )]
+[node name="Miner86" parent="ShipContainer" index="59" instance=ExtResource( 36 )]
 position = Vector2( 11749.4, 16652.5 )
 
-[node name="Miner87" parent="ShipContainer" index="88" instance=ExtResource( 36 )]
+[node name="Miner87" parent="ShipContainer" index="60" instance=ExtResource( 36 )]
 position = Vector2( 12086.3, 13576.8 )
 
-[node name="Miner88" parent="ShipContainer" index="89" instance=ExtResource( 36 )]
-position = Vector2( 11629.8, 12729.1 )
-
-[node name="Miner89" parent="ShipContainer" index="90" instance=ExtResource( 36 )]
+[node name="Miner89" parent="ShipContainer" index="61" instance=ExtResource( 36 )]
 position = Vector2( 10814.7, 12066.2 )
 
-[node name="Miner90" parent="ShipContainer" index="91" instance=ExtResource( 36 )]
-position = Vector2( 10956, 11522.8 )
-
-[node name="Miner91" parent="ShipContainer" index="92" instance=ExtResource( 36 )]
+[node name="Miner91" parent="ShipContainer" index="62" instance=ExtResource( 36 )]
 position = Vector2( 9803.96, 11555.4 )
 
-[node name="Miner92" parent="ShipContainer" index="93" instance=ExtResource( 36 )]
-position = Vector2( 10119.1, 11218.4 )
-
-[node name="Miner93" parent="ShipContainer" index="94" instance=ExtResource( 36 )]
+[node name="Miner93" parent="ShipContainer" index="63" instance=ExtResource( 36 )]
 position = Vector2( 11510.3, 12196.6 )
 
-[node name="Miner94" parent="ShipContainer" index="95" instance=ExtResource( 36 )]
+[node name="Miner94" parent="ShipContainer" index="64" instance=ExtResource( 36 )]
 position = Vector2( 8967.11, 10903.3 )
 
-[node name="Miner95" parent="ShipContainer" index="96" instance=ExtResource( 36 )]
-position = Vector2( 9097.53, 11142.4 )
-
-[node name="Miner96" parent="ShipContainer" index="97" instance=ExtResource( 36 )]
-position = Vector2( 6630.47, 10870.7 )
-
-[node name="Miner97" parent="ShipContainer" index="98" instance=ExtResource( 36 )]
-position = Vector2( 7619.47, 11001.1 )
-
-[node name="Miner98" parent="ShipContainer" index="99" instance=ExtResource( 36 )]
-position = Vector2( 5380.64, 11479.3 )
-
-[node name="Miner99" parent="ShipContainer" index="100" instance=ExtResource( 36 )]
-position = Vector2( 7130.4, 10816.3 )
-
-[node name="Miner100" parent="ShipContainer" index="101" instance=ExtResource( 36 )]
-position = Vector2( 4435.11, 11924.9 )
-
-[node name="Miner101" parent="ShipContainer" index="102" instance=ExtResource( 36 )]
+[node name="Miner101" parent="ShipContainer" index="65" instance=ExtResource( 36 )]
 position = Vector2( 3500.45, 12240 )
 
-[node name="Miner102" parent="ShipContainer" index="103" instance=ExtResource( 36 )]
+[node name="Miner102" parent="ShipContainer" index="66" instance=ExtResource( 36 )]
 position = Vector2( 4152.54, 12424.8 )
 
-[node name="Miner103" parent="ShipContainer" index="104" instance=ExtResource( 36 )]
+[node name="Miner103" parent="ShipContainer" index="67" instance=ExtResource( 36 )]
 position = Vector2( 3359.17, 13359.5 )
 
-[node name="Miner104" parent="ShipContainer" index="105" instance=ExtResource( 36 )]
+[node name="Miner104" parent="ShipContainer" index="68" instance=ExtResource( 36 )]
 position = Vector2( 3141.8, 13848.5 )
 
-[node name="Miner105" parent="ShipContainer" index="106" instance=ExtResource( 36 )]
-position = Vector2( 5185.01, 11935.7 )
-
-[node name="Miner106" parent="ShipContainer" index="107" instance=ExtResource( 36 )]
+[node name="Miner106" parent="ShipContainer" index="69" instance=ExtResource( 36 )]
 position = Vector2( 4000.39, 15935.2 )
 
-[node name="Miner107" parent="ShipContainer" index="108" instance=ExtResource( 36 )]
-position = Vector2( 5695.81, 10881.5 )
-
-[node name="Miner108" parent="ShipContainer" index="109" instance=ExtResource( 36 )]
+[node name="Miner108" parent="ShipContainer" index="70" instance=ExtResource( 36 )]
 position = Vector2( 3935.18, 16750.3 )
 
-[node name="Miner109" parent="ShipContainer" index="110" instance=ExtResource( 36 )]
-position = Vector2( 3652.61, 16315.6 )
-
-[node name="Miner110" parent="ShipContainer" index="111" instance=ExtResource( 36 )]
-position = Vector2( 4695.95, 17576.3 )
-
-[node name="Miner111" parent="ShipContainer" index="112" instance=ExtResource( 36 )]
-position = Vector2( 5684.94, 18126.6 )
-
-[node name="Miner112" parent="ShipContainer" index="113" instance=ExtResource( 36 )]
-position = Vector2( 5239.35, 18267.9 )
-
-[node name="Miner113" parent="ShipContainer" index="114" instance=ExtResource( 36 )]
+[node name="Miner113" parent="ShipContainer" index="71" instance=ExtResource( 36 )]
 position = Vector2( 6869.57, 18039.7 )
 
-[node name="Miner114" parent="ShipContainer" index="115" instance=ExtResource( 36 )]
+[node name="Miner114" parent="ShipContainer" index="72" instance=ExtResource( 36 )]
 position = Vector2( 8086.8, 17702.8 )
 
-[node name="Miner115" parent="ShipContainer" index="116" instance=ExtResource( 36 )]
-position = Vector2( 6456.58, 18767.8 )
-
-[node name="Miner116" parent="ShipContainer" index="117" instance=ExtResource( 36 )]
-position = Vector2( 8282.42, 17115.9 )
-
-[node name="Miner117" parent="ShipContainer" index="118" instance=ExtResource( 36 )]
+[node name="Miner117" parent="ShipContainer" index="73" instance=ExtResource( 36 )]
 position = Vector2( 10325.6, 16779 )
 
-[node name="Miner118" parent="ShipContainer" index="119" instance=ExtResource( 36 )]
-position = Vector2( 9923.51, 13018.6 )
-
-[node name="Miner119" parent="ShipContainer" index="120" instance=ExtResource( 36 )]
-position = Vector2( 9467.05, 12833.8 )
-
-[node name="Miner120" parent="ShipContainer" index="121" instance=ExtResource( 36 )]
-position = Vector2( 9249.68, 12801.2 )
-
-[node name="Miner121" parent="ShipContainer" index="122" instance=ExtResource( 36 )]
-position = Vector2( 9488.78, 12388.2 )
-
-[node name="Miner122" parent="ShipContainer" index="123" instance=ExtResource( 36 )]
+[node name="Miner122" parent="ShipContainer" index="74" instance=ExtResource( 36 )]
 position = Vector2( 7912.91, 12420.8 )
 
-[node name="Miner123" parent="ShipContainer" index="124" instance=ExtResource( 36 )]
-position = Vector2( 8619.33, 12290.4 )
-
-[node name="Miner124" parent="ShipContainer" index="125" instance=ExtResource( 36 )]
+[node name="Miner124" parent="ShipContainer" index="75" instance=ExtResource( 36 )]
 position = Vector2( 6739.15, 12605.6 )
 
-[node name="Miner125" parent="ShipContainer" index="126" instance=ExtResource( 36 )]
+[node name="Miner125" parent="ShipContainer" index="76" instance=ExtResource( 36 )]
 position = Vector2( 6347.9, 12290.4 )
 
-[node name="Miner126" parent="ShipContainer" index="127" instance=ExtResource( 36 )]
-position = Vector2( 6717.41, 12594.7 )
-
-[node name="Miner127" parent="ShipContainer" index="128" instance=ExtResource( 36 )]
-position = Vector2( 6021.85, 12996.9 )
-
-[node name="Miner128" parent="ShipContainer" index="129" instance=ExtResource( 36 )]
+[node name="Miner128" parent="ShipContainer" index="77" instance=ExtResource( 36 )]
 position = Vector2( 5793.62, 13290.3 )
 
-[node name="Miner129" parent="ShipContainer" index="130" instance=ExtResource( 36 )]
-position = Vector2( 5315.43, 14181.5 )
-
-[node name="Miner130" parent="ShipContainer" index="131" instance=ExtResource( 36 )]
+[node name="Miner130" parent="ShipContainer" index="78" instance=ExtResource( 36 )]
 position = Vector2( 5619.73, 14268.4 )
 
-[node name="Miner131" parent="ShipContainer" index="132" instance=ExtResource( 36 )]
+[node name="Miner131" parent="ShipContainer" index="79" instance=ExtResource( 36 )]
 position = Vector2( 5315.43, 15116.1 )
 
-[node name="Miner132" parent="ShipContainer" index="133" instance=ExtResource( 36 )]
-position = Vector2( 5880.57, 15137.9 )
-
-[node name="Miner133" parent="ShipContainer" index="134" instance=ExtResource( 36 )]
-position = Vector2( 5902.31, 15713.9 )
-
-[node name="Miner134" parent="ShipContainer" index="135" instance=ExtResource( 36 )]
-position = Vector2( 5869.7, 16279 )
-
-[node name="Miner135" parent="ShipContainer" index="136" instance=ExtResource( 36 )]
-position = Vector2( 6445.71, 16855 )
-
-[node name="Miner136" parent="ShipContainer" index="137" instance=ExtResource( 36 )]
+[node name="Miner136" parent="ShipContainer" index="80" instance=ExtResource( 36 )]
 position = Vector2( 7402.11, 15887.8 )
 
-[node name="Miner137" parent="ShipContainer" index="138" instance=ExtResource( 36 )]
-position = Vector2( 8021.59, 14898.8 )
-
-[node name="Miner138" parent="ShipContainer" index="139" instance=ExtResource( 36 )]
+[node name="Miner138" parent="ShipContainer" index="81" instance=ExtResource( 36 )]
 position = Vector2( 7532.52, 14670.5 )
 
-[node name="Miner139" parent="ShipContainer" index="140" instance=ExtResource( 36 )]
+[node name="Miner139" parent="ShipContainer" index="82" instance=ExtResource( 36 )]
 position = Vector2( 8260.69, 14018.5 )
 
-[node name="Miner140" parent="ShipContainer" index="141" instance=ExtResource( 36 )]
-position = Vector2( 8641.07, 15083.5 )
-
-[node name="Miner141" parent="ShipContainer" index="142" instance=ExtResource( 36 )]
+[node name="Miner141" parent="ShipContainer" index="83" instance=ExtResource( 36 )]
 position = Vector2( 29612.6, 17437.5 )
 
-[node name="Miner142" parent="ShipContainer" index="143" instance=ExtResource( 36 )]
+[node name="Miner142" parent="ShipContainer" index="84" instance=ExtResource( 36 )]
 position = Vector2( 28988, 17073.1 )
 
-[node name="Miner143" parent="ShipContainer" index="144" instance=ExtResource( 36 )]
+[node name="Miner143" parent="ShipContainer" index="85" instance=ExtResource( 36 )]
 position = Vector2( 24374.4, 18153.3 )
 
-[node name="Miner144" parent="ShipContainer" index="145" instance=ExtResource( 36 )]
+[node name="Miner144" parent="ShipContainer" index="86" instance=ExtResource( 36 )]
 position = Vector2( 24901.5, 18146.8 )
 
-[node name="Miner145" parent="ShipContainer" index="146" instance=ExtResource( 36 )]
+[node name="Miner145" parent="ShipContainer" index="87" instance=ExtResource( 36 )]
 position = Vector2( 21185.9, 11431.4 )
 
-[node name="Miner146" parent="ShipContainer" index="147" instance=ExtResource( 36 )]
+[node name="Miner146" parent="ShipContainer" index="88" instance=ExtResource( 36 )]
 position = Vector2( 22825.7, 13123.3 )
 
-[node name="Miner147" parent="ShipContainer" index="148" instance=ExtResource( 36 )]
+[node name="Miner147" parent="ShipContainer" index="89" instance=ExtResource( 36 )]
 position = Vector2( 22279.1, 11939 )
 rotation = 1.5515
 
-[node name="Miner148" parent="ShipContainer" index="149" instance=ExtResource( 36 )]
+[node name="Miner148" parent="ShipContainer" index="90" instance=ExtResource( 36 )]
 position = Vector2( 24101.1, 13930.2 )
 
-[node name="Miner149" parent="ShipContainer" index="150" instance=ExtResource( 36 )]
+[node name="Miner149" parent="ShipContainer" index="91" instance=ExtResource( 36 )]
 position = Vector2( 26001.2, 15179.5 )
 
-[node name="Miner150" parent="ShipContainer" index="151" instance=ExtResource( 36 )]
+[node name="Miner150" parent="ShipContainer" index="92" instance=ExtResource( 36 )]
 position = Vector2( 26645.4, 13299 )
 
-[node name="Miner151" parent="ShipContainer" index="152" instance=ExtResource( 36 )]
+[node name="Miner151" parent="ShipContainer" index="93" instance=ExtResource( 36 )]
 position = Vector2( 27179, 15277.2 )
 
-[node name="Miner152" parent="ShipContainer" index="153" instance=ExtResource( 36 )]
+[node name="Miner152" parent="ShipContainer" index="94" instance=ExtResource( 36 )]
 position = Vector2( 23450.4, 14737.1 )
 
-[node name="Miner153" parent="ShipContainer" index="154" instance=ExtResource( 36 )]
+[node name="Miner153" parent="ShipContainer" index="95" instance=ExtResource( 36 )]
 position = Vector2( 19728.3, 17326.9 )
 rotation = 2.61229
 
-[node name="Miner154" parent="ShipContainer" index="155" instance=ExtResource( 36 )]
+[node name="Miner154" parent="ShipContainer" index="96" instance=ExtResource( 36 )]
 position = Vector2( 19032, 16402.9 )
 rotation = -1.76463
 
@@ -4332,8 +4155,8 @@ shape = SubResource( 6 )
 
 [node name="WindRevealTrigger" type="Node" parent="TriggerContainer" index="7"]
 script = ExtResource( 59 )
-[connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/WindRevealTrigger" method="_on_KeyPickup_picked_up" flags=3]
 [connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
+[connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/WindRevealTrigger" method="_on_KeyPickup_picked_up" flags=3]
 [connection signal="wire_switch" from="Scenery/StartingRoom/Building/SpiralGenerator" to="TriggerContainer/SpiralEnterTrigger" method="_on_SpiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/Spiral/InspiralGenerator" to="TriggerContainer/SpiralTrigger" method="_on_InspiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/KeyRoom/Wires/KeyWirererBottom" to="TriggerContainer/KeyRoomTrigger" method="_on_bottom_generator_switch"]
