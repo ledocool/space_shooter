@@ -2,6 +2,7 @@ extends Node
 class_name SaveManager
 
 var SaveDirectory
+var NodeCache: Dictionary
 
 func GetSaveList():
 	SaveDirectory.list_dir_begin()
@@ -17,6 +18,7 @@ func GetSaveList():
 				
 	return saves
 
+
 func LoadSaveGame(savename: String):
 	var save = File.new()
 	if(!savename.ends_with(".sav")):
@@ -27,6 +29,7 @@ func LoadSaveGame(savename: String):
 	var compressedSave = save.get_as_text()
 	return _unserializeData(compressedSave)
 
+
 func CreateSaveGame(savename: String, levelName: String, levelIndex: int, ships: Array, bullets: Array, asteroids: Array, scenery: Array, items: Array, triggers: Array, statistics: Dictionary):
 	var savedata = _serializeData(levelName, levelIndex, ships, bullets, asteroids, items, scenery, triggers, statistics)
 	var save = File.new()
@@ -36,11 +39,13 @@ func CreateSaveGame(savename: String, levelName: String, levelIndex: int, ships:
 	save.store_line(savedata)
 	save.close()
 
+
 func _init():
 	SaveDirectory = Directory.new()
 	if(SaveDirectory.open("user://save/") > 0):
 		SaveDirectory.make_dir("user://save/")
 		SaveDirectory.open("user://save/")
+
 
 func _serializeData(levelName: String, levelIndex: int, ships: Array, bullets: Array, asteroids: Array, items: Array, scenery: Array, triggers: Array, statistics: Dictionary) -> String:
 	var savedata = {
@@ -89,6 +94,7 @@ func _serializeData(levelName: String, levelIndex: int, ships: Array, bullets: A
 	
 	return to_json(savedata)
 
+
 func _unserializeData(data: String):
 	var validated = validate_json(data)
 	if(validated != ""):
@@ -99,7 +105,6 @@ func _unserializeData(data: String):
 		return null
 	
 	if(!uncompressedData.has("statistics") 
-		|| !uncompressedData.has("levelName")
 		|| !uncompressedData.has("levelName")
 		|| !uncompressedData.has("levelIndex")
 		|| !uncompressedData.has("triggers")
@@ -122,6 +127,8 @@ func _unserializeData(data: String):
 		"levelIndex": uncompressedData.levelIndex,
 		"triggers": uncompressedData.triggers
 	}
+	
+	NodeCache = Dictionary() #clean node cache
 
 	for object in uncompressedData.ships:
 		var node = _unpackNode(object)
@@ -157,9 +164,12 @@ func _unserializeData(data: String):
 			savedata.scenery.append(node)
 		else:
 			return null
-			
-	return savedata
 	
+	NodeCache = Dictionary() #clean node cache
+	
+	return savedata
+
+
 func _packNode(node: Node):
 	if(node.has_method("Save")):
 		var d = {
@@ -172,8 +182,15 @@ func _packNode(node: Node):
 	
 	return null
 
+
 func _unpackNode(object: Dictionary):
-	var packedScene = load(object.name) as PackedScene
+	var packedScene = null
+	if(NodeCache.has(object.name)):
+		packedScene = NodeCache.get(object.name)
+	else:
+		packedScene = load(object.name) as PackedScene
+		NodeCache[object.name] = packedScene
+		
 	if(packedScene):
 		var node = packedScene.instance()
 		if(node.has_method("Load")):

@@ -4113,6 +4113,8 @@ texture = ExtResource( 66 )
 position = Vector2( 3716.01, 2540.27 )
 texture = ExtResource( 68 )
 
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Foreground" index="2"]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
 position = Vector2( 6996.52, -4816.88 )
 rotation = 1.5708
