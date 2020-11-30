@@ -24,9 +24,10 @@ __meta__ = {
 
 [node name="Main" type="Label" parent="Background/MarginContainer/Control/VBoxContainer" index="0"]
 margin_right = 1840.0
-margin_bottom = 101.0
+margin_bottom = 153.0
 custom_fonts/font = ExtResource( 2 )
-text = "This game was brought to you by:
+text = "brought_by
+
 "
 align = 1
 autowrap = true
@@ -36,9 +37,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Background/MarginContainer/Control/VBoxContainer" index="1"]
-margin_top = 105.0
+margin_top = 157.0
 margin_right = 1840.0
-margin_bottom = 206.0
+margin_bottom = 258.0
 theme = ExtResource( 1 )
 text = "Code, Graphics - Dmitrii Kollerov aka ledocool
 Music - Amir Galimov aka LazyGonzalez"
@@ -54,8 +55,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -65.0
 margin_top = -25.0
-margin_right = 65.0
+margin_right = 85.0
 margin_bottom = 0.0
-rect_min_size = Vector2( 150, 22 )
 Text = "Close"
 [connection signal="pressed" from="Background/MarginContainer/Control/MenuButton" to="." method="_on_MenuButton_pressed"]

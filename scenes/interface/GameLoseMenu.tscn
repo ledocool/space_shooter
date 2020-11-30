@@ -26,7 +26,7 @@ margin_right = 1840.0
 margin_bottom = 114.0
 theme = ExtResource( 3 )
 custom_fonts/font = ExtResource( 4 )
-text = "You are dead"
+text = "you_dead"
 align = 1
 valign = 1
 
@@ -52,15 +52,13 @@ __meta__ = {
 }
 
 [node name="Retry" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="0" instance=ExtResource( 5 )]
-margin_right = 150.0
 margin_bottom = 22.0
-Text = "Retry"
+Text = "retry"
 
 [node name="Exit" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="1" instance=ExtResource( 5 )]
 margin_top = 37.0
-margin_right = 150.0
 margin_bottom = 59.0
-Text = "Exit"
+Text = "exit"
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="1"]
 margin_left = 412.0
@@ -80,85 +78,85 @@ __meta__ = {
 }
 
 [node name="Statistics" type="VBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer" index="0"]
-margin_right = 251.0
+margin_right = 248.0
 margin_bottom = 141.0
 
 [node name="shots_fired" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="0"]
-margin_right = 251.0
+margin_right = 248.0
 margin_bottom = 25.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/shots_fired" index="0"]
-margin_right = 120.0
+margin_right = 117.0
 margin_bottom = 25.0
-text = "Shots fired:"
+text = "shots_fired"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/shots_fired" index="1"]
-margin_left = 124.0
-margin_right = 166.0
+margin_left = 121.0
+margin_right = 163.0
 margin_bottom = 25.0
 text = "999"
 
 [node name="damage_dealt" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="1"]
 margin_top = 29.0
-margin_right = 251.0
+margin_right = 248.0
 margin_bottom = 54.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/damage_dealt" index="0"]
-margin_right = 151.0
+margin_right = 148.0
 margin_bottom = 25.0
-text = "Damage dealt:"
+text = "damage_dealt"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/damage_dealt" index="1"]
-margin_left = 155.0
-margin_right = 197.0
+margin_left = 152.0
+margin_right = 194.0
 margin_bottom = 25.0
 text = "999"
 
 [node name="enemies_killed" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="2"]
 margin_top = 58.0
-margin_right = 251.0
+margin_right = 248.0
 margin_bottom = 83.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/enemies_killed" index="0"]
-margin_right = 155.0
+margin_right = 153.0
 margin_bottom = 25.0
-text = "Enemies killed:"
+text = "enemies_killed"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/enemies_killed" index="1"]
-margin_left = 159.0
-margin_right = 201.0
+margin_left = 157.0
+margin_right = 199.0
 margin_bottom = 25.0
 text = "999"
 
 [node name="accuracy" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="3"]
 margin_top = 87.0
-margin_right = 251.0
+margin_right = 248.0
 margin_bottom = 112.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/accuracy" index="0"]
-margin_right = 105.0
+margin_right = 96.0
 margin_bottom = 25.0
-text = "Accuracy:"
+text = "accuracy"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/accuracy" index="1"]
-margin_left = 109.0
-margin_right = 172.0
+margin_left = 100.0
+margin_right = 163.0
 margin_bottom = 25.0
 text = "999%"
 
 [node name="secrets_found" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="4"]
 margin_top = 116.0
-margin_right = 251.0
+margin_right = 248.0
 margin_bottom = 141.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/secrets_found" index="0"]
-margin_right = 153.0
+margin_right = 150.0
 margin_bottom = 25.0
-text = "Secrets found:"
+text = "secrets_found"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/secrets_found" index="1"]
-margin_left = 157.0
-margin_right = 251.0
+margin_left = 154.0
+margin_right = 248.0
 margin_bottom = 25.0
 text = "999/999"
 [connection signal="visibility_changed" from="." to="." method="_on_MenuBoard_visibility_changed"]

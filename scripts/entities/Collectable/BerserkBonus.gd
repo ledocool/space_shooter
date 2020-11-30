@@ -8,5 +8,5 @@ func _init():
 	data.name = "berzerk"
 	data.info = {
 		"status": BerserkStatus.new(),
-		"popup_message": "Berserk"
+		"popup_message": tr("berserk")
 	}

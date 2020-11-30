@@ -34,7 +34,7 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Asteroid3.tscn" type="PackedScene" id=32]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Doomguy.tscn" type="PackedScene" id=33]
 [ext_resource path="res://scenes/effects/WindEffect.tscn" type="PackedScene" id=34]
-[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Miner.tscn" type="PackedScene" id=35]
+[ext_resource path="res://resources/Objects/Ships/behemoth.png" type="Texture" id=35]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
@@ -56,84 +56,6 @@ RightCameraBorder = 1000000
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -1254.45, -1388.67 )
 ShipCurrentHealth = 2
-
-[node name="Miner" parent="ShipContainer" index="1" instance=ExtResource( 35 )]
-position = Vector2( -1936.83, -126.923 )
-
-[node name="Miner2" parent="ShipContainer" index="2" instance=ExtResource( 35 )]
-position = Vector2( -730.391, 0.587158 )
-
-[node name="Miner3" parent="ShipContainer" index="3" instance=ExtResource( 35 )]
-position = Vector2( -1171.77, 196.757 )
-
-[node name="Miner4" parent="ShipContainer" index="4" instance=ExtResource( 35 )]
-position = Vector2( -1755.38, 255.607 )
-
-[node name="Miner5" parent="ShipContainer" index="5" instance=ExtResource( 35 )]
-position = Vector2( -1436.6, -367.231 )
-
-[node name="Miner6" parent="ShipContainer" index="6" instance=ExtResource( 35 )]
-position = Vector2( -1593.54, -38.6469 )
-
-[node name="Miner7" parent="ShipContainer" index="7" instance=ExtResource( 35 )]
-position = Vector2( -1451.31, -48.4553 )
-
-[node name="Miner8" parent="ShipContainer" index="8" instance=ExtResource( 35 )]
-position = Vector2( -1127.63, -126.923 )
-
-[node name="Miner9" parent="ShipContainer" index="9" instance=ExtResource( 35 )]
-position = Vector2( -1166.87, -386.848 )
-
-[node name="Miner10" parent="ShipContainer" index="10" instance=ExtResource( 35 )]
-position = Vector2( -857.901, -308.38 )
-
-[node name="Miner11" parent="ShipContainer" index="11" instance=ExtResource( 35 )]
-position = Vector2( -1843.65, -411.369 )
-
-[node name="Miner12" parent="ShipContainer" index="12" instance=ExtResource( 35 )]
-position = Vector2( -2108.48, 123.193 )
-
-[node name="Miner13" parent="ShipContainer" index="13" instance=ExtResource( 35 )]
-position = Vector2( -1564.11, 388.022 )
-
-[node name="Miner14" parent="ShipContainer" index="14" instance=ExtResource( 35 )]
-position = Vector2( -941.273, 392.926 )
-
-[node name="Miner15" parent="ShipContainer" index="15" instance=ExtResource( 35 )]
-position = Vector2( -1338.52, 476.298 )
-
-[node name="Miner16" parent="ShipContainer" index="16" instance=ExtResource( 35 )]
-position = Vector2( -553.838, 402.735 )
-
-[node name="Miner17" parent="ShipContainer" index="17" instance=ExtResource( 35 )]
-position = Vector2( -857.901, 186.948 )
-
-[node name="Miner18" parent="ShipContainer" index="18" instance=ExtResource( 35 )]
-position = Vector2( -666.636, -215.199 )
-
-[node name="Miner19" parent="ShipContainer" index="19" instance=ExtResource( 35 )]
-position = Vector2( -647.019, -519.262 )
-
-[node name="Miner20" parent="ShipContainer" index="20" instance=ExtResource( 35 )]
-position = Vector2( -902.039, -622.251 )
-
-[node name="Miner21" parent="ShipContainer" index="21" instance=ExtResource( 35 )]
-position = Vector2( -1304.19, -671.294 )
-
-[node name="Miner22" parent="ShipContainer" index="22" instance=ExtResource( 35 )]
-position = Vector2( -2240.9, -136.732 )
-
-[node name="Miner23" parent="ShipContainer" index="23" instance=ExtResource( 35 )]
-position = Vector2( -2196.76, -484.932 )
-
-[node name="Miner24" parent="ShipContainer" index="24" instance=ExtResource( 35 )]
-position = Vector2( -2211.47, 383.118 )
-
-[node name="Miner25" parent="ShipContainer" index="25" instance=ExtResource( 35 )]
-position = Vector2( -1931.93, 471.394 )
-
-[node name="Miner26" parent="ShipContainer" index="26" instance=ExtResource( 35 )]
-position = Vector2( -1725.95, 696.989 )
 
 [node name="Asteroid" parent="AsteroidContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -1999.14, -2220.36 )
@@ -211,6 +133,8 @@ position = Vector2( -2063.85, -1315.97 )
 position = Vector2( -1850.58, -1337.6 )
 chainAmount = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
+StartNodeRotation = 0
+EndNodeRotation = 0
 
 [node name="LevelExit" parent="Scenery" index="0" instance=ExtResource( 12 )]
 position = Vector2( 9063.01, -2105.9 )
@@ -469,4 +393,8 @@ shape = SubResource( 2 )
 position = Vector2( 66.7153, -3702.72 )
 
 [node name="Wind" parent="." index="14" instance=ExtResource( 34 )]
+
+[node name="behemoth" type="Sprite" parent="." index="15"]
+position = Vector2( 1682.5, 1388.49 )
+texture = ExtResource( 35 )
 [connection signal="body_entered" from="TriggerContainer/Area2D" to="Scenery/AlienDoor" method="_on_Area2D_body_entered"]

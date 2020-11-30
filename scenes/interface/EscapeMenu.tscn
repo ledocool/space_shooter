@@ -47,34 +47,29 @@ margin_bottom = 625.0
 custom_constants/separation = 15
 
 [node name="Resume" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
-margin_right = 150.0
 margin_bottom = 22.0
-Text = "Resume"
+Text = "resume"
 
 [node name="Save game" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 margin_top = 37.0
-margin_right = 150.0
 margin_bottom = 59.0
-Text = "Save game"
+Text = "save_game"
 
 [node name="Load game" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 margin_top = 74.0
-margin_right = 150.0
 margin_bottom = 96.0
-Text = "Load game"
+Text = "load_game"
 
 [node name="Options" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 margin_top = 111.0
-margin_right = 150.0
 margin_bottom = 133.0
-Text = "Options"
+Text = "options"
 disabled = true
 
 [node name="Exit" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 margin_top = 148.0
-margin_right = 150.0
 margin_bottom = 170.0
-Text = "Exit"
+Text = "exit"
 
 [node name="CheatMenuEnabler" type="Node2D" parent="."]
 z_index = 1000

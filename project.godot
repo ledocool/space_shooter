@@ -437,6 +437,11 @@ cheat0={
 2d_physics/layer_10="Tool Layer"
 2d_physics/layer_20="Vilibility"
 
+[locale]
+
+translations=PoolStringArray( "res://language/localization.ru.translation", "res://language/localization.en.translation" )
+locale_filter=[ 0, [ "ak_GH", "en", "ru" ] ]
+
 [logging]
 
 file_logging/enable_file_logging=true

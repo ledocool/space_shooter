@@ -6,5 +6,5 @@ func _init():
 	data.name = "rocketeer"
 	data.info = {
 		"ammo": 5,
-		"popup_message": "Rocketeer"
+		"popup_message": tr("rocketeer")
 	}

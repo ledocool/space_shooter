@@ -67,5 +67,4 @@ margin_left = 888.0
 margin_top = 109.0
 margin_right = 1038.0
 margin_bottom = 131.0
-rect_min_size = Vector2( 150, 22 )
 [connection signal="pressed" from="MenuBoard/Control/MarginContainer/CenterContainer/Ok" to="." method="_on_Ok_pressed"]

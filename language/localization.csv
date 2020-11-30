@@ -1,0 +1,38 @@
+keys,en,ru
+new_game,New Game,Начать
+load_game,Load Game,Загрузить
+save_game,Save Game,Сохранить
+options,Options,Настройки
+playground,Playground,Песочница
+credits,Credits,Титры
+exit,Exit,Выход
+resume,Resume,Продолжить
+retry,Retry,Повторить
+next_level,Next Level,Далее
+,,
+engine_hint,Press [Right Mouse Button] to fire your engine,Нажмите [Правая кнопка мыши] чтобы активировать двигатель
+generator_hint,People of this land use brittle tubes of glass to generate energy for their contraptions,Люди в этих местах используют хрупкие трубки из стекла для производства электричества
+gun_hint,To fire your weapon press [LEFT MOUSE BUTTON],чтобы выстрелить нажми {Левая кнопка мыши]
+switch_hint,Remember that you can always switch your weapons pressing [1...9]!,"Товарищ, помни! Оружие меняется на кнопки [1..9]!"
+,,
+brought_by,This game was brought to you by:,Над игрой работали:
+credits_text,,
+,,
+level_cleared,Level cleared,Уровень пройден
+you_dead,You are dead,Вы мертвы
+shots_fired,Shots fired:,Выстрелов сделано:
+damage_dealt,Damage dealt:,Урона нанесено:
+enemies_killed,Enemies killed:,Противников уничтожено:
+accuracy,Accuracy:,Точность:
+secrets_found,Secrets found:,Секретов найдено:
+,,
+loading,Loading,Загрузка
+,,
+slug_cannon,Slug Cannon,Пушка
+rocketeer,Rocketeer,Рокетир
+,,
+berserk,Berserk,Берсерк
+gearpak,Gearpak HP+Gearpak HP+,
+the_odd_cube,the Odd cube,Странный Куб
+quad_damage,Quad Damage,Квадроурон
+speed_bonus,Engine Burst,Форсаж Двигателя
