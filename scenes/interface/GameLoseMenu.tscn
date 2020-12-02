@@ -54,12 +54,17 @@ __meta__ = {
 }
 
 [node name="Retry" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="0" instance=ExtResource( 5 )]
-margin_bottom = 22.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+rect_min_size = Vector2( 150, 22 )
 Text = "retry"
 
 [node name="Exit" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="1" instance=ExtResource( 5 )]
-margin_top = 37.0
-margin_bottom = 59.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 40.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 150, 22 )
 Text = "exit"
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="1"]
