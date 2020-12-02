@@ -36,3 +36,10 @@ gearpak,Gearpak HP+Gearpak HP+,
 the_odd_cube,the Odd cube,Странный Куб
 quad_damage,Quad Damage,Квадроурон
 speed_bonus,Engine Burst,Форсаж Двигателя
+,,
+graphic_settings,Graphic Settings,Настройки графики
+window_mode,Window Mode,Режим отображения
+,,
+borderless_setting,Borderless,Без рамки
+fullscreen_setting,Fullscreen,Во весь экран
+windowed_setting,Windowed,В окне

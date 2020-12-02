@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/interface/MenuBoard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/ui/GameLoseMenu.gd" type="Script" id=2]
 [ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=3]
 [ext_resource path="res://resources/Ui/Styles/header_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/Ui/Styles/theme.tres" type="Theme" id=6]
 
 [node name="GameLoseMenu" instance=ExtResource( 1 )]
 size_flags_horizontal = 5
 size_flags_vertical = 5
+theme = ExtResource( 6 )
 script = ExtResource( 2 )
 
 [node name="MarginContainer" parent="Background" index="0"]
@@ -24,7 +26,7 @@ dragger_visibility = 1
 margin_top = 65.0
 margin_right = 1840.0
 margin_bottom = 114.0
-theme = ExtResource( 3 )
+theme = ExtResource( 6 )
 custom_fonts/font = ExtResource( 4 )
 text = "you_dead"
 align = 1
@@ -73,91 +75,92 @@ theme = ExtResource( 3 )
 [node name="ScrollContainer" type="ScrollContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Statistics" type="VBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer" index="0"]
-margin_right = 248.0
-margin_bottom = 141.0
+margin_right = 517.0
+margin_bottom = 261.0
 
 [node name="shots_fired" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="0"]
-margin_right = 248.0
-margin_bottom = 25.0
+margin_right = 517.0
+margin_bottom = 49.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/shots_fired" index="0"]
-margin_right = 117.0
-margin_bottom = 25.0
+margin_right = 247.0
+margin_bottom = 49.0
 text = "shots_fired"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/shots_fired" index="1"]
-margin_left = 121.0
-margin_right = 163.0
-margin_bottom = 25.0
+margin_left = 251.0
+margin_right = 341.0
+margin_bottom = 49.0
 text = "999"
 
 [node name="damage_dealt" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="1"]
-margin_top = 29.0
-margin_right = 248.0
-margin_bottom = 54.0
+margin_top = 53.0
+margin_right = 517.0
+margin_bottom = 102.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/damage_dealt" index="0"]
-margin_right = 148.0
-margin_bottom = 25.0
+margin_right = 305.0
+margin_bottom = 49.0
 text = "damage_dealt"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/damage_dealt" index="1"]
-margin_left = 152.0
-margin_right = 194.0
-margin_bottom = 25.0
+margin_left = 309.0
+margin_right = 399.0
+margin_bottom = 49.0
 text = "999"
 
 [node name="enemies_killed" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="2"]
-margin_top = 58.0
-margin_right = 248.0
-margin_bottom = 83.0
+margin_top = 106.0
+margin_right = 517.0
+margin_bottom = 155.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/enemies_killed" index="0"]
-margin_right = 153.0
-margin_bottom = 25.0
+margin_right = 320.0
+margin_bottom = 49.0
 text = "enemies_killed"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/enemies_killed" index="1"]
-margin_left = 157.0
-margin_right = 199.0
-margin_bottom = 25.0
+margin_left = 324.0
+margin_right = 414.0
+margin_bottom = 49.0
 text = "999"
 
 [node name="accuracy" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="3"]
-margin_top = 87.0
-margin_right = 248.0
-margin_bottom = 112.0
+margin_top = 159.0
+margin_right = 517.0
+margin_bottom = 208.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/accuracy" index="0"]
-margin_right = 96.0
-margin_bottom = 25.0
+margin_right = 196.0
+margin_bottom = 49.0
 text = "accuracy"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/accuracy" index="1"]
-margin_left = 100.0
-margin_right = 163.0
-margin_bottom = 25.0
+margin_left = 200.0
+margin_right = 334.0
+margin_bottom = 49.0
 text = "999%"
 
 [node name="secrets_found" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="4"]
-margin_top = 116.0
-margin_right = 248.0
-margin_bottom = 141.0
+margin_top = 212.0
+margin_right = 517.0
+margin_bottom = 261.0
 
 [node name="text" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/secrets_found" index="0"]
-margin_right = 150.0
-margin_bottom = 25.0
+margin_right = 312.0
+margin_bottom = 49.0
 text = "secrets_found"
 
 [node name="value" type="Label" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics/secrets_found" index="1"]
-margin_left = 154.0
-margin_right = 248.0
-margin_bottom = 25.0
+margin_left = 316.0
+margin_right = 517.0
+margin_bottom = 49.0
 text = "999/999"
 [connection signal="visibility_changed" from="." to="." method="_on_MenuBoard_visibility_changed"]
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList/Retry" to="." method="_on_Retry_pressed"]

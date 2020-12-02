@@ -14,6 +14,7 @@ func _ready():
 	self.rect_min_size = Vector2(150, 22)
 # warning-ignore:unsafe_property_access
 	$MenuButton.text = Text
+	
 
 
 func _on_MenuButton_pressed():

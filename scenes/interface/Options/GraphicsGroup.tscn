@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/interface/Options/MenuGroup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/ui/GraphicsGroup.gd" type="Script" id=3]
+[ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=4]
+
+[node name="GraphicsGroup" instance=ExtResource( 1 )]
+theme = ExtResource( 4 )
+script = ExtResource( 3 )
+
+[node name="Label" parent="VBoxContainer" index="0"]
+margin_right = 173.0
+text = "graphic_settings"
+
+[node name="Contents" parent="VBoxContainer" index="1"]
+margin_right = 173.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents" index="0"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer/Contents/VBoxContainer" index="0"]
+margin_right = 238.0
+margin_bottom = 25.0
+text = "window_mode"
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Contents/VBoxContainer" index="1"]
+margin_top = 29.0
+margin_right = 238.0
+margin_bottom = 60.0
+text = "borderless_setting"
+items = [ "borderless_setting", null, false, 0, null, "fullscreen_setting", null, false, 1, null, "windowed_setting", null, false, 2, null ]
+selected = 0

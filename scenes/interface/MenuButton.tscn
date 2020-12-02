@@ -4,18 +4,26 @@
 [ext_resource path="res://scripts/ui/MenuButton.gd" type="Script" id=2]
 [ext_resource path="res://resources/Sound/button_press.wav" type="AudioStream" id=3]
 
-[node name="MenuButton" type="Control"]
+[node name="MenuButton" type="Container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 margin_right = 150.0
 margin_bottom = 25.0
-rect_min_size = Vector2( 150, 22 )
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 150, 31 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MenuButton" type="Button" parent="."]
-margin_right = 119.0
-margin_bottom = 25.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme = ExtResource( 1 )
 shortcut_in_tooltip = false
 text = "Menu Button"
