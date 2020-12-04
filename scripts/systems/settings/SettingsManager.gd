@@ -16,6 +16,29 @@ func GetVolume(bus: String) -> float:
 	var busIndex = AudioServer.get_bus_index(bus)
 	return AudioServer.get_bus_volume_db(busIndex)
 
+func SetWindowFullscreen():
+	OS.set_borderless_window(false)
+	OS.set_window_fullscreen(true)
+	
+func SetWindowBorderless():
+	OS.set_window_fullscreen(false)
+	OS.set_borderless_window(true)
+	
+func SetWindowWindowed():
+	OS.set_window_fullscreen(false)
+	OS.set_borderless_window(false)
+	
+func GetWindowMode():
+	pass
+	
+func SetRenderResolution(resolution: Vector2):
+	OS.set_window_size(resolution)
+	get_viewport().set_size_override(true, resolution, Vector2(0,0))
+	$"/root".size = resolution
+	
+func GetRenderResolution():
+	pass
+
 func GetKey(name: String):
 	var actionList = InputMap.get_action_list(name)
 	for action in actionList:

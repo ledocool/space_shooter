@@ -15,7 +15,7 @@ tab_align = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 67.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -23,16 +23,17 @@ margin_bottom = -4.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1832.0
-margin_bottom = 964.0
+margin_bottom = 929.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+LabelWidth = 10.0
 
 [node name="Sound" type="MarginContainer" parent="Background/MarginContainer/TabContainer" index="1"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 67.0
 margin_right = -4.0
 margin_bottom = -4.0
 
@@ -40,13 +41,13 @@ margin_bottom = -4.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1832.0
-margin_bottom = 964.0
+margin_bottom = 929.0
 
 [node name="Controls" type="MarginContainer" parent="Background/MarginContainer/TabContainer" index="2"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
-margin_top = 32.0
+margin_top = 67.0
 margin_right = -4.0
 margin_bottom = -4.0

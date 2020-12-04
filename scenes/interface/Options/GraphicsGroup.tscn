@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/interface/Options/MenuGroup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interface/Options/DropdownControl.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/ui/GraphicsGroup.gd" type="Script" id=3]
 [ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=4]
 
@@ -9,53 +10,53 @@ theme = ExtResource( 4 )
 script = ExtResource( 3 )
 
 [node name="Label" parent="VBoxContainer" index="0"]
-margin_right = 173.0
 text = "graphic_settings"
 
-[node name="Contents" parent="VBoxContainer" index="1"]
-margin_right = 173.0
-
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents" index="0"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1960.0
+margin_bottom = 1067.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="WindowModeContainer" type="VBoxContainer" parent="VBoxContainer/Contents/VBoxContainer" index="0"]
-margin_right = 238.0
-margin_bottom = 60.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Contents/VBoxContainer" index="0"]
+margin_right = 1960.0
+margin_bottom = 61.0
 
-[node name="Label" type="Label" parent="VBoxContainer/Contents/VBoxContainer/WindowModeContainer" index="0"]
-margin_right = 238.0
-margin_bottom = 25.0
+[node name="WindowModeDropdown" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer" index="0" instance=ExtResource( 2 )]
+margin_right = 1960.0
+margin_bottom = 61.0
+
+[node name="Label" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer/WindowModeDropdown" index="0"]
+margin_right = 1960.0
 text = "window_mode"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Contents/VBoxContainer/WindowModeContainer" index="1"]
-margin_top = 29.0
-margin_right = 238.0
-margin_bottom = 60.0
-text = "borderless_setting"
-items = [ "borderless_setting", null, false, 0, null, "fullscreen_setting", null, false, 1, null, "windowed_setting", null, false, 2, null ]
-selected = 0
+[node name="OptionButton" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer/WindowModeDropdown" index="1"]
+margin_right = 44.0
+text = ""
+items = [  ]
+selected = -1
 
-[node name="ResolutionContainer" type="VBoxContainer" parent="VBoxContainer/Contents/VBoxContainer" index="1"]
-margin_top = 64.0
-margin_right = 238.0
-margin_bottom = 124.0
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Contents/VBoxContainer" index="1"]
+margin_top = 65.0
+margin_right = 1960.0
+margin_bottom = 126.0
 
-[node name="Label" type="Label" parent="VBoxContainer/Contents/VBoxContainer/ResolutionContainer" index="0"]
-margin_right = 238.0
-margin_bottom = 25.0
+[node name="ResolutionDropdown" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer2" index="0" instance=ExtResource( 2 )]
+margin_right = 1960.0
+margin_bottom = 61.0
+
+[node name="Label" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer2/ResolutionDropdown" index="0"]
+margin_right = 1960.0
 text = "resolution_setting"
 
-[node name="OptionButton" type="OptionButton" parent="VBoxContainer/Contents/VBoxContainer/ResolutionContainer" index="1"]
-margin_top = 29.0
-margin_right = 238.0
-margin_bottom = 60.0
+[node name="OptionButton" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer2/ResolutionDropdown" index="1"]
+margin_right = 154.0
 text = "1366x768"
-items = [ "1366x768", null, false, 1, null, "1280x720", null, false, 3, null, "1920x1080", null, false, 2, null ]
-selected = 0
+items = [ "1366x768", null, false, 0, null, "1280x720", null, false, 1, null, "1920x1080", null, false, 2, null ]
+[connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/MarginContainer/WindowModeDropdown/OptionButton" to="." method="_on_ModeButton_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/MarginContainer2/ResolutionDropdown/OptionButton" to="." method="_on_ResolutionButton_item_selected"]
+
+[editable path="VBoxContainer/Contents/VBoxContainer/MarginContainer/WindowModeDropdown"]
+
+[editable path="VBoxContainer/Contents/VBoxContainer/MarginContainer2/ResolutionDropdown"]

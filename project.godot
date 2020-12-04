@@ -69,6 +69,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/systems/cheat/DestroyOnBumpActor.gd"
 }, {
+"base": "VBoxContainer",
+"class": "DropdownControl",
+"language": "GDScript",
+"path": "res://scripts/ui/DropdownControl.gd"
+}, {
 "base": "Collectable",
 "class": "Gearpak",
 "language": "GDScript",
@@ -232,6 +237,7 @@ _global_script_class_icons={
 "CustomShapeBilding": "",
 "DefaultState": "",
 "DestroyOnBumpActor": "",
+"DropdownControl": "",
 "Gearpak": "",
 "HealingStatus": "",
 "Hideable": "",

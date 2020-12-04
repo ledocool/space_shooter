@@ -32,7 +32,7 @@ slug_cannon,Slug Cannon,Пушка
 rocketeer,Rocketeer,Рокетир
 ,,
 berserk,Berserk,Берсерк
-gearpak,Gearpak HP+Gearpak HP+,
+gearpak,Gearpak HP+,Gearpak HP+
 the_odd_cube,the Odd cube,Странный Куб
 quad_damage,Quad Damage,Квадроурон
 speed_bonus,Engine Burst,Форсаж Двигателя
@@ -43,3 +43,9 @@ window_mode,Window Mode,Режим отображения
 borderless_setting,Borderless,Без рамки
 fullscreen_setting,Fullscreen,Во весь экран
 windowed_setting,Windowed,В окне
+resolution_setting,Resolution,Разрешение
+,,
+sound_settings,Sound Settings,Настройки звука
+master_volume,Master Volume,Общая громкость
+music_volume,Music Volume,Громкость музыки
+sfx_volume,Effect Volume,Громкость эффектов

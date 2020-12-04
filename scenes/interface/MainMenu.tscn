@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/ui/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://resources/Backgrounds/Menu background.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/interface/SaveLoad/LoadMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/interface/CreditsMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/Music/s2-2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://scenes/interface/Options/OptionsMenu.tscn" type="PackedScene" id=7]
 
 [node name="Main menu" type="Control"]
 pause_mode = 2
@@ -53,38 +54,59 @@ margin_bottom = 650.0
 custom_constants/vseparation = 11
 
 [node name="New game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_bottom = 22.0
+rect_min_size = Vector2( 150, 22 )
 Text = "new_game"
 
 [node name="Quicktart" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 33.0
 margin_bottom = 55.0
+rect_min_size = Vector2( 150, 22 )
 Text = "Level 2"
 
 [node name="Load game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 66.0
 margin_bottom = 88.0
+rect_min_size = Vector2( 150, 22 )
 Text = "load_game"
 
 [node name="Options" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 99.0
 margin_bottom = 121.0
+rect_min_size = Vector2( 150, 22 )
 Text = "options"
 disabled = true
 
 [node name="Playground" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 132.0
 margin_bottom = 154.0
+rect_min_size = Vector2( 150, 22 )
 Text = "playground"
 
 [node name="Credits" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 165.0
 margin_bottom = 187.0
+rect_min_size = Vector2( 150, 22 )
 Text = "credits"
 
 [node name="Exit" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 198.0
 margin_bottom = 220.0
+rect_min_size = Vector2( 150, 22 )
 Text = "exit"
 
 [node name="Control" type="Control" parent="HSplitContainer"]
@@ -112,6 +134,12 @@ margin_bottom = 1040.0
 
 [node name="CreditsMenu" parent="HSplitContainer/Control/RightMenus" instance=ExtResource( 5 )]
 visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1140.0
+margin_bottom = 1040.0
+
+[node name="OptionsMenu" parent="HSplitContainer/Control/RightMenus" instance=ExtResource( 7 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1140.0
