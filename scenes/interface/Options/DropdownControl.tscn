@@ -3,29 +3,42 @@
 [ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/ui/DropdownControl.gd" type="Script" id=2]
 
-[node name="WindowModeContainer" type="VBoxContainer"]
-margin_right = 238.0
-margin_bottom = 60.0
+[node name="WindowModeContainer" type="Control"]
+anchor_right = 1.0
+margin_bottom = 31.0
+rect_min_size = Vector2( 0, 31 )
+size_flags_horizontal = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowModeContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 31.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 theme = ExtResource( 1 )
-custom_constants/separation = 5
-script = ExtResource( 2 )
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="."]
-margin_right = 238.0
-margin_bottom = 25.0
+[node name="Label" type="Label" parent="WindowModeContainer"]
+margin_top = 3.0
+margin_right = 952.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
 text = "text"
 clip_text = true
 
-[node name="OptionButton" type="OptionButton" parent="."]
-margin_top = 30.0
-margin_right = 238.0
-margin_bottom = 61.0
-size_flags_horizontal = 2
+[node name="OptionButton" type="OptionButton" parent="WindowModeContainer"]
+margin_left = 967.0
+margin_right = 1920.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
 size_flags_vertical = 2
 text = "borderless_setting"
-items = [ "borderless_setting", null, false, 0, null, "fullscreen_setting", null, false, 1, null, "windowed_setting", null, false, 2, null ]
 selected = 0
+[connection signal="item_selected" from="WindowModeContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]

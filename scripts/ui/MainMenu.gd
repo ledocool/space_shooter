@@ -31,3 +31,12 @@ func _on_Credits_pressed():
 
 func _on_Quicktart_pressed():
 	($"/root/LevelLoader" as LevelLoader).LoadLevel(1)
+
+
+func _on_Options_pressed():
+	var rightMenus = find_node("RightMenus")
+	for node in rightMenus.get_children():
+		node.visible = false
+		
+	var optionsMenu = rightMenus.find_node("OptionsMenu")
+	optionsMenu.visible = true

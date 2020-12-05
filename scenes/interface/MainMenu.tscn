@@ -83,7 +83,6 @@ margin_top = 99.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 150, 22 )
 Text = "options"
-disabled = true
 
 [node name="Playground" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
@@ -152,6 +151,7 @@ bus = "Music"
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/New game" to="." method="_on_New_game_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Quicktart" to="." method="_on_Quicktart_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Load game" to="." method="_on_Load_game_pressed"]
+[connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Playground" to="." method="_on_Playground_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Exit" to="." method="_on_Exit_pressed"]

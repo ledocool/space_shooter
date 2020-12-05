@@ -1,8 +1,41 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/ui/SliderControl.gd" type="Script" id=2]
 
 [node name="SliderControl" type="Control"]
 anchor_right = 1.0
-anchor_bottom = 1.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_horizontal = 3
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 25 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 952.0
+margin_bottom = 25.0
+size_flags_horizontal = 3
+text = "text"
+clip_text = true
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer"]
+margin_left = 967.0
+margin_right = 1920.0
+margin_bottom = 16.0
+size_flags_horizontal = 3
+min_value = -80.0
+max_value = 0.0
+[connection signal="value_changed" from="VBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]

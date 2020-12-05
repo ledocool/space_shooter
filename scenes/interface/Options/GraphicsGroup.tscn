@@ -13,50 +13,22 @@ script = ExtResource( 3 )
 text = "graphic_settings"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents" index="0"]
-margin_right = 1960.0
+margin_right = 1919.0
 margin_bottom = 1067.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Contents/VBoxContainer" index="0"]
-margin_right = 1960.0
-margin_bottom = 61.0
+[node name="WindowModeDropdown" parent="VBoxContainer/Contents/VBoxContainer" index="0" instance=ExtResource( 2 )]
+anchor_right = 0.0
+margin_right = 1919.0
+LabelText = "window_mode"
 
-[node name="WindowModeDropdown" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer" index="0" instance=ExtResource( 2 )]
-margin_right = 1960.0
-margin_bottom = 61.0
-
-[node name="Label" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer/WindowModeDropdown" index="0"]
-margin_right = 1960.0
-text = "window_mode"
-
-[node name="OptionButton" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer/WindowModeDropdown" index="1"]
-margin_right = 44.0
-text = ""
-items = [  ]
-selected = -1
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Contents/VBoxContainer" index="1"]
-margin_top = 65.0
-margin_right = 1960.0
-margin_bottom = 126.0
-
-[node name="ResolutionDropdown" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer2" index="0" instance=ExtResource( 2 )]
-margin_right = 1960.0
-margin_bottom = 61.0
-
-[node name="Label" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer2/ResolutionDropdown" index="0"]
-margin_right = 1960.0
-text = "resolution_setting"
-
-[node name="OptionButton" parent="VBoxContainer/Contents/VBoxContainer/MarginContainer2/ResolutionDropdown" index="1"]
-margin_right = 154.0
-text = "1366x768"
-items = [ "1366x768", null, false, 0, null, "1280x720", null, false, 1, null, "1920x1080", null, false, 2, null ]
-[connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/MarginContainer/WindowModeDropdown/OptionButton" to="." method="_on_ModeButton_item_selected"]
-[connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/MarginContainer2/ResolutionDropdown/OptionButton" to="." method="_on_ResolutionButton_item_selected"]
-
-[editable path="VBoxContainer/Contents/VBoxContainer/MarginContainer/WindowModeDropdown"]
-
-[editable path="VBoxContainer/Contents/VBoxContainer/MarginContainer2/ResolutionDropdown"]
+[node name="ResolutionDropdown" parent="VBoxContainer/Contents/VBoxContainer" index="1" instance=ExtResource( 2 )]
+anchor_right = 0.0
+margin_top = 35.0
+margin_right = 1919.0
+margin_bottom = 66.0
+LabelText = "resolution_setting"
+[connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/WindowModeDropdown" to="." method="_on_WindowModeDropdown_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/ResolutionDropdown" to="." method="_on_ResolutionDropdown_item_selected"]

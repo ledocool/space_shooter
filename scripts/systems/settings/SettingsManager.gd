@@ -34,10 +34,9 @@ func GetWindowMode():
 func SetRenderResolution(resolution: Vector2):
 	OS.set_window_size(resolution)
 	get_viewport().set_size_override(true, resolution, Vector2(0,0))
-	$"/root".size = resolution
 	
 func GetRenderResolution():
-	pass
+	return OS.get_window_size()
 
 func GetKey(name: String):
 	var actionList = InputMap.get_action_list(name)
@@ -81,6 +80,15 @@ func SetKey(name: String, event: InputEvent) -> bool:
 		
 	InputMap.action_add_event(name, event)
 	return true
+	
+	
+func SetLanguage(locale):
+	TranslationServer.set_locale(locale)
+	
+	
+func GetLanguage():
+	return TranslationServer.get_locale()
+	
 	
 func _unsetControl(name: String):
 	var actionList = InputMap.get_action_list(name)

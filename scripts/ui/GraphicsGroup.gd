@@ -2,7 +2,6 @@ extends Control
 
 onready var SettingsMan = $"/root/SettingsManager"
 
-export var LabelWidth: float = 105
 export var supportedGraphicsModes: Array = [
 	{
 		"name":	tr("borderless_setting"),
@@ -32,28 +31,30 @@ export var supportedResolutions: Array = [
 	}
 ]
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	var graphicsModes = [];
+	var graphicsModes = []
 	for mode in supportedGraphicsModes:
 		graphicsModes.append(mode.name)
-		
-	$VBoxContainer/Contents/VBoxContainer/MarginContainer/WindowModeDropdown.SetItems(graphicsModes)
+# warning-ignore:unsafe_method_access
+	$VBoxContainer/Contents/VBoxContainer/WindowModeDropdown.SetItems(graphicsModes)
 	
-	for control in $VBoxContainer/Contents/VBoxContainer.get_children():
-		for c in control.get_children():
-			if(c is DropdownControl):
-				c.SetLabelWidth(LabelWidth)
-
-func _on_ResolutionButton_item_selected(id):
-	if(id >= supportedResolutions.size()):	
-		return
-	var mode = supportedResolutions[id]
-	SettingsMan.SetRenderResolution(mode["size"])
+	var resolutions = []
+	for res in supportedResolutions:
+		resolutions.append(res.name)
+# warning-ignore:unsafe_method_access
+	$VBoxContainer/Contents/VBoxContainer/ResolutionDropdown.SetItems(resolutions)
 
 
-func _on_ModeButton_item_selected(id):
+func _on_WindowModeDropdown_item_selected(id):
 	if(id >= supportedGraphicsModes.size()):	
 		return
 	var mode = supportedGraphicsModes[id]
 	SettingsMan.call(mode["func"])
+
+
+func _on_ResolutionDropdown_item_selected(id):
+	if(id >= supportedResolutions.size()):
+		return
+	var mode = supportedResolutions[id]
+	SettingsMan.SetRenderResolution(mode["size"])

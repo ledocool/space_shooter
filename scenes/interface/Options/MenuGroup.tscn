@@ -15,7 +15,6 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.0
-margin_right = 41.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -24,14 +23,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 1960.0
+margin_right = 1919.0
 margin_bottom = 49.0
 theme = ExtResource( 1 )
 text = "text"
 
 [node name="Contents" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 53.0
-margin_right = 1960.0
+margin_right = 1919.0
 margin_bottom = 1120.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

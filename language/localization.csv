@@ -39,13 +39,22 @@ speed_bonus,Engine Burst,Форсаж Двигателя
 ,,
 graphic_settings,Graphic Settings,Настройки графики
 window_mode,Window Mode,Режим отображения
+resolution_setting,Resolution,Разрешение
 ,,
-borderless_setting,Borderless,Без рамки
+borderless_setting,Resolution,Без рамки
 fullscreen_setting,Fullscreen,Во весь экран
 windowed_setting,Windowed,В окне
-resolution_setting,Resolution,Разрешение
 ,,
 sound_settings,Sound Settings,Настройки звука
 master_volume,Master Volume,Общая громкость
 music_volume,Music Volume,Громкость музыки
 sfx_volume,Effect Volume,Громкость эффектов
+,,
+game_settings,Game Settings,Настройки игры
+language_settings,Language Settings,Настройки языка
+,,
+,,
+s_graphics,Graphics,Графика
+s_sound,Sound,Звук
+s_controls,Controls,Управление
+s_game,Game,Игра

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/interface/Options/MenuGroup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/ui/GameGroup.gd" type="Script" id=2]
+[ext_resource path="res://scenes/interface/Options/DropdownControl.tscn" type="PackedScene" id=3]
+
+[node name="GameGroup" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Label" parent="VBoxContainer" index="0"]
+text = "game_settings"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents" index="0"]
+margin_right = 1919.0
+margin_bottom = 1067.0
+
+[node name="LanguageDropdown" parent="VBoxContainer/Contents/VBoxContainer" index="0" instance=ExtResource( 3 )]
+anchor_right = 0.0
+margin_right = 1919.0
+LabelText = "language_settings"
+[connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/LanguageDropdown" to="." method="_on_LanguageDropdown_item_selected"]
