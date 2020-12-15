@@ -16,7 +16,6 @@ animations = [ {
 
 [node name="Sprite" parent="." index="0"]
 frames = SubResource( 1 )
-frame = 0
 
 [node name="RichTextLabel" parent="." index="1"]
 text = "gun_hint"

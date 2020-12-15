@@ -8,7 +8,7 @@ export var LabelText = "text"
 
 func _ready():
 # warning-ignore:unsafe_property_access
-	$WindowModeContainer/Label.text = tr(LabelText)
+	$WindowModeContainer/Label.text = LabelText
 
 func SetItems(items):
 	for item in items:

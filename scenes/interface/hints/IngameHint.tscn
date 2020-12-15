@@ -22,7 +22,6 @@ script = ExtResource( 4 )
 position = Vector2( 60.8001, 59.8502 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
-frame = 1
 playing = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

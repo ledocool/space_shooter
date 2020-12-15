@@ -12,7 +12,7 @@ signal value_changed(newValue)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 # warning-ignore:unsafe_property_access
-	$VBoxContainer/Label.text = tr(LabelText)
+	$VBoxContainer/Label.text = LabelText
 # warning-ignore:unsafe_property_access
 	$VBoxContainer/HSlider.max_value = SliderMax
 # warning-ignore:unsafe_property_access

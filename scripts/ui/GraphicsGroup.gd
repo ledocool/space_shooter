@@ -4,29 +4,29 @@ onready var SettingsMan = $"/root/SettingsManager"
 
 export var supportedGraphicsModes: Array = [
 	{
-		"name":	tr("borderless_setting"),
+		"name":	"borderless_setting",
 		"func": "SetWindowBorderless"
 	},
 	{
-		"name": tr("windowed_setting"),
+		"name": "windowed_setting",
 		"func": "SetWindowWindowed"
 	},
 	{
-		"name": tr("fullscreen_setting"),
+		"name": "fullscreen_setting",
 		"func": "SetWindowFullscreen"
 	}
 ]
 export var supportedResolutions: Array = [
 	{
-		"name": tr("1366x768"),
+		"name": "1366x768",
 		"size": Vector2(1366, 768)
 	},
 	{
-		"name": tr("1280x720"),
+		"name": "1280x720",
 		"size": Vector2(1280, 720)
 	},
 	{
-		"name": tr("1920x1080"),
+		"name": "1920x1080",
 		"size": Vector2(1920, 1080)
 	}
 ]

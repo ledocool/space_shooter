@@ -1,4 +1,10 @@
 extends Node2D
 
+var TextReplacement
+
 func _ready():
-	$RichTextLabel.text = tr($RichTextLabel.text)
+	TextReplacement = $RichTextLabel.text
+	Translate()
+
+func Translate():
+	$RichTextLabel.text = tr(TextReplacement)

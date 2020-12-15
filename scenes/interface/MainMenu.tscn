@@ -57,7 +57,6 @@ custom_constants/vseparation = 11
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_bottom = 22.0
-rect_min_size = Vector2( 150, 22 )
 Text = "new_game"
 
 [node name="Quicktart" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
@@ -65,7 +64,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 33.0
 margin_bottom = 55.0
-rect_min_size = Vector2( 150, 22 )
 Text = "Level 2"
 
 [node name="Load game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
@@ -73,7 +71,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 66.0
 margin_bottom = 88.0
-rect_min_size = Vector2( 150, 22 )
 Text = "load_game"
 
 [node name="Options" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
@@ -81,7 +78,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 99.0
 margin_bottom = 121.0
-rect_min_size = Vector2( 150, 22 )
 Text = "options"
 
 [node name="Playground" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
@@ -89,7 +85,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 132.0
 margin_bottom = 154.0
-rect_min_size = Vector2( 150, 22 )
 Text = "playground"
 
 [node name="Credits" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
@@ -97,7 +92,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 165.0
 margin_bottom = 187.0
-rect_min_size = Vector2( 150, 22 )
 Text = "credits"
 
 [node name="Exit" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
@@ -105,7 +99,6 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 198.0
 margin_bottom = 220.0
-rect_min_size = Vector2( 150, 22 )
 Text = "exit"
 
 [node name="Control" type="Control" parent="HSplitContainer"]
