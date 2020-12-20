@@ -417,6 +417,7 @@ file_logging/enable_file_logging=true
 
 [physics]
 
+common/physics_fps=90
 2d/default_gravity_vector=Vector2( 0, 0 )
 
 [rendering]

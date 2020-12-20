@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level2/AlienShipDoor.tscn" type="PackedScene" id=2]
@@ -34,7 +34,8 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Asteroid3.tscn" type="PackedScene" id=32]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Dynamic/Debree/Doomguy.tscn" type="PackedScene" id=33]
 [ext_resource path="res://scenes/effects/WindEffect.tscn" type="PackedScene" id=34]
-[ext_resource path="res://resources/Objects/Ships/behemoth.png" type="Texture" id=35]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Behemoth/BehemothBoss.tscn" type="PackedScene" id=35]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Behemoth/PowerNode.tscn" type="PackedScene" id=36]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 282.318
@@ -56,6 +57,9 @@ RightCameraBorder = 1000000
 [node name="Player" parent="ShipContainer" index="0"]
 position = Vector2( -1254.45, -1388.67 )
 ShipCurrentHealth = 2
+
+[node name="Behemoth" parent="ShipContainer" index="1" instance=ExtResource( 35 )]
+position = Vector2( 3077.26, 495.351 )
 
 [node name="Asteroid" parent="AsteroidContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -1999.14, -2220.36 )
@@ -135,6 +139,12 @@ chainAmount = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 StartNodeType = 0
 StartNodeRotation = 0
 EndNodeRotation = 0
+
+[node name="PowerNode" parent="DynamicScenery" index="2" instance=ExtResource( 36 )]
+position = Vector2( -874.148, -1467.98 )
+
+[node name="PowerNode2" parent="DynamicScenery" index="3" instance=ExtResource( 36 )]
+position = Vector2( -869.103, -1345.21 )
 
 [node name="LevelExit" parent="Scenery" index="0" instance=ExtResource( 12 )]
 position = Vector2( 9063.01, -2105.9 )
@@ -396,5 +406,4 @@ position = Vector2( 66.7153, -3702.72 )
 
 [node name="behemoth" type="Sprite" parent="." index="15"]
 position = Vector2( 1682.5, 1388.49 )
-texture = ExtResource( 35 )
 [connection signal="body_entered" from="TriggerContainer/Area2D" to="Scenery/AlienDoor" method="_on_Area2D_body_entered"]

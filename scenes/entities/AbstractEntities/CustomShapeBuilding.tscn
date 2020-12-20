@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/Objects/Structures/Harvester/building_tileable_base.png" type="Texture" id=1]
 [ext_resource path="res://scripts/entities/CustomShapeBuilding.gd" type="Script" id=2]
 [ext_resource path="res://resources/Objects/Structures/Harvester/building_tileable_light.png" type="Texture" id=3]
+[ext_resource path="res://resources/Objects/Structures/Wiring/wire_off.png" type="Texture" id=4]
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 uniform float fadeAwayStrength = 1950;
 
@@ -35,8 +36,8 @@ void fragment() {
 
 "
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/fadeAwayStrength = 1950.0
 
 [node name="CustomShapeBuilding" type="Node2D"]
@@ -45,6 +46,7 @@ script = ExtResource( 2 )
 [node name="ColliderBody" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColliderBody"]
+polygon = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087, -268.963, 538.087 )
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -53,5 +55,14 @@ texture = ExtResource( 1 )
 polygon = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087, -268.963, 538.087 )
 
 [node name="WallsOverlay" type="Polygon2D" parent="Walls"]
-material = SubResource( 4 )
+material = SubResource( 2 )
 texture = ExtResource( 3 )
+polygon = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087, -268.963, 538.087 )
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 0.594604, -0.148651 )
+points = PoolVector2Array( 585.199, -454.235, -216.676, -556.699, -268.811, 539.83, -226.767, 600.375, 738.582, 677.737, 773.9, -247.249, 506.321, -334.842 )
+default_color = Color( 0.4, 0.501961, 1, 1 )
+texture = ExtResource( 4 )
+texture_mode = 1
+round_precision = 1

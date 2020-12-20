@@ -10,8 +10,12 @@ var img = Image.new()
 func _ready():
 # warning-ignore:unsafe_property_access
 	var polygon = $Walls/Walls.polygon
+	var linePolygon = polygon
+	linePolygon.append(linePolygon[0])
 # warning-ignore:unsafe_property_access
 	$ColliderBody/CollisionPolygon2D.polygon = polygon
+# warning-ignore:unsafe_property_access
+	$Line2D.points = linePolygon
 # warning-ignore:unsafe_property_access
 	$Walls/WallsOverlay.polygon = polygon
 	#_createOutline(polygon)
