@@ -2017,7 +2017,6 @@ texture = ExtResource( 33 )
 [node name="Secret1_asteroid" parent="Scenery/SecretArea" index="26" groups=[
 "SecretCrevice",
 ] instance=ExtResource( 30 )]
-visible = false
 position = Vector2( 7728.15, -5146.05 )
 rotation = -2.61799
 scale = Vector2( 1.41834, 1.41834 )

@@ -143,6 +143,11 @@ func _ready():
 			{'state_id': 'shoot', 'to_states': ['track', 'idle', 'dead']}
 		]
 	})
+	
+	var level = $"/root/Level"
+	if(level != null):
+		connect("shoot_bullet", level, "_on_Ship_shoot")
+		connect("exploded", level, "_on_Something_explode")
 
 
 func _physics_process(delta):

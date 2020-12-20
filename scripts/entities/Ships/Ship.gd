@@ -100,6 +100,11 @@ func GetVelocity() -> Vector2:
 	return linear_velocity
 
 
+func _ready():
+	var level = $"/root/Level"
+	if(level != null):
+		self.connect("exploded", level, "_on_Something_explode")
+
 func _integrate_forces(state):
 	var oldRot = rotation
 	
@@ -181,3 +186,4 @@ func _on_InvulnerabilityTimer_timeout():
 
 func _on_Ship_body_entered(_body):
 	_playBoomSound()
+

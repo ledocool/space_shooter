@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Behemoth/BehemothChamber.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_top.png" type="Texture" id=2]
@@ -13,24 +13,9 @@
 [ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_top_wire1_unpowered.png" type="Texture" id=11]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Behemoth/PowerNode.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/KeyPickup.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Turret.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 4 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 10 ) ],
 "loop": true,
@@ -38,7 +23,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 11 ) ],
 "loop": true,
@@ -46,36 +31,37 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="Behemoth" type="RigidBody2D"]
+mass = 1000.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -761.382, 1506.05, -562.203, 1501.81, -428.711, 1368.32, -426.592, 1349.25, -245.375, 1348.43, -245, 1363.41, -259.234, 1364.16, -256.986, 1394.13, -231.651, 1425.53, -106.634, 1550.55, 660.417, 1544.19, 751.531, 1427.65, 766.364, 1241.19, 745.174, 764.428, 613.801, 669.077, 370.124, 514.395, 232.394, 508.038, 213.324, 499.563, 151.875, 505.919, 137.042, 518.633, 62.8801, 516.514, 7.78809, 554.655, -437.186, 567.368, -435.068, 607.628, -672.387, 635.174, -761.382, 652.125, -801.642, 679.671, -803.761, 789.855, -831.307, 796.212, -831.307, 830.115, -871.566, 887.326, -920.302, 980.559, -896.993, 1385.27 )
 
 [node name="Bottom" type="Sprite" parent="."]
-z_index = -13
+z_index = -40
 texture = ExtResource( 3 )
-
-[node name="WireTop_bottom" type="AnimatedSprite" parent="."]
-position = Vector2( 389.494, -895.857 )
-z_index = -12
-frames = SubResource( 1 )
-
-[node name="WireBottom_bottom" type="AnimatedSprite" parent="."]
-position = Vector2( 59.9179, 310.568 )
-z_index = -12
-frames = SubResource( 2 )
 
 [node name="Top" type="Sprite" parent="."]
 position = Vector2( 0, -1.68176 )
-z_index = -11
+z_index = -35
 texture = ExtResource( 2 )
-
-[node name="WireTop_top" type="AnimatedSprite" parent="."]
-position = Vector2( 10.0906, -881.259 )
-z_index = -9
-frames = SubResource( 3 )
-
-[node name="WireBottom_top" type="AnimatedSprite" parent="."]
-position = Vector2( 10.0908, 94.1804 )
-z_index = -9
-frames = SubResource( 4 )
 
 [node name="KeyChamber" parent="." instance=ExtResource( 1 )]
 position = Vector2( -53.2826, -244.861 )
@@ -83,20 +69,55 @@ position = Vector2( -53.2826, -244.861 )
 [node name="KeyPickup" parent="KeyChamber" instance=ExtResource( 13 )]
 position = Vector2( 0.752907, -0.0343933 )
 
-[node name="PowerNode" parent="." instance=ExtResource( 12 )]
+[node name="Power" type="Node2D" parent="."]
+
+[node name="PowerNode" parent="Power" instance=ExtResource( 12 )]
 position = Vector2( 358.776, -782.612 )
 
-[node name="PowerNode2" parent="." instance=ExtResource( 12 )]
+[node name="PowerNode2" parent="Power" instance=ExtResource( 12 )]
 position = Vector2( 170.203, -1321.39 )
 
-[node name="PowerNode3" parent="." instance=ExtResource( 12 )]
+[node name="PowerNode3" parent="Power" instance=ExtResource( 12 )]
 position = Vector2( -379.804, -1128.33 )
 
-[node name="PowerNode4" parent="." instance=ExtResource( 12 )]
+[node name="PowerNode4" parent="Power" instance=ExtResource( 12 )]
 position = Vector2( -476.335, 23.316 )
 
-[node name="PowerNode5" parent="." instance=ExtResource( 12 )]
+[node name="PowerNode5" parent="Power" instance=ExtResource( 12 )]
 position = Vector2( 538.371, 344.34 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -761.382, 1506.05, -562.203, 1501.81, -428.711, 1368.32, -426.592, 1349.25, -245.375, 1348.43, -245, 1363.41, -259.234, 1364.16, -256.986, 1394.13, -231.651, 1425.53, -106.634, 1550.55, 660.417, 1544.19, 751.531, 1427.65, 766.364, 1241.19, 745.174, 764.428, 613.801, 669.077, 370.124, 514.395, 232.394, 508.038, 213.324, 499.563, 151.875, 505.919, 137.042, 518.633, 62.8801, 516.514, 7.78809, 554.655, -437.186, 567.368, -435.068, 607.628, -672.387, 635.174, -761.382, 652.125, -801.642, 679.671, -803.761, 789.855, -831.307, 796.212, -831.307, 830.115, -871.566, 887.326, -920.302, 980.559, -896.993, 1385.27 )
+[node name="Wires" type="Node2D" parent="."]
+
+[node name="WireTop_top" type="AnimatedSprite" parent="Wires"]
+position = Vector2( 10.0906, -881.259 )
+z_index = -9
+frames = SubResource( 1 )
+
+[node name="WireBottom_top" type="AnimatedSprite" parent="Wires"]
+position = Vector2( 10.0908, 94.1804 )
+z_index = -9
+frames = SubResource( 2 )
+
+[node name="WireTop_bottom" type="AnimatedSprite" parent="Wires"]
+position = Vector2( 389.494, -895.857 )
+z_index = -36
+frames = SubResource( 3 )
+
+[node name="WireBottom_bottom" type="AnimatedSprite" parent="Wires"]
+position = Vector2( 59.9179, 310.568 )
+z_index = -36
+frames = SubResource( 4 )
+
+[node name="Turrets" type="Node2D" parent="."]
+
+[node name="Turret1" parent="Turrets" instance=ExtResource( 14 )]
+position = Vector2( -783.752, -826.649 )
+
+[node name="Turret4" parent="Turrets" instance=ExtResource( 14 )]
+position = Vector2( 656.453, -1044.07 )
+
+[node name="Turret3" parent="Turrets" instance=ExtResource( 14 )]
+position = Vector2( -805.297, 285.844 )
+
+[node name="Turret2" parent="Turrets" instance=ExtResource( 14 )]
+position = Vector2( 938.42, 575.697 )

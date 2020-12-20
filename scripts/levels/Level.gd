@@ -36,9 +36,11 @@ func GetPlayerStatus(reload: bool = false):
 	}
 
 
-func GetPlayer():
-	return $ShipContainer/Player
+func GetPlayer() -> PlayerShip:
+	return $ShipContainer/Player as PlayerShip
 
+func GetCamera() -> UI:
+	return $PlayerCamera as UI
 
 func SetStats(statistics: Dictionary):
 	enemyHealthDamage = statistics.enemyHealthDamage
@@ -70,46 +72,6 @@ func _ready():
 			pos.x *= multiplier.x
 			pos.y *= multiplier.y
 			object.position = pos
-	
-	for shp in $ShipContainer.get_children():
-		if(shp is Ship):
-			#print_debug("Connecting " + shp.get_name())
-			shp.connect("exploded", self, "_on_Something_explode")
-		if(shp is Turret):
-			#print_debug("Connecting " + shp.get_name())
-			shp.connect("shoot_bullet", self, "_on_Ship_shoot")
-			shp.connect("exploded", self, "_on_Something_explode")
-	
-	for scn in $DynamicScenery.get_children():
-		if(scn is KeyCube):
-			scn.connect("exploded", self, "_on_Something_explode")
-	
-	var Player = $ShipContainer/Player as PlayerShip
-	if(Player):
-		var camera = $PlayerCamera as UI
-		Player.connect("health_changed", self, "_on_enemyHealth_change")
-		Player.connect("health_changed", camera, "_on_health_change")
-		Player.connect("health_changed", self, "_on_playerHealth_change")
-		Player.connect("speed_changed", camera, "_on_speed_change")
-		Player.connect("shoot_bullet", self, "_on_player_shootBullet")
-		Player.connect("shoot_bullet", self, "_on_Ship_shoot")
-		Player.connect("spawn_item", self, "_on_Ship_spawn")
-
-		Player.get_node("Cannon").connect("bullets_changed", camera, "_on_ammo_change")
-		Player.get_node("Cannon").connect("weapon_changed", camera, "_on_weapon_change")
-		
-		Player.connect("status_added", camera, "_on_status_add")
-		Player.connect("status_removed", camera, "_on_status_remove")
-		
-		camera._on_max_health_change(Player.GetMaxHealth())
-		camera._on_health_change(0, Player.GetHealth())
-		camera._on_max_speed_change(Player.GetMaxSpeed())
-		camera._on_speed_change(Player.GetVelocity().length())
-		camera._on_ammo_change(Player.get_node("Cannon").RemainningAmmo)
-		camera._on_weapon_change(Player.get_node("Cannon").CurrentWeapon)
-		
-		for status in Player.StatusWrk.StatusArray:
-			camera._on_status_add(status.GetType(), status.GetStatusTimeout())
 
 
 # warning-ignore:unused_argument

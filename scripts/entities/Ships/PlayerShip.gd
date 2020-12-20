@@ -11,8 +11,9 @@ var StatusWrk = StatusWorker.new(self)
 var DamageOnBump = false
 
 func _ready():
+	var cannon = ($"Cannon" as Cannon)
 # warning-ignore:return_value_discarded
-	($"Cannon" as Cannon).connect("shoot_bullet", self, "_on_bullet_shot")
+	cannon.connect("shoot_bullet", self, "_on_bullet_shot")
 # warning-ignore:unsafe_cast
 # warning-ignore:return_value_discarded
 # warning-ignore:unsafe_cast
@@ -20,6 +21,33 @@ func _ready():
 # warning-ignore:return_value_discarded
 # warning-ignore:unsafe_cast
 	(StatusWrk as StatusWorker).connect("status_removed", self, "_on_status_removed")
+	
+	var level = $"/root/Level"
+	if(level != null):
+		var camera = level.GetCamera()
+		connect("health_changed", level, "_on_enemyHealth_change")
+		connect("health_changed", camera, "_on_health_change")
+		connect("health_changed", level, "_on_playerHealth_change")
+		connect("speed_changed", camera, "_on_speed_change")
+		connect("shoot_bullet", level, "_on_player_shootBullet")
+		connect("shoot_bullet", level, "_on_Ship_shoot")
+		connect("spawn_item", level, "_on_Ship_spawn")
+
+		get_node("Cannon").connect("bullets_changed", camera, "_on_ammo_change")
+		get_node("Cannon").connect("weapon_changed", camera, "_on_weapon_change")
+	
+		connect("status_added", camera, "_on_status_add")
+		connect("status_removed", camera, "_on_status_remove")
+	
+		camera._on_max_health_change(GetMaxHealth())
+		camera._on_health_change(0, GetHealth())
+		camera._on_max_speed_change(GetMaxSpeed())
+		camera._on_speed_change(GetVelocity().length())
+		camera._on_ammo_change(cannon.RemainningAmmo)
+		camera._on_weapon_change(cannon.CurrentWeapon)
+	
+		for status in StatusWrk.StatusArray:
+			camera._on_status_add(status.GetType(), status.GetStatusTimeout())
 
 
 func SwitchWeapon(wpnType):
