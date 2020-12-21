@@ -167,6 +167,7 @@ func _selectWeapon(weapon: String):
 
 
 func _on_bullet_shot(bullet_type, damage_multiplier):
+	$Sounds/Shoot/Cannon.play()
 	emit_signal("shoot_bullet", 
 		bullet_type, 
 		GetRotation(), 
