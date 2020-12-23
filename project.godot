@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/entities/BeamDoor.gd"
 }, {
+"base": "RigidBody2D",
+"class": "Behemoth",
+"language": "GDScript",
+"path": "res://scripts/ai/Behemoth/Behemoth.gd"
+}, {
 "base": "Collectable",
 "class": "BerserkBonus",
 "language": "GDScript",
@@ -238,6 +243,7 @@ _global_script_class_icons={
 "AiAPathHelper": "",
 "AlienShipDoor": "",
 "BeamDoor": "",
+"Behemoth": "",
 "BerserkBonus": "",
 "BerserkStatus": "",
 "Bullet": "",
@@ -314,7 +320,7 @@ window/stretch/shrink="1"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "custom_walls" )
 
 [gui]
 

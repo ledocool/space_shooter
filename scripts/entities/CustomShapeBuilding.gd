@@ -12,10 +12,17 @@ func _ready():
 	var polygon = $Walls/Walls.polygon
 	var linePolygon = polygon
 	linePolygon.append(linePolygon[0])
+	var lastVector: Vector2 = linePolygon[1] - linePolygon[0]
+	var veryLastPoint = linePolygon[linePolygon.size() - 1 ] + \
+		(lastVector.normalized() * 1.1)
+		
+	linePolygon.append(veryLastPoint)
 # warning-ignore:unsafe_property_access
 	$ColliderBody/CollisionPolygon2D.polygon = polygon
 # warning-ignore:unsafe_property_access
-	$Line2D.points = linePolygon
+	$Edge.points = linePolygon
+	$Edge.position = $Walls/Walls.position
+	$Walls/WallsOverlay.position = $Walls/Walls.position
 # warning-ignore:unsafe_property_access
 	$Walls/WallsOverlay.polygon = polygon
 	#_createOutline(polygon)

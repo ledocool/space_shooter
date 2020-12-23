@@ -3416,6 +3416,7 @@ enabled = true
 position = Vector2( 10009.9, 14187.1 )
 rotation = 1.5708
 scale = Vector2( 1, 1.2 )
+enabled = false
 
 [node name="BeamDoor5" parent="Scenery/Spiral" index="88" groups=[
 "spiral_horizontal_doors",
@@ -3423,6 +3424,7 @@ scale = Vector2( 1, 1.2 )
 position = Vector2( 10079.3, 16132 )
 rotation = 1.5708
 scale = Vector2( 1, 1.07998 )
+enabled = false
 
 [node name="BeamDoor7" parent="Scenery/Spiral" index="89" groups=[
 "spiral_horizontal_doors",
@@ -3430,6 +3432,7 @@ scale = Vector2( 1, 1.07998 )
 position = Vector2( 11849.8, 16240 )
 rotation = 1.5708
 scale = Vector2( 1, 1.59999 )
+enabled = false
 
 [node name="Building1" parent="Scenery/Spiral" index="90" instance=ExtResource( 26 )]
 position = Vector2( 9127.2, 13938.9 )
@@ -3466,6 +3469,7 @@ position = Vector2( 12079.6, 14223.4 )
 rotation = 1.5708
 scale = Vector2( 1, 0.690539 )
 z_index = -1
+enabled = false
 
 [node name="StaticScenery13" parent="Scenery/Spiral" index="97" instance=ExtResource( 25 )]
 position = Vector2( 10710.8, 13166.3 )
@@ -4157,8 +4161,8 @@ shape = SubResource( 6 )
 
 [node name="WindRevealTrigger" type="Node" parent="TriggerContainer" index="7"]
 script = ExtResource( 59 )
-[connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
 [connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/WindRevealTrigger" method="_on_KeyPickup_picked_up" flags=3]
+[connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
 [connection signal="wire_switch" from="Scenery/StartingRoom/Building/SpiralGenerator" to="TriggerContainer/SpiralEnterTrigger" method="_on_SpiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/Spiral/InspiralGenerator" to="TriggerContainer/SpiralTrigger" method="_on_InspiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/KeyRoom/Wires/KeyWirererBottom" to="TriggerContainer/KeyRoomTrigger" method="_on_bottom_generator_switch"]

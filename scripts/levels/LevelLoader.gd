@@ -2,7 +2,8 @@ extends Node
 
 var campaignLevelOrder: Array = [
 	"res://scenes/levels/c1/c1l1.tscn",
-	"res://scenes/levels/c1/c1l2.tscn"
+	"res://scenes/levels/c1/c1l2.tscn",
+	"res://scenes/levels/c1/c1l3.tscn"
 ]
 
 var campaignCurrentLevel = -1

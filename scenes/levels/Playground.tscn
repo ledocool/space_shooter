@@ -59,7 +59,7 @@ position = Vector2( -1254.45, -1388.67 )
 ShipCurrentHealth = 2
 
 [node name="Behemoth" parent="ShipContainer" index="1" instance=ExtResource( 35 )]
-position = Vector2( 3077.26, 495.351 )
+position = Vector2( 4136.72, 6063.89 )
 
 [node name="Asteroid" parent="AsteroidContainer" index="0" instance=ExtResource( 9 )]
 position = Vector2( -1999.14, -2220.36 )
@@ -334,7 +334,7 @@ position = Vector2( 5745.13, -7096.57 )
 position = Vector2( -4107.1, -3982.6 )
 
 [node name="AlienDoor" parent="Scenery" index="48" instance=ExtResource( 2 )]
-position = Vector2( 259.926, -2845.51 )
+position = Vector2( 2169.97, -3641.78 )
 
 [node name="ShipWall1" parent="Scenery" index="49" instance=ExtResource( 27 )]
 position = Vector2( 1707.72, -1540.55 )
@@ -395,12 +395,12 @@ collision_layer = 64
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/Area2D" index="0"]
-position = Vector2( -3.25391, 152.917 )
+position = Vector2( 1866.47, -542.56 )
 rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="CustomShapeBuilding" parent="." index="13" instance=ExtResource( 19 )]
-position = Vector2( 66.7153, -3702.72 )
+position = Vector2( -1884.93, -3493.72 )
 
 [node name="Wind" parent="." index="14" instance=ExtResource( 34 )]
 
