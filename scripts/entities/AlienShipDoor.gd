@@ -15,7 +15,7 @@ func playDoorAnimation(closing: bool):
 
 func set_closed(closed):
 	isClosed = closed
-	$AudioStreamPlayer2D.play()
+	($AudioStreamPlayer2D as AudioStreamPlayer2D).play()
 	if(isClosed):
 		($alien_ship_door_top as Hideable).Show()
 	else:

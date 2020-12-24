@@ -47,26 +47,36 @@ margin_bottom = 625.0
 custom_constants/separation = 15
 
 [node name="Resume" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_bottom = 22.0
 Text = "resume"
 
 [node name="Save game" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 37.0
 margin_bottom = 59.0
 Text = "save_game"
 
 [node name="Load game" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 74.0
 margin_bottom = 96.0
 Text = "load_game"
 
 [node name="Options" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 111.0
 margin_bottom = 133.0
 Text = "options"
 disabled = true
 
 [node name="Exit" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 148.0
 margin_bottom = 170.0
 Text = "exit"
@@ -141,8 +151,8 @@ anchor_right = 0.619
 anchor_bottom = 0.955
 margin_left = -0.126114
 margin_top = 0.325439
-margin_right = 19.8739
-margin_bottom = 0.485474
+margin_right = 35.8739
+margin_bottom = 6.48547
 Text = "Ok and close"
 [connection signal="visibility_changed" from="." to="." method="_on_EscapeMenu_visibility_changed"]
 [connection signal="pressed" from="CenterContainer/ItemList/Resume" to="." method="_on_Resume_pressed"]

@@ -1,16 +1,17 @@
 extends State
 
+func _on_enter_state():
+	target.TurretsEnable()
+	
+func _on_exit_state():
+	target.TurretsEnable("false")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _physics_process(_delta):
+	var shouldEvade = target.GetHealth() / target.GetMaxGealth() < target.GetBehaviourChangeThreshold()
+	var targetPosition = target.GetTarget().position
+	
+	if(shouldEvade && target.CloseTo(targetPosition)):
+		state_machine.transition("evade")
+	if(!shouldEvade && target.FarFrom(targetPosition)):
+		state_machine.transition("pursue")
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

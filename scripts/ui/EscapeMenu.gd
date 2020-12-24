@@ -48,8 +48,10 @@ func _add_cheat_entries():
 			cheat.actor.Init(level)
 		list.add_item(cheat.name)
 
+
 func _exit_tree():
-	get_tree().paused = false
+	if(get_parent() != null):
+		get_tree().paused = false
 
 
 func _on_Resume_pressed():
@@ -70,6 +72,7 @@ func _on_Options_pressed():
 
 
 func _on_Exit_pressed():
+	get_tree().paused = false
 # warning-ignore:return_value_discarded
 	($"/root/LevelLoader" as LevelLoader).LoadLevelByName("res://scenes/interface/MainMenu.tscn", false)
 	visible = false

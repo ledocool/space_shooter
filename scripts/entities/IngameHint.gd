@@ -3,8 +3,8 @@ extends Node2D
 var TextReplacement
 
 func _ready():
-	TextReplacement = $RichTextLabel.text
+	TextReplacement = ($RichTextLabel as RichTextLabel).text
 	Translate()
 
 func Translate():
-	$RichTextLabel.text = tr(TextReplacement)
+	($RichTextLabel as RichTextLabel).text = tr(TextReplacement)

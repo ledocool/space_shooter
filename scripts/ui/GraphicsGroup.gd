@@ -4,10 +4,6 @@ onready var SettingsMan = $"/root/SettingsManager"
 
 export var supportedGraphicsModes: Array = [
 	{
-		"name":	"borderless_setting",
-		"func": "SetWindowBorderless"
-	},
-	{
 		"name": "windowed_setting",
 		"func": "SetWindowWindowed"
 	},

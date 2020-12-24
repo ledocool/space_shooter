@@ -8,8 +8,11 @@ var img = Image.new()
 
 
 func _ready():
-# warning-ignore:unsafe_property_access
-	var polygon = $Walls/Walls.polygon
+	var edge = $Edge as Line2D
+	var walls = $Walls/Walls as Polygon2D
+	var wallsOverlay = $Walls/WallsOverlay as Polygon2D
+	
+	var polygon = walls.polygon
 	var linePolygon = polygon
 	linePolygon.append(linePolygon[0])
 	var lastVector: Vector2 = linePolygon[1] - linePolygon[0]
@@ -17,17 +20,13 @@ func _ready():
 		(lastVector.normalized() * 1.1)
 		
 	linePolygon.append(veryLastPoint)
-# warning-ignore:unsafe_property_access
-	$ColliderBody/CollisionPolygon2D.polygon = polygon
-# warning-ignore:unsafe_property_access
-	$Edge.points = linePolygon
-	$Edge.position = $Walls/Walls.position
-	$Walls/WallsOverlay.position = $Walls/Walls.position
-# warning-ignore:unsafe_property_access
-	$Walls/WallsOverlay.polygon = polygon
-	#_createOutline(polygon)
-# warning-ignore:unsafe_property_access
-	$Walls/Walls.texture_scale = scale
+	($ColliderBody/CollisionPolygon2D as CollisionPolygon2D).polygon = polygon
+
+	edge.points = linePolygon
+	edge.position = walls.position
+	wallsOverlay.position = walls.position
+	wallsOverlay.polygon = polygon
+	walls.texture_scale = scale
 
 
 func _createOutline(shape: PoolVector2Array):
@@ -55,12 +54,10 @@ func _createOutline(shape: PoolVector2Array):
 
 	var texture = ImageTexture.new()
 	texture.create_from_image(img)
-# warning-ignore:unsafe_method_access
-# warning-ignore:unused_variable
-# warning-ignore:unsafe_method_access
-	var result = $Sprite.set_texture(texture)
-# warning-ignore:unsafe_property_access
-	$Sprite.position = rect.end + (margin / 2)
+	
+	var sprite = $Sprite as Sprite
+	var _result = sprite.set_texture(texture)
+	sprite.position = rect.end + (margin / 2)
 
 
 func _findTextureDimensions(shape: PoolVector2Array, margin: Vector2) -> Rect2:

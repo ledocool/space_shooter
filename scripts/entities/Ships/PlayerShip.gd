@@ -25,19 +25,20 @@ func _ready():
 	var level = $"/root/Level"
 	if(level != null):
 		var camera = level.GetCamera()
-		connect("health_changed", level, "_on_enemyHealth_change")
-		connect("health_changed", camera, "_on_health_change")
-		connect("health_changed", level, "_on_playerHealth_change")
-		connect("speed_changed", camera, "_on_speed_change")
-		connect("shoot_bullet", level, "_on_player_shootBullet")
-		connect("shoot_bullet", level, "_on_Ship_shoot")
-		connect("spawn_item", level, "_on_Ship_spawn")
+		var _res
+		_res = connect("health_changed", level, "_on_enemyHealth_change")
+		_res = connect("health_changed", camera, "_on_health_change")
+		_res = connect("health_changed", level, "_on_playerHealth_change")
+		_res = connect("speed_changed", camera, "_on_speed_change")
+		_res = connect("shoot_bullet", level, "_on_player_shootBullet")
+		_res = connect("shoot_bullet", level, "_on_Ship_shoot")
+		_res = connect("spawn_item", level, "_on_Ship_spawn")
 
-		get_node("Cannon").connect("bullets_changed", camera, "_on_ammo_change")
-		get_node("Cannon").connect("weapon_changed", camera, "_on_weapon_change")
+		_res = get_node("Cannon").connect("bullets_changed", camera, "_on_ammo_change")
+		_res = get_node("Cannon").connect("weapon_changed", camera, "_on_weapon_change")
 	
-		connect("status_added", camera, "_on_status_add")
-		connect("status_removed", camera, "_on_status_remove")
+		_res = connect("status_added", camera, "_on_status_add")
+		_res = connect("status_removed", camera, "_on_status_remove")
 	
 		camera._on_max_health_change(GetMaxHealth())
 		camera._on_health_change(0, GetHealth())
@@ -167,7 +168,7 @@ func _selectWeapon(weapon: String):
 
 
 func _on_bullet_shot(bullet_type, damage_multiplier):
-	$Sounds/Shoot/Cannon.play()
+	($Sounds/Shoot/Cannon as AudioStreamPlayer2D).play()
 	emit_signal("shoot_bullet", 
 		bullet_type, 
 		GetRotation(), 

@@ -5,12 +5,12 @@ const off = preload("res://scripts/ai/Behemoth/off.gd")
 const pursue = preload("res://scripts/ai/Behemoth/pursue.gd")
 const evade = preload("res://scripts/ai/Behemoth/evade.gd")
 const agitated = preload("res://scripts/ai/Behemoth/agitated.gd")
-const move_to = preload("res://scripts/ai/Behemoth/move_to.gd")
 const StateMachineFactory = preload("res://scripts/systems/state-machine/state_machine_factory.gd")
 
 var Navigator: Navigation2D
 var Target: Ship
-var aiState
+var TargetPath = null
+var aiState = null
 var startState = "off"
 
 func SetNavigator(navigator: Navigation2D):
@@ -25,7 +25,18 @@ func SetTarget(target: Ship):
 func GetTarget() -> Ship:
 	return Target
 
+func TurretsEnable(enable: bool = true):
+	pass
+	
+func CloseTo(position: Vector2):
+	pass
+	
+func FarFrom(position: Vector2):
+	pass
+
 func _ready():
+	SetTarget($"/root/Level/ShipContainer/Player")
+	
 	aiState = StateMachineFactory.create({
 		'target': self,
 		'current_state': startState,
@@ -33,14 +44,15 @@ func _ready():
 			{'id': 'off', 'state': off},
 			{'id': 'pursue', 'state': pursue},
 			{'id': 'evade', 'state': evade},
-			{'id': 'agitated', 'state': agitated},
-			{'id': 'move_to', 'state': move_to}
+			{'id': 'agitated', 'state': agitated}
 		],
 		'transitions': [
 			{'state_id': 'off', 'to_states': ['agitated']},
-			{'state_id': 'agitated', 'to_states': ['pursue', 'evade']},
-			{'state_id': 'pursue', 'to_states': ['move_to']},
-			{'state_id': 'evade', 'to_states': ['move_to']},
-			{'state_id': 'move_to', 'to_states': ['agitated']},
+			{'state_id': 'agitated', 'to_states': ['pursue', 'evade', 'off']},
+			{'state_id': 'pursue', 'to_states': ['agitated']},
+			{'state_id': 'evade', 'to_states': ['agitated']}
 		]
 	})
+
+func _physics_process(delta):
+	aiState._physics_process(delta)

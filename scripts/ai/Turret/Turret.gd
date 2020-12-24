@@ -146,8 +146,9 @@ func _ready():
 	
 	var level = $"/root/Level"
 	if(level != null):
-		connect("shoot_bullet", level, "_on_Ship_shoot")
-		connect("exploded", level, "_on_Something_explode")
+		var _res
+		_res = connect("shoot_bullet", level, "_on_Ship_shoot")
+		_res = connect("exploded", level, "_on_Something_explode")
 
 
 func _physics_process(delta):

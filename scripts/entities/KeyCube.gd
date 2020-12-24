@@ -48,7 +48,7 @@ func _ready():
 	_on_UpdateCoordinatesTimer_timeout()
 	var level = $"/root/Level"
 	if(level != null):
-		connect("exploded", level, "_on_Something_explode")
+		var _res = connect("exploded", level, "_on_Something_explode")
 
 
 func _physics_process(delta):
