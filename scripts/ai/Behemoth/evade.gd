@@ -1,6 +1,7 @@
 extends State
 
 func _on_enter_state():
+	print("evade")
 	pass
 	
 func _on_exit_state():

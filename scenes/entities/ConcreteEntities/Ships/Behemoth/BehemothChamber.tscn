@@ -16,7 +16,7 @@
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
 "speed": 5.0
 } ]
@@ -29,6 +29,8 @@ script = ExtResource( 12 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 11, -11 )
+z_index = -5
+z_as_relative = false
 frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

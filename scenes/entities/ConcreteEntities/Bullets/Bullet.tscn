@@ -7,6 +7,8 @@
 radius = 5.57929
 
 [node name="Bullet" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 15
 contacts_reported = 10
 contact_monitor = true
 linear_velocity = Vector2( 500, 0 )

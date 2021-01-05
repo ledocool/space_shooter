@@ -97,9 +97,9 @@ func SetInventory(data: Dictionary):
 	_selectWeapon(data.current_weapon)
 
 
-func PickUp(item: Pickup, position):
+func PickUp(item: Pickup, pos):
 	var switchToWeapon = _removeWeapon()
-	var result = PickupHelper.ProcessPickup(item, InventoryInstance, self, StatusWrk, position)
+	var result = PickupHelper.ProcessPickup(item, InventoryInstance, self, StatusWrk, pos)
 	if(result && switchToWeapon == "" && item.get_type() == 0):
 		switchToWeapon = item.get_name()
 	if(result == true && item.get_info().has("popup_message")):

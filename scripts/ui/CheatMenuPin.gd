@@ -26,6 +26,7 @@ func _input(event):
 			isGrabbed = false
 			self.position = startPosition
 
+
 func _physics_process(_delta):
 	if(isGrabbed):
 		var mousePosition = get_global_mouse_position()

@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name PowerNode
 
 signal health_changed(oldHealth, newHealth)
 signal exploded(position, size, rotation)
@@ -10,6 +11,9 @@ var MaxHealth = 0
 
 func _ready():
 	MaxHealth = Health
+
+func GetHealth():
+	return Health
 
 func Damage(dmg: int):
 	if(Health <= 0):

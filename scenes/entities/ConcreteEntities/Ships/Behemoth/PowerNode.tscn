@@ -41,7 +41,7 @@ animations = [ {
 } ]
 
 [node name="PowerNode" type="StaticBody2D"]
-collision_layer = 2147483665
+collision_layer = 2147483653
 collision_mask = 0
 script = ExtResource( 15 )
 BulbChange = [ 0, 1, 4, 7 ]
@@ -52,6 +52,7 @@ frames = SubResource( 1 )
 
 [node name="Electricity" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="Bulb" type="AnimatedSprite" parent="."]

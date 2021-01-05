@@ -83,6 +83,7 @@ tracks/1/keys = {
 
 [node name="Ship" type="RigidBody2D"]
 z_as_relative = false
+collision_layer = 0
 mode = 2
 contacts_reported = 10
 contact_monitor = true

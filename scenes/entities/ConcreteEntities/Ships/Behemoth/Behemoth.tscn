@@ -1,0 +1,247 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://scripts/ai/Behemoth/Behemoth.gd" type="Script" id=1]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_top_wire1_unpowered.png" type="Texture" id=2]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_top_wire2_unpowered.png" type="Texture" id=3]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_bottom.png" type="Texture" id=4]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_bottom_wire2_powered.png" type="Texture" id=5]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_bottom_wire1_unpowered.png" type="Texture" id=6]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_bottom_wire1_powered.png" type="Texture" id=7]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_top.png" type="Texture" id=8]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_top_wire1_powered.png" type="Texture" id=9]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_top_wire2_powered.png" type="Texture" id=10]
+[ext_resource path="res://resources/Objects/Ships/Behemoth/behemoth_bottom_wire2_unpowered.png" type="Texture" id=11]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Behemoth/PowerNode.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Turret.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Collectable/KeyPickup.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Behemoth/BehemothChamber.tscn" type="PackedScene" id=15]
+[ext_resource path="res://scenes/effects/JetFire.tscn" type="PackedScene" id=16]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 1242.96
+height = 1340.52
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 3550.01
+
+[node name="Behemoth" type="RigidBody2D"]
+position = Vector2( 3.77563, -3.77551 )
+collision_layer = 16
+collision_mask = 16
+mass = 1000.0
+can_sleep = false
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -966.448, 1007.41, -957.468, 715.568, -908.08, 540.464, -935.019, 176.786, -997.877, -335.056, -1038.29, -1165.68, -943.999, -1426.09, -872.602, -1535.48, -536.602, -1539.48, -406.602, -1473.48, -306.602, -1543.48, 147.398, -1545.48, 173.398, -1507.48, 375.398, -1511.48, 577.398, -1479.48, 687.398, -1455.48, 730.715, -1399.15, 721.735, -788.531, 739.695, -294.648, 802.552, 185.766, 995.616, 185.766, 1031.43, 241.646, 1049.49, 589.853, 1044.79, 684.254, 1150.63, 865.682, 1145.59, 981.595, 923.779, 1034.35, 878.88, 1079.25, 760.971, 1097.22, 760.971, 1410.82, 654.063, 1531.98, -108.546, 1560.49, -578.94, 1510.6, -749.993, 1503.47, -892.536, 1382.31 )
+
+[node name="Bottom" type="Sprite" parent="."]
+z_index = -40
+texture = ExtResource( 4 )
+
+[node name="Top" type="Sprite" parent="."]
+position = Vector2( 0, -1.68176 )
+z_index = -35
+texture = ExtResource( 8 )
+
+[node name="KeyChamber" parent="." instance=ExtResource( 15 )]
+position = Vector2( -53.2826, -244.861 )
+
+[node name="KeyPickup" parent="KeyChamber" instance=ExtResource( 14 )]
+position = Vector2( 0.752907, -0.0343933 )
+
+[node name="Power" type="Node2D" parent="."]
+
+[node name="PowerNode" parent="Power" instance=ExtResource( 12 )]
+position = Vector2( 358.776, -782.612 )
+
+[node name="PowerNode2" parent="Power" instance=ExtResource( 12 )]
+position = Vector2( 170.203, -1321.39 )
+
+[node name="PowerNode3" parent="Power" instance=ExtResource( 12 )]
+position = Vector2( -379.804, -1128.33 )
+
+[node name="PowerNode4" parent="Power" instance=ExtResource( 12 )]
+position = Vector2( -476.335, 23.316 )
+
+[node name="PowerNode5" parent="Power" instance=ExtResource( 12 )]
+position = Vector2( 538.371, 344.34 )
+
+[node name="Wires" type="Node2D" parent="."]
+
+[node name="WireTop_top" type="AnimatedSprite" parent="Wires"]
+position = Vector2( 10.0906, -881.259 )
+z_index = -9
+frames = SubResource( 1 )
+
+[node name="WireBottom_top" type="AnimatedSprite" parent="Wires"]
+position = Vector2( 10.0908, 94.1804 )
+z_index = -9
+frames = SubResource( 2 )
+
+[node name="WireTop_bottom" type="AnimatedSprite" parent="Wires"]
+position = Vector2( 389.494, -895.857 )
+z_index = -36
+frames = SubResource( 3 )
+
+[node name="WireBottom_bottom" type="AnimatedSprite" parent="Wires"]
+position = Vector2( 59.9179, 310.568 )
+z_index = -36
+frames = SubResource( 4 )
+
+[node name="Turrets" type="Node2D" parent="."]
+
+[node name="Turret1" parent="Turrets" instance=ExtResource( 13 )]
+position = Vector2( -783.752, -826.649 )
+
+[node name="Turret4" parent="Turrets" instance=ExtResource( 13 )]
+position = Vector2( 656.453, -1044.07 )
+
+[node name="Turret3" parent="Turrets" instance=ExtResource( 13 )]
+position = Vector2( -805.297, 285.844 )
+
+[node name="Turret2" parent="Turrets" instance=ExtResource( 13 )]
+position = Vector2( 938.42, 575.697 )
+
+[node name="CloseView" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 130
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloseView"]
+shape = SubResource( 5 )
+
+[node name="FarView" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 130
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FarView"]
+shape = SubResource( 6 )
+
+[node name="BackCollision" type="StaticBody2D" parent="."]
+collision_layer = 2147483649
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackCollision"]
+polygon = PoolVector2Array( -761.382, 1506.05, -562.203, 1501.81, -428.711, 1368.32, -426.592, 1349.25, -245.375, 1348.43, -245, 1363.41, -259.234, 1364.16, -256.986, 1394.13, -231.651, 1425.53, -106.634, 1550.55, 660.417, 1544.19, 751.531, 1427.65, 766.364, 1241.19, 745.174, 764.428, 613.801, 669.077, 370.124, 514.395, 232.394, 508.038, 213.324, 499.563, 151.875, 505.919, 137.042, 518.633, 62.8801, 516.514, 7.78809, 554.655, -437.186, 567.368, -435.068, 607.628, -672.387, 635.174, -761.382, 652.125, -801.642, 679.671, -803.761, 789.855, -831.307, 796.212, -831.307, 830.115, -871.566, 887.326, -920.302, 980.559, -896.993, 1385.27 )
+
+[node name="ExplosionMarkers" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -668.263, -1249.69 )
+
+[node name="Position2D2" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -283.162, -1359.18 )
+
+[node name="Position2D3" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -853.262, -1151.53 )
+
+[node name="Position2D4" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -26.4285, -743.773 )
+
+[node name="Position2D5" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( 407.754, -1347.85 )
+
+[node name="Position2D6" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -815.507, -403.978 )
+
+[node name="Position2D7" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -653.161, -317.142 )
+
+[node name="Position2D8" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -747.549, -117.041 )
+
+[node name="Position2D9" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -415.305, -158.571 )
+
+[node name="Position2D10" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -203.877, 649.385 )
+
+[node name="Position2D11" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( 11.3264, 1476.22 )
+
+[node name="Position2D12" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -826.834, 585.202 )
+
+[node name="Position2D13" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( -823.058, 906.119 )
+
+[node name="Position2D14" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( 184.999, 422.856 )
+
+[node name="Position2D15" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( 596.529, 902.344 )
+
+[node name="Position2D16" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( 811.732, 921.221 )
+
+[node name="Position2D17" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( 536.12, 487.039 )
+
+[node name="Position2D18" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( 660.712, 64.1835 )
+
+[node name="Position2D19" type="Position2D" parent="ExplosionMarkers"]
+position = Vector2( 268.06, -388.876 )
+
+[node name="Jets" type="Node2D" parent="."]
+
+[node name="MainBack" parent="Jets" instance=ExtResource( 16 )]
+position = Vector2( 283.162, 1551.73 )
+
+[node name="SecondaryBack" parent="Jets" instance=ExtResource( 16 )]
+position = Vector2( -653.161, 1525.3 )
+scale = Vector2( 0.404449, 0.363029 )
+
+[node name="LowerLeft" parent="Jets" instance=ExtResource( 16 )]
+position = Vector2( -1072.24, 932.548 )
+rotation = 1.5708
+scale = Vector2( 0.132973, 0.463775 )
+
+[node name="UpperLeft" parent="Jets" instance=ExtResource( 16 )]
+position = Vector2( -1215.71, -728.671 )
+rotation = 1.5708
+scale = Vector2( 0.143956, 0.286071 )
+
+[node name="Right" parent="Jets" instance=ExtResource( 16 )]
+position = Vector2( 1132, 428 )
+rotation = -1.5708
+scale = Vector2( 0.140415, 1.05806 )
+[connection signal="health_changed" from="Power/PowerNode" to="." method="_on_Topnode_health_changed"]
+[connection signal="health_changed" from="Power/PowerNode2" to="." method="_on_Topnode_health_changed"]
+[connection signal="health_changed" from="Power/PowerNode3" to="." method="_on_Topnode_health_changed"]
+[connection signal="health_changed" from="Power/PowerNode4" to="." method="_on_Bottomnode_health_changed"]
+[connection signal="health_changed" from="Power/PowerNode5" to="." method="_on_Bottomnode_health_changed"]

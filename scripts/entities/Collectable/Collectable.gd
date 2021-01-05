@@ -17,7 +17,7 @@ func _ready():
 
 func _on_Collectable_body_entered(body):
 	if(body.has_method("PickUp")):
-		if(body.PickUp(data, position)):
+		if(body.PickUp(data, get_global_position())):
 			visible = false
 			emit_signal("picked_up", data)
 			queue_free()
