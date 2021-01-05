@@ -59,7 +59,13 @@ func _ready():
 		var plate = Position2D.new()
 		plate.name = "Position2D" + String(i)
 		plate.position = Vector2(currentPos, 0)
+		$RayShot.cast_to = plate.position
 		add_child(plate)
+		
+		$RayShot.force_raycast_update()
+		if($RayShot.is_colliding()):
+			entityMax = i
+			break
 
 
 func _onTreeExiting():
@@ -75,5 +81,5 @@ func _on_Timer1_timeout():
 	
 	var posName = "Position2D" + String(enitityCounter)
 	var pos = get_node(posName)
-	spawnChild(pos.position)
+	var notColliding = spawnChild(pos.position)
 	enitityCounter += 1

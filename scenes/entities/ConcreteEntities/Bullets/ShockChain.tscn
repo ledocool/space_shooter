@@ -13,4 +13,8 @@ script = ExtResource( 1 )
 process_mode = 0
 wait_time = 0.05
 autostart = true
+
+[node name="RayShot" type="RayCast2D" parent="."]
+enabled = true
+exclude_parent = false
 [connection signal="timeout" from="Timers/Timer1" to="." method="_on_Timer1_timeout"]
