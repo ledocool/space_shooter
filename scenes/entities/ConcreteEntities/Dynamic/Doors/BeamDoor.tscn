@@ -10,7 +10,6 @@ script = ExtResource( 3 )
 [node name="Beam" parent="." instance=ExtResource( 1 )]
 visible = false
 z_index = -53
-collision_layer = 0
 
 [node name="Emitter" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 451 )

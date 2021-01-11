@@ -6,9 +6,7 @@ var FollowPath = null
 var PathPointIndex = null
 var FollowPathPointNodes = null
 
-
 func _on_enter_state():
-	print("pursue")
 	Player = target.GetTarget()
 	Nav = target.GetNavigator()
 	PathPointIndex = 0
@@ -30,6 +28,11 @@ func _on_leave_state():
 
 
 func _physics_process(_delta):
+	var tHealth = target.GetPowerNodeBottomHealth() + target.GetPowerNodeTopHealth()
+	if(tHealth == 0):
+		state_machine.transition("dead")
+		return
+	
 	if(target.CloseTo(Player)):
 		state_machine.transition("stop")
 		return

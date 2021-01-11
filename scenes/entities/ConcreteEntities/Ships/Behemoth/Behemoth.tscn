@@ -50,11 +50,11 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=5]
-radius = 1242.96
-height = 1340.52
+radius = 1788.63
+height = 737.768
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 3550.01
+radius = 2821.89
 
 [node name="Behemoth" type="RigidBody2D"]
 position = Vector2( 3.77563, -3.77551 )
@@ -101,25 +101,24 @@ position = Vector2( -476.335, 23.316 )
 position = Vector2( 538.371, 344.34 )
 
 [node name="Wires" type="Node2D" parent="."]
+z_index = -34
 
 [node name="WireTop_top" type="AnimatedSprite" parent="Wires"]
 position = Vector2( 10.0906, -881.259 )
-z_index = -9
 frames = SubResource( 1 )
 
 [node name="WireBottom_top" type="AnimatedSprite" parent="Wires"]
 position = Vector2( 10.0908, 94.1804 )
-z_index = -9
 frames = SubResource( 2 )
 
 [node name="WireTop_bottom" type="AnimatedSprite" parent="Wires"]
 position = Vector2( 389.494, -895.857 )
-z_index = -36
+z_index = -2
 frames = SubResource( 3 )
 
 [node name="WireBottom_bottom" type="AnimatedSprite" parent="Wires"]
 position = Vector2( 59.9179, 310.568 )
-z_index = -36
+z_index = -2
 frames = SubResource( 4 )
 
 [node name="Turrets" type="Node2D" parent="."]
@@ -153,10 +152,14 @@ collision_mask = 130
 shape = SubResource( 6 )
 
 [node name="BackCollision" type="StaticBody2D" parent="."]
+visible = false
 collision_layer = 2147483649
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackCollision"]
 polygon = PoolVector2Array( -761.382, 1506.05, -562.203, 1501.81, -428.711, 1368.32, -426.592, 1349.25, -245.375, 1348.43, -245, 1363.41, -259.234, 1364.16, -256.986, 1394.13, -231.651, 1425.53, -106.634, 1550.55, 660.417, 1544.19, 751.531, 1427.65, 766.364, 1241.19, 745.174, 764.428, 613.801, 669.077, 370.124, 514.395, 232.394, 508.038, 213.324, 499.563, 151.875, 505.919, 137.042, 518.633, 62.8801, 516.514, 7.78809, 554.655, -437.186, 567.368, -435.068, 607.628, -672.387, 635.174, -761.382, 652.125, -801.642, 679.671, -803.761, 789.855, -831.307, 796.212, -831.307, 830.115, -871.566, 887.326, -920.302, 980.559, -896.993, 1385.27 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="BackCollision"]
+polygon = PoolVector2Array( -1210.63, -774.336, -1182.12, -824.226, -1000.38, -829.572, -948.469, -774.02, -931.071, -768.969, -906.377, -745.958, -906.377, -716.213, -912.55, -698.254, -941.173, -688.713, -986.122, -658.519, -1162.52, -644.265, -1208.85, -688.81 )
 
 [node name="ExplosionMarkers" type="Node2D" parent="."]
 
@@ -240,8 +243,13 @@ scale = Vector2( 0.143956, 0.286071 )
 position = Vector2( 1132, 428 )
 rotation = -1.5708
 scale = Vector2( 0.140415, 1.05806 )
+
+[node name="ExplosionTimer" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.12
 [connection signal="health_changed" from="Power/PowerNode" to="." method="_on_Topnode_health_changed"]
 [connection signal="health_changed" from="Power/PowerNode2" to="." method="_on_Topnode_health_changed"]
 [connection signal="health_changed" from="Power/PowerNode3" to="." method="_on_Topnode_health_changed"]
 [connection signal="health_changed" from="Power/PowerNode4" to="." method="_on_Bottomnode_health_changed"]
 [connection signal="health_changed" from="Power/PowerNode5" to="." method="_on_Bottomnode_health_changed"]
+[connection signal="timeout" from="ExplosionTimer" to="." method="_on_ExplosionTimer_timeout"]

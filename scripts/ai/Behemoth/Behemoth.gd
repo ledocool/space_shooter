@@ -1,11 +1,13 @@
 extends RigidBody2D
 class_name Behemoth
 
+signal exploded(position, size, rotation)
+
 const off = preload("res://scripts/ai/Behemoth/off.gd")
 const pursue = preload("res://scripts/ai/Behemoth/pursue.gd")
-const evade = preload("res://scripts/ai/Behemoth/evade.gd")
 const agitated = preload("res://scripts/ai/Behemoth/agitated.gd")
 const stop = preload("res://scripts/ai/Behemoth/stop.gd")
+const dead = preload("res://scripts/ai/Behemoth/dead.gd")
 const StateMachineFactory = preload("res://scripts/systems/state-machine/state_machine_factory.gd")
 
 export var MaxSpeed: float = 790
@@ -14,8 +16,8 @@ export var TorqueImpulse: float = 1000000
 export var MaxAngleDrift: float = 0.04
 export var BehaviourChangeThreshold: float = 0.4
 
-export var LinearDamp = 94000
-export var AngularDamp = 400
+export var LinearDamp = 220
+export var AngularDamp = 5
 
 var Navigator
 var Target: Ship
@@ -25,12 +27,13 @@ var startState = "off"
 var TargetPath = null
 var CursorThrust = null
 
+# Elements health
 var TopWireHealth = 0
 var BottomWireHealth = 0
 var WireMaxHealth = 0
-
 var TurretsHealth = 0
 
+var ExplosionPoints: Array
 
 func SetNavigator(navigator):
 	Navigator = navigator
@@ -88,6 +91,7 @@ func GetTurretsHealth():
 		
 	return health
 
+
 func GetPowerNodeBottomHealth():
 	return BottomWireHealth
 
@@ -121,22 +125,25 @@ func _ready():
 		'states': [
 			{'id': 'off', 'state': off},
 			{'id': 'pursue', 'state': pursue},
-			{'id': 'evade', 'state': evade},
 			{'id': 'agitated', 'state': agitated},
-			{'id': 'stop', 'state': stop}
+			{'id': 'stop', 'state': stop},
+			{'id': 'dead', 'state': dead}
 		],
 		'transitions': [
 			{'state_id': 'off', 'to_states': ['agitated']},
-			{'state_id': 'agitated', 'to_states': ['pursue', 'evade', 'off']},
-			{'state_id': 'pursue', 'to_states': ['agitated', 'stop']},
-			{'state_id': 'evade', 'to_states': ['agitated', 'stop']},
-			{'state_id': 'stop', 'to_states': ['agitated']}
+			{'state_id': 'agitated', 'to_states': ['pursue', 'off', 'dead']},
+			{'state_id': 'pursue', 'to_states': ['agitated', 'stop', 'dead']},
+			{'state_id': 'stop', 'to_states': ['agitated', 'dead']}
 		]
 	})
 	TurretsEnable(false)
 	TopWireHealth = _getTopWireHealth()
 	BottomWireHealth = _getBottomWireHealth()
 	WireMaxHealth = TopWireHealth + BottomWireHealth
+	
+	var level = get_node_or_null("/root/Level")
+	if(level != null):
+		var _r = connect("exploded", level, "_on_Something_explode")
 
 
 func _getTopWireHealth():
@@ -169,7 +176,7 @@ func _on_Bottomnode_health_changed(oldHealth, newHealth):
 		($Wires/WireBottom_bottom as AnimatedSprite).frame = 1
 		
 	if(TopWireHealth == 0 && BottomWireHealth == 0):
-		RemoveChamber()
+		aiState.transition("dead")
 
 
 func LeftJets(enable: bool):
@@ -188,16 +195,16 @@ func ForwardJets(enable: bool):
 
 func _physics_process(delta):
 	aiState._physics_process(delta)
-	_applyRotation()
 	_applyThrust()
 
 
 func _integrate_forces(state):
 	if(state.linear_velocity.length() > MaxSpeed):
 		state.linear_velocity = state.linear_velocity.clamped(MaxSpeed)
+	_applyRotation(state)
 
 
-func _applyRotation():
+func _applyRotation(state: Physics2DDirectBodyState):
 	if(CursorThrust == null):
 		applied_torque = 0.0
 		LeftJets(false)
@@ -207,6 +214,7 @@ func _applyRotation():
 	var angleToCursor = (CursorThrust - position).angle() - rotation
 	var absAngle = abs(angleToCursor)
 	var component = angleToCursor / absAngle if angleToCursor != 0 else 0.0
+	component *= -1
 	
 	if(absAngle < MaxAngleDrift):
 		LeftJets(false)
@@ -215,7 +223,7 @@ func _applyRotation():
 		LeftJets(component > 0)
 		RightJets(component < 0)
 	
-	applied_torque = TorqueImpulse * component
+	state.apply_torque_impulse(TorqueImpulse * component)
 
 
 func _applyThrust():
@@ -228,3 +236,18 @@ func _applyThrust():
 	applied_force = impulseTo * EngineStrength
 	ForwardJets(true)
 
+
+func _onDeath():
+	var explostionPoints = $ExplosionMarkers.get_children()
+	explostionPoints.shuffle()
+	ExplosionPoints = explostionPoints
+	($ExplosionTimer as Timer).start()
+
+
+func _on_ExplosionTimer_timeout():
+	var point = ExplosionPoints.pop_front()
+	if(point == null):
+		($ExplosionTimer as Timer).stop()
+		return
+	var size = randf() * 3.2
+	emit_signal("exploded", point.get_global_position(), size, 0.0)

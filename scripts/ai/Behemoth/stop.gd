@@ -14,5 +14,11 @@ func _on_leave_state():
 
 
 func _physics_process(_delta):
+	var tHealth = target.GetPowerNodeBottomHealth() + target.GetPowerNodeTopHealth()
+	if(tHealth == 0):
+		state_machine.transition("dead")
+		return
+	
 	if(target.IsStationary()):
 		state_machine.transition("agitated")
+		return

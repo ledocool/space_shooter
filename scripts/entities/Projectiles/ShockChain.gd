@@ -53,17 +53,18 @@ func spawnChild(position: Vector2):
 
 func _ready():
 	var currentPos = 0
+	var ray: RayCast2D = $RayShot
 	var oldEntityCounter = enitityCounter
 	for i in range(oldEntityCounter, entityMax):
 		currentPos = i*entityOffset + beginOffset
 		var plate = Position2D.new()
 		plate.name = "Position2D" + String(i)
 		plate.position = Vector2(currentPos, 0)
-		$RayShot.cast_to = plate.position
 		add_child(plate)
 		
-		$RayShot.force_raycast_update()
-		if($RayShot.is_colliding()):
+		ray.cast_to = plate.position
+		ray.force_raycast_update()
+		if(ray.is_colliding()):
 			entityMax = i
 			break
 
@@ -81,5 +82,5 @@ func _on_Timer1_timeout():
 	
 	var posName = "Position2D" + String(enitityCounter)
 	var pos = get_node(posName)
-	var notColliding = spawnChild(pos.position)
+	spawnChild(pos.position)
 	enitityCounter += 1

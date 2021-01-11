@@ -1,7 +1,7 @@
 extends Area2D
 
 var alienDoorOpened = false
-onready var AlienDoor = $"/root/Level/Scenery/StartingRoom/AlienShipDoor"
+onready var AlienDoor = $"/root/Level/Scenery/Exit/AlienShipDoor"
 
 func Load(data: Dictionary):
 	alienDoorOpened = data.alienDoor
