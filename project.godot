@@ -332,7 +332,7 @@ window/stretch/shrink="1"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "custom_walls" )
+enabled=PoolStringArray(  )
 
 [gui]
 

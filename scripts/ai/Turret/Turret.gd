@@ -9,20 +9,21 @@ const idle = preload("res://scripts/ai/Turret/idle.gd")
 const track = preload("res://scripts/ai/Turret/track.gd")
 const shoot = preload("res://scripts/ai/Turret/shoot.gd")
 const dead = preload("res://scripts/ai/Turret/dead.gd")
-const suspend = preload("res://scripts/ai/Turret/suspend.gd")
 const StateMachineFactory = preload("res://scripts/systems/state-machine/state_machine_factory.gd")
 
 const bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/ShockChain.tscn")
 
 export var Health = 7
 
+var shotTimeout = 3
 var LockedTarget = null
 var aiState
 var startState = "idle"
-var Suspended = false
+var shotSuspended = false
 
-func GetHealth():
-	return Health
+
+func SetSuspended(suspended: bool = true):
+	shotSuspended = suspended
 
 
 func Damage(dmg):
@@ -71,14 +72,12 @@ func GetRotation():
 func GetVelocity(): 
 	return Vector2.ZERO
 
-
 func IsPlayerVisible():
 	var target = GetTarget()
 	if(!target):
 		return false
 	
-	return AiAPathHelper.TargetVisible(position, target.position, get_world_2d())
-
+	return AiAPathHelper.TargetVisible(get_global_position(), target.get_global_position(), get_world_2d())
 
 func GetTarget():
 	if(LockedTarget == null):
@@ -97,10 +96,6 @@ func StopCooldowns():
 	($Timers/ShootCooldown as Timer).stop()
 
 
-func SetSuspended(suspended: bool = true):
-	Suspended = suspended
-
-
 func Shoot():
 	($Timers/ShootBlowupCooldown as Timer).start()
 # warning-ignore:unsafe_property_access
@@ -109,6 +104,10 @@ func Shoot():
 	var pos = $Top/BulletAnchor.global_position
 	emit_signal("shoot_bullet", bullet.instance(), rot, pos, Vector2(0,0), 1.0)
 
+func SkipShoot():
+	if(aiState.get_current_state() == "shoot"):
+		aiState.transition("track")
+
 
 func Track():
 	var target = GetTarget()
@@ -116,7 +115,7 @@ func Track():
 		return false
 	
 	var targetPosition = target.get_global_position()
-	if(!AiAPathHelper.TargetVisible(position, target.position, get_world_2d())):
+	if(!AiAPathHelper.TargetVisible(self.get_global_position(), target.get_global_position(), get_world_2d())):
 		return false
 
 	($Top as Node2D).look_at(targetPosition)
@@ -141,14 +140,12 @@ func _ready():
 			{'id': 'idle', 'state': idle},
 			{'id': 'shoot', 'state': shoot},
 			{'id': 'track', 'state': track},
-			{'id': 'dead', 'state': dead},
-			{'id': 'suspended', 'state': suspend}
+			{'id': 'dead', 'state': dead}
 		],
 		'transitions': [
-			{'state_id': 'idle', 'to_states': ['track','dead', 'suspended']},
-			{'state_id': 'track', 'to_states': ['idle', 'shoot', 'dead', 'suspended']},
-			{'state_id': 'shoot', 'to_states': ['track', 'idle', 'dead', 'suspended']},
-			{'state_id': 'suspended', 'to_states': ['idle']}
+			{'state_id': 'idle', 'to_states': ['track','dead']},
+			{'state_id': 'track', 'to_states': ['idle', 'shoot', 'dead']},
+			{'state_id': 'shoot', 'to_states': ['track', 'idle', 'dead']}
 		]
 	})
 	
@@ -166,6 +163,33 @@ func _physics_process(delta):
 func _on_dead():
 	($Base as StaticBody2D).set_collision_layer(1)
 	($Top as KinematicBody2D).set_collision_layer(1)
+
+
+func _on_Area2D_body_entered(body):
+	if(body is PlayerShip):
+		LockedTarget = weakref(body)
+		if(aiState.get_current_state() == "idle"):
+			aiState.transition("track")
+
+
+func _on_Area2D_body_exited(body):
+	if GetTarget() && body == GetTarget():
+		if(aiState.get_current_state()):
+			aiState.transition("idle")
+		LockedTarget = null
+
+
+func _on_ShootCooldown_timeout():
+	if(shotSuspended):
+		($Timers/ShootCooldown as Timer).start()
+		return
+	if(aiState.get_current_state() == "track"):
+		aiState.transition("shoot")
+
+
+func _on_ShootBlowupCooldown_timeout():
+	if(aiState.get_current_state() == "shoot"):
+		aiState.transition("track")
 
 
 func _on_Base_damaged(damage):

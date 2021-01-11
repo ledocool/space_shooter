@@ -524,6 +524,8 @@ navpoly = SubResource( 8 )
 [node name="PathCheckpoints" type="Node2D" parent="TriggerContainer/BehemothNavigator" index="1"]
 
 [node name="DoorOpenTrigger" type="Area2D" parent="TriggerContainer" index="2"]
+collision_layer = 0
+collision_mask = 64
 script = ExtResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/DoorOpenTrigger" index="0"]
