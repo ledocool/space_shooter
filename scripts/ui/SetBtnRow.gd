@@ -16,7 +16,7 @@ func _ready():
 	KeyLabel.text = assignedButton
 
 
-func _unhandled_input(event):
+func _input(event):
 	if (IsMouseButtonIn == true):
 		if(event is InputEventMouseButton):
 			if(event.button_index == 1 && event.is_doubleclick()):

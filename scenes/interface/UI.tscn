@@ -26,7 +26,7 @@ current = true
 process_mode = 0
 
 [node name="UICanvas" type="CanvasLayer" parent="."]
-layer = 126
+layer = 119
 
 [node name="TopGUI" type="Control" parent="UICanvas"]
 anchor_right = 1.0

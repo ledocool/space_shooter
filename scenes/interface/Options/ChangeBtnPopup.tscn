@@ -61,3 +61,4 @@ text = "press_button_or_esc"
 align = 1
 valign = 1
 autowrap = true
+[connection signal="visibility_changed" from="." to="." method="_on_ColorRect_visibility_changed"]

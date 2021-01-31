@@ -49,37 +49,46 @@ custom_constants/separation = 15
 [node name="Resume" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_right = 150.0
 margin_bottom = 22.0
 Text = "resume"
+disabled = false
 
 [node name="Save game" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 37.0
+margin_right = 150.0
 margin_bottom = 59.0
 Text = "save_game"
+disabled = false
 
 [node name="Load game" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 74.0
+margin_right = 150.0
 margin_bottom = 96.0
 Text = "load_game"
+disabled = false
 
 [node name="Options" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 111.0
+margin_right = 150.0
 margin_bottom = 133.0
 Text = "options"
-disabled = true
+disabled = false
 
 [node name="Exit" parent="CenterContainer/ItemList" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 148.0
+margin_right = 150.0
 margin_bottom = 170.0
 Text = "exit"
+disabled = false
 
 [node name="CheatMenuEnabler" type="Node2D" parent="."]
 z_index = 1000
@@ -154,6 +163,7 @@ margin_top = 0.325439
 margin_right = 35.8739
 margin_bottom = 6.48547
 Text = "Ok and close"
+disabled = false
 [connection signal="visibility_changed" from="." to="." method="_on_EscapeMenu_visibility_changed"]
 [connection signal="pressed" from="CenterContainer/ItemList/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="CenterContainer/ItemList/Save game" to="." method="_on_Save_game_pressed"]

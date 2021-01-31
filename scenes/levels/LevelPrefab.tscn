@@ -72,7 +72,7 @@ __meta__ = {
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="MenuCanvas" type="CanvasLayer" parent="."]
-layer = 127
+layer = 120
 
 [node name="MarginContainer" type="MarginContainer" parent="MenuCanvas"]
 anchor_right = 1.0

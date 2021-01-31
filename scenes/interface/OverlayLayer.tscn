@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/interface/Options/ChangeBtnPopup.tscn" type="PackedScene" id=4]
 
 [node name="Overlay" type="CanvasLayer"]
+pause_mode = 2
 layer = 128
 script = ExtResource( 2 )
 
