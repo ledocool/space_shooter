@@ -223,23 +223,28 @@ position = Vector2( 268.06, -388.876 )
 [node name="Jets" type="Node2D" parent="."]
 
 [node name="MainBack" parent="Jets" instance=ExtResource( 16 )]
+visible = false
 position = Vector2( 283.162, 1551.73 )
 
 [node name="SecondaryBack" parent="Jets" instance=ExtResource( 16 )]
+visible = false
 position = Vector2( -653.161, 1525.3 )
 scale = Vector2( 0.404449, 0.363029 )
 
 [node name="LowerLeft" parent="Jets" instance=ExtResource( 16 )]
+visible = false
 position = Vector2( -1072.24, 932.548 )
 rotation = 1.5708
 scale = Vector2( 0.132973, 0.463775 )
 
 [node name="UpperLeft" parent="Jets" instance=ExtResource( 16 )]
+visible = false
 position = Vector2( -1215.71, -728.671 )
 rotation = 1.5708
 scale = Vector2( 0.143956, 0.286071 )
 
 [node name="Right" parent="Jets" instance=ExtResource( 16 )]
+visible = false
 position = Vector2( 1132, 428 )
 rotation = -1.5708
 scale = Vector2( 0.140415, 1.05806 )

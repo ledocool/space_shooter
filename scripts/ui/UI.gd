@@ -4,6 +4,7 @@ class_name UI
 onready var hpProgressBar = get_node("UICanvas/TopGUI/LeftStack/Hp/Layout/Bar");
 onready var ammoLabel = get_node("UICanvas/TopGUI/AmmoPanel/AmmoLabel");
 onready var speedProgress = get_node("UICanvas/TopGUI/LeftStack/Speed/Layout/Bar");
+onready var SettingsMan = $"/root/SettingsManager"
 export var MinZoom = 1
 export var MaxZoom = 1.7
 export var ZoomStep = 0.1
@@ -43,12 +44,13 @@ func SetZoom(zoom: float):
 	($Camera2D as Camera2D).set_zoom(z)
 
 func _input(event):
+	AutoZoomEnabled = SettingsMan.GetAutoZoom()
 	if(event.is_action("zoom_out")):
 		SetZoom(GetZoom() - ZoomStep)
-#		DoAutoZoom = false
+		DoAutoZoom = false
 	if(event.is_action("zoom_in")):
 		SetZoom(GetZoom() + ZoomStep)
-#		DoAutoZoom = false
+		DoAutoZoom = false
 
 func _physics_process(delta):
 	doAutoZoom(delta)
@@ -132,7 +134,7 @@ func getZoomThresholdReached(speed):
 
 
 func doAutoZoom(delta):
-	if(!DoAutoZoom):
+	if(!AutoZoomEnabled || !DoAutoZoom):
 		return;
 	
 	var zoom = GetZoom()

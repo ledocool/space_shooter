@@ -150,3 +150,7 @@ func _on_EscapeMenu_load_game():
 	var loadMenu = find_node("LoadMenu")
 	loadMenu.visible = true
 
+
+func _on_EscapeMenu_options():
+	var optionsMenu = find_node("OptionsMenu")
+	optionsMenu.visible = true

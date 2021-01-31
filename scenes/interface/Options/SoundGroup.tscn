@@ -11,26 +11,27 @@ script = ExtResource( 4 )
 text = "sound_settings"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents" index="0"]
-margin_right = 1919.0
-margin_bottom = 1067.0
+margin_right = 1920.0
+margin_bottom = 1027.0
 
 [node name="MainVolume" parent="VBoxContainer/Contents/VBoxContainer" index="0" instance=ExtResource( 3 )]
 anchor_right = 0.0
-margin_right = 1919.0
+margin_right = 1920.0
+margin_bottom = 55.0
 LabelText = "master_volume"
 
 [node name="MusicVolume" parent="VBoxContainer/Contents/VBoxContainer" index="1" instance=ExtResource( 3 )]
 anchor_right = 0.0
-margin_top = 29.0
-margin_right = 1919.0
-margin_bottom = 54.0
+margin_top = 59.0
+margin_right = 1920.0
+margin_bottom = 114.0
 LabelText = "music_volume"
 
 [node name="SfxVolume" parent="VBoxContainer/Contents/VBoxContainer" index="2" instance=ExtResource( 3 )]
 anchor_right = 0.0
-margin_top = 58.0
-margin_right = 1919.0
-margin_bottom = 83.0
+margin_top = 118.0
+margin_right = 1920.0
+margin_bottom = 173.0
 LabelText = "sfx_volume"
 [connection signal="value_changed" from="VBoxContainer/Contents/VBoxContainer/MainVolume" to="." method="_on_MainVolume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/Contents/VBoxContainer/MusicVolume" to="." method="_on_MusicVolume_value_changed"]

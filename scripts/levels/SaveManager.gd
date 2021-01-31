@@ -19,6 +19,13 @@ func GetSaveList():
 	return saves
 
 
+func DeleteSaveGame(savename: String):
+	if (SaveDirectory.file_exists(savename)):
+		SaveDirectory.remove(savename)
+	else:
+		print("Failed deleting savegame: " + savename)
+
+
 func LoadSaveGame(savename: String):
 	var save = File.new()
 	if(!savename.ends_with(".sav")):

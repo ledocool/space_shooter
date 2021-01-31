@@ -22,12 +22,20 @@ margin_bottom = 529.0
 custom_constants/separation = 15
 
 [node name="Retry" parent="Background/MarginContainer/CenterContainer/ItemList" index="0" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 150.0
 margin_bottom = 22.0
 Text = "retry"
+disabled = false
 
 [node name="Exit" parent="Background/MarginContainer/CenterContainer/ItemList" index="1" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_top = 37.0
+margin_right = 150.0
 margin_bottom = 59.0
 Text = "exit"
+disabled = false
 [connection signal="pressed" from="Background/MarginContainer/CenterContainer/ItemList/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="Background/MarginContainer/CenterContainer/ItemList/Exit" to="." method="_on_Exit_pressed"]

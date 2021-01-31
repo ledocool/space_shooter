@@ -1,12 +1,87 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/interface/Options/MenuGroup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/interface/Options/SetBtnRow.tscn" type="PackedScene" id=2]
 
 [node name="ControlsGroup" instance=ExtResource( 1 )]
+mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents" index="0"]
-margin_right = 1919.0
-margin_bottom = 1067.0
+[node name="Label" parent="VBoxContainer" index="0"]
+text = "controls_settings"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Contents" index="0"]
+margin_right = 1920.0
+margin_bottom = 1027.0
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents/ScrollContainer" index="0"]
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 1870.0
+margin_bottom = 638.0
+size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SetBtnRow" parent="VBoxContainer/Contents/ScrollContainer/VBoxContainer" index="0" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1820.0
+margin_bottom = 75.0
+
+[node name="SetBtnRow2" parent="VBoxContainer/Contents/ScrollContainer/VBoxContainer" index="1" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 79.0
+margin_right = 1820.0
+margin_bottom = 154.0
+Action = "shoot"
+
+[node name="SetBtnRow3" parent="VBoxContainer/Contents/ScrollContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 158.0
+margin_right = 1820.0
+margin_bottom = 233.0
+Action = "wpn_1"
+
+[node name="SetBtnRow4" parent="VBoxContainer/Contents/ScrollContainer/VBoxContainer" index="3" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 237.0
+margin_right = 1820.0
+margin_bottom = 312.0
+Action = "wpn_2"
+
+[node name="SetBtnRow5" parent="VBoxContainer/Contents/ScrollContainer/VBoxContainer" index="4" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 316.0
+margin_right = 1820.0
+margin_bottom = 391.0
+Action = "zoom_out"
+
+[node name="SetBtnRow6" parent="VBoxContainer/Contents/ScrollContainer/VBoxContainer" index="5" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 395.0
+margin_right = 1820.0
+margin_bottom = 470.0
+Action = "zoom_in"
+
+[node name="SetBtnRow7" parent="VBoxContainer/Contents/ScrollContainer/VBoxContainer" index="6" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 474.0
+margin_right = 1820.0
+margin_bottom = 549.0
+Action = "quick_save"
+
+[node name="SetBtnRow8" parent="VBoxContainer/Contents/ScrollContainer/VBoxContainer" index="7" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 553.0
+margin_right = 1820.0
+margin_bottom = 628.0
+Action = "quick_load"

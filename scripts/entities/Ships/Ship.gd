@@ -12,6 +12,12 @@ export var ShipMaxHealth: int = 5 setget SetMaxHealth,GetMaxHealth
 export var ShipCurrentHealth: int = 5 setget SetHealth,GetHealth
 export var VelocityDampThreshold: float = 180
 
+export var SpeedGreenZoneMultiplier: float = 1.2
+export var SpeedGreenZoneMultiplierStart: float = 180
+export var SpeedGreenZoneMultiplierEnd: float = 600
+
+var GreenZoneEntered: bool = false
+
 var SpeedMultiplier: float = 1
 var ReceivedDamageMultiplier: float = 1
 
@@ -132,6 +138,9 @@ func _physics_process(_delta):
 		linear_damp = 5
 	else:
 		linear_damp = 0
+		
+	GreenZoneEntered = spd >= SpeedGreenZoneMultiplierStart && spd <= SpeedGreenZoneMultiplierEnd
+		
 	
 	if(spd != OldSpeed):
 		OldSpeed = spd
@@ -154,7 +163,11 @@ func _playBoomSound():
 
 
 func _applySpeed (state, newRot, oldRot):
-	var force = Vector2(ShipSpeed * SpeedMultiplier, 0).rotated(newRot)
+	var power = ShipSpeed * SpeedMultiplier
+	if(GreenZoneEntered):
+		power *= SpeedGreenZoneMultiplier
+	
+	var force = Vector2(power, 0).rotated(newRot)
 	
 	if(newRot != oldRot || EngineFiringLastTime != EngineFiring):
 		state.add_central_force(-OldForce)

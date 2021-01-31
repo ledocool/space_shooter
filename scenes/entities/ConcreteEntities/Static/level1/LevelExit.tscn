@@ -6,7 +6,6 @@
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/RoundBlinkingLight_Green.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/Objects/Structures/LevelSpecific/level_exit_mid.png" type="Texture" id=5]
 
-
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -548.918, 408.143, -538.125, 380.083, -71.8955, 334.755, 178.487, 453.471, 668.46, 429.728, 672.777, -476.831, 204.389, -444.453, 31.7113, -414.235, -579.136, -461.721, -486.322, -485.464, 18.7606, -429.344, 202.231, -461.721, 679.253, -504.891, 933.953, -478.989, 938.27, 496.64, 668.461, 464.263, 176.329, 475.056, -108.589, 384.4 )
 

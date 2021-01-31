@@ -78,4 +78,4 @@ func _on_UpdateCoordinatesTimer_timeout():
 
 
 func _onDestruction():
-	emit_signal("exploded", position, Vector2(0.1, 0.1), rotation)
+	emit_signal("exploded", position, 0.1, rotation)

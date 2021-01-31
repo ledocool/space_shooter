@@ -56,16 +56,19 @@ __meta__ = {
 [node name="Retry" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="0" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-rect_min_size = Vector2( 150, 22 )
+margin_right = 150.0
+margin_bottom = 25.0
 Text = "retry"
+disabled = false
 
 [node name="Exit" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="1" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 40.0
+margin_right = 150.0
 margin_bottom = 65.0
-rect_min_size = Vector2( 150, 22 )
 Text = "exit"
+disabled = false
 
 [node name="MarginContainer" type="MarginContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="1"]
 margin_left = 412.0
@@ -86,8 +89,10 @@ __meta__ = {
 }
 
 [node name="Statistics" type="VBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer" index="0"]
-margin_right = 517.0
-margin_bottom = 261.0
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 567.0
+margin_bottom = 271.0
 
 [node name="shots_fired" type="HBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer/Statistics" index="0"]
 margin_right = 517.0

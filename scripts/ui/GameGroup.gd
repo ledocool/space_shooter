@@ -1,5 +1,7 @@
 extends Control
 
+onready var SettingsMan = $"/root/SettingsManager"
+
 var supportedLanguages = [
 	{
 		"name": "English",
@@ -13,8 +15,7 @@ var supportedLanguages = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-# warning-ignore:unsafe_method_access
-	var langLocale = $"/root/SettingsManager".GetLanguage()
+	var langLocale = SettingsMan.GetLanguage()
 	
 	var langs = []
 	var selectedLocale = -1
@@ -28,8 +29,9 @@ func _ready():
 	$VBoxContainer/Contents/VBoxContainer/LanguageDropdown.SetItems(langs)
 # warning-ignore:unsafe_method_access
 	$VBoxContainer/Contents/VBoxContainer/LanguageDropdown.SetSelected(selectedLocale)
-	
-	
+	var autoZoom = SettingsMan.GetAutoZoom()
+# warning-ignore:unsafe_method_access
+	$VBoxContainer/Contents/VBoxContainer/ZoomButton.set_pressed(autoZoom)
 
 
 func _on_LanguageDropdown_item_selected(id):
@@ -37,7 +39,8 @@ func _on_LanguageDropdown_item_selected(id):
 		return
 		
 	var locale = supportedLanguages[id]
-# warning-ignore:unused_variable
-	var loaded = TranslationServer.get_loaded_locales()
-# warning-ignore:unsafe_method_access
-	$"/root/SettingsManager".SetLanguage(locale.locale)
+	SettingsMan.SetLanguage(locale.locale)
+
+
+func _on_CheckButton_toggled(button_pressed):
+	SettingsMan.SetAutoZoom(button_pressed)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/interface/MenuBoard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/ui/SaveMenu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/interface/CloseButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/Ui/Styles/header_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=6]
 
 [node name="SaveMenu" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -43,50 +44,56 @@ margin_bottom = 60.0
 [node name="CenterContainer" type="CenterContainer" parent="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer2/Control2" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer2/Control2/CenterContainer" index="0"]
-margin_left = 767.0
+margin_left = 718.0
 margin_top = 5.0
-margin_right = 1013.0
+margin_right = 1062.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 4 )
-text = "Save Game"
+text = "save_game_top"
 align = 1
 
 [node name="HSplitContainer" type="HSplitContainer" parent="Background/MarginContainer/VSplitContainer" index="1"]
 margin_top = 72.0
 margin_right = 1840.0
 margin_bottom = 1000.0
-split_offset = 1500
+split_offset = 1300
+dragger_visibility = 1
 
 [node name="VSplitContainer" type="VSplitContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="0"]
-margin_right = 1558.0
+margin_right = 1372.0
 margin_bottom = 928.0
+theme = ExtResource( 6 )
+dragger_visibility = 1
 
 [node name="NewSaveName" type="LineEdit" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer" index="0"]
-margin_right = 1558.0
-margin_bottom = 24.0
+margin_right = 1372.0
+margin_bottom = 25.0
 focus_mode = 1
-placeholder_text = "Save name"
+placeholder_text = "savegame_name"
 
 [node name="SaveList" type="ItemList" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/VSplitContainer" index="1"]
-margin_top = 36.0
-margin_right = 1558.0
+margin_top = 37.0
+margin_right = 1372.0
 margin_bottom = 928.0
 
 [node name="Control" type="Control" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="1"]
-margin_left = 1570.0
+margin_left = 1384.0
 margin_right = 1840.0
 margin_bottom = 928.0
 
 [node name="SaveButton" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Control" index="0" instance=ExtResource( 5 )]
-anchor_top = 1.0
+anchor_top = 0.967
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -25.0
-margin_right = -120.0
-margin_bottom = 0.0
-Text = "Save game"
+anchor_bottom = 0.967
+margin_top = -0.376038
+margin_right = 0.0
+margin_bottom = 30.624
+Text = "save_game_btn"
 disabled = true
 [connection signal="visibility_changed" from="." to="." method="_on_SaveMenu_visibility_changed"]
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer2/Control/CloseButton" to="." method="_on_CloseButton_pressed"]

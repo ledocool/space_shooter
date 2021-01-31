@@ -15,14 +15,26 @@ margin_top = -2.27205
 margin_bottom = 62.728
 
 [node name="Next level" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="0" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 150.0
 margin_bottom = 22.0
 Text = "next_level"
+disabled = false
 
 [node name="Retry" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="1"]
 margin_top = 37.0
 margin_bottom = 59.0
+disabled = false
 
 [node name="Exit" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList" index="2"]
 margin_top = 74.0
 margin_bottom = 96.0
+disabled = false
+
+[node name="Statistics" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/MarginContainer/Panel/ScrollContainer" index="0"]
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 567.0
+margin_bottom = 271.0
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Container/ItemList/Next level" to="." method="_on_Next_level_pressed"]

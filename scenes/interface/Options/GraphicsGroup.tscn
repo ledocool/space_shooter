@@ -13,21 +13,21 @@ script = ExtResource( 3 )
 text = "graphic_settings"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Contents" index="0"]
-margin_right = 1919.0
-margin_bottom = 1067.0
+margin_right = 1920.0
+margin_bottom = 1027.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="WindowModeDropdown" parent="VBoxContainer/Contents/VBoxContainer" index="0" instance=ExtResource( 2 )]
 anchor_right = 0.0
-margin_right = 1919.0
+margin_right = 1920.0
 LabelText = "window_mode"
 
 [node name="ResolutionDropdown" parent="VBoxContainer/Contents/VBoxContainer" index="1" instance=ExtResource( 2 )]
 anchor_right = 0.0
 margin_top = 35.0
-margin_right = 1919.0
+margin_right = 1920.0
 margin_bottom = 66.0
 LabelText = "resolution_setting"
 [connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/WindowModeDropdown" to="." method="_on_WindowModeDropdown_item_selected"]

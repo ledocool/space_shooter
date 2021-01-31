@@ -51,6 +51,7 @@ func Save():
 		"rotation": rotation,
 		"top_rotation": ($Top as Node2D).rotation,
 		"state": aiState.get_current_state(),
+		"suspended": shotSuspended
 	}
 
 
@@ -60,6 +61,7 @@ func Load(data: Dictionary):
 	rotation = data.rotation
 	($Top as Node2D).rotation = data.top_rotation
 	startState = data.state
+	SetSuspended(data.suspended)
 
 
 func GetCoordinates():
@@ -105,8 +107,7 @@ func Shoot():
 	emit_signal("shoot_bullet", bullet.instance(), rot, pos, Vector2(0,0), 1.0)
 
 func SkipShoot():
-	if(aiState.get_current_state() == "shoot"):
-		aiState.transition("track")
+	aiState.transition("track")
 
 
 func Track():

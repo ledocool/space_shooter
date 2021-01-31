@@ -1,10 +1,9 @@
 extends Navigation2D
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var behemoth = get_node_or_null("../../ShipContainer/Behemoth") as Behemoth
-	if(behemoth != null):
-		behemoth.SetNavigator(self)
+	pass
 
 func purge_areas():
 	for child in $PathCheckpoints.get_children():

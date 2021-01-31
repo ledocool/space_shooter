@@ -351,9 +351,6 @@ position = Vector2( 5522.8, -1589.93 )
 [node name="FoodTruck" parent="Scenery" index="53" instance=ExtResource( 30 )]
 position = Vector2( 289.815, -593.482 )
 
-[node name="MenuCanvas" parent="." index="7"]
-layer = 128
-
 [node name="MarginContainer" parent="MenuCanvas" index="0"]
 mouse_filter = 1
 

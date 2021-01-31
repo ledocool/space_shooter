@@ -1,30 +1,26 @@
 extends Control
 
+onready var SettingsMan = $"/root/SettingsManager"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 # warning-ignore:unsafe_method_access
 	$VBoxContainer/Contents/VBoxContainer/MainVolume.SetSliderValue(\
-# warning-ignore:unsafe_method_access
-		$"/root/SettingsManager".GetVolume("Master"))
+		SettingsMan.GetVolume("Master"))
 # warning-ignore:unsafe_method_access
 	$VBoxContainer/Contents/VBoxContainer/MusicVolume.SetSliderValue(\
-# warning-ignore:unsafe_method_access
-		$"/root/SettingsManager".GetVolume("Music"))
+		SettingsMan.GetVolume("Music"))
 # warning-ignore:unsafe_method_access
 	$VBoxContainer/Contents/VBoxContainer/SfxVolume.SetSliderValue(\
-# warning-ignore:unsafe_method_access
-		$"/root/SettingsManager".GetVolume("Sfx"))
+		SettingsMan.GetVolume("Sfx"))
 
 func _on_MainVolume_value_changed(newValue):
-# warning-ignore:unsafe_method_access
-	$"/root/SettingsManager".SetVolume("Master", newValue)
+	SettingsMan.SetVolume("Master", newValue)
 
 
 func _on_MusicVolume_value_changed(newValue):
-# warning-ignore:unsafe_method_access
-	$"/root/SettingsManager".SetVolume("Music", newValue)
+	SettingsMan.SetVolume("Music", newValue)
 
 
 func _on_SfxVolume_value_changed(newValue):
-# warning-ignore:unsafe_method_access
-	$"/root/SettingsManager".SetVolume("Sfx", newValue)
+	SettingsMan.SetVolume("Sfx", newValue)

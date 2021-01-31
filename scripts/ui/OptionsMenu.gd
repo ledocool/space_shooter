@@ -1,17 +1,12 @@
 extends Control
-class_name OptionsMenu
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _on_CloseButton_pressed():
+	self.visible = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+func _unhandled_key_input(event):
+	if(event.is_action_pressed("ui_menu")):
+		if(self.visible):
+			get_tree().set_input_as_handled()
+		self.visible = false

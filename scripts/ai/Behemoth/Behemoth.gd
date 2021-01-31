@@ -20,34 +20,100 @@ export var LinearDamp = 220
 export var AngularDamp = 5
 
 var Navigator
-var Target: Ship
+var Target: WeakRef
 var aiState = null
 var startState = "off"
 
-var TargetPath = null
+#var TargetPath = null
 var CursorThrust = null
 
 # Elements health
 var TopWireHealth = 0
-var BottomWireHealth = 0
+var BottomWireHealth = 0 
 var WireMaxHealth = 0
 var TurretsHealth = 0
 
 var ExplosionPoints: Array
 
+func Save() -> Dictionary:
+	var playerShip = GetTarget()
+	var turretData: Dictionary = Dictionary()
+	var powerNodes: Dictionary = Dictionary()
+	
+	for turret in $Turrets.get_children():
+		if(turret is Turret):
+			var turretName = turret.get_name()
+			turretData[turretName] = turret.Save()
+	
+	for node in $Power.get_children():
+		if(node is PowerNode):
+			var nodeName = node.get_name()
+			powerNodes[nodeName] = node.Save()
+	
+	return {
+		"state": aiState.get_current_state(), #
+		"cursor_thrust": String(CursorThrust) if CursorThrust != null else "", #
+		"turrets": turretData, #
+		"nodes": powerNodes, #
+		"key_taken": true if get_node_or_null("KeyChamber/KeyPickup") == null else false, #
+		"wire_max_health": WireMaxHealth, #
+		"position": position, #
+		"rotation": rotation, #
+		"linear_velocity": linear_velocity, #
+		"angular_velocity": angular_velocity #
+	}
+
+func Load(data: Dictionary):
+	startState = data.state
+	
+	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
+	position = Vector2(pos[0], pos[1])
+	var vel = data.linear_velocity.trim_prefix('(').trim_suffix(')').split(',')
+	linear_velocity = Vector2(vel[0], vel[1])
+	angular_velocity = data.angular_velocity
+	rotation = data.rotation
+	
+	if(data.key_taken):
+		$KeyChamber/KeyPickup.queue_free()
+	
+	if(data.cursor_thrust != ""):
+		var thrust = data.cursor_thrust.trim_prefix('(').trim_suffix(')').split(',')
+		CursorThrust = Vector2(thrust[0], thrust[1])
+	
+	WireMaxHealth = data.wire_max_health
+	
+	for turretName in data.turrets.keys():
+		var turret = $Turrets.get_node_or_null(turretName)
+		if(turret == null):
+			continue
+		
+		turret.Load(data.turrets[turretName])
+		
+	for nodeName in data.nodes.keys():
+		var node = $Power.get_node_or_null(nodeName)
+		if(node == null):
+			continue
+		
+		node.Load(data.nodes[nodeName])
+
+
 func SetNavigator(navigator):
 	Navigator = navigator
+
 
 func GetNavigator():
 	return Navigator
 
 
 func SetTarget(target: Ship):
-	Target = target
+	Target = weakref(target)
 
 
 func GetTarget() -> Ship:
-	return Target
+	var tg = Target.get_ref()
+	if(tg):
+		return tg
+	return null
 
 
 func TurretsEnable(enable: bool = true):
@@ -72,6 +138,11 @@ func FarFrom(ship):
 	if(ship == null):
 		return false
 	return !($FarView as Area2D).overlaps_body(ship)
+
+
+func FarFromDist(distance: float):
+	var collision: CircleShape2D = ($FarView/CollisionShape2D as CollisionShape2D).shape 
+	return distance >= collision.radius
 
 
 func FarFromPos(pos: Area2D):
@@ -118,6 +189,7 @@ func RemoveChamber():
 
 func _ready():
 	SetTarget(get_node_or_null("/root/Level/ShipContainer/Player"))
+	SetNavigator(get_node_or_null("/root/Level/TriggerContainer/BehemothNavigator"))
 	
 	aiState = StateMachineFactory.create({
 		'target': self,
@@ -136,10 +208,11 @@ func _ready():
 			{'state_id': 'stop', 'to_states': ['agitated', 'dead']}
 		]
 	})
-	TurretsEnable(false)
+	
 	TopWireHealth = _getTopWireHealth()
 	BottomWireHealth = _getBottomWireHealth()
-	WireMaxHealth = TopWireHealth + BottomWireHealth
+	if(WireMaxHealth == 0):
+		WireMaxHealth = TopWireHealth + BottomWireHealth
 	
 	var level = get_node_or_null("/root/Level")
 	if(level != null):
@@ -207,8 +280,6 @@ func _integrate_forces(state):
 func _applyRotation(state: Physics2DDirectBodyState):
 	if(CursorThrust == null):
 		applied_torque = 0.0
-		LeftJets(false)
-		RightJets(false)
 		return
 		
 	var angleToCursor = (CursorThrust - position).angle() - rotation
@@ -216,31 +287,29 @@ func _applyRotation(state: Physics2DDirectBodyState):
 	var component = angleToCursor / absAngle if angleToCursor != 0 else 0.0
 	component *= -1
 	
-	if(absAngle < MaxAngleDrift):
-		LeftJets(false)
-		RightJets(false)
-	else:
-		LeftJets(component > 0)
-		RightJets(component < 0)
+	LeftJets(component > 0)
+	RightJets(component < 0)
 	
 	state.apply_torque_impulse(TorqueImpulse * component)
 
 
 func _applyThrust():
 	if(CursorThrust == null):
-		ForwardJets(false)
 		applied_force = Vector2.ZERO
 		return
 	
 	var impulseTo = (CursorThrust - position).normalized()
 	applied_force = impulseTo * EngineStrength
-	ForwardJets(true)
 
 
 func _onDeath():
 	var explostionPoints = $ExplosionMarkers.get_children()
 	explostionPoints.shuffle()
 	ExplosionPoints = explostionPoints
+	for turret in $Turrets.get_children():
+		if(turret is Turret):
+			turret.Damage(999)
+			
 	($ExplosionTimer as Timer).start()
 
 
@@ -251,3 +320,4 @@ func _on_ExplosionTimer_timeout():
 		return
 	var size = randf() * 3.2
 	emit_signal("exploded", point.get_global_position(), size, 0.0)
+

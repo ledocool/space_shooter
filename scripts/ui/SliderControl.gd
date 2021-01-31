@@ -3,7 +3,7 @@ extends Control
 class_name SliderControl
 
 export var LabelText = "text"
-export var SliderMax = 0
+export var SliderMax = 6
 export var SliderMin = -80
 export var SliderDefault = 0
 

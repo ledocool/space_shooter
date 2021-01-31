@@ -3,7 +3,8 @@ extends Node
 var campaignLevelOrder: Array = [
 	"res://scenes/levels/c1/c1l1.tscn",
 	"res://scenes/levels/c1/c1l2.tscn",
-	"res://scenes/levels/c1/c1l3.tscn"
+	"res://scenes/levels/c1/c1l3.tscn",
+	"res://scenes/levels/Credits.tscn"
 ]
 
 var campaignCurrentLevel = -1
@@ -28,6 +29,10 @@ func SaveGame(fileName: String):
 				$"/root/Level".find_node("TriggerContainer").get_children(),
 # warning-ignore:unsafe_method_access
 				$"/root/Level".GetStats())
+
+
+func DeleteGame(fileName: String):
+	saveManager.DeleteSaveGame(fileName)
 
 
 func LoadGame(fileName: String, interactive: bool = true):

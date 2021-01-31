@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/interface/MenuBoard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/ui/LoadMenu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/interface/CloseButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/Ui/Styles/header_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://scenes/interface/MenuButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=6]
 
 [node name="LoadMenu" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -48,12 +49,12 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer/Control2/CenterContainer" index="0"]
-margin_left = 762.0
+margin_left = 717.0
 margin_top = 5.0
-margin_right = 1006.0
+margin_right = 1050.0
 margin_bottom = 54.0
 custom_fonts/font = ExtResource( 4 )
-text = "Load Game"
+text = "load_game_top"
 
 [node name="HSplitContainer" type="HSplitContainer" parent="Background/MarginContainer/VSplitContainer" index="1"]
 margin_top = 72.0
@@ -66,6 +67,7 @@ dragger_visibility = 1
 margin_right = 1500.0
 margin_bottom = 928.0
 rect_clip_content = false
+theme = ExtResource( 6 )
 allow_reselect = true
 
 [node name="Control" type="Control" parent="Background/MarginContainer/VSplitContainer/HSplitContainer" index="1"]
@@ -73,17 +75,36 @@ margin_left = 1512.0
 margin_right = 1840.0
 margin_bottom = 928.0
 
-[node name="LoadButton" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Control" index="0" instance=ExtResource( 5 )]
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Control" index="0"]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -25.0
-margin_right = -178.0
-margin_bottom = 0.0
-Text = "Load game"
+margin_top = -64.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeleteButton" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Control/VBoxContainer" index="0" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 328.0
+margin_bottom = 22.0
+Text = "delete_game_btn"
+disabled = true
+
+[node name="LoadButton" parent="Background/MarginContainer/VSplitContainer/HSplitContainer/Control/VBoxContainer" index="1" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 42.0
+margin_right = 328.0
+margin_bottom = 64.0
+Text = "load_game_btn"
 disabled = true
 [connection signal="draw" from="." to="." method="_on_LoadMenu_draw"]
+[connection signal="visibility_changed" from="." to="." method="_on_LoadMenu_visibility_changed"]
 [connection signal="pressed" from="Background/MarginContainer/VSplitContainer/MarginContainer/HSplitContainer/Control/CloseButton" to="." method="_on_CloseButton_pressed"]
 [connection signal="item_activated" from="Background/MarginContainer/VSplitContainer/HSplitContainer/SaveList" to="." method="_on_SaveList_item_activated"]
 [connection signal="item_selected" from="Background/MarginContainer/VSplitContainer/HSplitContainer/SaveList" to="." method="_on_SaveList_item_selected"]
-[connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Control/LoadButton" to="." method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Control/VBoxContainer/DeleteButton" to="." method="_on_DeleteButton_pressed"]
+[connection signal="pressed" from="Background/MarginContainer/VSplitContainer/HSplitContainer/Control/VBoxContainer/LoadButton" to="." method="_on_LoadButton_pressed"]

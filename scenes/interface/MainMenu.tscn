@@ -48,14 +48,15 @@ margin_bottom = 1080.0
 
 [node name="GridContainer" type="GridContainer" parent="HSplitContainer/Menu inner"]
 margin_left = 300.0
-margin_top = 430.0
+margin_top = 413.0
 margin_right = 450.0
-margin_bottom = 650.0
+margin_bottom = 666.0
 custom_constants/vseparation = 11
 
 [node name="New game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_right = 150.0
 margin_bottom = 22.0
 Text = "new_game"
 disabled = false
@@ -64,47 +65,62 @@ disabled = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 33.0
+margin_right = 150.0
 margin_bottom = 55.0
 Text = "Level 2"
+disabled = false
+
+[node name="Quicktart2" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 66.0
+margin_right = 150.0
+margin_bottom = 88.0
+Text = "Level 3"
 disabled = false
 
 [node name="Load game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 66.0
-margin_bottom = 88.0
+margin_top = 99.0
+margin_right = 150.0
+margin_bottom = 121.0
 Text = "load_game"
 disabled = false
 
 [node name="Options" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 99.0
-margin_bottom = 121.0
+margin_top = 132.0
+margin_right = 150.0
+margin_bottom = 154.0
 Text = "options"
 disabled = false
 
 [node name="Playground" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 132.0
-margin_bottom = 154.0
+margin_top = 165.0
+margin_right = 150.0
+margin_bottom = 187.0
 Text = "playground"
 disabled = false
 
 [node name="Credits" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 165.0
-margin_bottom = 187.0
+margin_top = 198.0
+margin_right = 150.0
+margin_bottom = 220.0
 Text = "credits"
 disabled = false
 
 [node name="Exit" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 198.0
-margin_bottom = 220.0
+margin_top = 231.0
+margin_right = 150.0
+margin_bottom = 253.0
 Text = "exit"
 disabled = false
 
@@ -149,10 +165,29 @@ margin_bottom = 1040.0
 stream = ExtResource( 6 )
 autoplay = true
 bus = "Music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_right = 4.0
+margin_bottom = 11.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackoutTween" type="Tween" parent="."]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/New game" to="." method="_on_New_game_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Quicktart" to="." method="_on_Quicktart_pressed"]
+[connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Quicktart2" to="." method="_on_Quicktart2_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Load game" to="." method="_on_Load_game_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Playground" to="." method="_on_Playground_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="HSplitContainer/Menu inner/GridContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="tween_all_completed" from="BlackoutTween" to="." method="_on_BlackoutTween_tween_all_completed"]
+[connection signal="tween_step" from="BlackoutTween" to="." method="_on_BlackoutTween_tween_step"]

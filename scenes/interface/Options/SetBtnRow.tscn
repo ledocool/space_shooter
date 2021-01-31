@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/ui/SetBtnRow.gd" type="Script" id=1]
+
+[node name="SetBtnRow" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 0.139
+rect_min_size = Vector2( 0, 75 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+Action = "engine_fire"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Action" type="Label" parent="HBoxContainer"]
+margin_top = 50.0
+margin_right = 954.0
+margin_bottom = 99.0
+focus_neighbour_right = NodePath("../Button")
+size_flags_horizontal = 3
+align = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+margin_left = 958.0
+margin_right = 962.0
+margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="TextureButton" parent="HBoxContainer"]
+margin_left = 966.0
+margin_right = 1920.0
+margin_bottom = 150.0
+focus_neighbour_left = NodePath("../Action")
+size_flags_horizontal = 3
+shortcut_in_tooltip = false
+
+[node name="Label" type="Label" parent="HBoxContainer/Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="mouse_entered" from="HBoxContainer/Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Button" to="." method="_on_Button_mouse_exited"]

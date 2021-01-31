@@ -7,6 +7,8 @@ var PathPointIndex = null
 var FollowPathPointNodes = null
 
 func _on_enter_state():
+	target.ForwardJets(true)
+
 	Player = target.GetTarget()
 	Nav = target.GetNavigator()
 	PathPointIndex = 0
@@ -17,6 +19,10 @@ func _on_enter_state():
 
 
 func _on_leave_state():
+	target.ForwardJets(false)
+	target.LeftJets(false)
+	target.RightJets(false)
+	
 	Nav.purge_areas()
 	for point in FollowPathPointNodes:
 		point.queue_free()

@@ -10,10 +10,10 @@ resume,Resume,Продолжить
 retry,Retry,Повторить
 next_level,Next Level,Далее
 ,,
-engine_hint,Press [Right Mouse Button] to fire your engine,Нажмите [Правая кнопка мыши] чтобы активировать двигатель
+engine_hint,Press {engine_fire} to fire your engine,Нажмите {engine_fire} чтобы активировать двигатель
 generator_hint,People of this land use brittle tubes of glass to generate energy for their contraptions,Люди в этих местах используют хрупкие трубки из стекла для производства электричества
-gun_hint,To fire your weapon press [LEFT MOUSE BUTTON],чтобы выстрелить нажми {Левая кнопка мыши]
-switch_hint,Remember that you can always switch your weapons pressing [1...9]!,"Товарищ, помни! Оружие меняется на кнопки [1..9]!"
+gun_hint,To fire your weapon press {shoot},чтобы выстрелить нажми {shoot}
+switch_hint,Remember that you can always switch your weapons pressing [{wpn_1}-{wpn_2}]!,"Товарищ, помни! Оружие меняется на кнопки [{wpn_1}-{wpn_2}]!"
 ,,
 brought_by,This game was brought to you by:,Над игрой работали:
 credits_text,,
@@ -58,3 +58,38 @@ s_graphics,Graphics,Графика
 s_sound,Sound,Звук
 s_controls,Controls,Управление
 s_game,Game,Игра
+,,
+credits_text,"Code, Graphics - Dmitrii Kollerov aka ledocool\nMusic - Amir Galimov aka LazyGonzalez","Код, Графика - Дмитрий Коллеров aka ledocool\nМузыка - Амир Галимов aka LazyGonzalez"
+credits_close,Close,Закрыть
+,,
+load_game_top,Load Game,Загрузить игру
+load_game_btn,Load Game,Загрузить
+delete_game_btn,Delete Game,Удалить
+save_game_top,Save Game,Сохранить игру
+save_game_btn,Save Game,Сохранить
+savegame_name,Save Name,Название сохранения
+,,
+quicksave_created,Quicksave Created,Быстрое сохранение
+,,
+controls_settings,Constrol Settings,Настройки управления
+shoot,Shoot,Стрелять
+engine_fire,Fire Engine,Запустить двигатель
+wpn_1,Select Slug Cannon,Выбрать пушку
+wpn_2,Select Rocketeer,Выбрать рокетир
+zoom_out,Zoom Out,Отдалить камеру
+zoom_in,Zoom In,Приблизить камеру
+quick_save,Quicksave,Быстрое сохранение
+quick_load,Quickload,Быстрая загрузка
+,,
+left_mouse_button,Left Mouse Button,Левая кнопка мыши
+right_mouse_button,Right Mouse Button,Правая кнопка мыши
+mouse_button_3,Mouse Button 3,Кнопка мыши 3
+mouse_wheel_down,Mouse Wheel Down,Колесо мыши вниз
+mouse_wheel_up,Mouse Wheel Up,Колесо мыши вверх
+camera_automatic_zoom,Auto Zoom Camera,Автоматический масштаб
+options_menu,Options,Настройки
+press_button_or_esc,Any button to save or Escape to cancel,Любую кнопку или Escape для отмены
+,,
+thank_you,Thanks for playing!,Спасибо что поиграли!
+final_words,Now that development is finished I“d like to give a final word. When starting this project I sworm myself that I“m going to finish it in a year. I had an idea of what I wanted and on paper it sounded well. But you know how deceiveing expectations may be.\nDuring actual development I came across many of my strenths and weaknesses that taught me what I can and cannot do. This was a journey that gave me the most important things: experience and measurement of my own strength. I hope those are not in vain and I can use what I learned here to bring better and bigger worlds to life.,"Я бы хотел оставить свое последнее слово, раз уж разработка закончилась. Когда этот проект только начинался, я пообещал себе что закончу его за год. У меня было представление того, что я хотел получить, и на бумаге все звучало великолепно. Но вы знаете как оно обычно бывает.\nВо время разработки я лицом к лицу повстречал свои сильные и слабые стороны, что изменило мою картину мира и дало понимание моих возможностей. Это было путешествие, давшее мне самые важные вещи: опыт и понимание собственных сил. Я надеюсь что это не пропадет просто так и я смогу использовать эти знания чтобы оживлять куда большие и лучшие миры."
+made_with_godot,Made with Godot,Сделано на движке Godot

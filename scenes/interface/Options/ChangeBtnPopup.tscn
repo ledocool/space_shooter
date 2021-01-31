@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/ui/ChangeButtonRect.gd" type="Script" id=2]
+[ext_resource path="res://resources/Ui/Panels/panel_back.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 160, 160 )
+margin_left = 19.6796
+margin_right = 20.0
+margin_top = 19.5534
+margin_bottom = 21.0
+
+[node name="ColorRect" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.552941 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.749207
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+margin_left = 850.0
+margin_top = 465.0
+margin_right = 1070.0
+margin_bottom = 615.0
+rect_min_size = Vector2( 220, 150 )
+mouse_filter = 1
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="Label" parent="CenterContainer/Panel/MarginContainer"]
+margin_right = 180.0
+margin_bottom = 110.0
+size_flags_horizontal = 5
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+text = "press_button_or_esc"
+align = 1
+valign = 1
+autowrap = true

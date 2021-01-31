@@ -12,23 +12,23 @@ script = ExtResource( 5 )
 [node name="Control" type="Control" parent="Background/MarginContainer" index="0"]
 margin_right = 1840.0
 margin_bottom = 1000.0
+rect_clip_content = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/Control" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -2.65015
 margin_right = -2.65015
+custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Main" type="Label" parent="Background/MarginContainer/Control/VBoxContainer" index="0"]
 margin_right = 1840.0
-margin_bottom = 153.0
+margin_bottom = 49.0
 custom_fonts/font = ExtResource( 2 )
-text = "brought_by
-
-"
+text = "brought_by"
 align = 1
 autowrap = true
 uppercase = true
@@ -37,12 +37,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Background/MarginContainer/Control/VBoxContainer" index="1"]
-margin_top = 157.0
+margin_top = 99.0
 margin_right = 1840.0
-margin_bottom = 258.0
+margin_bottom = 148.0
 theme = ExtResource( 1 )
-text = "Code, Graphics - Dmitrii Kollerov aka ledocool
-Music - Amir Galimov aka LazyGonzalez"
+text = "credits_text"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,7 +54,8 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_left = -65.0
 margin_top = -25.0
-margin_right = 85.0
-margin_bottom = 0.0
-Text = "Close"
+margin_right = 101.0
+margin_bottom = 6.0
+Text = "credits_close"
+disabled = false
 [connection signal="pressed" from="Background/MarginContainer/Control/MenuButton" to="." method="_on_MenuButton_pressed"]

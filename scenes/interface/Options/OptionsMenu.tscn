@@ -1,71 +1,109 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/interface/MenuBoard.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/interface/Options/GraphicsGroup.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/interface/Options/SoundGroup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/interface/Options/GameGroup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=5]
-[ext_resource path="res://scripts/ui/OptionsMenu.gd" type="Script" id=6]
+[ext_resource path="res://scenes/interface/Options/ControlsGroup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/interface/CloseButton.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/ui/OptionsMenu.gd" type="Script" id=8]
 
 [node name="OptionsMenu" instance=ExtResource( 1 )]
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
-[node name="TabContainer" type="TabContainer" parent="Background/MarginContainer" index="0"]
+[node name="VBoxContainer" type="VSplitContainer" parent="Background/MarginContainer" index="0"]
 margin_right = 1840.0
 margin_bottom = 1000.0
-theme = ExtResource( 5 )
+split_offset = 50
+collapsed = true
 
-[node name="s_graphics" type="MarginContainer" parent="Background/MarginContainer/TabContainer" index="0"]
+[node name="HBoxContainer" type="HSplitContainer" parent="Background/MarginContainer/VBoxContainer" index="0"]
+margin_right = 1840.0
+margin_bottom = 49.0
+split_offset = 50
+collapsed = true
+
+[node name="CloseButton" parent="Background/MarginContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource( 7 )]
+margin_right = 0.0
+margin_bottom = 49.0
+
+[node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 12.0
+margin_right = 1840.0
+margin_bottom = 49.0
+text = "options_menu"
+align = 1
+
+[node name="TabContainer" type="TabContainer" parent="Background/MarginContainer/VBoxContainer" index="1"]
+margin_top = 61.0
+margin_right = 1840.0
+margin_bottom = 1000.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 5 )
+use_hidden_tabs_for_min_size = true
+
+[node name="s_graphics" type="MarginContainer" parent="Background/MarginContainer/VBoxContainer/TabContainer" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 43.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 50.0
+margin_top = 38.0
+margin_right = -50.0
+margin_bottom = -10.0
 
-[node name="GraphicsGroup" parent="Background/MarginContainer/TabContainer/s_graphics" index="0" instance=ExtResource( 2 )]
+[node name="GraphicsGroup" parent="Background/MarginContainer/VBoxContainer/TabContainer/s_graphics" index="0" instance=ExtResource( 2 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1832.0
-margin_bottom = 953.0
+margin_right = 1740.0
+margin_bottom = 891.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="s_sound" type="MarginContainer" parent="Background/MarginContainer/TabContainer" index="1"]
+[node name="s_sound" type="MarginContainer" parent="Background/MarginContainer/VBoxContainer/TabContainer" index="1"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 43.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 50.0
+margin_top = 38.0
+margin_right = -50.0
+margin_bottom = -10.0
 
-[node name="SoundGroup" parent="Background/MarginContainer/TabContainer/s_sound" index="0" instance=ExtResource( 3 )]
+[node name="SoundGroup" parent="Background/MarginContainer/VBoxContainer/TabContainer/s_sound" index="0" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1832.0
-margin_bottom = 953.0
+margin_right = 1740.0
+margin_bottom = 891.0
 
-[node name="s_controls" type="MarginContainer" parent="Background/MarginContainer/TabContainer" index="2"]
+[node name="s_controls" type="MarginContainer" parent="Background/MarginContainer/VBoxContainer/TabContainer" index="2"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 43.0
-margin_right = -4.0
-margin_bottom = -4.0
+margin_left = 50.0
+margin_top = 38.0
+margin_right = -50.0
+margin_bottom = -10.0
 
-[node name="s_game" type="MarginContainer" parent="Background/MarginContainer/TabContainer" index="3"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 43.0
-margin_right = -4.0
-margin_bottom = -4.0
-
-[node name="GameGroup" parent="Background/MarginContainer/TabContainer/s_game" index="0" instance=ExtResource( 4 )]
+[node name="ControlsGroup" parent="Background/MarginContainer/VBoxContainer/TabContainer/s_controls" index="0" instance=ExtResource( 6 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 1832.0
-margin_bottom = 953.0
+margin_right = 1740.0
+margin_bottom = 891.0
+
+[node name="s_game" type="MarginContainer" parent="Background/MarginContainer/VBoxContainer/TabContainer" index="3"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 38.0
+margin_right = -50.0
+margin_bottom = -10.0
+
+[node name="GameGroup" parent="Background/MarginContainer/VBoxContainer/TabContainer/s_game" index="0" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1740.0
+margin_bottom = 891.0
+[connection signal="tree_exiting" from="." to="Background/MarginContainer/VBoxContainer/TabContainer/s_graphics/GraphicsGroup" method="_on_OptionsMenu_tree_exiting"]
+[connection signal="visibility_changed" from="." to="Background/MarginContainer/VBoxContainer/TabContainer/s_graphics/GraphicsGroup" method="_on_OptionsMenu_visibility_changed"]
+[connection signal="pressed" from="Background/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_CloseButton_pressed"]

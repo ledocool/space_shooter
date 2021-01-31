@@ -7,10 +7,24 @@ signal exploded(position, size, rotation)
 export var Health: int = 7
 export var BulbChange: Array
 export var BottomChange: Array
-var MaxHealth = 0
+var MaxHealth = 7
+var loaded = false
+
+func Save() -> Dictionary:
+	return {
+		"Health": Health,
+		"MaxHealth": MaxHealth
+	}
+
+func Load(data: Dictionary):
+	loaded = true
+	Health = data.Health
 
 func _ready():
-	MaxHealth = Health
+# warning-ignore:unsafe_method_access
+	$LoopableGenerator.Start()
+	if(loaded):
+		_on_PowerNode_health_changed(MaxHealth, Health)
 
 func GetHealth():
 	return Health
@@ -23,6 +37,8 @@ func Damage(dmg: int):
 	Health -= dmg
 	
 	if(Health <= 0):
+# warning-ignore:unsafe_method_access
+		$LoopableGenerator.Stop()
 		emit_signal("exploded", self.position, Vector2(0.3, 0.3), 0)
 		Health = 0
 		

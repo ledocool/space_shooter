@@ -24,7 +24,7 @@ func _quicksave():
 # warning-ignore:unsafe_method_access
 	$"/root/LevelLoader".SaveGame("quick.sav")
 # warning-ignore:unsafe_method_access
-	$"/root/OverlayLayer".ShowTimedNotificatiopn("Quicksave created", 0.7)
+	$"/root/OverlayLayer".ShowTimedNotificatiopn("quicksave_created", 0.7)
 
 func _updateSaveFileList():
 	var manager = SaveManager.new()
@@ -69,6 +69,8 @@ func _on_SaveButton_pressed():
 func _on_SaveMenu_visibility_changed():
 	var saveNameEditor = find_node("NewSaveName")
 	saveNameEditor.text = ""
+	var saveBtn = find_node("SaveButton")
+	saveBtn.disabled = true
 
 
 func _on_CloseButton_pressed():

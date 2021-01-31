@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://resources/Objects/Structures/Behemoth/PowerNode/behemoth_power_relay_energy_3.png" type="Texture" id=1]
 [ext_resource path="res://resources/Objects/Structures/Behemoth/PowerNode/behemoth_power_relay_energy_5.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://resources/Objects/Structures/Behemoth/PowerNode/behemoth_power_relay_bottom_1.png" type="Texture" id=13]
 [ext_resource path="res://resources/Objects/Structures/Behemoth/PowerNode/behemoth_power_relay_bottom_4.png" type="Texture" id=14]
 [ext_resource path="res://scripts/entities/Behemoth/PowerNode.gd" type="Script" id=15]
+[ext_resource path="res://scenes/sound/LoopableGenerator.tscn" type="PackedScene" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -52,7 +53,7 @@ frames = SubResource( 1 )
 
 [node name="Electricity" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Bulb" type="AnimatedSprite" parent="."]
@@ -61,4 +62,6 @@ frames = SubResource( 3 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PoolVector2Array( -44.792, 46.7718, -28.098, 48.9767, 18.834, 47.4018, 47.1823, 46.7718, 49.7021, 9.91911, 48.4422, -42.9976, 45.6074, -46.4624, 11.5895, -48.3522, -19.9085, -48.3522, -44.477, -46.4624, -46.0519, -43.9425, -46.6818, 4.24947 )
+
+[node name="LoopableGenerator" parent="." instance=ExtResource( 16 )]
 [connection signal="health_changed" from="." to="." method="_on_PowerNode_health_changed"]

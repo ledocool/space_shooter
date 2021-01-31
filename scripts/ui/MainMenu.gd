@@ -1,4 +1,8 @@
 extends Control
+
+func _ready():
+	var _res = ($BlackoutTween as Tween).interpolate_property($CanvasLayer/ColorRect, "color", 1.0, 0.0, 1.5)
+	_res = ($BlackoutTween as Tween).start()
 	
 func _on_Exit_pressed():
 	get_tree().quit()
@@ -40,3 +44,18 @@ func _on_Options_pressed():
 		
 	var optionsMenu = rightMenus.find_node("OptionsMenu")
 	optionsMenu.visible = true
+
+
+func _on_Quicktart2_pressed():
+	($"/root/LevelLoader" as LevelLoader).LoadLevel(2)
+
+
+func _on_BlackoutTween_tween_all_completed():
+	($CanvasLayer/ColorRect as Control).visible = false
+
+
+func _on_BlackoutTween_tween_step(object, _key, _elapsed, value):
+	var obj: Control = object
+	var modul = obj.modulate
+	modul.a = value
+	obj.modulate = modul

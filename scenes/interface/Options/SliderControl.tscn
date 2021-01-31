@@ -6,17 +6,18 @@
 [node name="SliderControl" type="Control"]
 anchor_right = 1.0
 margin_bottom = 25.0
-rect_min_size = Vector2( 0, 25 )
+rect_min_size = Vector2( 0, 55 )
 size_flags_horizontal = 3
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+SliderMin = -40
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
 margin_bottom = 25.0
-rect_min_size = Vector2( 0, 25 )
+rect_min_size = Vector2( 0, 55 )
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 custom_constants/separation = 15
@@ -25,8 +26,9 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 15.0
 margin_right = 952.0
-margin_bottom = 25.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 text = "text"
 clip_text = true
@@ -34,8 +36,10 @@ clip_text = true
 [node name="HSlider" type="HSlider" parent="VBoxContainer"]
 margin_left = 967.0
 margin_right = 1920.0
-margin_bottom = 16.0
+margin_bottom = 55.0
+rect_min_size = Vector2( 0, 55 )
+rect_clip_content = true
 size_flags_horizontal = 3
 min_value = -80.0
-max_value = 0.0
+max_value = 6.0
 [connection signal="value_changed" from="VBoxContainer/HSlider" to="." method="_on_HSlider_value_changed"]

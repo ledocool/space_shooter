@@ -134,10 +134,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/systems/cheat/NoclipActor.gd"
 }, {
-"base": "Control",
-"class": "OptionsMenu",
+"base": "CanvasLayer",
+"class": "Overlay",
 "language": "GDScript",
-"path": "res://scripts/ui/OptionsMenu.gd"
+"path": "res://scripts/ui/Overlay.gd"
 }, {
 "base": "Reference",
 "class": "Pickup",
@@ -275,7 +275,7 @@ _global_script_class_icons={
 "LoadHelper": "",
 "Miner": "",
 "NoclipActor": "",
-"OptionsMenu": "",
+"Overlay": "",
 "Pickup": "",
 "PickupHelper": "",
 "PlayerShip": "",
@@ -324,6 +324,7 @@ gdscript/warnings/unsafe_call_argument=true
 
 window/size/width=1920
 window/size/height=1080
+window/size/resizable=false
 window/size/test_width=1920
 window/size/test_height=1080
 window/stretch/mode="2d"
