@@ -19,5 +19,5 @@ frames = SubResource( 1 )
 frame = 1
 
 [node name="RichTextLabel" parent="." index="1"]
-margin_bottom = 139.0
+margin_bottom = 254.0
 text = "generator_hint"

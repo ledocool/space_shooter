@@ -5,6 +5,6 @@ func _init():
 	data.quantity = 1
 	data.name = "cube"
 	data.info = {
-		"popup_message": tr("the_odd_cube"),
+		"popup_message": "the_odd_cube",
 		"class": "res://scenes/entities/ConcreteEntities/Collectable/KeyCube.tscn"
 	}

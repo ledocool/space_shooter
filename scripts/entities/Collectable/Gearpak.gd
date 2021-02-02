@@ -7,5 +7,5 @@ func _init():
 	data.name = "healing"
 	data.info = {
 		"status": HealingStatus.new(),
-		"popup_message": tr("gearpak")
+		"popup_message": "gearpak"
 	}

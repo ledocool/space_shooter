@@ -24,3 +24,4 @@ func InsertInString(string: String) -> String:
 		index = string.find_last("{")
 	
 	return string
+

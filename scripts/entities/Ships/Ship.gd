@@ -12,9 +12,9 @@ export var ShipMaxHealth: int = 5 setget SetMaxHealth,GetMaxHealth
 export var ShipCurrentHealth: int = 5 setget SetHealth,GetHealth
 export var VelocityDampThreshold: float = 180
 
-export var SpeedGreenZoneMultiplier: float = 1.2
-export var SpeedGreenZoneMultiplierStart: float = 180
-export var SpeedGreenZoneMultiplierEnd: float = 600
+export var SpeedGreenZoneMultiplier: float = 1.5
+export var SpeedGreenZoneMultiplierStart: float = 50
+export var SpeedGreenZoneMultiplierEnd: float = 750
 
 var GreenZoneEntered: bool = false
 
@@ -140,7 +140,6 @@ func _physics_process(_delta):
 		linear_damp = 0
 		
 	GreenZoneEntered = spd >= SpeedGreenZoneMultiplierStart && spd <= SpeedGreenZoneMultiplierEnd
-		
 	
 	if(spd != OldSpeed):
 		OldSpeed = spd

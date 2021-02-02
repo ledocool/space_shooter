@@ -5,5 +5,5 @@ func _init():
 	data.quantity = 1
 	data.name = "slug"
 	data.info = {
-		"popup_message": tr("slug_cannon")
+		"popup_message": "slug_cannon"
 	}

@@ -48,6 +48,7 @@ script = ExtResource( 2 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ColliderBody"]
 visible = false
 polygon = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087 )
+disabled = true
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -61,7 +62,7 @@ texture = ExtResource( 3 )
 polygon = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087 )
 
 [node name="Edge" type="Line2D" parent="."]
-points = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087, -228.009, 599.518, -227.884, 599.616 )
+points = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087, -228.009, 599.518, -226.912, 599.606 )
 width = 25.0
 default_color = Color( 1, 1, 1, 1 )
 texture = ExtResource( 4 )

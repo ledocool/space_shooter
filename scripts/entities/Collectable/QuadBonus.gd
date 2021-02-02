@@ -6,5 +6,5 @@ func _init():
 	data.name = "berzerk"
 	data.info = {
 		"status": QuadDamageStatus.new(),
-		"popup_message": tr("quad_damage")
+		"popup_message": "quad_damage"
 	}
