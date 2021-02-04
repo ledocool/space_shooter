@@ -39,6 +39,8 @@ func Damage(dmg: int):
 	if(Health <= 0):
 # warning-ignore:unsafe_method_access
 		$LoopableGenerator.Stop()
+# warning-ignore:unsafe_method_access
+		$BreakSound.play()
 		emit_signal("exploded", self.position, Vector2(0.3, 0.3), 0)
 		Health = 0
 		

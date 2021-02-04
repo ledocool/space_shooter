@@ -57,6 +57,8 @@ func Disable():
 func Damage(dmg):
 	health -= dmg;
 	if(health <= 0):
+# warning-ignore:unsafe_method_access
+		$GeneratorBraeak.play()
 		Disable()
 	else:
 		Enable()
