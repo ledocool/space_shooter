@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -71,6 +71,7 @@
 [ext_resource path="res://resources/Objects/Asteroids/asteroid2.png" type="Texture" id=69]
 [ext_resource path="res://resources/Objects/Asteroids/asteroid.png" type="Texture" id=70]
 [ext_resource path="res://scenes/entities/AbstractEntities/CustomShapeBuilding.tscn" type="PackedScene" id=71]
+[ext_resource path="res://resources/Objects/Asteroids/asteroid_blur.png" type="Texture" id=72]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 35 )
@@ -4216,7 +4217,188 @@ polygon = PoolVector2Array( -1863.55, 720.492, -1339.43, 634.817, 1321.53, 604.5
 polygon = PoolVector2Array( -1863.55, 720.492, -1339.43, 634.817, 1321.53, 604.58, 2813.27, 513.865, 2786.73, 1147.85, 5083.41, 1193.1, 6712.58, 1181.79, 6712.58, -2506.48, 6672.98, -3405.92, 5168.26, -3394.6, 5162.61, -2489.51, 3940.73, -2133.13, 3932.08, -841.809, 1931.33, -867.007, 1931.33, -489.03, 1825.49, -408.396, -6479.9, -342.883, -6590.78, -226.971, -6600.86, -106.018, -6716.77, -10.2637, -8102.68, -25.3828, -7830.54, 518.902, -7775.1, 1098.47, -7633.99, 1491.56, -6298.48, 1481.48, -6182.56, 1390.77, -6177.52, 846.482, -6081.77, 740.649, -4101.18, 735.611 )
 
 [node name="Edge" parent="Foreground/KeyRoomBackGround/CustomShapeBuilding" index="2"]
-points = PoolVector2Array( -1863.55, 720.492, -1339.43, 634.817, 1321.53, 604.58, 2813.27, 513.865, 2786.73, 1147.85, 5083.41, 1193.1, 6712.58, 1181.79, 6712.58, -2506.48, 6672.98, -3405.92, 5168.26, -3394.6, 5162.61, -2489.51, 3940.73, -2133.13, 3932.08, -841.809, 1931.33, -867.007, 1931.33, -489.03, 1825.49, -408.396, -6479.9, -342.883, -6590.78, -226.971, -6600.86, -106.018, -6716.77, -10.2637, -8102.68, -25.3828, -7830.54, 518.902, -7775.1, 1098.47, -7633.99, 1491.56, -6298.48, 1481.48, -6182.56, 1390.77, -6177.52, 846.482, -6081.77, 740.649, -4101.18, 735.611, -1863.55, 720.492, -1862.47, 720.315 )
+points = PoolVector2Array( -1863.55, 720.492, -1339.43, 634.817, 1321.53, 604.58, 2813.27, 513.865, 2786.73, 1147.85, 5083.41, 1193.1, 6712.58, 1181.79, 6712.58, -2506.48, 6672.98, -3405.92, 5168.26, -3394.6, 5162.61, -2489.51, 3940.73, -2133.13, 3932.08, -841.809, 1931.33, -867.007, 1931.33, -489.03, 1825.49, -408.396, -6479.9, -342.883, -6590.78, -226.971, -6600.86, -106.018, -6716.77, -10.2637, -8102.68, -25.3828, -7830.54, 518.902, -7775.1, 1098.47, -7633.99, 1491.56, -6298.48, 1481.48, -6182.56, 1390.77, -6177.52, 846.482, -6081.77, 740.649, -4101.18, 735.611, -1863.55, 720.492, -1862.46, 720.315 )
+
+[node name="Spiral" type="ParallaxLayer" parent="Foreground" index="4"]
+modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
+
+[node name="CustomShapeBuilding" parent="Foreground/Spiral" index="0" instance=ExtResource( 71 )]
+position = Vector2( 5349.21, 13953.8 )
+
+[node name="Walls" parent="Foreground/Spiral/CustomShapeBuilding/Walls" index="0"]
+polygon = PoolVector2Array( 898.323, 1163.38, 741.234, 676.876, 777.638, -251.414, 1372.76, -1010.09, 1525.16, -1810.14, 2020.42, -2419.71, 2045.82, -2927.67, 2566.68, -3727.14, 2998.68, -4311.14, 2886.68, -5831.14, 2390.68, -5903.14, 1334.68, -5639.14, 1398.68, -4279.14, 102.676, -4367.14, -673.324, -4895.14, -1705.32, -4647.14, -3817.32, -3223.14, -4857.32, -2247.14, -4497.32, -1639.14, -3433.32, -1767.14, -2873.32, -783.143, -1113.32, -767.143, -714.477, 503.025, -828.769, 1417.37, -320.801, 2268.21, -333.5, 3195.26, 631.64, 3512.74, 1685.67, 3258.75, 1537.85, 2589.43, 1820.4, 2064.71, 1825.37, 1404.67 )
+
+[node name="WallsOverlay" parent="Foreground/Spiral/CustomShapeBuilding/Walls" index="1"]
+visible = false
+position = Vector2( 152, 456 )
+
+[node name="Edge" parent="Foreground/Spiral/CustomShapeBuilding" index="2"]
+points = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087, -228.009, 599.518, -226.912, 599.606 )
+
+[node name="CustomShapeBuilding2" parent="Foreground/Spiral" index="1" instance=ExtResource( 71 )]
+position = Vector2( 9790.62, 15256.9 )
+
+[node name="Walls" parent="Foreground/Spiral/CustomShapeBuilding2/Walls" index="0"]
+polygon = PoolVector2Array( 1295.32, 1511.21, 1282.62, 546.066, 1638.2, -203.187, 1257.22, -1650.9, 482.57, -2755.73, -774.651, -3492.28, -1290.75, -2808.44, -2120.77, -2247.76, -1612.8, -876.244, -1384.21, 698.457, -863.546, 1079.43, -1727.09, 1727.09, -1733.02, 2133.97, -1329.39, 2456.88, -1490.84, 3021.96, -1186.02, 3231.03, 25.3984, 2743.03 )
+
+[node name="Edge" parent="Foreground/Spiral/CustomShapeBuilding2" index="2"]
+points = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087, -228.009, 599.518, -226.912, 599.606 )
+
+[node name="CustomShapeBuilding3" parent="Foreground/Spiral" index="2" instance=ExtResource( 71 )]
+position = Vector2( 1125.99, 16842.6 )
+
+[node name="Walls" parent="Foreground/Spiral/CustomShapeBuilding3/Walls" index="0"]
+polygon = PoolVector2Array( -431.773, 1790.59, -317.48, 2425.55, 368.278, 3416.09, 2362.05, 4051.03, 3403.39, 4317.71, 4393.93, 4216.12, 5435.26, 4190.72, 6552.79, 3911.34, 7200.45, 3962.13, 7822.71, 3187.48, 8813.25, 2920.8, 7911.61, 2222.34, 7009.96, 2857.3, 5917.83, 2196.94, 5028.89, 2425.53, 3746.27, 2565.22, 2857.32, 2057.25, 2171.57, 1320.72, 2235.06, 279.383, 1473.11, -190.488, 1092.13, -850.847, 165.09, -888.944, -647.659, -1739.79, -1942.98, -1485.81, -1308.02, 673.059, -800.05, 1574.7 )
+
+[node name="Edge" parent="Foreground/Spiral/CustomShapeBuilding3" index="2"]
+points = PoolVector2Array( -228.009, 599.518, 741.234, 676.876, 777.638, -251.414, -216.633, -556.293, -268.963, 538.087, -228.009, 599.518, -226.912, 599.606 )
+
+[node name="asteroid1" type="Sprite" parent="Foreground/Spiral" index="3"]
+position = Vector2( 1454.2, 13122.6 )
+rotation = 2.09439
+texture = ExtResource( 60 )
+
+[node name="asteroid2" type="Sprite" parent="Foreground/Spiral" index="4"]
+position = Vector2( -324.857, 14635.2 )
+rotation = -1.83259
+texture = ExtResource( 69 )
+
+[node name="asteroid" type="Sprite" parent="Foreground/Spiral" index="5"]
+position = Vector2( 3832.61, 14511.5 )
+rotation = -1.309
+texture = ExtResource( 70 )
+
+[node name="asteroid3" type="Sprite" parent="Foreground/Spiral" index="6"]
+position = Vector2( 2928.81, 15748.3 )
+rotation = -1.57079
+texture = ExtResource( 60 )
+
+[node name="asteroid4" type="Sprite" parent="Foreground/Spiral" index="7"]
+position = Vector2( 4070.45, 16528.4 )
+rotation = 1.0351
+scale = Vector2( 0.612437, 0.612437 )
+texture = ExtResource( 70 )
+
+[node name="asteroid5" type="Sprite" parent="Foreground/Spiral" index="8"]
+position = Vector2( 4926.68, 18022.1 )
+rotation = 2.87979
+scale = Vector2( 0.486155, 0.486155 )
+texture = ExtResource( 60 )
+
+[node name="asteroid6" type="Sprite" parent="Foreground/Spiral" index="9"]
+position = Vector2( 7314.61, 14216.6 )
+rotation = -0.785397
+texture = ExtResource( 60 )
+
+[node name="asteroid7" type="Sprite" parent="Foreground/Spiral" index="10"]
+position = Vector2( 7904.46, 16109.8 )
+rotation = 2.35619
+texture = ExtResource( 69 )
+
+[node name="asteroid8" type="Sprite" parent="Foreground/Spiral" index="11"]
+position = Vector2( 7590.5, 17965 )
+rotation = 1.309
+texture = ExtResource( 70 )
+
+[node name="asteroid9" type="Sprite" parent="Foreground/Spiral" index="12"]
+position = Vector2( 10587.3, 18764.2 )
+rotation = -1.0472
+texture = ExtResource( 60 )
+
+[node name="asteroid10" type="Sprite" parent="Foreground/Spiral" index="13"]
+position = Vector2( 11630.1, 15478.4 )
+rotation = 2.61799
+scale = Vector2( 0.581876, 0.581876 )
+texture = ExtResource( 60 )
+
+[node name="asteroid11" type="Sprite" parent="Foreground/Spiral" index="14"]
+position = Vector2( 12071.4, 16975.6 )
+rotation = -0.523598
+texture = ExtResource( 70 )
+
+[node name="asteroid13" type="Sprite" parent="Foreground/Spiral" index="15"]
+position = Vector2( 12007.1, 12532.5 )
+rotation = 2.618
+scale = Vector2( 1, 1 )
+texture = ExtResource( 60 )
+
+[node name="asteroid14" type="Sprite" parent="Foreground/Spiral" index="16"]
+position = Vector2( 10284.9, 11954 )
+rotation = 0.261799
+scale = Vector2( 1, 1 )
+texture = ExtResource( 69 )
+
+[node name="asteroid15" type="Sprite" parent="Foreground/Spiral" index="17"]
+position = Vector2( 8791.49, 10689.3 )
+rotation = 1.04721
+texture = ExtResource( 60 )
+
+[node name="asteroid12" type="Sprite" parent="Foreground/Spiral" index="18"]
+position = Vector2( 5670.09, 8455.86 )
+rotation = -2.87979
+texture = ExtResource( 70 )
+
+[node name="Keyroom" type="ParallaxLayer" parent="Foreground" index="5"]
+modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
+
+[node name="asteroid1" type="Sprite" parent="Foreground/Keyroom" index="0"]
+position = Vector2( 18397.4, 13585.2 )
+rotation = 2.35619
+texture = ExtResource( 60 )
+
+[node name="asteroid2" type="Sprite" parent="Foreground/Keyroom" index="1"]
+position = Vector2( 21194.4, 11330.6 )
+rotation = -1.83259
+texture = ExtResource( 69 )
+
+[node name="asteroid" type="Sprite" parent="Foreground/Keyroom" index="2"]
+position = Vector2( 20101, 12220.6 )
+rotation = -1.57079
+texture = ExtResource( 70 )
+
+[node name="asteroid3" type="Sprite" parent="Foreground/Keyroom" index="3"]
+position = Vector2( 20287.5, 13712.3 )
+rotation = 2.87979
+texture = ExtResource( 70 )
+
+[node name="asteroid4" type="Sprite" parent="Foreground/Keyroom" index="4"]
+position = Vector2( 17600.7, 16500.8 )
+rotation = 2.87979
+texture = ExtResource( 60 )
+
+[node name="asteroid5" type="Sprite" parent="Foreground/Keyroom" index="5"]
+position = Vector2( 19677.2, 16365.2 )
+rotation = 0.785397
+texture = ExtResource( 60 )
+
+[node name="asteroid6" type="Sprite" parent="Foreground/Keyroom" index="6"]
+position = Vector2( 19092.4, 17178.9 )
+rotation = -3.14159
+texture = ExtResource( 69 )
+
+[node name="asteroid_blur" type="Sprite" parent="Foreground/Keyroom" index="7"]
+position = Vector2( 19863.7, 15636.3 )
+texture = ExtResource( 72 )
+
+[node name="asteroid7" type="Sprite" parent="Foreground/Keyroom" index="8"]
+position = Vector2( 29161.5, 17043.2 )
+rotation = -3.14159
+texture = ExtResource( 60 )
+
+[node name="asteroid8" type="Sprite" parent="Foreground/Keyroom" index="9"]
+position = Vector2( 28161.4, 17399.2 )
+rotation = 0.785397
+texture = ExtResource( 70 )
+
+[node name="asteroid9" type="Sprite" parent="Foreground/Keyroom" index="10"]
+position = Vector2( 29322.6, 17958.6 )
+rotation = -2.87979
+texture = ExtResource( 70 )
+
+[node name="asteroid10" type="Sprite" parent="Foreground/Keyroom" index="11"]
+position = Vector2( 24652.5, 18068.8 )
+rotation = 2.61799
+texture = ExtResource( 60 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
 position = Vector2( 6996.52, -4816.88 )
@@ -4249,12 +4431,14 @@ collision_mask = 2
 script = ExtResource( 55 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/DoomRevealTrigger" index="0"]
+visible = false
 shape = SubResource( 5 )
 
 [node name="SnackFoundTrigger" type="Area2D" parent="TriggerContainer" index="6"]
 script = ExtResource( 57 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/SnackFoundTrigger" index="0"]
+visible = false
 position = Vector2( 2841.97, 6984.5 )
 shape = SubResource( 6 )
 
@@ -4272,3 +4456,9 @@ script = ExtResource( 59 )
 [connection signal="body_entered" from="TriggerContainer/SnackFoundTrigger" to="TriggerContainer/SnackFoundTrigger" method="_on_SnackFoundTrigger_body_entered"]
 
 [editable path="Foreground/KeyRoomBackGround/CustomShapeBuilding"]
+
+[editable path="Foreground/Spiral/CustomShapeBuilding"]
+
+[editable path="Foreground/Spiral/CustomShapeBuilding2"]
+
+[editable path="Foreground/Spiral/CustomShapeBuilding3"]

@@ -7,7 +7,7 @@ onready var health = MaxHealth
 
 func _ready():
 	var level: Level = $"/root/Level"
-	connect("exploded", level, "_on_Something_explode")
+	var _r = connect("exploded", level, "_on_Something_explode")
 
 func Save():
 	return {
