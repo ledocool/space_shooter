@@ -1,7 +1,13 @@
 extends RigidBody2D
 
+signal exploded(position, size, rotation)
+
 export var MaxHealth = 3
 onready var health = MaxHealth
+
+func _ready():
+	var level: Level = $"/root/Level"
+	connect("exploded", level, "_on_Something_explode")
 
 func Save():
 	return {
@@ -27,6 +33,7 @@ func Damage(dmg):
 		if (spt != null):
 			spt.frame = MaxHealth - health;
 	else:
+		emit_signal("exploded", self.position, 1.2, 0)
 		self.visible = false
 		self.queue_free()
 		
