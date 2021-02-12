@@ -3118,7 +3118,7 @@ scroll_limit_end = Vector2( 11644, 15850 )
 
 [node name="Front" type="ParallaxLayer" parent="Foreground" index="0"]
 modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
-light_mask = 0
+light_mask = 2
 z_index = 4096
 motion_scale = Vector2( 1.1, 1.1 )
 
@@ -3234,6 +3234,7 @@ texture = ExtResource( 25 )
 
 [node name="Back" type="ParallaxLayer" parent="Foreground" index="1"]
 modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
+light_mask = 2
 z_index = -20
 
 [node name="asteroid1" type="Sprite" parent="Foreground/Back" index="0"]
@@ -3311,6 +3312,7 @@ rotation = 1.309
 texture = ExtResource( 27 )
 
 [node name="Clouds" type="ParallaxLayer" parent="Foreground" index="2"]
+modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
 light_mask = 2
 position = Vector2( 0, 365.181 )
 scale = Vector2( 0.5, 0.5 )
@@ -3418,6 +3420,8 @@ position = Vector2( 18115, -2008.02 )
 texture = ExtResource( 66 )
 
 [node name="Ships" type="ParallaxLayer" parent="Foreground" index="3"]
+modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
+light_mask = 2
 motion_scale = Vector2( 0.9, 0.9 )
 
 [node name="ship_remains16" type="Sprite" parent="Foreground/Ships" index="0"]

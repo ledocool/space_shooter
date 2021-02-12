@@ -36,7 +36,6 @@ var TurretsHealth = 0
 var ExplosionPoints: Array
 
 func Save() -> Dictionary:
-	var playerShip = GetTarget()
 	var turretData: Dictionary = Dictionary()
 	var powerNodes: Dictionary = Dictionary()
 	

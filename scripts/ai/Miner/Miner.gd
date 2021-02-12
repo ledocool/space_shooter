@@ -18,7 +18,7 @@ var SeesPlayer = false
 
 #todo: export
 var StartState = 'idle'
-
+var TouchedObjectsArray: Array = []
 
 func Save():
 	var data = .Save()
@@ -126,6 +126,15 @@ func _ready():
 			{'state_id': 'off', 'to_states': ['idle']},
 		]
 	})
+
+
+func DamageAllTouching():
+# warning-ignore:unsafe_method_access
+	var bodies = $ExplodeArea.get_overlapping_bodies()
+	for body in bodies:
+		if (body.has_method("Damage") && body != self):
+			if(body.Damage(ExplosionDamage)):
+				self.Damage(self.GetHealth())
 
 
 func _on_AreaEnter_body_entered(body):

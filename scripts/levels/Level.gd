@@ -2,6 +2,7 @@ extends WorldEnvironment
 class_name Level
 
 const Explosion = preload("res://scenes/effects/ExplosionEffect.tscn")
+const Cursor = preload("res://resources/Ui/Icons/cursor.png")
 
 #stats
 var enemyHealthDamage = 0
@@ -64,6 +65,7 @@ func GetStats():
 
 
 func _ready():
+	_set_Crosshair(true)
 	for layer in $Foreground.get_children():
 # warning-ignore:unsafe_cast
 		var multiplier = (layer as ParallaxLayer).motion_scale
@@ -154,3 +156,19 @@ func _on_EscapeMenu_load_game():
 func _on_EscapeMenu_options():
 	var optionsMenu = find_node("OptionsMenu")
 	optionsMenu.visible = true
+
+
+func _set_Crosshair(enable: bool):
+	if(enable):
+		Input.set_custom_mouse_cursor(Cursor, 0, Vector2(64, 64));
+	else:
+		Input.set_custom_mouse_cursor(null);
+
+
+func _on_EscapeMenu_visibility_changed():
+	var saveMenu = find_node("EscapeMenu")
+	_set_Crosshair(!saveMenu.visible)
+
+
+func _on_Level_tree_exiting():
+	_set_Crosshair(false)

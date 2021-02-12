@@ -24,6 +24,7 @@ mass = 0.01
 contacts_reported = 1
 linear_velocity = Vector2( 0, 0 )
 script = ExtResource( 3 )
+EngineSpeed = 150.0
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )

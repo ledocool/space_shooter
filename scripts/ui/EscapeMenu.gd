@@ -4,7 +4,6 @@ signal save_game()
 signal load_game()
 signal options()
 
-
 var cheats: Array = []
 
 

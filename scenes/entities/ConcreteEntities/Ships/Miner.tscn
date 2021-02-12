@@ -33,6 +33,7 @@ sleeping = true
 script = ExtResource( 2 )
 ShipMaxHealth = 1
 ShipCurrentHealth = 1
+SpeedGreenZoneMultiplier = 1.0
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )

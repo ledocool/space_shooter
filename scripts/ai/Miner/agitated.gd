@@ -9,6 +9,7 @@ func _on_enter_state():
 	target.EngineFiring = true
 	target.SetSpriteAngry()
 	target.set_sleeping(false)
+	target.DamageAllTouching()
 
 # State machine callback called during transition when leaving this state
 func _on_leave_state():
