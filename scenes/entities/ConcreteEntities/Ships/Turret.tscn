@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/ai/Turret/Turret.gd" type="Script" id=1]
 [ext_resource path="res://resources/Objects/Ships/turretes_bash.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://resources/Objects/Ships/turretes_bash_dmg_1.png" type="Texture" id=9]
 [ext_resource path="res://resources/Objects/Ships/turretes_bash_dmg_4.png" type="Texture" id=10]
 [ext_resource path="res://resources/Objects/Ships/turretes_bash_dmg_2.png" type="Texture" id=11]
+[ext_resource path="res://resources/Sound/dmg_sound.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 69, 69 )
@@ -86,6 +87,7 @@ position = Vector2( 131.293, -3.24753 )
 position = Vector2( -25.5162, -3.71146 )
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -103,6 +105,9 @@ one_shot = true
 process_mode = 0
 wait_time = 5.2
 one_shot = true
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 12 )
 [connection signal="damaged" from="Base" to="." method="_on_Base_damaged"]
 [connection signal="damaged" from="Top" to="." method="_on_Top_damaged"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

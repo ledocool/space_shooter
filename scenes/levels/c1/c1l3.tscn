@@ -1317,6 +1317,10 @@ position = Vector2( -8393.05, -445.579 )
 rotation = -1.83259
 texture = ExtResource( 25 )
 
+[node name="Garbage" type="ParallaxLayer" parent="Foreground" index="1"]
+z_index = -40
+motion_scale = Vector2( 1.1, 1.1 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]
 position = Vector2( 2237.94, -10263.2 )
 shape = SubResource( 7 )

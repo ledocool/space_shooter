@@ -26,7 +26,6 @@ func _ready():
 	if(level != null):
 		var camera = level.GetCamera()
 		var _res
-		_res = connect("health_changed", level, "_on_enemyHealth_change")
 		_res = connect("health_changed", camera, "_on_health_change")
 		_res = connect("health_changed", level, "_on_playerHealth_change")
 		_res = connect("speed_changed", camera, "_on_speed_change")
@@ -168,7 +167,13 @@ func _selectWeapon(weapon: String):
 
 
 func _on_bullet_shot(bullet_type, damage_multiplier):
-	($Sounds/Shoot/Cannon as AudioStreamPlayer2D).play()
+	match($Cannon.CurrentWeapon):
+		"rocketeer":
+			($Sounds/Shoot/Rocket as AudioStreamPlayer2D).play()
+		"slug":
+			($Sounds/Shoot/Cannon as AudioStreamPlayer2D).play()
+		_:
+			($Sounds/Shoot/Cannon as AudioStreamPlayer2D).play()
 	emit_signal("shoot_bullet", 
 		bullet_type, 
 		GetRotation(), 

@@ -25,6 +25,11 @@ func _ready():
 	$LoopableGenerator.Start()
 	if(loaded):
 		_on_PowerNode_health_changed(MaxHealth, Health)
+	var level = get_node_or_null("/root/Level")
+	if(level != null):
+		var _res
+		_res = connect("health_changed", level, "_on_enemyHealth_change")
+
 
 func GetHealth():
 	return Health

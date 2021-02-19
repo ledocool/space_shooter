@@ -10,6 +10,8 @@ var playerHealthDamage = 0
 var enemiesKilled = 0
 var playerShootsBullet = 0
 var playerSecretsFound = 0
+var allBulletsShot = 0
+var successfulHitBulletShot = 0
 export var secretsMax = 0
 
 var StartPlayerStatus = null
@@ -40,8 +42,10 @@ func GetPlayerStatus(reload: bool = false):
 func GetPlayer() -> PlayerShip:
 	return $ShipContainer/Player as PlayerShip
 
+
 func GetCamera() -> UI:
 	return $PlayerCamera as UI
+
 
 func SetStats(statistics: Dictionary):
 	enemyHealthDamage = statistics.enemyHealthDamage
@@ -50,6 +54,8 @@ func SetStats(statistics: Dictionary):
 	playerShootsBullet = statistics.playerShootsBullet
 	playerSecretsFound = statistics.playerSecretsFound
 	StartPlayerStatus = statistics.get("playerStartStatus", null)
+	allBulletsShot = statistics.allBulletsShot
+	successfulHitBulletShot = statistics.successfulHitBulletShot
 
 
 func GetStats():
@@ -59,7 +65,9 @@ func GetStats():
 		"enemiesKilled": enemiesKilled,
 		"playerShootsBullet": playerShootsBullet,
 		"playerSecretsFound": playerSecretsFound,
-		"playerStartStatus": StartPlayerStatus
+		"playerStartStatus": StartPlayerStatus,
+		"allBulletsShot": allBulletsShot,
+		"successfulHitBulletShot": successfulHitBulletShot
 	}
 	return stats
 
@@ -87,6 +95,7 @@ func _on_Ship_shoot(bullet, direction, location, velocity, damage_multiplier):
 	bullet.connect("exploded", self, "_on_Something_explode")
 	$BulletContainer.call_deferred("add_child", bullet)
 
+
 func _on_Ship_spawn(spawned):
 	$DynamicScenery.call_deferred("add_child", spawned)
 
@@ -107,11 +116,13 @@ func _on_playerHealth_change(oldhealth, health):
 		call_deferred("_showGameLose")
 
 func _showGameLose():
+	_set_Crosshair(false)
+	var accuracy: float = float(successfulHitBulletShot) / allBulletsShot * 100
 	var dictionaryData: Dictionary = {
 			"shots_fired": playerShootsBullet,
 			"damage_dealt": enemyHealthDamage,
 			"enemies_killed": enemiesKilled,
-			"accuracy": String(0) + "%",
+			"accuracy": String(ceil(accuracy)) + "%",
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
 	var gameLoseMenu = $MenuCanvas/MarginContainer/GameLoseMenu
@@ -130,12 +141,14 @@ func _on_player_shootBullet(_BulletType, _direction, _location, _velocity, _dama
 
 
 func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_shape):
+	_set_Crosshair(false)
 	if(body is PlayerShip):
+		var accuracy: float = float(successfulHitBulletShot) / allBulletsShot
 		var dictionaryData: Dictionary = {
 			"shots_fired": playerShootsBullet,
 			"damage_dealt": enemyHealthDamage,
 			"enemies_killed": enemiesKilled,
-			"accuracy": String(0) + "%",
+			"accuracy": String(accuracy) + "%",
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
 		var gameWinMenu = $MenuCanvas/MarginContainer/GameWinMenu
@@ -156,6 +169,14 @@ func _on_EscapeMenu_load_game():
 func _on_EscapeMenu_options():
 	var optionsMenu = find_node("OptionsMenu")
 	optionsMenu.visible = true
+
+
+func _on_player_bullet_hit_target():
+	successfulHitBulletShot += 1
+
+
+func _on_player_shoot_something():
+	allBulletsShot += 1
 
 
 func _set_Crosshair(enable: bool):

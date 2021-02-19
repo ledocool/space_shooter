@@ -2819,7 +2819,7 @@ position = Vector2( 9162.2, -3932.1 )
 scale = Vector2( 1, 0.720002 )
 
 [node name="Pipe2" parent="Scenery/BelowHarvester/Lastroom" index="21" instance=ExtResource( 38 )]
-position = Vector2( 13175.7, -3915.39 )
+position = Vector2( 13178.2, -3910.35 )
 
 [node name="Wire" type="Node2D" parent="Scenery/BelowHarvester/Lastroom" index="22"]
 

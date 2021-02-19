@@ -126,6 +126,11 @@ func _ready():
 			{'state_id': 'off', 'to_states': ['idle']},
 		]
 	})
+	
+	var level = get_node_or_null("/root/Level")
+	if(level != null):
+		var _res
+		_res = connect("health_changed", level, "_on_enemyHealth_change")
 
 
 func DamageAllTouching():

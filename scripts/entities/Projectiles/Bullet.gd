@@ -2,6 +2,7 @@ extends RigidBody2D
 class_name Bullet
 
 signal exploded(position, size, rotation)
+signal damaged_something()
 
 export var Damage = 1
 var DamageMultiplier:float = 1.0
@@ -11,7 +12,11 @@ func _init(damage_multiplier = null):
 		DamageMultiplier = damage_multiplier
 		
 func _ready():
-	pass
+	var level = get_node_or_null("/root/Level")
+	if(level != null):
+		var _res
+		_res = connect("damaged_something", level, "_on_player_bullet_hit_target")
+		level._on_player_shoot_something() #oh no, how bad!
 
 func GetSpawnAnchorPosition():
 	return ($SpawnAnchor as Node2D).position
@@ -56,6 +61,7 @@ func GetDamage():
 func _on_Bullet_body_entered(body):
 	if(body.has_method("Damage")):
 		body.Damage(GetDamage())
+		emit_signal("damaged_something")
 	Destroy()
 
 

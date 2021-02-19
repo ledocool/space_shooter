@@ -2948,7 +2948,6 @@ position = Vector2( 6971.75, 6450.23 )
 rotation = 3.14159
 scale = Vector2( 1.32, 1.32 )
 chainAmount = [ -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -3.005, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
-StartNodeRotation = 0
 EndNodeRotation = -17.0
 
 [node name="SpiralWire" parent="Scenery/StartingRoom/Building" index="7" groups=[
@@ -2956,7 +2955,6 @@ EndNodeRotation = -17.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 5279.94, 4733.8 )
 chainAmount = [ 90.0, 1.0, 2.0, 3.0, 3.0, 4.0, 4.0, 4.0, 5.0, 0.0, 2.0, 4.0, -1.0, -3.0, -1.0, -1.0, -1.0, -2.0, -2.0, -1.0, -1.0, -2.0, -3.0, 1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
-StartNodeRotation = 0
 EndNodeRotation = -3.0
 
 [node name="SpiralWire3" parent="Scenery/StartingRoom/Building" index="8" groups=[
@@ -2964,7 +2962,6 @@ EndNodeRotation = -3.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 4689.7, 1970.85 )
 chainAmount = [ 135.0, -5.0, -6.0, -3.0, -2.0, -1.0, -1.0, -1.0, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -0.5, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 0.0 ]
-StartNodeRotation = 0
 EndNodeRotation = 3.0
 
 [node name="SpiralWire2" parent="Scenery/StartingRoom/Building" index="9" groups=[
@@ -2972,7 +2969,6 @@ EndNodeRotation = 3.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 2391.32, 4047.32 )
 chainAmount = [ -122.0, 3.0, 3.0, 3.0, 3.0, 0.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, -1.0, -3.0, -3.0, -2.0, -2.0, -2.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.108, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, -1.0, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
-StartNodeRotation = 0
 EndNodeRotation = -25.0
 
 [node name="SpiralGenerator" parent="Scenery/StartingRoom/Building" index="10" instance=ExtResource( 31 )]
@@ -2980,7 +2976,6 @@ position = Vector2( 1608.79, 1734.47 )
 rotation = -1.5708
 chainAmount = [ -1.0, -1.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -21.0, -21.0, -21.0, -21.0, -12.0, -12.0, -5.0, -5.0, -5.0 ]
 StartNodeType = 0
-StartNodeRotation = 0
 EndNodeRotation = -15.0
 
 [node name="SpiralEntrance" parent="Scenery/StartingRoom/Building" index="11" instance=ExtResource( 28 )]
@@ -3500,15 +3495,12 @@ position = Vector2( 6587.81, 14249.4 )
 rotation = -1.57079
 chainAmount = [ -30.0, -8.0, -4.0, -15.0, -6.0, -2.0, 6.0, 14.0, 7.0, 8.0, 19.0, 25.0, 25.0, 19.0, -6.0, -8.0, -11.0, -2.0, -5.0, -12.0, -15.0, -16.0, -6.0, -8.0, -12.0, -22.0, 1.0, 2.0, 3.0, 1.0, 1.0, 2.0, 1.0, 1.0, 3.0, 2.0, 1.0, 1.0, 2.0, 3.0, 2.0, 1.0, 2.0, 8.0, 15.0, 15.0, 12.0, 7.0, 2.0, 3.0, 1.0, 2.0, 0.0, 1.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 6.0, 5.0, 5.0, 1.0, 4.0, 5.0, 2.0, 4.0, 1.0, 2.0, 2.0, 3.0, 2.0, 4.0, 5.0, 3.0, -1.0, -1.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
-StartNodeRotation = 0
-EndNodeRotation = 0
 
 [node name="InspiralWirer" parent="Scenery/Spiral" index="99" groups=[
 "inspiral_wire",
 ] instance=ExtResource( 31 )]
 position = Vector2( 11783.6, 14393.6 )
 chainAmount = [ -30.0, -5.0, -7.0, -9.0, -12.0, -16.0, -19.0, -21.0, -22.0, -22.0, 0.0, 1.0, 9.0, 18.0, 27.0, 36.0, 27.0, 15.0, 6.0, 4.0, 5.0, 5.0, 3.0, -3.0 ]
-StartNodeRotation = 0
 EndNodeRotation = 10.0
 
 [node name="InstpiralWirer2" parent="Scenery/Spiral" index="100" groups=[
@@ -3516,7 +3508,6 @@ EndNodeRotation = 10.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 9487.51, 14612.4 )
 chainAmount = [ -90.0, -5.0, -4.0, -2.0, -5.0, -6.0, -7.0, -1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 2.0, 1.0, 3.0, 4.0, 3.0, 2.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0 ]
-StartNodeRotation = 0
 EndNodeRotation = 10.0
 
 [node name="Wind7" parent="Scenery/Spiral" index="101" groups=[
@@ -3892,14 +3883,12 @@ rotation = 1.5708
 ] instance=ExtResource( 31 )]
 position = Vector2( 26692.7, 14778.5 )
 chainAmount = [ -3.0, -23.0, -1.0, 0.0, 1.0, 3.0, 6.0, 3.0, 4.0, 6.0, 6.0, 2.0, 1.0, 2.0, 1.0, 3.0, 1.0, 2.0, 4.0, 1.0 ]
-StartNodeRotation = 0
 EndNodeRotation = -19.0
 
 [node name="KeyWirererBottom" parent="Scenery/KeyRoom/Wires" index="1" instance=ExtResource( 31 )]
 position = Vector2( 22377.7, 16160.1 )
 chainAmount = [ -11.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 4.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, 1.0, 1.0, 4.0, 4.0, 4.0, 4.0, 1.0, 1.0, 1.0, 1.0, 1.0, -6.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 3.0, -2.0, 2.0, -1.0, 0.5, -0.5, -1.0, -3.0, -5.0, -3.0, -2.0, -2.0, -2.0, -5.0, -2.0, -4.0, -4.0, -4.0, -4.0, -5.0, -5.0, -5.0, -6.0, -7.0, -7.0, -8.0, -4.0, -6.0, -3.0, -5.0, -2.0, -2.0, -2.0, -4.0, -2.0, -2.0, -2.0, -2.0, -4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
-StartNodeRotation = 0
 EndNodeRotation = 39.0
 
 [node name="KeyWirerTop" parent="Scenery/KeyRoom/Wires" index="2" instance=ExtResource( 31 )]
@@ -3907,7 +3896,6 @@ position = Vector2( 21386.1, 14021.9 )
 rotation = 3.14159
 chainAmount = [ -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -2.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, -5.0, 7.0, 7.0, 8.0, 9.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0, -6.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -1.0, -2.0, -1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -1.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, -6.0, 0.0, 0.0, 1.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 StartNodeType = 0
-StartNodeRotation = 0
 EndNodeRotation = 10.0
 
 [node name="KeyWirerDoors" parent="Scenery/KeyRoom/Wires" index="3" groups=[
@@ -3915,8 +3903,6 @@ EndNodeRotation = 10.0
 ] instance=ExtResource( 31 )]
 position = Vector2( 18505.9, 14248.9 )
 chainAmount = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
-StartNodeRotation = 0
-EndNodeRotation = 0
 
 [node name="BeamDoor2" parent="Scenery/KeyRoom/Wires" index="4" groups=[
 "key_room_left_door",
@@ -4284,90 +4270,94 @@ polygon = PoolVector2Array( -431.773, 1790.59, -317.48, 2425.55, 368.278, 3416.0
 [node name="Edge" parent="Foreground/Spiral/CustomShapeBuilding3" index="2"]
 points = PoolVector2Array( -431.773, 1790.59, -317.48, 2425.55, 368.278, 3416.09, 2362.05, 4051.03, 3403.39, 4317.71, 4393.93, 4216.12, 5435.26, 4190.72, 6552.79, 3911.34, 7200.45, 3962.13, 7822.71, 3187.48, 8813.25, 2920.8, 7911.61, 2222.34, 7009.96, 2857.3, 5917.83, 2196.94, 5028.89, 2425.53, 3746.27, 2565.22, 2857.32, 2057.25, 2171.57, 1320.72, 2235.06, 279.383, 1473.11, -190.488, 1092.13, -850.847, 165.09, -888.944, -647.659, -1739.79, -1942.98, -1485.81, -1308.02, 673.059, -800.05, 1574.7, -431.773, 1790.59, -431.578, 1791.67 )
 
-[node name="asteroid1" type="Sprite" parent="Foreground/Spiral" index="3"]
+[node name="Spiral2" type="ParallaxLayer" parent="Foreground" index="5"]
+modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
+motion_scale = Vector2( 1.1, 1.1 )
+
+[node name="asteroid1" type="Sprite" parent="Foreground/Spiral2" index="0"]
 position = Vector2( 1454.2, 13122.6 )
 rotation = 2.09439
 texture = ExtResource( 60 )
 
-[node name="asteroid2" type="Sprite" parent="Foreground/Spiral" index="4"]
+[node name="asteroid2" type="Sprite" parent="Foreground/Spiral2" index="1"]
 position = Vector2( -324.857, 14635.2 )
 rotation = -1.83259
 texture = ExtResource( 69 )
 
-[node name="asteroid" type="Sprite" parent="Foreground/Spiral" index="5"]
+[node name="asteroid" type="Sprite" parent="Foreground/Spiral2" index="2"]
 position = Vector2( 3832.61, 14511.5 )
 rotation = -1.309
 texture = ExtResource( 70 )
 
-[node name="asteroid3" type="Sprite" parent="Foreground/Spiral" index="6"]
+[node name="asteroid3" type="Sprite" parent="Foreground/Spiral2" index="3"]
 position = Vector2( 2928.81, 15748.3 )
 rotation = -1.57079
 texture = ExtResource( 60 )
 
-[node name="asteroid4" type="Sprite" parent="Foreground/Spiral" index="7"]
+[node name="asteroid4" type="Sprite" parent="Foreground/Spiral2" index="4"]
 position = Vector2( 4070.45, 16528.4 )
 rotation = 1.0351
 scale = Vector2( 0.612437, 0.612437 )
 texture = ExtResource( 70 )
 
-[node name="asteroid5" type="Sprite" parent="Foreground/Spiral" index="8"]
+[node name="asteroid5" type="Sprite" parent="Foreground/Spiral2" index="5"]
 position = Vector2( 4926.68, 18022.1 )
 rotation = 2.87979
 scale = Vector2( 0.486155, 0.486155 )
 texture = ExtResource( 60 )
 
-[node name="asteroid6" type="Sprite" parent="Foreground/Spiral" index="9"]
+[node name="asteroid6" type="Sprite" parent="Foreground/Spiral2" index="6"]
 position = Vector2( 7314.61, 14216.6 )
 rotation = -0.785397
 texture = ExtResource( 60 )
 
-[node name="asteroid7" type="Sprite" parent="Foreground/Spiral" index="10"]
+[node name="asteroid7" type="Sprite" parent="Foreground/Spiral2" index="7"]
 position = Vector2( 7904.46, 16109.8 )
 rotation = 2.35619
 texture = ExtResource( 69 )
 
-[node name="asteroid8" type="Sprite" parent="Foreground/Spiral" index="11"]
+[node name="asteroid8" type="Sprite" parent="Foreground/Spiral2" index="8"]
 position = Vector2( 7590.5, 17965 )
 rotation = 1.309
 texture = ExtResource( 70 )
 
-[node name="asteroid9" type="Sprite" parent="Foreground/Spiral" index="12"]
+[node name="asteroid9" type="Sprite" parent="Foreground/Spiral2" index="9"]
 position = Vector2( 10587.3, 18764.2 )
 rotation = -1.0472
 texture = ExtResource( 60 )
 
-[node name="asteroid10" type="Sprite" parent="Foreground/Spiral" index="13"]
+[node name="asteroid10" type="Sprite" parent="Foreground/Spiral2" index="10"]
 position = Vector2( 11630.1, 15478.4 )
 rotation = 2.61799
 scale = Vector2( 0.581876, 0.581876 )
 texture = ExtResource( 60 )
 
-[node name="asteroid11" type="Sprite" parent="Foreground/Spiral" index="14"]
+[node name="asteroid11" type="Sprite" parent="Foreground/Spiral2" index="11"]
 position = Vector2( 12071.4, 16975.6 )
 rotation = -0.523598
 texture = ExtResource( 70 )
 
-[node name="asteroid13" type="Sprite" parent="Foreground/Spiral" index="15"]
+[node name="asteroid13" type="Sprite" parent="Foreground/Spiral2" index="12"]
 position = Vector2( 12007.1, 12532.5 )
 rotation = 2.618
 texture = ExtResource( 60 )
 
-[node name="asteroid14" type="Sprite" parent="Foreground/Spiral" index="16"]
+[node name="asteroid14" type="Sprite" parent="Foreground/Spiral2" index="13"]
 position = Vector2( 10284.9, 11954 )
 rotation = 0.261799
 texture = ExtResource( 69 )
 
-[node name="asteroid15" type="Sprite" parent="Foreground/Spiral" index="17"]
+[node name="asteroid15" type="Sprite" parent="Foreground/Spiral2" index="14"]
 position = Vector2( 8791.49, 10689.3 )
 rotation = 1.04721
 texture = ExtResource( 60 )
 
-[node name="asteroid12" type="Sprite" parent="Foreground/Spiral" index="18"]
+[node name="asteroid12" type="Sprite" parent="Foreground/Spiral2" index="15"]
 position = Vector2( 5670.09, 8455.86 )
 rotation = -2.87979
 texture = ExtResource( 70 )
 
-[node name="Keyroom" type="ParallaxLayer" parent="Foreground" index="5"]
+[node name="Keyroom" type="ParallaxLayer" parent="Foreground" index="6"]
 modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
 light_mask = 2
 
@@ -4430,7 +4420,7 @@ position = Vector2( 24652.5, 18068.8 )
 rotation = 2.61799
 texture = ExtResource( 60 )
 
-[node name="Spiral_clouds" type="ParallaxLayer" parent="Foreground" index="6"]
+[node name="Spiral_clouds" type="ParallaxLayer" parent="Foreground" index="7"]
 modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
 light_mask = 2
 z_index = -40
@@ -4438,142 +4428,177 @@ motion_scale = Vector2( 0.7, 0.7 )
 
 [node name="back_asset_cloud1" type="Sprite" parent="Foreground/Spiral_clouds" index="0"]
 position = Vector2( 4695.17, 17285.4 )
+rotation = -2.09439
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud3" type="Sprite" parent="Foreground/Spiral_clouds" index="1"]
 position = Vector2( 2892.59, 15156.4 )
+rotation = -1.99489
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud5" type="Sprite" parent="Foreground/Spiral_clouds" index="2"]
 position = Vector2( 4257.5, 15407.8 )
+rotation = -0.0755791
 texture = ExtResource( 75 )
 
 [node name="back_asset_cloud4" type="Sprite" parent="Foreground/Spiral_clouds" index="3"]
 position = Vector2( 3233.81, 16629.1 )
+rotation = -1.32848
 texture = ExtResource( 77 )
 
 [node name="back_asset_cloud2" type="Sprite" parent="Foreground/Spiral_clouds" index="4"]
 position = Vector2( 3664.84, 15749 )
+rotation = 1.7057
 texture = ExtResource( 83 )
 
 [node name="back_asset_cloud6" type="Sprite" parent="Foreground/Spiral_clouds" index="5"]
 position = Vector2( 1581.55, 15336 )
+rotation = -2.86591
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud7" type="Sprite" parent="Foreground/Spiral_clouds" index="6"]
 position = Vector2( 486.027, 12220 )
+rotation = -1.0586
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud8" type="Sprite" parent="Foreground/Spiral_clouds" index="7"]
 position = Vector2( 791.336, 12857.6 )
+rotation = -1.1599
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud9" type="Sprite" parent="Foreground/Spiral_clouds" index="8"]
 position = Vector2( 63.981, 13719.6 )
+rotation = 1.10881
 texture = ExtResource( 75 )
 
 [node name="back_asset_cloud10" type="Sprite" parent="Foreground/Spiral_clouds" index="9"]
 position = Vector2( -609.496, 15084.5 )
+rotation = 0.928201
 texture = ExtResource( 83 )
 
 [node name="back_asset_cloud11" type="Sprite" parent="Foreground/Spiral_clouds" index="10"]
 position = Vector2( 809.296, 13845.3 )
+rotation = -2.01393
 texture = ExtResource( 77 )
 
 [node name="back_asset_cloud12" type="Sprite" parent="Foreground/Spiral_clouds" index="11"]
 position = Vector2( 4296.77, 18269 )
+rotation = -0.69035
 texture = ExtResource( 77 )
 
 [node name="back_asset_cloud13" type="Sprite" parent="Foreground/Spiral_clouds" index="12"]
 position = Vector2( 5914.09, 17812.4 )
+rotation = -1.03502
 texture = ExtResource( 75 )
 
 [node name="back_asset_cloud14" type="Sprite" parent="Foreground/Spiral_clouds" index="13"]
 position = Vector2( 5514.52, 18602 )
+rotation = 0.808824
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud15" type="Sprite" parent="Foreground/Spiral_clouds" index="14"]
 position = Vector2( 6437.34, 18459.3 )
+rotation = 2.97334
 texture = ExtResource( 83 )
 
 [node name="back_asset_cloud16" type="Sprite" parent="Foreground/Spiral_clouds" index="15"]
 position = Vector2( 5229.11, 17450.9 )
+rotation = 1.72763
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud17" type="Sprite" parent="Foreground/Spiral_clouds" index="16"]
 position = Vector2( 4886.62, 19153.8 )
+rotation = 3.13749
 texture = ExtResource( 75 )
 
 [node name="back_asset_cloud18" type="Sprite" parent="Foreground/Spiral_clouds" index="17"]
 position = Vector2( 7940.5, 17422.3 )
+rotation = 0.0675447
 texture = ExtResource( 77 )
 
 [node name="back_asset_cloud19" type="Sprite" parent="Foreground/Spiral_clouds" index="18"]
 position = Vector2( 7921.47, 18544.9 )
+rotation = -0.412908
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud20" type="Sprite" parent="Foreground/Spiral_clouds" index="19"]
 position = Vector2( 9805.18, 19287 )
+rotation = -2.3038
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud21" type="Sprite" parent="Foreground/Spiral_clouds" index="20"]
 position = Vector2( 11460.6, 17669.7 )
+rotation = 2.22537
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud22" type="Sprite" parent="Foreground/Spiral_clouds" index="21"]
 position = Vector2( 11584.2, 16099.9 )
+rotation = -0.722261
 texture = ExtResource( 77 )
 
 [node name="back_asset_cloud23" type="Sprite" parent="Foreground/Spiral_clouds" index="22"]
 position = Vector2( 12221.6, 15367.4 )
+rotation = 2.90952
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud24" type="Sprite" parent="Foreground/Spiral_clouds" index="23"]
 position = Vector2( 11603.3, 18373.7 )
+rotation = -2.63924
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud25" type="Sprite" parent="Foreground/Spiral_clouds" index="24"]
 position = Vector2( 10661.4, 17431.8 )
+rotation = 2.8905
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud26" type="Sprite" parent="Foreground/Spiral_clouds" index="25"]
 position = Vector2( 4477.53, 14159.1 )
+rotation = -0.415826
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud27" type="Sprite" parent="Foreground/Spiral_clouds" index="26"]
 position = Vector2( 6608.59, 13769.1 )
+rotation = -1.50947
 texture = ExtResource( 77 )
 
 [node name="back_asset_cloud28" type="Sprite" parent="Foreground/Spiral_clouds" index="27"]
 position = Vector2( 7845.36, 15338.8 )
+rotation = 2.71391
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud29" type="Sprite" parent="Foreground/Spiral_clouds" index="28"]
 position = Vector2( 7217.46, 12637 )
+rotation = 1.20315
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud30" type="Sprite" parent="Foreground/Spiral_clouds" index="29"]
 position = Vector2( 9633.93, 11133.8 )
+rotation = 2.93414
 texture = ExtResource( 75 )
 
 [node name="back_asset_cloud31" type="Sprite" parent="Foreground/Spiral_clouds" index="30"]
 position = Vector2( 7864.39, 11029.2 )
+rotation = -2.90724
 texture = ExtResource( 83 )
 
 [node name="back_asset_cloud32" type="Sprite" parent="Foreground/Spiral_clouds" index="31"]
 position = Vector2( 6218.53, 9116.91 )
+rotation = 2.38761
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud33" type="Sprite" parent="Foreground/Spiral_clouds" index="32"]
 position = Vector2( 7550.44, 6281.84 )
+rotation = 1.88709
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud34" type="Sprite" parent="Foreground/Spiral_clouds" index="33"]
 position = Vector2( 7769.26, 7585.21 )
+rotation = 2.48779
 texture = ExtResource( 77 )
 
 [node name="back_asset_cloud35" type="Sprite" parent="Foreground/Spiral_clouds" index="34"]
 position = Vector2( 5666.74, 5568.32 )
+rotation = 2.69211
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud36" type="Sprite" parent="Foreground/Spiral_clouds" index="35"]
@@ -4582,182 +4607,227 @@ texture = ExtResource( 83 )
 
 [node name="back_asset_cloud37" type="Sprite" parent="Foreground/Spiral_clouds" index="36"]
 position = Vector2( 7483.85, 3618.02 )
+rotation = -1.57079
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud38" type="Sprite" parent="Foreground/Spiral_clouds" index="37"]
 position = Vector2( 4410.93, 449.969 )
+rotation = 2.09439
 texture = ExtResource( 77 )
 
 [node name="back_asset_cloud39" type="Sprite" parent="Foreground/Spiral_clouds" index="38"]
 position = Vector2( 3859.14, -1319.57 )
+rotation = -2.35619
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud40" type="Sprite" parent="Foreground/Spiral_clouds" index="39"]
 position = Vector2( 4468.02, -2508.78 )
+rotation = 2.41058
 texture = ExtResource( 75 )
 
 [node name="back_asset_cloud41" type="Sprite" parent="Foreground/Spiral_clouds" index="40"]
 position = Vector2( 9319.98, 1810.42 )
+rotation = -2.12721
 texture = ExtResource( 75 )
 
 [node name="back_asset_cloud42" type="Sprite" parent="Foreground/Spiral_clouds" index="41"]
 position = Vector2( -754.98, 5273.39 )
+rotation = 2.51611
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud43" type="Sprite" parent="Foreground/Spiral_clouds" index="42"]
 position = Vector2( -1592.18, 3808.29 )
+rotation = -1.78968
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud44" type="Sprite" parent="Foreground/Spiral_clouds" index="43"]
 position = Vector2( -1563.64, 2219.51 )
+rotation = 1.70758
 texture = ExtResource( 83 )
 
 [node name="back_asset_cloud45" type="Sprite" parent="Foreground/Spiral_clouds" index="44"]
 position = Vector2( -2096.41, 4369.59 )
+rotation = -1.31866
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud46" type="Sprite" parent="Foreground/Spiral_clouds" index="45"]
 position = Vector2( -2724.31, -986.595 )
+rotation = 0.81704
 texture = ExtResource( 83 )
 
 [node name="back_asset_cloud47" type="Sprite" parent="Foreground/Spiral_clouds" index="46"]
 position = Vector2( -1259.2, 78.9346 )
+rotation = -0.971958
 texture = ExtResource( 77 )
 
 [node name="ship_remains17" type="Sprite" parent="Foreground/Spiral_clouds" index="47"]
 position = Vector2( 6484.91, 9240.59 )
+rotation = 2.2101
 texture = ExtResource( 81 )
 
 [node name="ship_remains11" type="Sprite" parent="Foreground/Spiral_clouds" index="48"]
 position = Vector2( 5324.25, 9307.18 )
+rotation = -0.987433
 texture = ExtResource( 82 )
 
 [node name="ship_remains14" type="Sprite" parent="Foreground/Spiral_clouds" index="49"]
 position = Vector2( 7940.5, 14749 )
+rotation = 1.90567
 texture = ExtResource( 84 )
 
 [node name="ship_remains16" type="Sprite" parent="Foreground/Spiral_clouds" index="50"]
 position = Vector2( 3450.06, 16575.6 )
+rotation = -0.905306
 texture = ExtResource( 78 )
 
 [node name="ship_remains12" type="Sprite" parent="Foreground/Spiral_clouds" index="51"]
 position = Vector2( 3630.81, 15110.5 )
+rotation = 2.264
 texture = ExtResource( 79 )
 
 [node name="ship_remains13" type="Sprite" parent="Foreground/Spiral_clouds" index="52"]
 position = Vector2( 4620.23, 16071.4 )
+rotation = -0.853132
 texture = ExtResource( 82 )
 
 [node name="ship_remains15" type="Sprite" parent="Foreground/Spiral_clouds" index="53"]
 position = Vector2( 4705.86, 18887.4 )
+rotation = -1.42046
 texture = ExtResource( 73 )
 
 [node name="ship_remains18" type="Sprite" parent="Foreground/Spiral_clouds" index="54"]
 position = Vector2( 6532.48, 17574.5 )
+rotation = 2.38408
 texture = ExtResource( 78 )
 
 [node name="ship_remains19" type="Sprite" parent="Foreground/Spiral_clouds" index="55"]
 position = Vector2( 3830.6, 18259.5 )
+rotation = 1.68329
 texture = ExtResource( 81 )
 
 [node name="ship_remains20" type="Sprite" parent="Foreground/Spiral_clouds" index="56"]
 position = Vector2( 6913.03, 18630.6 )
+rotation = 2.26321
 texture = ExtResource( 76 )
 
 [node name="ship_remains21" type="Sprite" parent="Foreground/Spiral_clouds" index="57"]
 position = Vector2( 7360.17, 16556.6 )
+rotation = -0.990938
 texture = ExtResource( 79 )
 
 [node name="ship_remains22" type="Sprite" parent="Foreground/Spiral_clouds" index="58"]
 position = Vector2( 6389.77, 14149.6 )
+rotation = 1.73886
 texture = ExtResource( 82 )
 
 [node name="ship_remains23" type="Sprite" parent="Foreground/Spiral_clouds" index="59"]
 position = Vector2( 8235.42, 15462.5 )
+rotation = -1.21502
 texture = ExtResource( 73 )
 
 [node name="ship_remains24" type="Sprite" parent="Foreground/Spiral_clouds" index="60"]
 position = Vector2( 9396.09, 18701 )
+rotation = 2.2181
 texture = ExtResource( 78 )
 
 [node name="ship_remains25" type="Sprite" parent="Foreground/Spiral_clouds" index="61"]
 position = Vector2( 7950.01, 19224.2 )
+rotation = 1.72389
 texture = ExtResource( 74 )
 
 [node name="ship_remains26" type="Sprite" parent="Foreground/Spiral_clouds" index="62"]
 position = Vector2( 8378.13, 18624.9 )
+rotation = -2.85192
 texture = ExtResource( 84 )
 
 [node name="ship_remains27" type="Sprite" parent="Foreground/Spiral_clouds" index="63"]
 position = Vector2( 13401.3, 16132.3 )
+rotation = 1.63601
 texture = ExtResource( 73 )
 
 [node name="ship_remains28" type="Sprite" parent="Foreground/Spiral_clouds" index="64"]
 position = Vector2( 10642.4, 18016 )
+rotation = 3.42401
 texture = ExtResource( 74 )
 
 [node name="ship_remains29" type="Sprite" parent="Foreground/Spiral_clouds" index="65"]
 position = Vector2( 12659.3, 15209.5 )
+rotation = 0.661906
 texture = ExtResource( 73 )
 
 [node name="ship_remains30" type="Sprite" parent="Foreground/Spiral_clouds" index="66"]
 position = Vector2( 11165.6, 17055.1 )
+rotation = -1.64193
 texture = ExtResource( 84 )
 
 [node name="ship_remains31" type="Sprite" parent="Foreground/Spiral_clouds" index="67"]
 position = Vector2( 11974.3, 14800.4 )
+rotation = 0.533515
 texture = ExtResource( 76 )
 
 [node name="ship_remains32" type="Sprite" parent="Foreground/Spiral_clouds" index="68"]
 position = Vector2( 329.576, 13811 )
+rotation = -0.387146
 texture = ExtResource( 82 )
 
 [node name="ship_remains33" type="Sprite" parent="Foreground/Spiral_clouds" index="69"]
 position = Vector2( 871.855, 12688.4 )
+rotation = 2.64942
 texture = ExtResource( 79 )
 
 [node name="ship_remains34" type="Sprite" parent="Foreground/Spiral_clouds" index="70"]
 position = Vector2( 510.336, 15171.4 )
+rotation = -2.29985
 texture = ExtResource( 78 )
 
 [node name="ship_remains35" type="Sprite" parent="Foreground/Spiral_clouds" index="71"]
 position = Vector2( 1338.02, 15732.7 )
+rotation = 1.59602
 texture = ExtResource( 74 )
 
 [node name="ship_remains2" type="Sprite" parent="Foreground/Spiral_clouds" index="72"]
 position = Vector2( 22169.8, 16559.1 )
+rotation = -3.01028
 texture = ExtResource( 87 )
 
 [node name="ship_remains3" type="Sprite" parent="Foreground/Spiral_clouds" index="73"]
 position = Vector2( 21237.5, 12772.7 )
+rotation = 2.39435
 texture = ExtResource( 88 )
 
 [node name="back_asset_cloud48" type="Sprite" parent="Foreground/Spiral_clouds" index="74"]
 position = Vector2( 21741.7, 13866.7 )
+rotation = -2.63264
 texture = ExtResource( 83 )
 
 [node name="back_asset_cloud49" type="Sprite" parent="Foreground/Spiral_clouds" index="75"]
 position = Vector2( 18583.2, 16416.4 )
+rotation = 2.68812
 texture = ExtResource( 85 )
 
 [node name="back_asset_cloud50" type="Sprite" parent="Foreground/Spiral_clouds" index="76"]
 position = Vector2( 20086.3, 17282.1 )
+rotation = -1.94817
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud51" type="Sprite" parent="Foreground/Spiral_clouds" index="77"]
 position = Vector2( 18621.2, 12420.7 )
+rotation = 0.692216
 texture = ExtResource( 80 )
 
 [node name="back_asset_cloud52" type="Sprite" parent="Foreground/Spiral_clouds" index="78"]
 position = Vector2( 25328.4, 11897.4 )
+rotation = -0.167444
 texture = ExtResource( 75 )
 
 [node name="back_asset_cloud53" type="Sprite" parent="Foreground/Spiral_clouds" index="79"]
 position = Vector2( 22769.2, 12135.3 )
+rotation = 0.0564474
 texture = ExtResource( 83 )
 
 [node name="ship_remains4" type="Sprite" parent="Foreground/Spiral_clouds" index="80"]
 position = Vector2( 27231.1, 16397.4 )
+rotation = -0.495174
 texture = ExtResource( 86 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerContainer/LevelEndTrigger" index="0"]

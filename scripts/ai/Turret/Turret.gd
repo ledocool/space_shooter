@@ -104,6 +104,7 @@ func Shoot():
 	var rot = $Top.global_rotation
 # warning-ignore:unsafe_property_access
 	var pos = $Top/BulletAnchor.global_position
+	($Shot as AudioStreamPlayer2D).play()
 	emit_signal("shoot_bullet", bullet.instance(), rot, pos, Vector2(0,0), 1.0)
 
 func SkipShoot():
@@ -155,6 +156,7 @@ func _ready():
 		var _res
 		_res = connect("shoot_bullet", level, "_on_Ship_shoot")
 		_res = connect("exploded", level, "_on_Something_explode")
+		_res = connect("health_changed", level, "_on_enemyHealth_change")
 
 
 func _physics_process(delta):
