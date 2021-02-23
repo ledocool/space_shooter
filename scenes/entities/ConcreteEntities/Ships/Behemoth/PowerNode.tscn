@@ -54,7 +54,7 @@ frames = SubResource( 1 )
 
 [node name="Electricity" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Bulb" type="AnimatedSprite" parent="."]

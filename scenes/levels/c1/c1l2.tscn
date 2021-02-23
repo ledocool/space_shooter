@@ -4272,7 +4272,7 @@ points = PoolVector2Array( -431.773, 1790.59, -317.48, 2425.55, 368.278, 3416.09
 
 [node name="Spiral2" type="ParallaxLayer" parent="Foreground" index="5"]
 modulate = Color( 0.407843, 0.411765, 0.435294, 1 )
-motion_scale = Vector2( 1.1, 1.1 )
+motion_scale = Vector2( 0.9, 0.9 )
 
 [node name="asteroid1" type="Sprite" parent="Foreground/Spiral2" index="0"]
 position = Vector2( 1454.2, 13122.6 )
@@ -4874,8 +4874,8 @@ shape = SubResource( 6 )
 
 [node name="WindRevealTrigger" type="Node" parent="TriggerContainer" index="7"]
 script = ExtResource( 59 )
-[connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/WindRevealTrigger" method="_on_KeyPickup_picked_up" flags=3]
 [connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
+[connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/WindRevealTrigger" method="_on_KeyPickup_picked_up" flags=3]
 [connection signal="wire_switch" from="Scenery/StartingRoom/Building/SpiralGenerator" to="TriggerContainer/SpiralEnterTrigger" method="_on_SpiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/Spiral/InspiralGenerator" to="TriggerContainer/SpiralTrigger" method="_on_InspiralGenerator_wire_switch"]
 [connection signal="wire_switch" from="Scenery/KeyRoom/Wires/KeyWirererBottom" to="TriggerContainer/KeyRoomTrigger" method="_on_bottom_generator_switch"]

@@ -167,6 +167,7 @@ func _selectWeapon(weapon: String):
 
 
 func _on_bullet_shot(bullet_type, damage_multiplier):
+# warning-ignore:unsafe_property_access
 	match($Cannon.CurrentWeapon):
 		"rocketeer":
 			($Sounds/Shoot/Rocket as AudioStreamPlayer2D).play()

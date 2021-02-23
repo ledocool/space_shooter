@@ -75,6 +75,8 @@ func _physics_process(delta):
 func _on_BecomeHurtfulTimer_timeout():
 # warning-ignore:unsafe_property_access
 	$AnimatedSprite.visible = true
+# warning-ignore:unsafe_method_access
+	$HurtfulSound.play()
 	($Timers/StayHurtfulTimer as Timer).start()
 	hurtful = true
 

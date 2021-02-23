@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scripts/ui/UI.gd" type="Script" id=1]
 [ext_resource path="res://resources/Ui/ProgressBars/GuiHealth/ui_health_under.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://scenes/interface/StatusIcons/BerzerkIcon.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/interface/StatusIcons/QuadIcon.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/interface/StatusIcons/SpeedIcon.tscn" type="PackedScene" id=17]
+[ext_resource path="res://scenes/interface/BossHpProgressbar.tscn" type="PackedScene" id=18]
 
 [node name="UI" type="Node2D"]
 script = ExtResource( 1 )
@@ -39,9 +40,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="BossHpProgressbar" parent="UICanvas/TopGUI" instance=ExtResource( 18 )]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -444.18
+margin_top = 4.95941
+margin_right = 1043.82
+margin_bottom = 148.959
+
 [node name="LeftStack" type="VBoxContainer" parent="UICanvas/TopGUI"]
 margin_right = 486.0
 margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Hp" type="Control" parent="UICanvas/TopGUI/LeftStack"]
 margin_right = 486.0
@@ -120,6 +133,9 @@ anchor_right = 1.0
 anchor_bottom = 0.131
 margin_left = -0.5
 margin_bottom = 0.139984
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AmmoLabel" type="Label" parent="UICanvas/TopGUI/AmmoPanel"]
 anchor_top = 0.137

@@ -29,6 +29,7 @@ func _ready():
 	if(level != null):
 		var _res
 		_res = connect("health_changed", level, "_on_enemyHealth_change")
+		_res = connect("exploded", level, "_on_Something_explode")
 
 
 func GetHealth():
@@ -46,7 +47,7 @@ func Damage(dmg: int):
 		$LoopableGenerator.Stop()
 # warning-ignore:unsafe_method_access
 		$BreakSound.play()
-		emit_signal("exploded", self.position, Vector2(0.3, 0.3), 0)
+		emit_signal("exploded", self.position, 0.3, 0)
 		Health = 0
 		
 	emit_signal("health_changed", oldHealth, Health)

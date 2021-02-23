@@ -2,6 +2,7 @@ extends RigidBody2D
 class_name Behemoth
 
 signal exploded(position, size, rotation)
+signal health_changed(oladHealth, newHealth)
 
 const off = preload("res://scripts/ai/Behemoth/off.gd")
 const pursue = preload("res://scripts/ai/Behemoth/pursue.gd")
@@ -31,7 +32,6 @@ var CursorThrust = null
 var TopWireHealth = 0
 var BottomWireHealth = 0 
 var WireMaxHealth = 0
-var TurretsHealth = 0
 
 var ExplosionPoints: Array
 
@@ -208,6 +208,9 @@ func _ready():
 		]
 	})
 	
+	for turret in $Turrets.get_children():
+		var _r = turret.connect("health_changed", self, "_on_turretHealthChange")
+	
 	TopWireHealth = _getTopWireHealth()
 	BottomWireHealth = _getBottomWireHealth()
 	if(WireMaxHealth == 0):
@@ -216,6 +219,16 @@ func _ready():
 	var level = get_node_or_null("/root/Level")
 	if(level != null):
 		var _r = connect("exploded", level, "_on_Something_explode")
+		var camera = level.find_node("PlayerCamera")
+		if(camera != null):
+			var healthProgress = camera.find_node("BossHpProgressbar")
+			if(healthProgress != null):
+				_r = connect("health_changed", healthProgress, "_on_boss_hp_change")
+				healthProgress.SetBossHealth(WireMaxHealth, TopWireHealth + BottomWireHealth)
+				
+	if(WireMaxHealth != TopWireHealth + BottomWireHealth):
+		emit_signal("health_changed", WireMaxHealth, TopWireHealth + BottomWireHealth)
+
 
 
 func _getTopWireHealth():
@@ -231,17 +244,20 @@ func _getBottomWireHealth():
 
 func _on_Topnode_health_changed(oldHealth, newHealth):
 	var healthDiff = oldHealth - newHealth
+	emit_signal("health_changed", TopWireHealth + BottomWireHealth, TopWireHealth + BottomWireHealth - healthDiff)
 	TopWireHealth -= healthDiff
 	if(TopWireHealth == 0):
 		($Wires/WireTop_top as AnimatedSprite).frame = 1
 		($Wires/WireTop_bottom as AnimatedSprite).frame = 1
-		
+	
+	
 	if(TopWireHealth == 0 && BottomWireHealth == 0):
 		RemoveChamber()
 
 
 func _on_Bottomnode_health_changed(oldHealth, newHealth):
 	var healthDiff = oldHealth - newHealth
+	emit_signal("health_changed", TopWireHealth + BottomWireHealth, TopWireHealth + BottomWireHealth - healthDiff)
 	BottomWireHealth -= healthDiff
 	if(BottomWireHealth == 0):
 		($Wires/WireBottom_top as AnimatedSprite).frame = 1
@@ -319,4 +335,9 @@ func _on_ExplosionTimer_timeout():
 		return
 	var size = randf() * 3.2
 	emit_signal("exploded", point.get_global_position(), size, 0.0)
+	
+func _on_turretHealthChange(_oldHealth, _newHealth):
+	for turret in $Turrets.get_children():
+		disconnect("health_changed", self, "_on_turretHealthChange")
+	emit_signal("health_changed", WireMaxHealth, TopWireHealth + BottomWireHealth)
 
