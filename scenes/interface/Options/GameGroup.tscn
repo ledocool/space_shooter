@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/interface/Options/MenuGroup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/ui/GameGroup.gd" type="Script" id=2]
 [ext_resource path="res://scenes/interface/Options/DropdownControl.tscn" type="PackedScene" id=3]
 [ext_resource path="res://resources/Ui/Styles/Menu.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://resources/Ui/Fonts/Xolonium/Xolonium-Bold.otf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = SubResource( 1 )
 
 [node name="GameGroup" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -18,6 +25,7 @@ margin_bottom = 1027.0
 [node name="LanguageDropdown" parent="VBoxContainer/Contents/VBoxContainer" index="0" instance=ExtResource( 3 )]
 anchor_right = 0.0
 margin_right = 1920.0
+theme = ExtResource( 4 )
 LabelText = "language_settings"
 
 [node name="ZoomButton" type="CheckButton" parent="VBoxContainer/Contents/VBoxContainer" index="1"]
@@ -25,6 +33,7 @@ margin_top = 35.0
 margin_right = 1920.0
 margin_bottom = 80.0
 theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "camera_automatic_zoom"
 [connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/LanguageDropdown" to="." method="_on_LanguageDropdown_item_selected"]
 [connection signal="toggled" from="VBoxContainer/Contents/VBoxContainer/ZoomButton" to="." method="_on_CheckButton_toggled"]

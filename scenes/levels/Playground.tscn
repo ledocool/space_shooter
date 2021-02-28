@@ -131,23 +131,7 @@ position = Vector2( -1225.53, -1525.82 )
 [node name="KeyPickup" parent="ItemContainer" index="8" instance=ExtResource( 20 )]
 position = Vector2( -1291.34, -1057.73 )
 
-[node name="Generator" parent="DynamicScenery" index="0" instance=ExtResource( 17 )]
-position = Vector2( -2063.85, -1315.97 )
-
-[node name="Wirerer" parent="DynamicScenery" index="1" instance=ExtResource( 18 )]
-position = Vector2( -1850.58, -1337.6 )
-chainAmount = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
-StartNodeType = 0
-StartNodeRotation = 0
-EndNodeRotation = 0
-
-[node name="PowerNode" parent="DynamicScenery" index="2" instance=ExtResource( 36 )]
-position = Vector2( -874.148, -1467.98 )
-
-[node name="PowerNode2" parent="DynamicScenery" index="3" instance=ExtResource( 36 )]
-position = Vector2( -869.103, -1345.21 )
-
-[node name="Crate" parent="DynamicScenery" index="4" instance=ExtResource( 37 )]
+[node name="Crate" parent="DynamicScenery" index="0" instance=ExtResource( 37 )]
 position = Vector2( -887.842, -1058.31 )
 
 [node name="LevelExit" parent="Scenery" index="0" instance=ExtResource( 12 )]
@@ -354,6 +338,20 @@ position = Vector2( 5522.8, -1589.93 )
 
 [node name="FoodTruck" parent="Scenery" index="53" instance=ExtResource( 30 )]
 position = Vector2( 289.815, -593.482 )
+
+[node name="Generator" parent="Scenery" index="54" instance=ExtResource( 17 )]
+position = Vector2( -2063.85, -1315.97 )
+
+[node name="Wirerer" parent="Scenery" index="55" instance=ExtResource( 18 )]
+position = Vector2( -1850.58, -1337.6 )
+chainAmount = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+StartNodeType = 0
+
+[node name="PowerNode" parent="Scenery" index="56" instance=ExtResource( 36 )]
+position = Vector2( -874.148, -1467.98 )
+
+[node name="PowerNode2" parent="Scenery" index="57" instance=ExtResource( 36 )]
+position = Vector2( -869.103, -1345.21 )
 
 [node name="MarginContainer" parent="MenuCanvas" index="0"]
 mouse_filter = 1

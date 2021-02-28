@@ -18,13 +18,21 @@ func GetAutoZoom():
 func SetVolume(bus: String, volume: float):
 	var busIndex = AudioServer.get_bus_index(bus)
 	ConfigurationHandler.set_value("sound", bus, volume)
-	AudioServer.set_bus_volume_db(busIndex, volume)
+	var dbs = _percentageToDecibels(volume)
+	AudioServer.set_bus_volume_db(busIndex, dbs)
 
 
 func GetVolume(bus: String) -> float:
 	var busIndex = AudioServer.get_bus_index(bus)
-	return AudioServer.get_bus_volume_db(busIndex)
+	var dbs = AudioServer.get_bus_volume_db(busIndex)
+	return _decibelsToPercentage(dbs)
 
+func _percentageToDecibels(volume: float):
+	return linear2db(volume)
+	
+
+func _decibelsToPercentage(volume: float):
+	return db2linear(volume)
 
 func SetWindowFullscreen():
 	ConfigurationHandler.set_value("display", "window_mode", "fullscreen")

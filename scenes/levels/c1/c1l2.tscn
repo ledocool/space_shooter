@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=2]
+[gd_scene load_steps=96 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/level1/LevelExit.tscn" type="PackedScene" id=2]
@@ -88,6 +88,7 @@
 [ext_resource path="res://resources/Backgrounds/Assets/ship_remains4.png" type="Texture" id=86]
 [ext_resource path="res://resources/Backgrounds/Assets/ship_remains2.png" type="Texture" id=87]
 [ext_resource path="res://resources/Backgrounds/Assets/ship_remains3.png" type="Texture" id=88]
+[ext_resource path="res://resources/Music/lvl1.wav" type="AudioStream" id=89]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 35 )
@@ -4874,6 +4875,9 @@ shape = SubResource( 6 )
 
 [node name="WindRevealTrigger" type="Node" parent="TriggerContainer" index="7"]
 script = ExtResource( 59 )
+
+[node name="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource( 89 )
 [connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/SpiralTrigger" method="_on_KeyPickup_picked_up"]
 [connection signal="picked_up" from="ItemContainer/KeyPickup" to="TriggerContainer/WindRevealTrigger" method="_on_KeyPickup_picked_up" flags=3]
 [connection signal="wire_switch" from="Scenery/StartingRoom/Building/SpiralGenerator" to="TriggerContainer/SpiralEnterTrigger" method="_on_SpiralGenerator_wire_switch"]

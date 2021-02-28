@@ -2,7 +2,6 @@ extends State
 
 
 func _on_enter_state():
-	print("stop")
 	target.CursorThrust = null
 	target.linear_damp = target.LinearDamp
 	target.angular_damp = target.AngularDamp

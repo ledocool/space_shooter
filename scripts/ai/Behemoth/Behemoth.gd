@@ -3,6 +3,7 @@ class_name Behemoth
 
 signal exploded(position, size, rotation)
 signal health_changed(oladHealth, newHealth)
+signal cube_picked_up(data)
 
 const off = preload("res://scripts/ai/Behemoth/off.gd")
 const pursue = preload("res://scripts/ai/Behemoth/pursue.gd")
@@ -32,6 +33,7 @@ var CursorThrust = null
 var TopWireHealth = 0
 var BottomWireHealth = 0 
 var WireMaxHealth = 0
+var PlayDeath = true
 
 var ExplosionPoints: Array
 
@@ -64,6 +66,8 @@ func Save() -> Dictionary:
 
 func Load(data: Dictionary):
 	startState = data.state
+	if(startState == "dead"):
+		PlayDeath = false
 	
 	var pos = data.position.trim_prefix('(').trim_suffix(')').split(',')
 	position = Vector2(pos[0], pos[1])
@@ -183,7 +187,10 @@ func Thrust(to: Vector2):
 
 
 func RemoveChamber():
-	($KeyChamber as KeyChamber).Explodes()
+	if(PlayDeath):
+		($KeyChamber as KeyChamber).Explodes()
+	else:
+		($KeyChamber as KeyChamber).Exploded()
 
 
 func _ready():
@@ -324,8 +331,9 @@ func _onDeath():
 	for turret in $Turrets.get_children():
 		if(turret is Turret):
 			turret.Damage(999)
-			
-	($ExplosionTimer as Timer).start()
+	
+	if(PlayDeath):
+		($ExplosionTimer as Timer).start()
 
 
 func _on_ExplosionTimer_timeout():
@@ -341,3 +349,7 @@ func _on_turretHealthChange(_oldHealth, _newHealth):
 		disconnect("health_changed", self, "_on_turretHealthChange")
 	emit_signal("health_changed", WireMaxHealth, TopWireHealth + BottomWireHealth)
 
+
+
+func _on_KeyPickup_picked_up(data):
+	emit_signal("cube_picked_up", data)

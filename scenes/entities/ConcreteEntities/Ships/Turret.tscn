@@ -11,7 +11,7 @@
 [ext_resource path="res://resources/Objects/Ships/turretes_bash_dmg_1.png" type="Texture" id=9]
 [ext_resource path="res://resources/Objects/Ships/turretes_bash_dmg_4.png" type="Texture" id=10]
 [ext_resource path="res://resources/Objects/Ships/turretes_bash_dmg_2.png" type="Texture" id=11]
-[ext_resource path="res://resources/Sound/dmg_sound.wav" type="AudioStream" id=12]
+[ext_resource path="res://resources/Sound/shock_shot.wav" type="AudioStream" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 69, 69 )
@@ -108,6 +108,8 @@ one_shot = true
 
 [node name="Shot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 12 )
+attenuation = 0.25
+bus = "Sfx"
 [connection signal="damaged" from="Base" to="." method="_on_Base_damaged"]
 [connection signal="damaged" from="Top" to="." method="_on_Top_damaged"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

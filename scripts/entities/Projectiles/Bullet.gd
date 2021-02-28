@@ -15,7 +15,8 @@ func _ready():
 	var level = get_node_or_null("/root/Level")
 	if(level != null):
 		var _res
-		_res = connect("damaged_something", level, "_on_player_bullet_hit_target")
+		if(!is_connected("damaged_something", level, "_on_player_bullet_hit_target")):
+			_res = connect("damaged_something", level, "_on_player_bullet_hit_target")
 		level._on_player_shoot_something() #oh no, how bad!
 
 func GetSpawnAnchorPosition():

@@ -117,12 +117,11 @@ func _on_playerHealth_change(oldhealth, health):
 
 func _showGameLose():
 	_set_Crosshair(false)
-	var accuracy: float = float(successfulHitBulletShot) / allBulletsShot * 100
 	var dictionaryData: Dictionary = {
 			"shots_fired": playerShootsBullet,
 			"damage_dealt": enemyHealthDamage,
 			"enemies_killed": enemiesKilled,
-			"accuracy": String(ceil(accuracy)) + "%",
+			"accuracy": GetAccuracy(),
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
 	var gameLoseMenu = $MenuCanvas/MarginContainer/GameLoseMenu
@@ -141,19 +140,24 @@ func _on_player_shootBullet(_BulletType, _direction, _location, _velocity, _dama
 
 
 func _on_LevelEndTrigger_body_shape_entered(_body_id, body, _body_shape, _area_shape):
-	_set_Crosshair(false)
 	if(body is PlayerShip):
-		var accuracy: float = float(successfulHitBulletShot) / allBulletsShot
+		_set_Crosshair(false)
+		
 		var dictionaryData: Dictionary = {
 			"shots_fired": playerShootsBullet,
 			"damage_dealt": enemyHealthDamage,
 			"enemies_killed": enemiesKilled,
-			"accuracy": String(accuracy) + "%",
+			"accuracy": GetAccuracy(),
 			"secrets_found": String(playerSecretsFound) + "/" + String(secretsMax)
 		}
 		var gameWinMenu = $MenuCanvas/MarginContainer/GameWinMenu
 		gameWinMenu.SetData(dictionaryData)
 		gameWinMenu.visible = true
+
+
+func GetAccuracy():
+	var accuracy: float = float(successfulHitBulletShot) / allBulletsShot * 100
+	return String(ceil(accuracy)) + "%"
 
 
 func _on_EscapeMenu_save_game():

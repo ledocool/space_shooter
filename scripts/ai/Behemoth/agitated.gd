@@ -4,7 +4,6 @@ var nav: Navigation2D
 var player: Ship
 
 func _on_enter_state():
-	print("agitated")
 	nav = target.GetNavigator()
 	target.TurretsEnable(true)
 	player = target.GetTarget()

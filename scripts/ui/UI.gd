@@ -19,8 +19,9 @@ export var AutoZoomEnabled = false
 export var AutoZoomSpeed = 0.9
 export var CameraZooms: Dictionary = {
 	190: 1,
-	300: 1.3,
-	600: 1.7
+	400: 1.3,
+	600: 1.7,
+	920: 1.8
 }
 
 export var StatusBlinkTime = 5
@@ -47,10 +48,8 @@ func _input(event):
 	AutoZoomEnabled = SettingsMan.GetAutoZoom()
 	if(event.is_action("zoom_out")):
 		SetZoom(GetZoom() - ZoomStep)
-		DoAutoZoom = false
 	if(event.is_action("zoom_in")):
 		SetZoom(GetZoom() + ZoomStep)
-		DoAutoZoom = false
 
 func _physics_process(delta):
 	doAutoZoom(delta)
@@ -126,7 +125,7 @@ func _on_max_speed_change(maxSpd):
 func getZoomThresholdReached(speed):
 	var topThresh = null
 	for thresh in CameraZooms:
-		if(speed <= thresh):
+		if(speed < thresh):
 			topThresh = thresh
 			break;
 	

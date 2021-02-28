@@ -4,7 +4,6 @@ var Player: Ship = null
 var Nav: Navigation2D = null
 
 func _on_enter_state():
-	print("dead")
 	target.CursorThrust = null
 	target.linear_damp = target.LinearDamp
 	target.angular_damp = target.AngularDamp

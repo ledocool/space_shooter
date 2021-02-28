@@ -13,7 +13,7 @@ const StateMachineFactory = preload("res://scripts/systems/state-machine/state_m
 
 const bullet = preload("res://scenes/entities/ConcreteEntities/Bullets/ShockChain.tscn")
 
-export var Health = 7
+var Health = 7
 
 var shotTimeout = 3
 var LockedTarget = null
@@ -51,7 +51,8 @@ func Save():
 		"rotation": rotation,
 		"top_rotation": ($Top as Node2D).rotation,
 		"state": aiState.get_current_state(),
-		"suspended": shotSuspended
+		"suspended": shotSuspended,
+		"health": Health
 	}
 
 
@@ -60,6 +61,9 @@ func Load(data: Dictionary):
 	position = Vector2(pos[0], pos[1])
 	rotation = data.rotation
 	($Top as Node2D).rotation = data.top_rotation
+# warning-ignore:unsafe_property_access
+	$Top/Sprite.frame += (Health - data.health)
+	Health = data.health
 	startState = data.state
 	SetSuspended(data.suspended)
 

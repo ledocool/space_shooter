@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://scenes/levels/LevelPrefab.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Ships/Behemoth/Behemoth.tscn" type="PackedScene" id=2]
@@ -49,6 +49,9 @@
 [ext_resource path="res://resources/Backgrounds/Assets/ship_remains11.png" type="Texture" id=47]
 [ext_resource path="res://resources/Backgrounds/Assets/ship_remains2.png" type="Texture" id=48]
 [ext_resource path="res://scenes/entities/ConcreteEntities/Static/Lights/LampOnPost_Green.tscn" type="PackedScene" id=49]
+[ext_resource path="res://scenes/effects/WindEffect.tscn" type="PackedScene" id=50]
+[ext_resource path="res://scripts/levels/c1l3/CubePickedUpTrigger.gd" type="Script" id=51]
+[ext_resource path="res://resources/Music/lvl1.wav" type="AudioStream" id=52]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1947.76, 331.824 )
@@ -902,7 +905,9 @@ rotation = -3.14159
 
 [node name="Lights" type="Node2D" parent="Scenery/Arena" index="52"]
 
-[node name="Light1" type="Node2D" parent="Scenery/Arena/Lights" index="0"]
+[node name="Light1" type="Node2D" parent="Scenery/Arena/Lights" index="0" groups=[
+"lights",
+]]
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light1" index="0" instance=ExtResource( 49 )]
 position = Vector2( -9694.39, -2065.85 )
@@ -918,7 +923,9 @@ position = Vector2( -9651.68, -2187.69 )
 rotation = 1.6089
 startupTime = 0.2
 
-[node name="Light2" type="Node2D" parent="Scenery/Arena/Lights" index="1"]
+[node name="Light2" type="Node2D" parent="Scenery/Arena/Lights" index="1" groups=[
+"lights",
+]]
 position = Vector2( -1508.01, -860.071 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light2" index="0" instance=ExtResource( 49 )]
@@ -935,7 +942,9 @@ position = Vector2( -9398.38, -2031.9 )
 rotation = -0.342731
 startupTime = 0.2
 
-[node name="Light3" type="Node2D" parent="Scenery/Arena/Lights" index="2"]
+[node name="Light3" type="Node2D" parent="Scenery/Arena/Lights" index="2" groups=[
+"lights",
+]]
 position = Vector2( 2470, 660.359 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light3" index="0" instance=ExtResource( 49 )]
@@ -952,7 +961,9 @@ position = Vector2( -9670.07, -2194.76 )
 rotation = -1.08543
 startupTime = 0.2
 
-[node name="Light4" type="Node2D" parent="Scenery/Arena/Lights" index="3"]
+[node name="Light4" type="Node2D" parent="Scenery/Arena/Lights" index="3" groups=[
+"lights",
+]]
 position = Vector2( 3562.13, 546.066 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light4" index="0" instance=ExtResource( 49 )]
@@ -969,7 +980,9 @@ position = Vector2( -9696.92, -2028.16 )
 rotation = 0.767267
 startupTime = 0.2
 
-[node name="Light5" type="Node2D" parent="Scenery/Arena/Lights" index="4"]
+[node name="Light5" type="Node2D" parent="Scenery/Arena/Lights" index="4" groups=[
+"lights",
+]]
 position = Vector2( 4190.74, 31.7478 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light5" index="0" instance=ExtResource( 49 )]
@@ -986,7 +999,9 @@ position = Vector2( -9511.68, -2109.69 )
 rotation = 4.37494
 startupTime = 0.2
 
-[node name="Light6" type="Node2D" parent="Scenery/Arena/Lights" index="5"]
+[node name="Light6" type="Node2D" parent="Scenery/Arena/Lights" index="5" groups=[
+"lights",
+]]
 position = Vector2( 5594, -761.952 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light6" index="0" instance=ExtResource( 49 )]
@@ -1003,7 +1018,9 @@ position = Vector2( -9686.96, -2127.21 )
 rotation = 1.12084
 startupTime = 0.2
 
-[node name="Light7" type="Node2D" parent="Scenery/Arena/Lights" index="6"]
+[node name="Light7" type="Node2D" parent="Scenery/Arena/Lights" index="6" groups=[
+"lights",
+]]
 position = Vector2( 6063.87, -1276.27 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light7" index="0" instance=ExtResource( 49 )]
@@ -1020,7 +1037,9 @@ position = Vector2( -9576.09, -2205.33 )
 rotation = 3.79711
 startupTime = 0.2
 
-[node name="Light8" type="Node2D" parent="Scenery/Arena/Lights" index="7"]
+[node name="Light8" type="Node2D" parent="Scenery/Arena/Lights" index="7" groups=[
+"lights",
+]]
 position = Vector2( 7352.84, -2939.87 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light8" index="0" instance=ExtResource( 49 )]
@@ -1037,7 +1056,9 @@ position = Vector2( -9574.29, -2116.9 )
 rotation = 0.444485
 startupTime = 0.2
 
-[node name="Light9" type="Node2D" parent="Scenery/Arena/Lights" index="8"]
+[node name="Light9" type="Node2D" parent="Scenery/Arena/Lights" index="8" groups=[
+"lights",
+]]
 position = Vector2( 6971.87, -4146.29 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light9" index="0" instance=ExtResource( 49 )]
@@ -1054,7 +1075,9 @@ position = Vector2( -9620.54, -2144.27 )
 rotation = 2.74215
 startupTime = 0.2
 
-[node name="Light10" type="Node2D" parent="Scenery/Arena/Lights" index="9"]
+[node name="Light10" type="Node2D" parent="Scenery/Arena/Lights" index="9" groups=[
+"lights",
+]]
 position = Vector2( 6375, -5644.8 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light10" index="0" instance=ExtResource( 49 )]
@@ -1071,7 +1094,9 @@ position = Vector2( -9634.85, -1724.11 )
 rotation = -0.035059
 startupTime = 0.2
 
-[node name="Light11" type="Node2D" parent="Scenery/Arena/Lights" index="10"]
+[node name="Light11" type="Node2D" parent="Scenery/Arena/Lights" index="10" groups=[
+"lights",
+]]
 position = Vector2( 5701.95, -6330.56 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light11" index="0" instance=ExtResource( 49 )]
@@ -1088,7 +1113,9 @@ position = Vector2( -9636.11, -2236.77 )
 rotation = -0.994144
 startupTime = 0.2
 
-[node name="Light20" type="Node2D" parent="Scenery/Arena/Lights" index="11"]
+[node name="Light20" type="Node2D" parent="Scenery/Arena/Lights" index="11" groups=[
+"lights",
+]]
 position = Vector2( 6087.68, -5432.09 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light20" index="0" instance=ExtResource( 49 )]
@@ -1105,7 +1132,9 @@ position = Vector2( -9505.94, -2332.02 )
 rotation = -3.53299
 startupTime = 0.2
 
-[node name="Light12" type="Node2D" parent="Scenery/Arena/Lights" index="12"]
+[node name="Light12" type="Node2D" parent="Scenery/Arena/Lights" index="12" groups=[
+"lights",
+]]
 position = Vector2( 3708.17, -7270.3 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light12" index="0" instance=ExtResource( 49 )]
@@ -1122,7 +1151,9 @@ position = Vector2( -9483.39, -2517.2 )
 rotation = 1.37921
 startupTime = 0.2
 
-[node name="Light13" type="Node2D" parent="Scenery/Arena/Lights" index="13"]
+[node name="Light13" type="Node2D" parent="Scenery/Arena/Lights" index="13" groups=[
+"lights",
+]]
 position = Vector2( 2704.93, -7575.08 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light13" index="0" instance=ExtResource( 49 )]
@@ -1139,7 +1170,9 @@ position = Vector2( -9571.41, -2189.47 )
 rotation = -1.3142
 startupTime = 0.2
 
-[node name="Light14" type="Node2D" parent="Scenery/Arena/Lights" index="14"]
+[node name="Light14" type="Node2D" parent="Scenery/Arena/Lights" index="14" groups=[
+"lights",
+]]
 position = Vector2( 463.521, -6241.66 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light14" index="0" instance=ExtResource( 49 )]
@@ -1156,7 +1189,9 @@ position = Vector2( -9722.68, -2245.69 )
 rotation = 1.14061
 startupTime = 0.2
 
-[node name="Light15" type="Node2D" parent="Scenery/Arena/Lights" index="15"]
+[node name="Light15" type="Node2D" parent="Scenery/Arena/Lights" index="15" groups=[
+"lights",
+]]
 position = Vector2( -450.822, -5517.81 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light15" index="0" instance=ExtResource( 49 )]
@@ -1173,7 +1208,9 @@ position = Vector2( -9733.11, -2075.56 )
 rotation = 3.92513
 startupTime = 0.2
 
-[node name="Light16" type="Node2D" parent="Scenery/Arena/Lights" index="16"]
+[node name="Light16" type="Node2D" parent="Scenery/Arena/Lights" index="16" groups=[
+"lights",
+]]
 position = Vector2( -888.945, -4616.16 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light16" index="0" instance=ExtResource( 49 )]
@@ -1190,7 +1227,9 @@ position = Vector2( -9707.54, -2160.82 )
 rotation = 0.988484
 startupTime = 0.2
 
-[node name="Light17" type="Node2D" parent="Scenery/Arena/Lights" index="17"]
+[node name="Light17" type="Node2D" parent="Scenery/Arena/Lights" index="17" groups=[
+"lights",
+]]
 position = Vector2( -1174.68, -4089.15 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light17" index="0" instance=ExtResource( 49 )]
@@ -1207,7 +1246,9 @@ position = Vector2( -9838.36, -2112.74 )
 rotation = 3.83556
 startupTime = 0.2
 
-[node name="Light18" type="Node2D" parent="Scenery/Arena/Lights" index="18"]
+[node name="Light18" type="Node2D" parent="Scenery/Arena/Lights" index="18" groups=[
+"lights",
+]]
 position = Vector2( 1752.49, -7460.79 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light18" index="0" instance=ExtResource( 49 )]
@@ -1224,7 +1265,9 @@ position = Vector2( -9663, -2269.01 )
 rotation = 1.41732
 startupTime = 0.2
 
-[node name="Light19" type="Node2D" parent="Scenery/Arena/Lights" index="19"]
+[node name="Light19" type="Node2D" parent="Scenery/Arena/Lights" index="19" groups=[
+"lights",
+]]
 position = Vector2( 622.261, -6946.47 )
 
 [node name="LampOnPost" parent="Scenery/Arena/Lights/Light19" index="0" instance=ExtResource( 49 )]
@@ -1429,6 +1472,141 @@ shape = SubResource( 5 )
 position = Vector2( -8800.5, -8508.47 )
 rotation = 2.5898
 shape = SubResource( 6 )
+
+[node name="SpaceWind" type="Node2D" parent="Scenery" index="4"]
+
+[node name="Wind" parent="Scenery/SpaceWind" index="0" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -9273.93, -6302.07 )
+rotation = 0.113896
+
+[node name="Wind2" parent="Scenery/SpaceWind" index="1" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -8048.71, -7622.52 )
+rotation = 0.163845
+
+[node name="Wind3" parent="Scenery/SpaceWind" index="2" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -10337.3, -4693.82 )
+rotation = -0.0737189
+
+[node name="Wind4" parent="Scenery/SpaceWind" index="3" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -8139.93, -3093.01 )
+rotation = -0.150983
+
+[node name="Wind5" parent="Scenery/SpaceWind" index="4" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -5255.45, -5788.72 )
+rotation = 0.0682944
+
+[node name="Wind6" parent="Scenery/SpaceWind" index="5" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -7845.44, -5010.97 )
+rotation = -0.0789941
+
+[node name="Wind7" parent="Scenery/SpaceWind" index="6" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -5300.76, -8038.92 )
+rotation = 0.605052
+
+[node name="Wind8" parent="Scenery/SpaceWind" index="7" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -5746.26, -3636.69 )
+rotation = -0.524264
+
+[node name="Wind9" parent="Scenery/SpaceWind" index="8" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -4319.13, -1220.37 )
+rotation = -0.541945
+
+[node name="Wind10" parent="Scenery/SpaceWind" index="9" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -1638.52, -2987.3 )
+rotation = -0.898338
+
+[node name="Wind11" parent="Scenery/SpaceWind" index="10" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -475.67, -5177.09 )
+rotation = -0.319092
+
+[node name="Wind12" parent="Scenery/SpaceWind" index="11" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -1910.36, -7404.63 )
+rotation = 0.840034
+
+[node name="Wind13" parent="Scenery/SpaceWind" index="12" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -4523, -10145.6 )
+rotation = 0.674407
+
+[node name="Wind14" parent="Scenery/SpaceWind" index="13" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -9884.21, -9307.49 )
+rotation = -0.642785
+
+[node name="Wind15" parent="Scenery/SpaceWind" index="14" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -11930.5, -6770.35 )
+rotation = -0.731902
+
+[node name="Wind16" parent="Scenery/SpaceWind" index="15" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -12134.4, -3447.91 )
+rotation = 1.70252
+
+[node name="Wind17" parent="Scenery/SpaceWind" index="16" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( -10880.9, -910.778 )
+rotation = 0.16166
+
+[node name="Wind18" parent="Scenery/SpaceWind" index="17" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( 1834.94, -6045.46 )
+rotation = -1.12131
+
+[node name="Wind19" parent="Scenery/SpaceWind" index="18" groups=[
+"space_wind",
+] instance=ExtResource( 50 )]
+visible = false
+position = Vector2( 2189.83, -7782.18 )
+rotation = -1.50422
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Background" index="0"]
 motion_scale = Vector2( 0.1, 0.1 )
@@ -1957,4 +2135,11 @@ script = ExtResource( 17 )
 position = Vector2( 2358.04, -9030.76 )
 rotation = 1.5708
 shape = SubResource( 9 )
+
+[node name="CubePickedUpTrigger" type="Node" parent="TriggerContainer" index="3"]
+script = ExtResource( 51 )
+
+[node name="AudioStreamPlayer" parent="." index="11"]
+stream = ExtResource( 52 )
+[connection signal="cube_picked_up" from="ShipContainer/Behemoth" to="TriggerContainer/CubePickedUpTrigger" method="_on_Behemoth_cube_picked_up"]
 [connection signal="body_entered" from="TriggerContainer/DoorOpenTrigger" to="TriggerContainer/DoorOpenTrigger" method="_on_DoorOpenTrigger_body_entered"]

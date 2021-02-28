@@ -46,24 +46,20 @@ func SetWeapon(name: String, data):
 
 
 func UnsetWeapon() -> Dictionary:
-	($CannonCooldownTimer as Timer).stop()
-	
 	var storedData = {}
 	storedData.total_ammo = RemainningAmmo
-	storedData.shoot_cooldown = ($CannonCooldownTimer as Timer).get_time_left()
+	storedData.shoot_cooldown = ($CannonCooldownTimer as Timer).time_left
+	($CannonCooldownTimer as Timer).stop()
 	
 	_setDefault()	
 	return storedData
 
 
 func CheckShootPossible() -> bool:
-	if(($CannonAfterburnTimer as Timer).is_stopped() 
-			&& ($CannonCooldownTimer as Timer).is_stopped() 
-			&& RemainningAmmo != 0 
-			&& BulletType != null):
-		if(RemainningAmmo > 0):
-			RemainningAmmo -= 1
-		($CannonCooldownTimer as Timer).start()
+	if(($CannonCooldownTimer as Timer).is_stopped() \
+				&& ($CannonAfterburnTimer as Timer).is_stopped() \
+				&& RemainningAmmo != 0 \
+				&& BulletType != null):
 		return true
 	return false
 
@@ -71,6 +67,7 @@ func CheckShootPossible() -> bool:
 func _tryShoot():
 	if(!CannonLocked && CannonFiring && CheckShootPossible()):
 		_shoot()
+
 
 func _setDefault():
 	CurrentWeapon = ""
@@ -82,6 +79,10 @@ func _setDefault():
 func _shoot():
 	if BulletType == null:
 		return false
+
+	($CannonCooldownTimer as Timer).start()
+	if(RemainningAmmo > 0):
+		RemainningAmmo -= 1
 
 	var bullet = BulletType.instance()
 	bullet._init(BulletDamageMultiplier)

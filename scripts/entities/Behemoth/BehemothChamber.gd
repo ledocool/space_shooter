@@ -7,3 +7,7 @@ func _ready():
 func Explodes():
 	($AnimatedSprite as AnimatedSprite).play()
 	($CollisionShape2D as CollisionShape2D).call_deferred("set_disabled", true)
+	
+func Exploded():
+	($CollisionShape2D as CollisionShape2D).call_deferred("set_disabled", true)
+	($AnimatedSprite as AnimatedSprite).frame = 10

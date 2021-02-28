@@ -252,6 +252,7 @@ scale = Vector2( 0.140415, 1.05806 )
 [node name="ExplosionTimer" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.12
+[connection signal="picked_up" from="KeyChamber/KeyPickup" to="." method="_on_KeyPickup_picked_up"]
 [connection signal="health_changed" from="Power/PowerNode" to="." method="_on_Topnode_health_changed"]
 [connection signal="health_changed" from="Power/PowerNode2" to="." method="_on_Topnode_health_changed"]
 [connection signal="health_changed" from="Power/PowerNode3" to="." method="_on_Topnode_health_changed"]

@@ -2,7 +2,6 @@ extends State
 
 
 func _on_enter_state():
-	print("off")
 	target.TurretsEnable(false)
 	for turret in target.get_node("Turrets").get_children():
 		if(turret is Turret):

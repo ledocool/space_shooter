@@ -68,4 +68,6 @@ polygon = PoolVector2Array( -44.792, 46.7718, -28.098, 48.9767, 18.834, 47.4018,
 
 [node name="BreakSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
+attenuation = 0.5
+bus = "Sfx"
 [connection signal="health_changed" from="." to="." method="_on_PowerNode_health_changed"]

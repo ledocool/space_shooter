@@ -3,9 +3,10 @@ extends Control
 class_name SliderControl
 
 export var LabelText = "text"
-export var SliderMax = 6
-export var SliderMin = -80
+export var SliderMax = 1
+export var SliderMin = 0.0001
 export var SliderDefault = 0
+export var SliderStep = 0.001
 
 signal value_changed(newValue)
 
@@ -19,6 +20,8 @@ func _ready():
 	$VBoxContainer/HSlider.min_value = SliderMin
 # warning-ignore:unsafe_property_access
 	$VBoxContainer/HSlider.value = SliderDefault
+# warning-ignore:unsafe_property_access
+	$VBoxContainer/HSlider.step = SliderStep
 
 func SetSliderValue(value):
 # warning-ignore:unsafe_property_access

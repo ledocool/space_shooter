@@ -33,10 +33,12 @@ bus = "Sfx"
 [node name="Cannon" type="AudioStreamPlayer2D" parent="Sounds/Shoot" index="0"]
 stream = ExtResource( 6 )
 attenuation = 0.406126
+bus = "Sfx"
 
 [node name="Rocket" type="AudioStreamPlayer2D" parent="Sounds/Shoot" index="1"]
 stream = ExtResource( 7 )
 attenuation = 0.41
+bus = "Sfx"
 
 [node name="AudioStreamPlayer2D2" parent="LoopableSfx" index="1"]
 volume_db = -9.0
