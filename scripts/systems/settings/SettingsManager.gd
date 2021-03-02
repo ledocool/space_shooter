@@ -1,6 +1,6 @@
 extends Node
 
-var mouseButtonNames = ["_", "left_mouse_button", "right_mouse_button", "mouse_button_3", "mouse_wheel_up", "mouse_wheel_down"]
+var mouseButtonNames = ["_", "left_mouse_button", "right_mouse_button", "mouse_button_3", "mouse_wheel_up", "mouse_wheel_down", "mouse_button_4", "mouse_button_5"]
 var CameraAutoZoomEnabled: bool
 var ConfigurationHandler: ConfigFile
 var ConfigFileName = "./init.ini"

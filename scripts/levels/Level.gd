@@ -105,7 +105,7 @@ func _on_Something_explode(coordinates, explosionScale, rotation):
 	explosion.rotation = rotation
 	explosion.scale = Vector2(explosionScale, explosionScale)
 	explosion.position = coordinates
-	$Scenery.add_child(explosion)
+	$DynamicScenery.add_child(explosion)
 	explosion.get_node("AnimatedSprite").play()
 
 
