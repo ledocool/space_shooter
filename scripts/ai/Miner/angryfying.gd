@@ -1,7 +1,9 @@
 extends State
 
 func _physics_process(_event):
-	if (target.get_node("Timers/AngryfyingTimer").is_stopped()):
+	if(!target.IsOn()):
+		state_machine.transition("off")
+	elif (target.get_node("Timers/AngryfyingTimer").is_stopped()):
 		state_machine.transition("agitated")
 	
 func _on_enter_state():

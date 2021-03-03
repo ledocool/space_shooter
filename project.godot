@@ -302,15 +302,21 @@ _global_script_class_icons={
 
 [application]
 
-config/name="SpaceShooter"
+config/name="ThatDayIgotLost"
+config/description="An arcade shooter where your spaceship handles like butter on a hot pan"
 run/main_scene="res://scenes/interface/MainMenu.tscn"
 config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
 LevelLoader="*res://scripts/levels/LevelLoader.gd"
 OverlayLayer="*res://scenes/interface/OverlayLayer.tscn"
 SettingsManager="*res://scripts/systems/settings/SettingsManager.gd"
+
+[console]
+
+driver=false
 
 [debug]
 

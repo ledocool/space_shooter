@@ -1,7 +1,8 @@
 extends State
 
 func _physics_process(_event):
-	pass
+	if(!target.IsOn()):
+		state_machine.transition("off")
 
 # State machine callback called during transition when entering this state
 func _on_enter_state():

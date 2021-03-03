@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/ui/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://resources/Backgrounds/Menu background.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/interface/CreditsMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://resources/Music/s2-2.ogg" type="AudioStream" id=6]
 [ext_resource path="res://scenes/interface/Options/OptionsMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://resources/Ui/Styles/header_font_title.tres" type="DynamicFont" id=8]
 
 [node name="Main menu" type="Control"]
 pause_mode = 2
@@ -33,6 +34,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="W" type="Label" parent="TextureRect"]
+margin_left = 797.02
+margin_top = 374.881
+margin_right = 1863.02
+margin_bottom = 707.881
+rect_pivot_offset = Vector2( -938.427, 879.705 )
+custom_fonts/font = ExtResource( 8 )
+text = "tHAT DAY i GOT LOST IN AN ASTEROID fIELD"
+align = 2
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -48,9 +64,9 @@ margin_bottom = 1080.0
 
 [node name="GridContainer" type="GridContainer" parent="HSplitContainer/Menu inner"]
 margin_left = 300.0
-margin_top = 413.0
+margin_top = 463.0
 margin_right = 450.0
-margin_bottom = 666.0
+margin_bottom = 617.0
 custom_constants/vseparation = 11
 
 [node name="New game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
@@ -62,65 +78,68 @@ Text = "new_game"
 disabled = false
 
 [node name="Quicktart" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 33.0
 margin_right = 150.0
-margin_bottom = 55.0
+margin_bottom = 64.0
 Text = "Level 2"
 disabled = false
 
 [node name="Quicktart2" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 66.0
 margin_right = 150.0
-margin_bottom = 88.0
+margin_bottom = 97.0
 Text = "Level 3"
 disabled = false
 
 [node name="Load game" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 99.0
+margin_top = 33.0
 margin_right = 150.0
-margin_bottom = 121.0
+margin_bottom = 55.0
 Text = "load_game"
 disabled = false
 
 [node name="Options" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 132.0
+margin_top = 66.0
 margin_right = 150.0
-margin_bottom = 154.0
+margin_bottom = 88.0
 Text = "options"
 disabled = false
 
 [node name="Playground" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 165.0
+margin_top = 99.0
 margin_right = 150.0
-margin_bottom = 187.0
+margin_bottom = 130.0
 Text = "playground"
 disabled = false
 
 [node name="Credits" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 198.0
+margin_top = 99.0
 margin_right = 150.0
-margin_bottom = 220.0
+margin_bottom = 121.0
 Text = "credits"
 disabled = false
 
 [node name="Exit" parent="HSplitContainer/Menu inner/GridContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 231.0
+margin_top = 132.0
 margin_right = 150.0
-margin_bottom = 253.0
+margin_bottom = 154.0
 Text = "exit"
 disabled = false
 
@@ -170,6 +189,7 @@ bus = "Music"
 layer = 128
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -1.0

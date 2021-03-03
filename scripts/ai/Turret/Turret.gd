@@ -135,7 +135,13 @@ func StartAftershootCooldown():
 
 func StartShootCooldown():
 	var cooldown = ($Timers/ShootCooldown as Timer)
-	cooldown.start()
+	var blowup = ($Timers/ShootBlowupCooldown as Timer)
+	if(!blowup.is_stopped()):
+		var worktime = blowup.time_left + cooldown.wait_time
+		cooldown.start(worktime)
+		blowup.stop()
+	else:
+		cooldown.start()
 
 
 func _ready():
