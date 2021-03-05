@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/entities/Ships/Ship.gd" type="Script" id=1]
 [ext_resource path="res://resources/Sound/engine.wav" type="AudioStream" id=2]
@@ -10,9 +10,13 @@
 [ext_resource path="res://resources/Sound/boom6.wav" type="AudioStream" id=8]
 [ext_resource path="res://scenes/sound/LoopableEngine.tscn" type="PackedScene" id=9]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.1
+absorbent = true
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
 spread = 37.61
 gravity = Vector3( 0, 0, 0 )
@@ -25,8 +29,7 @@ orbit_velocity_random = 0.2
 scale = 3.0
 scale_random = 1.0
 
-[sub_resource type="Animation" id=3]
-resource_name = "SoundStartAnimation"
+[sub_resource type="Animation" id=4]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:playing")
@@ -53,8 +56,7 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "SoundStopAnimation"
+[sub_resource type="Animation" id=5]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:playing")
@@ -85,6 +87,7 @@ tracks/1/keys = {
 z_as_relative = false
 collision_layer = 0
 mode = 2
+physics_material_override = SubResource( 1 )
 contacts_reported = 10
 contact_monitor = true
 linear_damp = 0.0
@@ -92,7 +95,7 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 2.076, 2.076 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="EngineParticles" type="Particles2D" parent="."]
 position = Vector2( -18.7883, 0 )
@@ -100,7 +103,7 @@ rotation = 3.14159
 emitting = false
 amount = 13
 local_coords = false
-process_material = SubResource( 2 )
+process_material = SubResource( 3 )
 
 [node name="Timers" type="Node" parent="."]
 
@@ -119,8 +122,8 @@ bus = "Sfx"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../EngineSound")
 playback_process_mode = 0
-anims/SoundStartAnimation = SubResource( 3 )
-anims/SoundStopAnimation = SubResource( 4 )
+anims/SoundStartAnimation = SubResource( 4 )
+anims/SoundStopAnimation = SubResource( 5 )
 
 [node name="Sounds" type="Node2D" parent="."]
 

@@ -66,11 +66,11 @@ frames = SubResource( 2 )
 frame = 1
 
 [node name="AreaEnter" type="Area2D" parent="." index="4"]
-visible = false
 input_pickable = false
 gravity = 0.0
 linear_damp = 0.0
 angular_damp = 0.0
+monitorable = false
 collision_layer = 0
 collision_mask = 2
 
@@ -81,6 +81,7 @@ shape = SubResource( 3 )
 [node name="AreaExit" type="Area2D" parent="." index="5"]
 visible = false
 input_pickable = false
+monitorable = false
 collision_layer = 0
 collision_mask = 2
 
