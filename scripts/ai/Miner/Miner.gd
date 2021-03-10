@@ -89,6 +89,7 @@ func StartScanning():
 func StopScanning():
 # warning-ignore:unsafe_method_access
 	$Timers/PlayerSeenTimeout.stop()
+	self.sleeping = true
 
 func SetAiTimersTicking(isTicking):
 	($Timers/DifferenceRecalculationTimer as Timer).set_paused(!isTicking)

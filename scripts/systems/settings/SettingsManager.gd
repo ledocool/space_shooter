@@ -2,6 +2,7 @@ extends Node
 
 var mouseButtonNames = ["_", "left_mouse_button", "right_mouse_button", "mouse_button_3", "mouse_wheel_up", "mouse_wheel_down", "mouse_button_4", "mouse_button_5"]
 var CameraAutoZoomEnabled: bool
+var SoftwareCursorEnabled: bool
 var ConfigurationHandler: ConfigFile
 var ConfigFileName = "./init.ini"
 
@@ -14,6 +15,12 @@ func SetAutoZoom(enabled: bool):
 func GetAutoZoom():
 	return CameraAutoZoomEnabled
 
+func SetSoftwareCursor(enabled: bool):
+	ConfigurationHandler.get_value("misc", "software_cursor", enabled)
+	SoftwareCursorEnabled = enabled
+
+func GetSoftwareCursor():
+	return SoftwareCursorEnabled
 
 func SetVolume(bus: String, volume: float):
 	var busIndex = AudioServer.get_bus_index(bus)
@@ -181,6 +188,9 @@ func _loadConfiguration():
 	
 	var autozoom = ConfigurationHandler.get_value("misc", "autozoom", true)
 	self.SetAutoZoom(autozoom)
+	
+	var softwareCursor = ConfigurationHandler.get_value("misc", "software_cursor", false)
+	self.SetSoftwareCursor(softwareCursor)
 	
 	if(ConfigurationHandler.has_section("controls")):
 		var savedControls = ConfigurationHandler.get_section_keys("controls")

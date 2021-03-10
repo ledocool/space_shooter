@@ -20,23 +20,23 @@ collapsed = true
 
 [node name="HBoxContainer" type="HSplitContainer" parent="Background/MarginContainer/VBoxContainer" index="0"]
 margin_right = 1840.0
-margin_bottom = 109.0
+margin_bottom = 49.0
 split_offset = 50
 collapsed = true
 
 [node name="CloseButton" parent="Background/MarginContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource( 7 )]
 margin_right = 0.0
-margin_bottom = 109.0
+margin_bottom = 49.0
 
 [node name="Label" type="Label" parent="Background/MarginContainer/VBoxContainer/HBoxContainer" index="1"]
 margin_left = 12.0
 margin_right = 1840.0
-margin_bottom = 109.0
+margin_bottom = 49.0
 text = "options_menu"
 align = 1
 
 [node name="TabContainer" type="TabContainer" parent="Background/MarginContainer/VBoxContainer" index="1"]
-margin_top = 121.0
+margin_top = 61.0
 margin_right = 1840.0
 margin_bottom = 1000.0
 size_flags_horizontal = 3
@@ -56,7 +56,7 @@ margin_bottom = -10.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1740.0
-margin_bottom = 831.0
+margin_bottom = 891.0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
@@ -73,7 +73,7 @@ margin_bottom = -10.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1740.0
-margin_bottom = 831.0
+margin_bottom = 891.0
 
 [node name="s_controls" type="MarginContainer" parent="Background/MarginContainer/VBoxContainer/TabContainer" index="2"]
 visible = false
@@ -88,7 +88,7 @@ margin_bottom = -10.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1740.0
-margin_bottom = 831.0
+margin_bottom = 891.0
 
 [node name="s_game" type="MarginContainer" parent="Background/MarginContainer/VBoxContainer/TabContainer" index="3"]
 visible = false
@@ -103,7 +103,7 @@ margin_bottom = -10.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 1740.0
-margin_bottom = 831.0
+margin_bottom = 891.0
 [connection signal="tree_exiting" from="." to="Background/MarginContainer/VBoxContainer/TabContainer/s_graphics/GraphicsGroup" method="_on_OptionsMenu_tree_exiting"]
 [connection signal="visibility_changed" from="." to="Background/MarginContainer/VBoxContainer/TabContainer/s_graphics/GraphicsGroup" method="_on_OptionsMenu_visibility_changed"]
 [connection signal="pressed" from="Background/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_CloseButton_pressed"]

@@ -86,6 +86,7 @@ right_mouse_button,Right Mouse Button,Правая кнопка мыши
 mouse_button_3,Mouse Button 3,Кнопка мыши 3
 mouse_wheel_down,Mouse Wheel Down,Колесо мыши вниз
 mouse_wheel_up,Mouse Wheel Up,Колесо мыши вверх
+software_cursor,Software Cursor,Программный курсор
 camera_automatic_zoom,Auto Zoom Camera,Автоматический масштаб
 options_menu,Options,Настройки
 press_button_or_esc,Any button to save or Escape to cancel,Любую кнопку или Escape для отмены

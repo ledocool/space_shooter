@@ -8,6 +8,7 @@ signal exploded(position, size, rotation)
 
 export var ShipSpeed: float = 300
 export var ShipTopSpeed: float = 900
+var ShipTopSpeedSquared
 export var ShipMaxHealth: int = 5 setget SetMaxHealth,GetMaxHealth
 export var ShipCurrentHealth: int = 5 setget SetHealth,GetHealth
 export var VelocityDampThreshold: float = 180
@@ -28,6 +29,8 @@ var EngineFiringLastTime: bool = false
 
 var OldSpeed = 0
 var OldForce = Vector2(0,0)
+
+onready var EngineParticles: Particles2D = $EngineParticles
 
 func Damage(points: int):
 	points = int(points * ReceivedDamageMultiplier)
@@ -107,6 +110,7 @@ func GetVelocity() -> Vector2:
 
 
 func _ready():
+	ShipTopSpeedSquared = ShipTopSpeed * ShipTopSpeed
 	var level = $"/root/Level"
 	if(level != null):
 		var _res = connect("exploded", level, "_on_Something_explode")
@@ -124,7 +128,6 @@ func _integrate_forces(state):
 		else:
 # warning-ignore:unsafe_method_access
 			$LoopableSfx.Stop()
-			
 	_applySpeed(state, newRot, oldRot)
 
 
@@ -162,24 +165,26 @@ func _playBoomSound():
 
 
 func _applySpeed (state, newRot, oldRot):
+	if(newRot == oldRot && EngineFiringLastTime == EngineFiring):
+		return
+		
 	var power = ShipSpeed * SpeedMultiplier
 	if(GreenZoneEntered):
 		power *= SpeedGreenZoneMultiplier
 	
 	var force = Vector2(power, 0).rotated(newRot)
 	
-	if(newRot != oldRot || EngineFiringLastTime != EngineFiring):
-		state.add_central_force(-OldForce)
-		($EngineParticles as Particles2D).emitting = EngineFiring
-		if(EngineFiring):
-			state.add_central_force(force)
-			OldForce = force
-			if(state.linear_velocity.length_squared() > ShipTopSpeed * ShipTopSpeed):
-				state.set_linear_velocity(state.get_linear_velocity().clamped(ShipTopSpeed))
-		else:
-			OldForce = Vector2(0,0)
-			
-		EngineFiringLastTime = EngineFiring
+	state.add_central_force(-OldForce)
+	EngineParticles.emitting = EngineFiring
+	if(EngineFiring):
+		state.add_central_force(force)
+		OldForce = force
+		if(state.linear_velocity.length_squared() > ShipTopSpeedSquared):
+			state.set_linear_velocity(state.get_linear_velocity().clamped(ShipTopSpeed))
+	else:
+		OldForce = Vector2(0,0)
+		
+	EngineFiringLastTime = EngineFiring
 
 
 func _on_BlinkTimer_timeout():

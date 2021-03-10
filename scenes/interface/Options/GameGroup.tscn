@@ -35,5 +35,14 @@ margin_bottom = 80.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 2 )
 text = "camera_automatic_zoom"
+
+[node name="SoftwareCursor" type="CheckButton" parent="VBoxContainer/Contents/VBoxContainer" index="2"]
+margin_top = 84.0
+margin_right = 1920.0
+margin_bottom = 129.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 2 )
+text = "software_cursor"
 [connection signal="item_selected" from="VBoxContainer/Contents/VBoxContainer/LanguageDropdown" to="." method="_on_LanguageDropdown_item_selected"]
 [connection signal="toggled" from="VBoxContainer/Contents/VBoxContainer/ZoomButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="toggled" from="VBoxContainer/Contents/VBoxContainer/SoftwareCursor" to="." method="_on_SoftwareCursor_toggled"]

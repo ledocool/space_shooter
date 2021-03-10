@@ -5,6 +5,8 @@ onready var hpProgressBar = get_node("UICanvas/TopGUI/LeftStack/Hp/Layout/Bar");
 onready var ammoLabel = get_node("UICanvas/TopGUI/AmmoPanel/AmmoLabel");
 onready var speedProgress = get_node("UICanvas/TopGUI/LeftStack/Speed/Layout/Bar");
 onready var SettingsMan = $"/root/SettingsManager"
+onready var Cursor: Sprite = $"UICanvas/Cursor"
+
 export var MinZoom = 1
 export var MaxZoom = 1.7
 export var ZoomStep = 0.1
@@ -33,6 +35,9 @@ var DoAutoZoom = false
 func GetZoom():
 	return CurrentZoom
 
+func SetSoftwareCursor(enable: bool):
+	Cursor.visible = enable
+
 func SetZoom(zoom: float):
 	if(zoom > MaxZoom):
 		CurrentZoom = MaxZoom
@@ -50,6 +55,8 @@ func _input(event):
 		SetZoom(GetZoom() - ZoomStep)
 	if(event.is_action("zoom_in")):
 		SetZoom(GetZoom() + ZoomStep)
+	if(event is InputEventMouseMotion):
+		 Cursor.position = event.position
 
 func _physics_process(delta):
 	doAutoZoom(delta)

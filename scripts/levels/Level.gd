@@ -184,10 +184,22 @@ func _on_player_shoot_something():
 
 
 func _set_Crosshair(enable: bool):
+# warning-ignore:unsafe_method_access
+	var softCursorEnabled = $"/root/SettingsManager".GetSoftwareCursor()
 	if(enable):
-		Input.set_custom_mouse_cursor(Cursor, 0, Vector2(64, 64));
+		if(softCursorEnabled):
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+# warning-ignore:unsafe_method_access
+			$"PlayerCamera".SetSoftwareCursor(enable)
+		else:
+			Input.set_custom_mouse_cursor(Cursor, 0, Vector2(51, 51));
+# warning-ignore:unsafe_method_access
+			$"PlayerCamera".SetSoftwareCursor(false)
 	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		Input.set_custom_mouse_cursor(null);
+# warning-ignore:unsafe_method_access
+		$"PlayerCamera".SetSoftwareCursor(false)
 
 
 func _on_EscapeMenu_visibility_changed():

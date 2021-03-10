@@ -6,6 +6,7 @@ func _physics_process(_event):
 	
 # State machine callback called during transition when entering this state
 func _on_enter_state():
+	target.sleeping = true
 	target.SetSpriteChill()
 	target.SetAiTimersTicking(false)
 	target.EngineFiring = false
@@ -13,5 +14,6 @@ func _on_enter_state():
 
 # State machine callback called during transition when leaving this state
 func _on_leave_state(): 
+	target.sleeping = false
 	target.SetAiTimersTicking(true)
 	target.set_sleeping(false)
